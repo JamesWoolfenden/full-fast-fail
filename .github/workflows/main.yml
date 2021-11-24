@@ -1,0 +1,27 @@
+---
+# yamllint disable rule:line-length
+name: Verify and Bump
+on:
+  schedule:
+    - cron: "00 7 * * SUN"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          token: ${{ github.token }}
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - run: |
+          pip3 install checkov
+      - run: checker.sh
+        shell: bash
+
