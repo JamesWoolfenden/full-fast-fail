@@ -22,6 +22,6 @@ jobs:
           python-version: 3.8
       - run: |
           pip3 install checkov
-      - run: checker.sh
+      - run: ./checker.sh
         shell: bash
 
