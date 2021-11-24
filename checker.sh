@@ -10,8 +10,8 @@ fi
  expected=13
 
  checkov -o json -d . >$file
- terraform=$(cat results.json | jq '.[]| select(.check_type=="terraform")| .summary.failed')
- secrets=$(cat results.json | jq '.[]| select(.check_type=="secrets")| .summary.failed')
+ terraform=$(cat $file | jq '.[]| select(.check_type=="terraform")| .summary.failed')
+ secrets=$(cat $file | jq '.[]| select(.check_type=="secrets")| .summary.failed')
  total=$(($secrets+$terraform))
 
 # shellcheck disable=SC2086
