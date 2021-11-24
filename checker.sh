@@ -20,8 +20,8 @@ if [ $total != $expected  ]; then
     exit 1
 fi
 
-Echo "Found Terraform $terraform"
-Echo "Found Secrets $secrets"
+echo "Found Terraform $terraform"
+echo "Found Secrets $secrets"
 
-Echo "Found Expected $expected and found $total"
+echo "Found Expected $expected and found $total"
 exit 0
