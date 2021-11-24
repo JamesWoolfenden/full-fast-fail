@@ -2,7 +2,7 @@
  # fail
  ## Ensure that were finding what we should be
 
-Run checker.sh 
+Run checker.sh
 
 ## Success
 ```build
@@ -20,10 +20,9 @@ Found Expected 13 and found 13
  checkov -o json -d . | jq '.[]| select(.check_type=="secrets")'
  checkov -o json -d . | jq '.[]| select(.check_type=="terraform")| .summary.failed'
  checkov -o json -d . | jq '.[]| .summary.failed'
- 
+
  cat results.json | jq '.[]| select(.check_type=="secrets")'
  terraform=$(cat results.json | jq '.[]| select(.check_type=="terraform")| .summary.failed')
  secrets=$(cat results.json | jq '.[]| select(.check_type=="secrets")| .summary.failed')
  total=$(($secrets+$terraform))
 ```
-
