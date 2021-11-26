@@ -1,5 +1,7 @@
 
-# fail
+# full-fast-fail
+
+Fed up with getting it all right all the time? Isnt it tiresome, yes very, so here's the opposite. Trying to get absolutely nothing right.
 
 ## Ensure that were finding what we should be
 
@@ -28,4 +30,11 @@ Found Expected 13 and found 13
  terraform=$(cat results.json | jq '.[]| select(.check_type=="terraform")| .summary.failed')
  secrets=$(cat results.json | jq '.[]| select(.check_type=="secrets")| .summary.failed')
  total=$(($secrets+$terraform))
+```
+## testing
+
+Run to see what rules are being triggered/passed.
+
+```
+ $failure.sh
 ```
