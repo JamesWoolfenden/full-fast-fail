@@ -1,4 +1,4 @@
-resource "aws_security_group" "default" {
+resource "aws_security_group" "fail" {
   name   = "${local.resource_prefix.value}-rds-sg"
   vpc_id = aws_vpc.web_vpc.id
   ingress {
