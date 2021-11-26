@@ -1,5 +1,5 @@
 resource "aws_security_group" "default" {
-  name   = "${local.resource_prefix.value}-rds-sg"
+  name_prefix   = "hot-stuff"
   vpc_id = aws_vpc.web_vpc.id
   ingress {
       from_port = 22
