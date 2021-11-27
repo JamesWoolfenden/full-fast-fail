@@ -7,7 +7,7 @@ if [ -f "$file" ] ; then
 fi
 
  #define expectations
- expected=65
+ expected=76
 
  checkov -o json -d . >$file
  terraform=$(cat $file | jq '.[]| select(.check_type=="terraform")| .summary.failed')
@@ -23,5 +23,5 @@ fi
 echo "Found Terraform $terraform"
 echo "Found Secrets $secrets"
 
-echo "Found Expected $expected and found $total"
+echo "Expected $expected and found $total"
 exit 0
