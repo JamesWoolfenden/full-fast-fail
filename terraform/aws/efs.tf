@@ -1,5 +1,8 @@
+# fail
+# CKV_AWS_42: "Ensure EFS is securely encrypted"
+# CKV2_AWS_18: "Ensure that Elastic File System (Amazon EFS) file systems are added in the backup plans of AWS Backup"
 resource "aws_efs_file_system" "sharedstore" {
-  # checkov:skip=CKV2_AWS_18: ADD REASON
+
   creation_token = var.efs["creation_token"]
 
   lifecycle_policy {

@@ -1,3 +1,9 @@
+# fail
+# CKV_AWS_74: "Ensure DocDB is encrypted at rest (default is unencrypted)"
+# CKV_AWS_85: "Ensure DocDB Logging is enabled"
+# CKV_AWS_90: "Ensure DocDB TLS is not disabled"
+# CKV_AWS_104: "Ensure DocDB has audit logs enabled"
+
 resource "aws_docdb_cluster" "examplea" {
   cluster_identifier = var.cluster_identifier
   engine             = "docdb"

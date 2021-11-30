@@ -1,9 +1,10 @@
+# fails
+# CKV_AWS_34: "Ensure cloudfront distribution ViewerProtocolPolicy is set to HTTPS"
+# CKV_AWS_86: "Ensure Cloudfront distribution has Access Logging enabled"
+# CKV_AWS_174: "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2"
+# CKV_AWS_68: "CloudFront Distribution should have WAF enabled"
 
-
-# tfsec:ignore:AWS045
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  #checkov:skip=CKV_AWS_68: "CloudFront Distribution should have WAF enabled"
-
   dynamic "origin" {
     for_each = local.origins
     content {

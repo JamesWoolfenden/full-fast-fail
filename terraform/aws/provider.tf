@@ -1,3 +1,9 @@
+# fail
+
+# CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+# CKV_SECRET_2: "AWS Access Key"
+# CKV_SECRET_6: "Base64 High Entropy String"
+
 //generated from http://canarytokens.org/generate#
 provider "aws" {
   region     = "eu-west-2"

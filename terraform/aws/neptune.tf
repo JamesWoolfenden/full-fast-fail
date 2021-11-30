@@ -1,3 +1,7 @@
+#fail
+
+# CKV_AWS_101: "Ensure Neptune logging is enabled"
+# CKV_AWS_44: "Ensure Neptune storage is securely encrypted"
 resource "aws_neptune_cluster" "default" {
   cluster_identifier                  = var.neptune-dbname
   engine                              = "neptune"

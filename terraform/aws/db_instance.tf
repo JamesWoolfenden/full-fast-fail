@@ -1,3 +1,12 @@
+# fails
+# CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+# CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+# CKV_AWS_129: "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled"
+# CKV_AWS_133: "Ensure that RDS instances has backup policy"
+# CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+# CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+# CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+
 resource "aws_db_instance" "default" {
   name                   = var.dbname
   engine                 = "mysql"
