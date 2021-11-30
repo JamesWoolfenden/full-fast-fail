@@ -1,0 +1,49 @@
+service: foo
+configValidationMode: error
+variablesResolutionMode: 20210326
+​provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1' }
+  logRetentionInDays: 14
+  timeout: 10
+  deploymentBucket:
+    blockPublicAccess: true
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+  apiGateway:
+    shouldStartNameWithService: true
+plugins:
+  - serverless-python-requirements
+  - serverless-domain-manager
+package:
+  patterns:
+    - '*.py'
+functions:
+  func1:
+    description: A function.
+    handler: handler.handler
+resources:
+  Resources:
+    Bucket:
+      Type: AWS::S3::Bucket
+      #bridgecrew:skip=BC_AWS_S3_13: not log
+      Properties:
+        BucketName: ${self:custom.bucket_names.uploads}
+        BucketEncryption:
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+               SSEAlgorithm: AES256
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+        VersioningConfiguration:
+          Status: Enabled
+        LifecycleConfiguration:
+          Rules:
+            - ExpirationInDays: 7
+              Id: Expire uploads
+              Status: Enabled

@@ -1,0 +1,55 @@
+service: testing-checkov
+
+configValidationMode: error
+variablesResolutionMode: 20210326
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'eu-west-1' }
+
+  logRetentionInDays: 14
+
+  timeout: 10
+
+  deploymentBucket:
+    blockPublicAccess: true
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  patterns:
+    - "*.py"
+
+functions:
+  func1:
+    description: A function.
+    handler: handler.handler
+
+resources:
+  Resources:
+    Bucket:
+    # bridgecrew:skip=BC_AWS_S3_13: not log
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}
+        BucketEncryption:
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: AES256
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+        VersioningConfiguration:
+          Status: Enabled
+        LifecycleConfiguration:
+          Rules:
+            - ExpirationInDays: 7
+              Id: Expire uploads
+              Status: Enabled

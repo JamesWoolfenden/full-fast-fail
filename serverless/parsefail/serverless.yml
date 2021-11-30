@@ -1,0 +1,52 @@
+service: testing-checkov
+
+configValidationMode: error
+variablesResolutionMode: 20210326
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'eu-west-1' }
+
+  logRetentionInDays: 14
+
+  timeout: 10
+
+  deploymentBucket:
+    blockPublicAccess: true
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  patterns:
+    - "*.py"
+
+functions:
+  func1:
+    description: A function.
+    handler: handler.handler
+
+resources:
+  Resources:
+    EcrRepository:
+      Type: AWS::ECR::Repository
+      Properties:
+        RepositoryName:  test
+        ImageTagMutability: IMMUTABLE
+        ImageScanningConfiguration:
+          scanOnPush: true
+    FargateTask:
+      Family: test
+      Type: AWS::ECS::TaskDefinition
+      Properties:
+        RequiresCompatibilities:
+          - FARGATE
+        Memory: 12288  # 12GB
+        Cpu: 2048  # 2vCPV
+        NetworkMode: awsvpc
+        ExecutionRoleArn: arn:aws:iam::1234:role/ecsTaskExecutionRole
+        TaskRoleArn: arn:aws:iam::1234:role/ecsTaskExecutionRole

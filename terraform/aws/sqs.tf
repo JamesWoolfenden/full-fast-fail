@@ -7,8 +7,7 @@ resource "aws_sqs_queue_policy" "fail" {
     "Statement":[
        {
            "Principal": {
-            "AWS": [
-                "arn:aws:iam::123456789101:role/sqs",
+            "AWS": [,
                 "*"
             ]
           },
