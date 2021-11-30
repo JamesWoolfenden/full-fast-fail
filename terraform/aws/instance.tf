@@ -7,8 +7,8 @@
 # CKV_AWS_8: "Ensure all data stored in the Launch configuration EBS is securely encrypted"
 
 resource "aws_instance" "fail" {
-  ami           = var.ami
-  instance_type = "t2.nano"
+  ami                         = var.ami
+  instance_type               = "t2.nano"
   associate_public_ip_address = true
   vpc_security_group_ids = [
   aws_security_group.web-node.id]

@@ -1,0 +1,3573 @@
+
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By bridgecrew.io | version: 2.0.536
+Update available 2.0.536 -> 2.0.614
+Run pip3 install -U checkov to update
+
+
+terraform scan results:
+
+Passed checks: 9, Failed checks: 151, Skipped checks: 0
+
+
+Check: CKV_AWS_70: "Ensure S3 bucket does not allow an action with any Principal"
+	PASSED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_23
+
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_53
+
+Check: CKV_AWS_72: "Ensure SQS policy does not allow ALL (*) actions."
+	PASSED for resource: aws_sqs_queue_policy.fail
+	File: /terraform/aws/sqs.tf:1-21
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_46
+
+Check: CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
+	PASSED for resource: azurerm_storage_account_network_rules.test
+	File: /terraform/azurerm/netrules.tf:1-9
+	Guide: https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny
+
+Check: CKV_AZURE_43: "Ensure the Storage Account naming rules"
+	PASSED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+
+Check: CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
+	PASSED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny
+
+Check: CKV2_AWS_20: "Ensure that ALB redirects HTTP requests into HTTPS ones"
+	PASSED for resource: aws_alb.disabled
+	File: /terraform/aws/lb.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-alb-redirects-http-requests-into-https-ones
+
+Check: CKV2_AWS_29: "Ensure public API gateway are protected by WAF"
+	PASSED for resource: aws_api_gateway_stage.fail
+	File: /terraform/aws/apigateway.tf:13-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-public-api-gateway-are-protected-by-waf
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	FAILED for resource: aws.default
+	File: /secrets/BC_GIT_2.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+
+		1 | provider "aws" {
+		2 |   access_key = "AKIAIOSFODNN7EXAMPLE"
+		3 |   secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+		4 | }
+
+Check: CKV_AWS_120: "Ensure API Gateway caching is enabled"
+	FAILED for resource: aws_api_gateway_stage.fail
+	File: /terraform/aws/apigateway.tf:13-15
+
+		13 | resource "aws_api_gateway_stage" "fail" {
+		14 |   name = "example"
+		15 | }
+
+
+Check: CKV_AWS_73: "Ensure API Gateway has X-Ray Tracing enabled"
+	FAILED for resource: aws_api_gateway_stage.fail
+	File: /terraform/aws/apigateway.tf:13-15
+	Guide: https://docs.bridgecrew.io/docs/logging_15
+
+		13 | resource "aws_api_gateway_stage" "fail" {
+		14 |   name = "example"
+		15 | }
+
+
+Check: CKV_AWS_76: "Ensure API Gateway has Access Logging enabled"
+	FAILED for resource: aws_api_gateway_stage.fail
+	File: /terraform/aws/apigateway.tf:13-15
+	Guide: https://docs.bridgecrew.io/docs/logging_17
+
+		13 | resource "aws_api_gateway_stage" "fail" {
+		14 |   name = "example"
+		15 | }
+
+
+Check: CKV_AWS_82: "Ensure Athena Workgroup should enforce configuration to prevent client disabling encryption"
+	FAILED for resource: aws_athena_workgroup.fail
+	File: /terraform/aws/athena.tf:4-15
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_33
+
+		4  | resource "aws_athena_workgroup" "fail" {
+		5  |   name = "wg-non-encrypted"
+		6  |
+		7  |   configuration {
+		8  |     enforce_workgroup_configuration    = false
+		9  |     publish_cloudwatch_metrics_enabled = true
+		10 |
+		11 |     result_configuration {
+		12 |       output_location = "s3://mys3bucket"
+		13 |     }
+		14 |   }
+		15 | }
+
+
+Check: CKV_AWS_159: "Ensure that Athena Workgroup is encrypted"
+	FAILED for resource: aws_athena_workgroup.fail
+	File: /terraform/aws/athena.tf:4-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-athena-workgroup-is-encrypted
+
+		4  | resource "aws_athena_workgroup" "fail" {
+		5  |   name = "wg-non-encrypted"
+		6  |
+		7  |   configuration {
+		8  |     enforce_workgroup_configuration    = false
+		9  |     publish_cloudwatch_metrics_enabled = true
+		10 |
+		11 |     result_configuration {
+		12 |       output_location = "s3://mys3bucket"
+		13 |     }
+		14 |   }
+		15 | }
+
+
+Check: CKV_AWS_77: "Ensure Athena Database is encrypted at rest (default is unencrypted)"
+	FAILED for resource: aws_athena_database.fail
+	File: /terraform/aws/athena_database.tf:3-5
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_29
+
+		3 | resource "aws_athena_database" "fail" {
+		4 |   name = "wg-non-encrypted"
+		5 | }
+
+
+Check: CKV_AWS_153: "Autoscaling groups should supply tags to launch configurations"
+	FAILED for resource: aws_autoscaling_group.fail
+	File: /terraform/aws/autoscaling.tf:1-7
+	Guide: https://docs.bridgecrew.io/docs/autoscaling-groups-should-supply-tags-to-launch-configurations
+
+		1 | resource "aws_autoscaling_group" "fail" {
+		2 |   name                 = "foobar3-terraform-test"
+		3 |   max_size             = 5
+		4 |   min_size             = 2
+		5 |   launch_configuration = aws_launch_configuration.foobar.name
+		6 |   vpc_zone_identifier  = [aws_subnet.example1.id, aws_subnet.example2.id]
+		7 | }
+
+Check: CKV_AWS_166: "Ensure Backup Vault is encrypted at rest using KMS CMK"
+	FAILED for resource: aws_backup_vault.backup
+	File: /terraform/aws/backup_vault.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-backup-vault-is-encrypted-at-rest-using-kms-cmk
+
+		1 | resource "aws_backup_vault" "backup" {
+		2 |   name = "example_backup_vault"
+		3 | }
+
+
+Check: CKV_AWS_124: "Ensure that CloudFormation stacks are sending event notifications to an SNS topic"
+	FAILED for resource: aws_cloudformation_stack.default
+	File: /terraform/aws/cloudformation_stack.tf:1-7
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudformation-stacks-are-sending-event-notifications-to-an-sns-topic
+
+		1 | resource "aws_cloudformation_stack" "default" {
+		2 |   name = "networking-stack"
+		3 |
+		4 |   parameters = {
+		5 |     VPCCidr = "10.0.0.0/16"
+		6 |   }
+		7 | }
+
+Check: CKV_AWS_34: "Ensure cloudfront distribution ViewerProtocolPolicy is set to HTTPS"
+	FAILED for resource: aws_cloudfront_distribution.s3_distribution
+	File: /terraform/aws/cloudfront.tf:7-82
+	Guide: https://docs.bridgecrew.io/docs/networking_32
+
+		7  | resource "aws_cloudfront_distribution" "s3_distribution" {
+		8  |   dynamic "origin" {
+		9  |     for_each = local.origins
+		10 |     content {
+		11 |       domain_name = origin.value["domain_name"]
+		12 |       origin_id   = origin.value["origin_id"]
+		13 |
+		14 |       s3_origin_config {
+		15 |         origin_access_identity = origin.value["origin_access_identity"]
+		16 |       }
+		17 |     }
+		18 |   }
+		19 |
+		20 |   enabled             = true
+		21 |   is_ipv6_enabled     = true
+		22 |   default_root_object = "index.html"
+		23 |
+		24 |   default_cache_behavior {
+		25 |     allowed_methods  = var.default_behaviour.allowed_methods
+		26 |     cached_methods   = var.default_behaviour.cached_methods
+		27 |     target_origin_id = var.default_behaviour.origin_id
+		28 |
+		29 |     forwarded_values {
+		30 |       query_string = var.default_behaviour.query_string
+		31 |
+		32 |       cookies {
+		33 |         forward = var.default_behaviour.forward
+		34 |       }
+		35 |     }
+		36 |
+		37 |     viewer_protocol_policy = "allow-all"
+		38 |     min_ttl                = var.default_behaviour.min_ttl
+		39 |     default_ttl            = var.default_behaviour.default_ttl
+		40 |     max_ttl                = var.default_behaviour.max_ttl
+		41 |   }
+		42 |
+		43 |   dynamic "ordered_cache_behavior" {
+		44 |     for_each = var.behaviours
+		45 |     content {
+		46 |       path_pattern     = ordered_cache_behavior.value["path_pattern"]
+		47 |       allowed_methods  = ordered_cache_behavior.value["allowed_methods"]
+		48 |       cached_methods   = ordered_cache_behavior.value["cached_methods"]
+		49 |       target_origin_id = ordered_cache_behavior.value["origin_id"]
+		50 |       forwarded_values {
+		51 |         headers      = ordered_cache_behavior.value["headers"]
+		52 |         query_string = ordered_cache_behavior.value["query_string"]
+		53 |         cookies {
+		54 |           forward = ordered_cache_behavior.value["forward"]
+		55 |         }
+		56 |       }
+		57 |       min_ttl                = ordered_cache_behavior.value["min_ttl"]
+		58 |       default_ttl            = ordered_cache_behavior.value["default_ttl"]
+		59 |       max_ttl                = ordered_cache_behavior.value["max_ttl"]
+		60 |       compress               = ordered_cache_behavior.value["compress"]
+		61 |       viewer_protocol_policy = "allow-all"
+		62 |     }
+		63 |   }
+		64 |
+		65 |   price_class = "PriceClass_200"
+		66 |
+		67 |   restrictions {
+		68 |     geo_restriction {
+		69 |       restriction_type = var.geo_restrictions["restriction_type"]
+		70 |       locations        = var.geo_restrictions["locations"]
+		71 |     }
+		72 |   }
+		73 |
+		74 |   viewer_certificate {
+		75 |     cloudfront_default_certificate = var.viewer_certificate["cloudfront_default_certificate"]
+		76 |     minimum_protocol_version       = var.viewer_certificate["minimum_protocol_version"]
+		77 |   }
+		78 |
+		79 |   lifecycle {
+		80 |     ignore_changes = [tags]
+		81 |   }
+		82 | }
+
+
+Check: CKV_AWS_86: "Ensure Cloudfront distribution has Access Logging enabled"
+	FAILED for resource: aws_cloudfront_distribution.s3_distribution
+	File: /terraform/aws/cloudfront.tf:7-82
+	Guide: https://docs.bridgecrew.io/docs/logging_20
+
+		7  | resource "aws_cloudfront_distribution" "s3_distribution" {
+		8  |   dynamic "origin" {
+		9  |     for_each = local.origins
+		10 |     content {
+		11 |       domain_name = origin.value["domain_name"]
+		12 |       origin_id   = origin.value["origin_id"]
+		13 |
+		14 |       s3_origin_config {
+		15 |         origin_access_identity = origin.value["origin_access_identity"]
+		16 |       }
+		17 |     }
+		18 |   }
+		19 |
+		20 |   enabled             = true
+		21 |   is_ipv6_enabled     = true
+		22 |   default_root_object = "index.html"
+		23 |
+		24 |   default_cache_behavior {
+		25 |     allowed_methods  = var.default_behaviour.allowed_methods
+		26 |     cached_methods   = var.default_behaviour.cached_methods
+		27 |     target_origin_id = var.default_behaviour.origin_id
+		28 |
+		29 |     forwarded_values {
+		30 |       query_string = var.default_behaviour.query_string
+		31 |
+		32 |       cookies {
+		33 |         forward = var.default_behaviour.forward
+		34 |       }
+		35 |     }
+		36 |
+		37 |     viewer_protocol_policy = "allow-all"
+		38 |     min_ttl                = var.default_behaviour.min_ttl
+		39 |     default_ttl            = var.default_behaviour.default_ttl
+		40 |     max_ttl                = var.default_behaviour.max_ttl
+		41 |   }
+		42 |
+		43 |   dynamic "ordered_cache_behavior" {
+		44 |     for_each = var.behaviours
+		45 |     content {
+		46 |       path_pattern     = ordered_cache_behavior.value["path_pattern"]
+		47 |       allowed_methods  = ordered_cache_behavior.value["allowed_methods"]
+		48 |       cached_methods   = ordered_cache_behavior.value["cached_methods"]
+		49 |       target_origin_id = ordered_cache_behavior.value["origin_id"]
+		50 |       forwarded_values {
+		51 |         headers      = ordered_cache_behavior.value["headers"]
+		52 |         query_string = ordered_cache_behavior.value["query_string"]
+		53 |         cookies {
+		54 |           forward = ordered_cache_behavior.value["forward"]
+		55 |         }
+		56 |       }
+		57 |       min_ttl                = ordered_cache_behavior.value["min_ttl"]
+		58 |       default_ttl            = ordered_cache_behavior.value["default_ttl"]
+		59 |       max_ttl                = ordered_cache_behavior.value["max_ttl"]
+		60 |       compress               = ordered_cache_behavior.value["compress"]
+		61 |       viewer_protocol_policy = "allow-all"
+		62 |     }
+		63 |   }
+		64 |
+		65 |   price_class = "PriceClass_200"
+		66 |
+		67 |   restrictions {
+		68 |     geo_restriction {
+		69 |       restriction_type = var.geo_restrictions["restriction_type"]
+		70 |       locations        = var.geo_restrictions["locations"]
+		71 |     }
+		72 |   }
+		73 |
+		74 |   viewer_certificate {
+		75 |     cloudfront_default_certificate = var.viewer_certificate["cloudfront_default_certificate"]
+		76 |     minimum_protocol_version       = var.viewer_certificate["minimum_protocol_version"]
+		77 |   }
+		78 |
+		79 |   lifecycle {
+		80 |     ignore_changes = [tags]
+		81 |   }
+		82 | }
+
+
+Check: CKV_AWS_174: "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2"
+	FAILED for resource: aws_cloudfront_distribution.s3_distribution
+	File: /terraform/aws/cloudfront.tf:7-82
+
+		7  | resource "aws_cloudfront_distribution" "s3_distribution" {
+		8  |   dynamic "origin" {
+		9  |     for_each = local.origins
+		10 |     content {
+		11 |       domain_name = origin.value["domain_name"]
+		12 |       origin_id   = origin.value["origin_id"]
+		13 |
+		14 |       s3_origin_config {
+		15 |         origin_access_identity = origin.value["origin_access_identity"]
+		16 |       }
+		17 |     }
+		18 |   }
+		19 |
+		20 |   enabled             = true
+		21 |   is_ipv6_enabled     = true
+		22 |   default_root_object = "index.html"
+		23 |
+		24 |   default_cache_behavior {
+		25 |     allowed_methods  = var.default_behaviour.allowed_methods
+		26 |     cached_methods   = var.default_behaviour.cached_methods
+		27 |     target_origin_id = var.default_behaviour.origin_id
+		28 |
+		29 |     forwarded_values {
+		30 |       query_string = var.default_behaviour.query_string
+		31 |
+		32 |       cookies {
+		33 |         forward = var.default_behaviour.forward
+		34 |       }
+		35 |     }
+		36 |
+		37 |     viewer_protocol_policy = "allow-all"
+		38 |     min_ttl                = var.default_behaviour.min_ttl
+		39 |     default_ttl            = var.default_behaviour.default_ttl
+		40 |     max_ttl                = var.default_behaviour.max_ttl
+		41 |   }
+		42 |
+		43 |   dynamic "ordered_cache_behavior" {
+		44 |     for_each = var.behaviours
+		45 |     content {
+		46 |       path_pattern     = ordered_cache_behavior.value["path_pattern"]
+		47 |       allowed_methods  = ordered_cache_behavior.value["allowed_methods"]
+		48 |       cached_methods   = ordered_cache_behavior.value["cached_methods"]
+		49 |       target_origin_id = ordered_cache_behavior.value["origin_id"]
+		50 |       forwarded_values {
+		51 |         headers      = ordered_cache_behavior.value["headers"]
+		52 |         query_string = ordered_cache_behavior.value["query_string"]
+		53 |         cookies {
+		54 |           forward = ordered_cache_behavior.value["forward"]
+		55 |         }
+		56 |       }
+		57 |       min_ttl                = ordered_cache_behavior.value["min_ttl"]
+		58 |       default_ttl            = ordered_cache_behavior.value["default_ttl"]
+		59 |       max_ttl                = ordered_cache_behavior.value["max_ttl"]
+		60 |       compress               = ordered_cache_behavior.value["compress"]
+		61 |       viewer_protocol_policy = "allow-all"
+		62 |     }
+		63 |   }
+		64 |
+		65 |   price_class = "PriceClass_200"
+		66 |
+		67 |   restrictions {
+		68 |     geo_restriction {
+		69 |       restriction_type = var.geo_restrictions["restriction_type"]
+		70 |       locations        = var.geo_restrictions["locations"]
+		71 |     }
+		72 |   }
+		73 |
+		74 |   viewer_certificate {
+		75 |     cloudfront_default_certificate = var.viewer_certificate["cloudfront_default_certificate"]
+		76 |     minimum_protocol_version       = var.viewer_certificate["minimum_protocol_version"]
+		77 |   }
+		78 |
+		79 |   lifecycle {
+		80 |     ignore_changes = [tags]
+		81 |   }
+		82 | }
+
+
+Check: CKV_AWS_68: "CloudFront Distribution should have WAF enabled"
+	FAILED for resource: aws_cloudfront_distribution.s3_distribution
+	File: /terraform/aws/cloudfront.tf:7-82
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_27
+
+		7  | resource "aws_cloudfront_distribution" "s3_distribution" {
+		8  |   dynamic "origin" {
+		9  |     for_each = local.origins
+		10 |     content {
+		11 |       domain_name = origin.value["domain_name"]
+		12 |       origin_id   = origin.value["origin_id"]
+		13 |
+		14 |       s3_origin_config {
+		15 |         origin_access_identity = origin.value["origin_access_identity"]
+		16 |       }
+		17 |     }
+		18 |   }
+		19 |
+		20 |   enabled             = true
+		21 |   is_ipv6_enabled     = true
+		22 |   default_root_object = "index.html"
+		23 |
+		24 |   default_cache_behavior {
+		25 |     allowed_methods  = var.default_behaviour.allowed_methods
+		26 |     cached_methods   = var.default_behaviour.cached_methods
+		27 |     target_origin_id = var.default_behaviour.origin_id
+		28 |
+		29 |     forwarded_values {
+		30 |       query_string = var.default_behaviour.query_string
+		31 |
+		32 |       cookies {
+		33 |         forward = var.default_behaviour.forward
+		34 |       }
+		35 |     }
+		36 |
+		37 |     viewer_protocol_policy = "allow-all"
+		38 |     min_ttl                = var.default_behaviour.min_ttl
+		39 |     default_ttl            = var.default_behaviour.default_ttl
+		40 |     max_ttl                = var.default_behaviour.max_ttl
+		41 |   }
+		42 |
+		43 |   dynamic "ordered_cache_behavior" {
+		44 |     for_each = var.behaviours
+		45 |     content {
+		46 |       path_pattern     = ordered_cache_behavior.value["path_pattern"]
+		47 |       allowed_methods  = ordered_cache_behavior.value["allowed_methods"]
+		48 |       cached_methods   = ordered_cache_behavior.value["cached_methods"]
+		49 |       target_origin_id = ordered_cache_behavior.value["origin_id"]
+		50 |       forwarded_values {
+		51 |         headers      = ordered_cache_behavior.value["headers"]
+		52 |         query_string = ordered_cache_behavior.value["query_string"]
+		53 |         cookies {
+		54 |           forward = ordered_cache_behavior.value["forward"]
+		55 |         }
+		56 |       }
+		57 |       min_ttl                = ordered_cache_behavior.value["min_ttl"]
+		58 |       default_ttl            = ordered_cache_behavior.value["default_ttl"]
+		59 |       max_ttl                = ordered_cache_behavior.value["max_ttl"]
+		60 |       compress               = ordered_cache_behavior.value["compress"]
+		61 |       viewer_protocol_policy = "allow-all"
+		62 |     }
+		63 |   }
+		64 |
+		65 |   price_class = "PriceClass_200"
+		66 |
+		67 |   restrictions {
+		68 |     geo_restriction {
+		69 |       restriction_type = var.geo_restrictions["restriction_type"]
+		70 |       locations        = var.geo_restrictions["locations"]
+		71 |     }
+		72 |   }
+		73 |
+		74 |   viewer_certificate {
+		75 |     cloudfront_default_certificate = var.viewer_certificate["cloudfront_default_certificate"]
+		76 |     minimum_protocol_version       = var.viewer_certificate["minimum_protocol_version"]
+		77 |   }
+		78 |
+		79 |   lifecycle {
+		80 |     ignore_changes = [tags]
+		81 |   }
+		82 | }
+
+
+Check: CKV_AWS_36: "Ensure CloudTrail log file validation is enabled"
+	FAILED for resource: aws_cloudtrail.fail
+	File: /terraform/aws/cloudtrail.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/logging_2
+
+		1 | resource "aws_cloudtrail" "fail" {
+		2 |   name                          = "TRAIL"
+		3 |   s3_bucket_name                = aws_s3_bucket.test.id
+		4 |   include_global_service_events = true
+		5 | }
+
+Check: CKV_AWS_67: "Ensure CloudTrail is enabled in all Regions"
+	FAILED for resource: aws_cloudtrail.fail
+	File: /terraform/aws/cloudtrail.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/logging_1
+
+		1 | resource "aws_cloudtrail" "fail" {
+		2 |   name                          = "TRAIL"
+		3 |   s3_bucket_name                = aws_s3_bucket.test.id
+		4 |   include_global_service_events = true
+		5 | }
+
+Check: CKV_AWS_35: "Ensure CloudTrail logs are encrypted at rest using KMS CMKs"
+	FAILED for resource: aws_cloudtrail.fail
+	File: /terraform/aws/cloudtrail.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/logging_7
+
+		1 | resource "aws_cloudtrail" "fail" {
+		2 |   name                          = "TRAIL"
+		3 |   s3_bucket_name                = aws_s3_bucket.test.id
+		4 |   include_global_service_events = true
+		5 | }
+
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+	FAILED for resource: aws_cloudwatch_log_group.logs
+	File: /terraform/aws/cloudwatch.tf:5-8
+	Guide: https://docs.bridgecrew.io/docs/logging_13
+
+		5 | resource "aws_cloudwatch_log_group" "logs" {
+		6 |   name = var.log_group_name
+		7 |   tags = var.common_tags
+		8 | }
+
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+	FAILED for resource: aws_cloudwatch_log_group.logs
+	File: /terraform/aws/cloudwatch.tf:5-8
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		5 | resource "aws_cloudwatch_log_group" "logs" {
+		6 |   name = var.log_group_name
+		7 |   tags = var.common_tags
+		8 | }
+
+
+Check: CKV_AWS_78: "Ensure that CodeBuild Project encryption is not disabled"
+	FAILED for resource: aws_codebuild_project.default
+	File: /terraform/aws/codebuild.tf:1-18
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_30
+
+		1  | resource "aws_codebuild_project" "default" {
+		2  |   name         = "example"
+		3  |   service_role = "aws_iam_role.example.arn"
+		4  |
+		5  |   artifacts {
+		6  |     type                = "S3"
+		7  |     encryption_disabled = true
+		8  |   }
+		9  |   environment {
+		10 |     compute_type = "BUILD_GENERAL1_SMALL"
+		11 |     image        = "docker:dind"
+		12 |     type         = "LINUX_CONTAINER"
+		13 |   }
+		14 |   source {
+		15 |     type = "NO_SOURCE"
+		16 |   }
+		17 |
+		18 | }
+
+
+Check: CKV_AWS_147: "Ensure that CodeBuild projects are encrypted"
+	FAILED for resource: aws_codebuild_project.default
+	File: /terraform/aws/codebuild.tf:1-18
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-codebuild-projects-are-encrypted-1
+
+		1  | resource "aws_codebuild_project" "default" {
+		2  |   name         = "example"
+		3  |   service_role = "aws_iam_role.example.arn"
+		4  |
+		5  |   artifacts {
+		6  |     type                = "S3"
+		7  |     encryption_disabled = true
+		8  |   }
+		9  |   environment {
+		10 |     compute_type = "BUILD_GENERAL1_SMALL"
+		11 |     image        = "docker:dind"
+		12 |     type         = "LINUX_CONTAINER"
+		13 |   }
+		14 |   source {
+		15 |     type = "NO_SOURCE"
+		16 |   }
+		17 |
+		18 | }
+
+
+Check: CKV_AWS_121: "Ensure AWS Config is enabled in all regions"
+	FAILED for resource: aws_config_configuration_aggregator.organization
+	File: /terraform/aws/config.tf:1-9
+	Guide: https://docs.bridgecrew.io/docs/logging_5-enable-aws-config-regions
+
+		1 | resource "aws_config_configuration_aggregator" "organization" {
+		2 |
+		3 |   name = "example"
+		4 |
+		5 |   account_aggregation_source {
+		6 |     account_ids = ["123456789012"]
+		7 |     regions     = ["us-east-2", "us-east-1", "us-west-1", "us-west-2"]
+		8 |   }
+		9 | }
+
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-iam-policies-do-not-allow-data-exfiltration
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-iam-policies-do-not-allow-write-access-without-constraint
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_43
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-iam-policies-do-not-allow-credentials-exposure
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/iam_23
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	FAILED for resource: aws_iam_policy_document.fail
+	File: /terraform/aws/data.iam_policy_document.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-iam-policies-does-not-allow-privilege-escalation
+
+		1  | data "aws_iam_policy_document" "fail" {
+		2  |   version = "2012-10-17"
+		3  |
+		4  |   statement {
+		5  |     effect = "Allow"
+		6  |     actions = [
+		7  |       "*"
+		8  |     ]
+		9  |     resources = [
+		10 |       "*",
+		11 |     ]
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_47: "Ensure DAX is encrypted at rest (default is unencrypted)"
+	FAILED for resource: aws_dax_cluster.name
+	File: /terraform/aws/dax.tf:1-7
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_23
+
+		1 | resource "aws_dax_cluster" "name" {
+		2 |   cluster_name         = var.cluster_name
+		3 |   iam_role_arn         = var.iam_role_arn
+		4 |   parameter_group_name = aws_dax_parameter_group.example.name
+		5 |   subnet_group_name    = aws_dax_subnet_group.example.name
+		6 |   tags                 = var.common_tags
+		7 | }
+
+Check: CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/ensure-rds-database-has-iam-authentication-enabled
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/general_73
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_129: "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-respective-logs-of-amazon-relational-database-service-amazon-rds-are-enabled
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_133: "Ensure that RDS instances has backup policy"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-rds-instances-have-backup-policy
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/public_2
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-enhanced-monitoring-is-enabled-for-amazon-rds-instances
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+	FAILED for resource: aws_db_instance.default
+	File: /terraform/aws/db_instance.tf:10-31
+	Guide: https://docs.bridgecrew.io/docs/general_4
+
+		10 | resource "aws_db_instance" "default" {
+		11 |   name                   = var.dbname
+		12 |   engine                 = "mysql"
+		13 |   option_group_name      = aws_db_option_group.default.name
+		14 |   parameter_group_name   = aws_db_parameter_group.default.name
+		15 |   db_subnet_group_name   = aws_db_subnet_group.default.name
+		16 |   vpc_security_group_ids = [aws_security_group.default.id]
+		17 |
+		18 |   identifier              = "rds-${local.resource_prefix.value}"
+		19 |   engine_version          = "8.0" # Latest major version
+		20 |   instance_class          = "db.t3.micro"
+		21 |   allocated_storage       = "20"
+		22 |   username                = "admin"
+		23 |   password                = var.password
+		24 |   apply_immediately       = true
+		25 |   multi_az                = false
+		26 |   backup_retention_period = 0
+		27 |   storage_encrypted       = false
+		28 |   skip_final_snapshot     = true
+		29 |   monitoring_interval     = 0
+		30 |   publicly_accessible     = true
+		31 | }
+
+
+Check: CKV_AWS_89: "DMS replication instance should not be publicly accessible"
+	FAILED for resource: aws_dms_replication_instance.public
+	File: /terraform/aws/dms.tf:1-7
+	Guide: https://docs.bridgecrew.io/docs/public_13
+
+		1 | resource "aws_dms_replication_instance" "public" {
+		2 |   engine_version             = "3.1.4"
+		3 |   multi_az                   = false
+		4 |   publicly_accessible        = true
+		5 |   replication_instance_class = "dms.t2.micro"
+		6 |   replication_instance_id    = "test-dms-replication-instance-tf"
+		7 | }
+
+Check: CKV_AWS_74: "Ensure DocDB is encrypted at rest (default is unencrypted)"
+	FAILED for resource: aws_docdb_cluster.examplea
+	File: /terraform/aws/docdb.tf:7-24
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_28
+
+		7  | resource "aws_docdb_cluster" "examplea" {
+		8  |   cluster_identifier = var.cluster_identifier
+		9  |   engine             = "docdb"
+		10 |   engine_version     = ""
+		11 |   apply_immediately  = var.apply_immediately
+		12 |   availability_zones = data.aws_availability_zones.available.names
+		13 |
+		14 |   db_subnet_group_name            = aws_docdb_subnet_group.examplea.name
+		15 |   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.examplea.name
+		16 |   deletion_protection             = var.deletion_protection
+		17 |   master_username                 = var.master_username
+		18 |   master_password                 = var.master_password
+		19 |   backup_retention_period         = var.backup_retention_period
+		20 |   preferred_backup_window         = "07:00-09:00"
+		21 |   preferred_maintenance_window    = "sat:05:00-sat:07:00"
+		22 |   skip_final_snapshot             = true
+		23 |   vpc_security_group_ids          = []
+		24 | }
+
+
+Check: CKV_AWS_85: "Ensure DocDB Logging is enabled"
+	FAILED for resource: aws_docdb_cluster.examplea
+	File: /terraform/aws/docdb.tf:7-24
+	Guide: https://docs.bridgecrew.io/docs/logging_19
+
+		7  | resource "aws_docdb_cluster" "examplea" {
+		8  |   cluster_identifier = var.cluster_identifier
+		9  |   engine             = "docdb"
+		10 |   engine_version     = ""
+		11 |   apply_immediately  = var.apply_immediately
+		12 |   availability_zones = data.aws_availability_zones.available.names
+		13 |
+		14 |   db_subnet_group_name            = aws_docdb_subnet_group.examplea.name
+		15 |   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.examplea.name
+		16 |   deletion_protection             = var.deletion_protection
+		17 |   master_username                 = var.master_username
+		18 |   master_password                 = var.master_password
+		19 |   backup_retention_period         = var.backup_retention_period
+		20 |   preferred_backup_window         = "07:00-09:00"
+		21 |   preferred_maintenance_window    = "sat:05:00-sat:07:00"
+		22 |   skip_final_snapshot             = true
+		23 |   vpc_security_group_ids          = []
+		24 | }
+
+
+Check: CKV_AWS_90: "Ensure DocDB TLS is not disabled"
+	FAILED for resource: aws_docdb_cluster_parameter_group.examplea
+	File: /terraform/aws/docdb.tf:26-65
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_networking_37
+
+		26 | resource "aws_docdb_cluster_parameter_group" "examplea" {
+		27 |   family      = var.family
+		28 |   name        = var.param_group_name
+		29 |   description = "docdb cluster parameter group"
+		30 |
+		31 |   parameter {
+		32 |     name  = "tls"
+		33 |     value = "disabled"
+		34 |   }
+		35 |
+		36 |   parameter {
+		37 |     name  = "audit_logs"
+		38 |     value = "disabled"
+		39 |   }
+		40 |
+		41 |   parameter {
+		42 |     name  = "change_stream_log_retention_duration"
+		43 |     value = var.change_stream_log_retention_duration
+		44 |   }
+		45 |
+		46 |   parameter {
+		47 |     name  = "profiler"
+		48 |     value = var.profiler
+		49 |   }
+		50 |
+		51 |   parameter {
+		52 |     name  = "profiler_sampling_rate"
+		53 |     value = var.profiler_sampling_rate
+		54 |   }
+		55 |
+		56 |   parameter {
+		57 |     name  = "profiler_threshold_ms"
+		58 |     value = var.profiler_threshold_ms
+		59 |   }
+		60 |
+		61 |   parameter {
+		62 |     name  = "ttl_monitor"
+		63 |     value = var.ttl_monitor
+		64 |   }
+		65 | }
+
+
+Check: CKV_AWS_104: "Ensure DocDB has audit logs enabled"
+	FAILED for resource: aws_docdb_cluster_parameter_group.examplea
+	File: /terraform/aws/docdb.tf:26-65
+	Guide: https://docs.bridgecrew.io/docs/ensure-docdb-has-audit-logs-enabled
+
+		26 | resource "aws_docdb_cluster_parameter_group" "examplea" {
+		27 |   family      = var.family
+		28 |   name        = var.param_group_name
+		29 |   description = "docdb cluster parameter group"
+		30 |
+		31 |   parameter {
+		32 |     name  = "tls"
+		33 |     value = "disabled"
+		34 |   }
+		35 |
+		36 |   parameter {
+		37 |     name  = "audit_logs"
+		38 |     value = "disabled"
+		39 |   }
+		40 |
+		41 |   parameter {
+		42 |     name  = "change_stream_log_retention_duration"
+		43 |     value = var.change_stream_log_retention_duration
+		44 |   }
+		45 |
+		46 |   parameter {
+		47 |     name  = "profiler"
+		48 |     value = var.profiler
+		49 |   }
+		50 |
+		51 |   parameter {
+		52 |     name  = "profiler_sampling_rate"
+		53 |     value = var.profiler_sampling_rate
+		54 |   }
+		55 |
+		56 |   parameter {
+		57 |     name  = "profiler_threshold_ms"
+		58 |     value = var.profiler_threshold_ms
+		59 |   }
+		60 |
+		61 |   parameter {
+		62 |     name  = "ttl_monitor"
+		63 |     value = var.ttl_monitor
+		64 |   }
+		65 | }
+
+
+Check: CKV_AWS_28: "Ensure Dynamodb point in time recovery (backup) is enabled"
+	FAILED for resource: aws_dynamodb_table.default
+	File: /terraform/aws/dynamocdb.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/general_6
+
+		1  | resource "aws_dynamodb_table" "default" {
+		2  |   name           = "GameScores"
+		3  |   billing_mode   = "PROVISIONED"
+		4  |   read_capacity  = 20
+		5  |   write_capacity = 20
+		6  |   hash_key       = "UserId"
+		7  |   range_key      = "UserId"
+		8  |
+		9  |   attribute {
+		10 |     name = "UserId"
+		11 |     type = "S"
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: aws_dynamodb_table.default
+	File: /terraform/aws/dynamocdb.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-dynamodb-tables-are-encrypted
+
+		1  | resource "aws_dynamodb_table" "default" {
+		2  |   name           = "GameScores"
+		3  |   billing_mode   = "PROVISIONED"
+		4  |   read_capacity  = 20
+		5  |   write_capacity = 20
+		6  |   hash_key       = "UserId"
+		7  |   range_key      = "UserId"
+		8  |
+		9  |   attribute {
+		10 |     name = "UserId"
+		11 |     type = "S"
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_3: "Ensure all data stored in the EBS is securely encrypted"
+	FAILED for resource: aws_ebs_volume.fail
+	File: /terraform/aws/ebs.tf:6-9
+	Guide: https://docs.bridgecrew.io/docs/general_3-encrypt-eps-volume
+
+		6 | resource "aws_ebs_volume" "fail" {
+		7 |   availability_zone = "eu-west-1a"
+		8 |   size              = 1
+		9 | }
+
+
+Check: CKV_AWS_106: "Ensure EBS default encryption is enabled"
+	FAILED for resource: aws_ebs_encryption_by_default.disabled
+	File: /terraform/aws/ebs_encryption_defaults.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-ebs-default-encryption-is-enabled
+
+		1 | resource "aws_ebs_encryption_by_default" "disabled" {
+		2 |   enabled = false
+		3 | }
+
+
+Check: CKV_AWS_163: "Ensure ECR image scanning on push is enabled"
+	FAILED for resource: aws_ecr_repository.name
+	File: /terraform/aws/ecr.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/general_8
+
+		1 | resource "aws_ecr_repository" "name" {
+		2 |   name                 = "bar"
+		3 |   image_tag_mutability = "MUTABLE"
+		4 | }
+
+Check: CKV_AWS_136: "Ensure that ECR repositories are encrypted using KMS"
+	FAILED for resource: aws_ecr_repository.name
+	File: /terraform/aws/ecr.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-ecr-repositories-are-encrypted
+
+		1 | resource "aws_ecr_repository" "name" {
+		2 |   name                 = "bar"
+		3 |   image_tag_mutability = "MUTABLE"
+		4 | }
+
+Check: CKV_AWS_51: "Ensure ECR Image Tags are immutable"
+	FAILED for resource: aws_ecr_repository.name
+	File: /terraform/aws/ecr.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_24
+
+		1 | resource "aws_ecr_repository" "name" {
+		2 |   name                 = "bar"
+		3 |   image_tag_mutability = "MUTABLE"
+		4 | }
+
+Check: CKV_AWS_65: "Ensure container insights are enabled on ECS cluster"
+	FAILED for resource: aws_ecs_cluster.my_cluster
+	File: /terraform/aws/ecs.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_logging_11
+
+		1 | resource "aws_ecs_cluster" "my_cluster" {
+		2 |   name = "white-hart"
+		3 | }
+
+
+Check: CKV_AWS_42: "Ensure EFS is securely encrypted"
+	FAILED for resource: aws_efs_file_system.sharedstore
+	File: /terraform/aws/efs.tf:4-19
+	Guide: https://docs.bridgecrew.io/docs/general_17
+
+		4  | resource "aws_efs_file_system" "sharedstore" {
+		5  |
+		6  |   creation_token = var.efs["creation_token"]
+		7  |
+		8  |   lifecycle_policy {
+		9  |     transition_to_ia = var.efs["transition_to_ia"]
+		10 |   }
+		11 |
+		12 |   kms_key_id                      = ""
+		13 |   encrypted                       = false
+		14 |   performance_mode                = var.efs["performance_mode"]
+		15 |   provisioned_throughput_in_mibps = var.efs["provisioned_throughput_in_mibps"]
+		16 |   throughput_mode                 = var.efs["throughput_mode"]
+		17 |   tags                            = var.common_tags
+		18 |
+		19 | }
+
+
+Check: CKV_AWS_134: "Ensure that Amazon ElastiCache Redis clusters have automatic backup turned on"
+	FAILED for resource: aws_elasticache_cluster.default
+	File: /terraform/aws/elasticache_cluster.tf:1-7
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-amazon-elasticache-redis-clusters-have-automatic-backup-turned-on
+
+		1 | resource "aws_elasticache_cluster" "default" {
+		2 |   cluster_id           = "cluster"
+		3 |   engine               = "redis"
+		4 |   node_type            = "cache.m5.large"
+		5 |   num_cache_nodes      = 1
+		6 |   parameter_group_name = "default.redis6.x"
+		7 | }
+
+
+Check: CKV_AWS_31: "Ensure all data stored in the Elasticache Replication Group is securely encrypted at transit and has auth token"
+	FAILED for resource: aws_elasticache_replication_group.fail
+	File: /terraform/aws/elasticache_replication.tf:1-12
+	Guide: https://docs.bridgecrew.io/docs/general_11
+
+		1  | resource "aws_elasticache_replication_group" "fail" {
+		2  |   replication_group_id          = "tf-%s"
+		3  |   replication_group_description = "test description"
+		4  |   node_type                     = "cache.t2.micro"
+		5  |   number_cache_clusters         = "1"
+		6  |   port                          = 6379
+		7  |   subnet_group_name             = aws_elasticache_subnet_group.bar.name
+		8  |   security_group_ids            = [aws_security_group.bar.id]
+		9  |   parameter_group_name          = "default.redis3.2"
+		10 |   availability_zones            = [data.aws_availability_zones.available.names[0]]
+		11 |   engine_version                = "3.2.6"
+		12 | }
+
+Check: CKV_AWS_29: "Ensure all data stored in the Elasticache Replication Group is securely encrypted at rest"
+	FAILED for resource: aws_elasticache_replication_group.fail
+	File: /terraform/aws/elasticache_replication.tf:1-12
+	Guide: https://docs.bridgecrew.io/docs/general_9
+
+		1  | resource "aws_elasticache_replication_group" "fail" {
+		2  |   replication_group_id          = "tf-%s"
+		3  |   replication_group_description = "test description"
+		4  |   node_type                     = "cache.t2.micro"
+		5  |   number_cache_clusters         = "1"
+		6  |   port                          = 6379
+		7  |   subnet_group_name             = aws_elasticache_subnet_group.bar.name
+		8  |   security_group_ids            = [aws_security_group.bar.id]
+		9  |   parameter_group_name          = "default.redis3.2"
+		10 |   availability_zones            = [data.aws_availability_zones.available.names[0]]
+		11 |   engine_version                = "3.2.6"
+		12 | }
+
+Check: CKV_AWS_30: "Ensure all data stored in the Elasticache Replication Group is securely encrypted at transit"
+	FAILED for resource: aws_elasticache_replication_group.fail
+	File: /terraform/aws/elasticache_replication.tf:1-12
+	Guide: https://docs.bridgecrew.io/docs/general_10
+
+		1  | resource "aws_elasticache_replication_group" "fail" {
+		2  |   replication_group_id          = "tf-%s"
+		3  |   replication_group_description = "test description"
+		4  |   node_type                     = "cache.t2.micro"
+		5  |   number_cache_clusters         = "1"
+		6  |   port                          = 6379
+		7  |   subnet_group_name             = aws_elasticache_subnet_group.bar.name
+		8  |   security_group_ids            = [aws_security_group.bar.id]
+		9  |   parameter_group_name          = "default.redis3.2"
+		10 |   availability_zones            = [data.aws_availability_zones.available.names[0]]
+		11 |   engine_version                = "3.2.6"
+		12 | }
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+	FAILED for resource: aws_elasticache_security_group.bar
+	File: /terraform/aws/elasticache_security_group.tf:2-5
+	Guide: https://docs.bridgecrew.io/docs/networking_31
+
+		2 | resource "aws_elasticache_security_group" "bar" {
+		3 |   name                 = "elasticache-security-group"
+		4 |   security_group_names = [aws_security_group.bar.name]
+		5 | }
+
+Check: CKV_AWS_137: "Ensure that Elasticsearch is configured inside a VPC"
+	FAILED for resource: aws_elasticsearch_domain.node_to_node_encryption_disabled
+	File: /terraform/aws/elastisearch_domain.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-elasticsearch-is-configured-inside-a-vpc
+
+		1  | resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
+		2  |   domain_name = "node_to_node_encryption_disabled"
+		3  |
+		4  |   cluster_config {
+		5  |     instance_count = 2 // a value > 1
+		6  |   }
+		7  |
+		8  |   node_to_node_encryption {
+		9  |     enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_5: "Ensure all data stored in the Elasticsearch is securely encrypted at rest"
+	FAILED for resource: aws_elasticsearch_domain.node_to_node_encryption_disabled
+	File: /terraform/aws/elastisearch_domain.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/elasticsearch_3-enable-encryptionatrest
+
+		1  | resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
+		2  |   domain_name = "node_to_node_encryption_disabled"
+		3  |
+		4  |   cluster_config {
+		5  |     instance_count = 2 // a value > 1
+		6  |   }
+		7  |
+		8  |   node_to_node_encryption {
+		9  |     enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_84: "Ensure Elasticsearch Domain Logging is enabled"
+	FAILED for resource: aws_elasticsearch_domain.node_to_node_encryption_disabled
+	File: /terraform/aws/elastisearch_domain.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/elasticsearch_7
+
+		1  | resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
+		2  |   domain_name = "node_to_node_encryption_disabled"
+		3  |
+		4  |   cluster_config {
+		5  |     instance_count = 2 // a value > 1
+		6  |   }
+		7  |
+		8  |   node_to_node_encryption {
+		9  |     enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_6: "Ensure all Elasticsearch has node-to-node encryption enabled"
+	FAILED for resource: aws_elasticsearch_domain.node_to_node_encryption_disabled
+	File: /terraform/aws/elastisearch_domain.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/elasticsearch_5
+
+		1  | resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
+		2  |   domain_name = "node_to_node_encryption_disabled"
+		3  |
+		4  |   cluster_config {
+		5  |     instance_count = 2 // a value > 1
+		6  |   }
+		7  |
+		8  |   node_to_node_encryption {
+		9  |     enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_83: "Ensure Elasticsearch Domain enforces HTTPS"
+	FAILED for resource: aws_elasticsearch_domain.node_to_node_encryption_disabled
+	File: /terraform/aws/elastisearch_domain.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/elasticsearch_6
+
+		1  | resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
+		2  |   domain_name = "node_to_node_encryption_disabled"
+		3  |
+		4  |   cluster_config {
+		5  |     instance_count = 2 // a value > 1
+		6  |   }
+		7  |
+		8  |   node_to_node_encryption {
+		9  |     enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_171: "Ensure Cluster security configuration encryption is using SSE-KMS"
+	FAILED for resource: aws_emr_security_configuration.fail
+	File: /terraform/aws/emr.tf:1-19
+	Guide: https://docs.bridgecrew.io/docs/ensure-emr-cluster-security-configuration-encryption-uses-sse-kms
+
+		1  | resource "aws_emr_security_configuration" "fail" {
+		2  |   name = "fail"
+		3  |
+		4  |   configuration = <<EOF
+		5  | {
+		6  |   "EncryptionConfiguration": {
+		7  |     "EnableAtRestEncryption": true,
+		8  |     "AtRestEncryptionConfiguration": {
+		9  |       "S3EncryptionConfiguration": {
+		10 |         "EncryptionMode": "SSE-S3"
+		11 |       },
+		12 |       "LocalDiskEncryptionConfiguration": {
+		13 |         "EncryptionKeyProviderType": "AwsS3"
+		14 |       }
+		15 |     }
+		16 |   }
+		17 | }
+		18 | EOF
+		19 | }
+
+
+Check: CKV_AWS_167: "Ensure Glacier Vault access policy is not public by only allowing specific services or principals to access it"
+	FAILED for resource: aws_glacier_vault.my_archive2
+	File: /terraform/aws/glacier_vault.tf:1-26
+	Guide: https://docs.bridgecrew.io/docs/ensure-glacier-vault-access-policy-is-not-public-by-only-allowing-specific-services-or-principals-to-access-it
+
+		1  | resource "aws_glacier_vault" "my_archive2" {
+		2  |   name = "MyArchive"
+		3  |
+		4  |   access_policy = <<EOF
+		5  | {
+		6  |     "Version":"2012-10-17",
+		7  |     "Statement":[
+		8  |        {
+		9  |           "Sid": "add-read-only-perm",
+		10 |            "Principal": {
+		11 |             "AWS": [
+		12 |                 "arn:aws:iam::123456789101:role/vault-reader",
+		13 |                 "*"
+		14 |             ]
+		15 |           },
+		16 |           "Effect": "Allow",
+		17 |           "Action": [
+		18 |              "glacier:InitiateJob",
+		19 |              "glacier:GetJobOutput"
+		20 |           ],
+		21 |           "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
+		22 |        }
+		23 |     ]
+		24 | }
+		25 | EOF
+		26 | }
+
+
+Check: CKV_AWS_75: "Ensure Global Accelerator accelerator has flow logs enabled"
+	FAILED for resource: aws_globalaccelerator_accelerator.example
+	File: /terraform/aws/globacc.tf:4-11
+	Guide: https://docs.bridgecrew.io/docs/logging_16
+
+		4  | resource "aws_globalaccelerator_accelerator" "example" {
+		5  |   name            = "Example"
+		6  |   ip_address_type = "IPV4"
+		7  |   enabled         = true
+		8  |   attributes {
+		9  |     flow_logs_enabled = false
+		10 |   }
+		11 | }
+
+
+Check: CKV_AWS_75: "Ensure Global Accelerator accelerator has flow logs enabled"
+	FAILED for resource: aws_globalaccelerator_accelerator.name
+	File: /terraform/aws/global.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/logging_16
+
+		1 | resource "aws_globalaccelerator_accelerator" "name" {
+		2 |   name = "example"
+		3 | }
+
+Check: CKV_AWS_94: "Ensure Glue Data Catalog Encryption is enabled"
+	FAILED for resource: aws_glue_data_catalog_encryption_settings.test
+	File: /terraform/aws/glue.tf:1-10
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_37
+
+		1  | resource "aws_glue_data_catalog_encryption_settings" "test" {
+		2  |   data_catalog_encryption_settings {
+		3  |     connection_password_encryption {
+		4  |       return_connection_password_encrypted = false
+		5  |     }
+		6  |     encryption_at_rest {
+		7  |       catalog_encryption_mode = "DISABLED"
+		8  |     }
+		9  |   }
+		10 | }
+
+
+Check: CKV_AWS_99: "Ensure Glue Security Configuration Encryption is enabled"
+	FAILED for resource: aws_glue_security_configuration.test
+	File: /terraform/aws/glue_security.tf:1-18
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_41
+
+		1  | resource "aws_glue_security_configuration" "test" {
+		2  |   name = "example"
+		3  |
+		4  |   encryption_configuration {
+		5  |     cloudwatch_encryption {
+		6  |       cloudwatch_encryption_mode = "DISABLED"
+		7  |     }
+		8  |
+		9  |     job_bookmarks_encryption {
+		10 |       job_bookmarks_encryption_mode = "DISABLED"
+		11 |     }
+		12 |
+		13 |     s3_encryption {
+		14 |       kms_key_arn        = data.aws_kms_key.example.arn
+		15 |       s3_encryption_mode = "SSE-KMS"
+		16 |     }
+		17 |   }
+		18 | }
+
+Check: CKV_AWS_79: "Ensure Instance Metadata Service Version 1 is not enabled"
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_31
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_88: "EC2 instance should not have public IP."
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/public_12
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_1
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_126: "Ensure that detailed monitoring is enabled for EC2 instances"
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-detailed-monitoring-is-enabled-for-ec2-instances
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_135: "Ensure that EC2 is EBS optimized"
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-ec2-is-ebs-optimized
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_8: "Ensure all data stored in the Launch configuration EBS is securely encrypted"
+	FAILED for resource: aws_instance.fail
+	File: /terraform/aws/instance.tf:9-27
+	Guide: https://docs.bridgecrew.io/docs/general_13
+
+		9  | resource "aws_instance" "fail" {
+		10 |   ami                         = var.ami
+		11 |   instance_type               = "t2.nano"
+		12 |   associate_public_ip_address = true
+		13 |   vpc_security_group_ids = [
+		14 |   aws_security_group.web-node.id]
+		15 |   subnet_id = aws_subnet.web_subnet.id
+		16 |   user_data = <<EOF
+		17 | 		 #! /bin/bash
+		18 | 		 sudo apt-get update
+		19 | 		 sudo apt-get install -y apache2
+		20 | 		 sudo systemctl start apache2
+		21 | 		 sudo systemctl enable apache2
+		22 | 		 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
+		23 | 		 export AWS_SECRET_ACCESS_KEY=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
+		24 | 		 export AWS_DEFAULT_REGION=us-west-2
+		25 | 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+		26 | 		 EOF
+		27 | }
+
+
+Check: CKV_AWS_43: "Ensure Kinesis Stream is securely encrypted"
+	FAILED for resource: aws_kinesis_stream.fail
+	File: /terraform/aws/kinesis_stream.tf:2-5
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_22
+
+		2 | resource "aws_kinesis_stream" "fail" {
+		3 |   name        = "test_stream-%[1]d"
+		4 |   shard_count = 1
+		5 | }
+
+Check: CKV_AWS_33: "Ensure KMS key policy does not contain wildcard (*) principal"
+	FAILED for resource: aws_kms_key.fail_0
+	File: /terraform/aws/kms.tf:1-26
+	Guide: https://docs.bridgecrew.io/docs/ensure-kms-key-policy-does-not-contain-wildcard-principal
+
+		1  | resource "aws_kms_key" "fail_0" {
+		2  |   description = "description"
+		3  |   policy      = <<POLICY
+		4  | {
+		5  |   "Version": "2012-10-17",
+		6  |   "Statement": [
+		7  |     {
+		8  |       "Effect": "Allow",
+		9  |       "Principal": {
+		10 |         "AWS": "arn:aws:iam::111122223333:root"
+		11 |       },
+		12 |       "Action": "kms:*",
+		13 |       "Resource": "*"
+		14 |     },
+		15 |     {
+		16 |       "Effect": "Allow",
+		17 |       "Principal": {
+		18 |         "AWS": "*"
+		19 |       },
+		20 |       "Action": "kms:*",
+		21 |       "Resource": "*"
+		22 |     },
+		23 |   ]
+		24 | }
+		25 | POLICY
+		26 | }
+
+
+Check: CKV_AWS_7: "Ensure rotation for customer created CMKs is enabled"
+	FAILED for resource: aws_kms_key.fail_0
+	File: /terraform/aws/kms.tf:1-26
+	Guide: https://docs.bridgecrew.io/docs/logging_8
+
+		1  | resource "aws_kms_key" "fail_0" {
+		2  |   description = "description"
+		3  |   policy      = <<POLICY
+		4  | {
+		5  |   "Version": "2012-10-17",
+		6  |   "Statement": [
+		7  |     {
+		8  |       "Effect": "Allow",
+		9  |       "Principal": {
+		10 |         "AWS": "arn:aws:iam::111122223333:root"
+		11 |       },
+		12 |       "Action": "kms:*",
+		13 |       "Resource": "*"
+		14 |     },
+		15 |     {
+		16 |       "Effect": "Allow",
+		17 |       "Principal": {
+		18 |         "AWS": "*"
+		19 |       },
+		20 |       "Action": "kms:*",
+		21 |       "Resource": "*"
+		22 |     },
+		23 |   ]
+		24 | }
+		25 | POLICY
+		26 | }
+
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_4
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environmental variable"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_3
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: aws_lambda_function.morefail
+	File: /terraform/aws/lambda.tf:10-21
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+		10 | resource "aws_lambda_function" "morefail" {
+		11 |   function_name = "morefail"
+		12 |   role          = ""
+		13 |   handler       = "index.handler"
+		14 |   runtime       = "python3.9"
+		15 |   environment {
+		16 |     variables = {
+		17 |       AWS_ACCESS_KEY_ID     = "AKIAIOSFODNN7EXAMPLE",
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+		19 |     }
+		20 |   }
+		21 | }
+
+
+Check: CKV_AWS_150: "Ensure that Load Balancer has deletion protection enabled"
+	FAILED for resource: aws_alb.disabled
+	File: /terraform/aws/lb.tf:12-17
+
+		12 | resource "aws_alb" "disabled" {
+		13 |   internal           = false
+		14 |   load_balancer_type = "application"
+		15 |   name               = "alb"
+		16 |   subnets            = var.public_subnet_ids
+		17 | }
+
+
+Check: CKV_AWS_91: "Ensure the ELBv2 (Application/Network) has access logging enabled"
+	FAILED for resource: aws_alb.disabled
+	File: /terraform/aws/lb.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_logging_22
+
+		12 | resource "aws_alb" "disabled" {
+		13 |   internal           = false
+		14 |   load_balancer_type = "application"
+		15 |   name               = "alb"
+		16 |   subnets            = var.public_subnet_ids
+		17 | }
+
+
+Check: CKV_AWS_131: "Ensure that ALB drops HTTP headers"
+	FAILED for resource: aws_alb.disabled
+	File: /terraform/aws/lb.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-alb-drops-http-headers
+
+		12 | resource "aws_alb" "disabled" {
+		13 |   internal           = false
+		14 |   load_balancer_type = "application"
+		15 |   name               = "alb"
+		16 |   subnets            = var.public_subnet_ids
+		17 | }
+
+
+Check: CKV_AWS_69: "Ensure MQ Broker is not publicly exposed"
+	FAILED for resource: aws_mq_broker.example
+	File: /terraform/aws/mq_broker.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/public_11
+
+		1  | resource "aws_mq_broker" "example" {
+		2  |   broker_name = "example"
+		3  |
+		4  |   engine_type         = "ActiveMQ"
+		5  |   engine_version      = "5.15.0"
+		6  |   host_instance_type  = "mq.t2.micro"
+		7  |   publicly_accessible = true
+		8  |
+		9  |   user {
+		10 |     username = "ExampleUser"
+		11 |     password = "MindTheGap"
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_48: "Ensure MQ Broker logging is enabled"
+	FAILED for resource: aws_mq_broker.example
+	File: /terraform/aws/mq_broker.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_logging_10
+
+		1  | resource "aws_mq_broker" "example" {
+		2  |   broker_name = "example"
+		3  |
+		4  |   engine_type         = "ActiveMQ"
+		5  |   engine_version      = "5.15.0"
+		6  |   host_instance_type  = "mq.t2.micro"
+		7  |   publicly_accessible = true
+		8  |
+		9  |   user {
+		10 |     username = "ExampleUser"
+		11 |     password = "MindTheGap"
+		12 |   }
+		13 | }
+
+
+Check: CKV_AWS_81: "Ensure MSK Cluster encryption in rest and transit is enabled"
+	FAILED for resource: aws_msk_cluster.name
+	File: /terraform/aws/msk.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_32
+
+		1 | resource "aws_msk_cluster" "name" {
+		2 |   name = "example"
+		3 | }
+
+Check: CKV_AWS_80: "Ensure MSK Cluster logging is enabled"
+	FAILED for resource: aws_msk_cluster.name
+	File: /terraform/aws/msk.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/logging_18
+
+		1 | resource "aws_msk_cluster" "name" {
+		2 |   name = "example"
+		3 | }
+
+Check: CKV_AWS_101: "Ensure Neptune logging is enabled"
+	FAILED for resource: aws_neptune_cluster.default
+	File: /terraform/aws/neptune.tf:5-14
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_logging_24
+
+		5  | resource "aws_neptune_cluster" "default" {
+		6  |   cluster_identifier                  = var.neptune-dbname
+		7  |   engine                              = "neptune"
+		8  |   backup_retention_period             = 5
+		9  |   preferred_backup_window             = "07:00-09:00"
+		10 |   skip_final_snapshot                 = true
+		11 |   iam_database_authentication_enabled = false
+		12 |   apply_immediately                   = true
+		13 |   storage_encrypted                   = false
+		14 | }
+
+
+Check: CKV_AWS_44: "Ensure Neptune storage is securely encrypted"
+	FAILED for resource: aws_neptune_cluster.default
+	File: /terraform/aws/neptune.tf:5-14
+	Guide: https://docs.bridgecrew.io/docs/general_18
+
+		5  | resource "aws_neptune_cluster" "default" {
+		6  |   cluster_identifier                  = var.neptune-dbname
+		7  |   engine                              = "neptune"
+		8  |   backup_retention_period             = 5
+		9  |   preferred_backup_window             = "07:00-09:00"
+		10 |   skip_final_snapshot                 = true
+		11 |   iam_database_authentication_enabled = false
+		12 |   apply_immediately                   = true
+		13 |   storage_encrypted                   = false
+		14 | }
+
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	FAILED for resource: aws.default
+	File: /terraform/aws/provider.tf:8-12
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+
+		8  | provider "aws" {
+		9  |   region     = "eu-west-2"
+		10 |   access_key = "AKIAXYZDQCEN346Y6EVN"
+		11 |   secret_key = "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"
+		12 | }
+
+
+Check: CKV_AWS_172: "Ensure QLDB ledger has deletion protection enabled"
+	FAILED for resource: aws_qldb_ledger.disabled
+	File: /terraform/aws/qldb_ledger.tf:1-6
+
+		1 | resource "aws_qldb_ledger" "disabled" {
+		2 |   name             = "ledger"
+		3 |   permissions_mode = "STANDARD"
+		4 |
+		5 |   deletion_protection = false
+		6 | }
+
+
+Check: CKV_AWS_128: "Ensure that an Amazon RDS Clusters have AWS Identity and Access Management (IAM) authentication enabled"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-an-amazon-rds-clusters-have-iam-authentication-enabled
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV_AWS_96: "Ensure all data stored in Aurora is securely encrypted at rest"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_38
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV_AWS_162: "Ensure RDS cluster has IAM authentication enabled"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-rds-cluster-has-iam-authentication-enabled
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV_AWS_133: "Ensure that RDS instances has backup policy"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-rds-instances-have-backup-policy
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV_AWS_139: "Ensure that RDS clusters have deletion protection enabled"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-rds-clusters-and-instances-have-deletion-protection-enabled
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV_AWS_64: "Ensure all data stored in the Redshift cluster is securely encrypted at rest"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/general_25
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_154: "Ensure Redshift is not deployed outside of a VPC"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/ensure-redshift-is-not-deployed-outside-of-a-vpc
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_71: "Ensure Redshift Cluster logging is enabled"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_logging_12
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_87: "Redshift cluster should not be publicly accessible"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/public_9
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_142: "Ensure that Redshift cluster is encrypted by KMS"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-redshift-cluster-is-encrypted-by-kms
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_141: "Ensured that redshift cluster allowing version upgrade by default"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-redshift-clusters-allow-version-upgrade-by-default
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV_AWS_105: "Ensure Redshift uses SSL"
+	FAILED for resource: aws_redshift_parameter_group.fail
+	File: /terraform/aws/redshift_parameter.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/ensure-redshift-uses-ssl
+
+		1 | resource "aws_redshift_parameter_group" "fail" {
+		2 |   name   = var.param_group_name
+		3 |   family = "redshift-1.0"
+		4 | }
+
+
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3_13-enable-logging
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3_16-enable-versioning
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV_AWS_149: "Ensure that Secrets Manager secret is encrypted using KMS CMK"
+	FAILED for resource: aws_secretsmanager_secret.default
+	File: /terraform/aws/secret.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-secrets-manager-secret-is-encrypted-using-kms
+
+		1 | resource "aws_secretsmanager_secret" "default" {
+		2 |   name = "secret"
+		3 | }
+
+
+Check: CKV_AWS_149: "Ensure that Secrets Manager secret is encrypted using KMS CMK"
+	FAILED for resource: aws_secretsmanager_secret.default
+	File: /terraform/aws/secret_manager.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-secrets-manager-secret-is-encrypted-using-kms
+
+		1 | resource "aws_secretsmanager_secret" "default" {
+		2 |   name = "secret"
+		3 | }
+
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.fail
+	File: /terraform/aws/security_group.tf:1-16
+	Guide: https://docs.bridgecrew.io/docs/networking_1-port-security
+
+		1  | resource "aws_security_group" "fail" {
+		2  |   name_prefix = "hot-stuff"
+		3  |   vpc_id      = aws_vpc.web_vpc.id
+		4  |   ingress {
+		5  |     from_port   = 22
+		6  |     to_port     = 22
+		7  |     cidr_blocks = ["0.0.0.0/0"]
+		8  |   }
+		9  |
+		10 |   ingress {
+		11 |     from_port   = 3389
+		12 |     to_port     = 3389
+		13 |     cidr_blocks = ["0.0.0.0/0"]
+		14 |   }
+		15 |
+		16 | }
+
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+	FAILED for resource: aws_security_group.fail
+	File: /terraform/aws/security_group.tf:1-16
+	Guide: https://docs.bridgecrew.io/docs/networking_31
+
+		1  | resource "aws_security_group" "fail" {
+		2  |   name_prefix = "hot-stuff"
+		3  |   vpc_id      = aws_vpc.web_vpc.id
+		4  |   ingress {
+		5  |     from_port   = 22
+		6  |     to_port     = 22
+		7  |     cidr_blocks = ["0.0.0.0/0"]
+		8  |   }
+		9  |
+		10 |   ingress {
+		11 |     from_port   = 3389
+		12 |     to_port     = 3389
+		13 |     cidr_blocks = ["0.0.0.0/0"]
+		14 |   }
+		15 |
+		16 | }
+
+
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	FAILED for resource: aws_security_group.fail
+	File: /terraform/aws/security_group.tf:1-16
+	Guide: https://docs.bridgecrew.io/docs/networking_2
+
+		1  | resource "aws_security_group" "fail" {
+		2  |   name_prefix = "hot-stuff"
+		3  |   vpc_id      = aws_vpc.web_vpc.id
+		4  |   ingress {
+		5  |     from_port   = 22
+		6  |     to_port     = 22
+		7  |     cidr_blocks = ["0.0.0.0/0"]
+		8  |   }
+		9  |
+		10 |   ingress {
+		11 |     from_port   = 3389
+		12 |     to_port     = 3389
+		13 |     cidr_blocks = ["0.0.0.0/0"]
+		14 |   }
+		15 |
+		16 | }
+
+
+Check: CKV_AWS_169: "Ensure SNS topic policy is not public by only allowing specific services or principals to access it"
+	FAILED for resource: aws_sns_topic_policy.sns_tp2
+	File: /terraform/aws/sns.tf:1-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-sns-topic-policy-is-not-public-by-only-allowing-specific-services-or-principals-to-access-it
+
+		1  | resource "aws_sns_topic_policy" "sns_tp2" {
+		2  |   arn = aws_sns_topic.test.arn
+		3  |
+		4  |   policy = <<POLICY
+		5  | {
+		6  |     "Version":"2012-10-17",
+		7  |     "Statement":[
+		8  |        {
+		9  |            "Principal": {
+		10 |             "AWS": [
+		11 |                 "arn:aws:iam::123456789101:role/sns",
+		12 |                 "*"
+		13 |             ]
+		14 |           },
+		15 |           "Effect": "Allow",
+		16 |           "Action": [
+		17 |             "SNS:Subscribe",
+		18 |             "SNS:SetTopicAttributes",
+		19 |             "SNS:RemovePermission",
+		20 |             "SNS:Receive",
+		21 |             "SNS:Publish",
+		22 |             "SNS:ListSubscriptionsByTopic",
+		23 |             "SNS:GetTopicAttributes",
+		24 |             "SNS:DeleteTopic",
+		25 |             "SNS:AddPermission",
+		26 |           ],
+		27 |           "Resource": "${aws_sns_topic.test.arn}"
+		28 |        }
+		29 |     ]
+		30 | }
+		31 | POLICY
+		32 | }
+
+
+Check: CKV_AWS_113: "Ensure Session Manager logs are enabled and encrypted"
+	FAILED for resource: aws_ssm_document.s3_enabled_not_encrypted_yaml
+	File: /terraform/aws/ssm.tf:1-26
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-load-balancer-has-deletion-protection-enabled
+
+		1  | resource "aws_ssm_document" "s3_enabled_not_encrypted_yaml" {
+		2  |   name          = "SSM-SessionManagerRunShell"
+		3  |   document_type = "Session"
+		4  |
+		5  |   document_format = "YAML"
+		6  |
+		7  |   content = <<DOC
+		8  |   schemaVersion: '1.0'
+		9  |   description: Document to hold regional settings for Session Manager
+		10 |   sessionType: Standard_Stream
+		11 |   inputs:
+		12 |     s3BucketName: 'example'
+		13 |     s3KeyPrefix: ''
+		14 |     s3EncryptionEnabled: false
+		15 |     cloudWatchLogGroupName: ''
+		16 |     cloudWatchEncryptionEnabled: false
+		17 |     cloudWatchStreamingEnabled: true
+		18 |     kmsKeyId: ''
+		19 |     runAsEnabled: true
+		20 |     runAsDefaultUser: ''
+		21 |     idleSessionTimeout: '20'
+		22 |     shellProfile:
+		23 |       windows: ''
+		24 |       linux: ''
+		25 | DOC
+		26 | }
+
+
+Check: CKV_AWS_112: "Ensure Session Manager data is encrypted in transit"
+	FAILED for resource: aws_ssm_document.s3_enabled_not_encrypted_yaml
+	File: /terraform/aws/ssm.tf:1-26
+	Guide: https://docs.bridgecrew.io/docs/ensure-session-manager-data-is-encrypted-in-transit
+
+		1  | resource "aws_ssm_document" "s3_enabled_not_encrypted_yaml" {
+		2  |   name          = "SSM-SessionManagerRunShell"
+		3  |   document_type = "Session"
+		4  |
+		5  |   document_format = "YAML"
+		6  |
+		7  |   content = <<DOC
+		8  |   schemaVersion: '1.0'
+		9  |   description: Document to hold regional settings for Session Manager
+		10 |   sessionType: Standard_Stream
+		11 |   inputs:
+		12 |     s3BucketName: 'example'
+		13 |     s3KeyPrefix: ''
+		14 |     s3EncryptionEnabled: false
+		15 |     cloudWatchLogGroupName: ''
+		16 |     cloudWatchEncryptionEnabled: false
+		17 |     cloudWatchStreamingEnabled: true
+		18 |     kmsKeyId: ''
+		19 |     runAsEnabled: true
+		20 |     runAsDefaultUser: ''
+		21 |     idleSessionTimeout: '20'
+		22 |     shellProfile:
+		23 |       windows: ''
+		24 |       linux: ''
+		25 | DOC
+		26 | }
+
+
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	FAILED for resource: aws_subnet.test
+	File: /terraform/aws/subnet.tf:1-6
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		1 | resource "aws_subnet" "test" {
+		2 |   vpc_id     = aws_vpc.main.id
+		3 |   cidr_block = "10.0.1.0/24"
+		4 |
+		5 |   map_public_ip_on_launch = true
+		6 | }
+
+Check: CKV_AWS_160: "Ensure that Timestream database is encrypted with KMS CMK"
+	FAILED for resource: aws_timestreamwrite_database.default
+	File: /terraform/aws/timestream.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-timestream-database-is-encrypted-with-kms-cmk
+
+		1 | resource "aws_timestreamwrite_database" "default" {
+		2 |   database_name = "timestream"
+		3 | }
+
+
+Check: CKV_AWS_164: "Ensure Transfer Server is not exposed publicly."
+	FAILED for resource: aws_transfer_server.example
+	File: /terraform/aws/transferserver.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-transfer-server-is-not-exposed-publicly
+
+		1 | resource "aws_transfer_server" "example" {
+		2 |   protocols = ["SFTP"]
+		3 | }
+
+
+Check: CKV_AWS_123: "Ensure that VPC Endpoint Service is configured for Manual Acceptance"
+	FAILED for resource: aws_vpc_endpoint_service.example
+	File: /terraform/aws/vpc_emdpoint.tf:1-4
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-vpc-endpoint-service-is-configured-for-manual-acceptance
+
+		1 | resource "aws_vpc_endpoint_service" "example" {
+		2 |   acceptance_required        = false
+		3 |   network_load_balancer_arns = [aws_lb.example.arn]
+		4 | }
+
+Check: CKV_AWS_156: "Ensure that Workspace root volumes are encrypted"
+	FAILED for resource: aws_workspaces_workspace.fail
+	File: /terraform/aws/workspace.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-workspace-root-volumes-are-encrypted
+
+		1  | resource "aws_workspaces_workspace" "fail" {
+		2  |   directory_id = aws_workspaces_directory.main.id
+		3  |   bundle_id    = data.aws_workspaces_bundle.bundle.id
+		4  |   user_name    = var.user_name
+		5  |
+		6  |   workspace_properties {
+		7  |     compute_type_name                         = "VALUE"
+		8  |     user_volume_size_gib                      = 10
+		9  |     root_volume_size_gib                      = 80
+		10 |     running_mode                              = "AUTO_STOP"
+		11 |     running_mode_auto_stop_timeout_in_minutes = 60
+		12 |   }
+		13 |
+		14 |   tags = var.common_tags
+		15 | }
+
+
+Check: CKV_AWS_155: "Ensure that Workspace user volumes are encrypted"
+	FAILED for resource: aws_workspaces_workspace.fail
+	File: /terraform/aws/workspace.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-workspace-user-volumes-are-encrypted
+
+		1  | resource "aws_workspaces_workspace" "fail" {
+		2  |   directory_id = aws_workspaces_directory.main.id
+		3  |   bundle_id    = data.aws_workspaces_bundle.bundle.id
+		4  |   user_name    = var.user_name
+		5  |
+		6  |   workspace_properties {
+		7  |     compute_type_name                         = "VALUE"
+		8  |     user_volume_size_gib                      = 10
+		9  |     root_volume_size_gib                      = 80
+		10 |     running_mode                              = "AUTO_STOP"
+		11 |     running_mode_auto_stop_timeout_in_minutes = 60
+		12 |   }
+		13 |
+		14 |   tags = var.common_tags
+		15 | }
+
+
+Check: CKV_AZURE_36: "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access"
+	FAILED for resource: azurerm_storage_account_network_rules.test
+	File: /terraform/azurerm/netrules.tf:1-9
+	Guide: https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access
+
+		1 | resource "azurerm_storage_account_network_rules" "test" {
+		2 |   resource_group_name  = azurerm_resource_group.example.name
+		3 |   storage_account_name = azurerm_storage_account.example.name
+		4 |
+		5 |   default_action             = "Deny"
+		6 |   ip_rules                   = ["127.0.0.1"]
+		7 |   virtual_network_subnet_ids = [azurerm_subnet.test.id]
+		8 |   bypass                     = ["Metrics"]
+		9 | }
+
+Check: CKV_AZURE_33: "Ensure Storage logging is enabled for Queue service for read, write and delete requests"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/enable-requests-on-storage-logging-for-queue-service
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV_AZURE_59: "Ensure that Storage accounts disallow public access"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-disallow-public-access
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV_AZURE_60: "Ensure that storage account enables secure transfer"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-storage-account-enables-secure-transfer
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV_AZURE_44: "Ensure Storage Account is using the latest version of TLS encryption"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/bc_azr_storage_2
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV_AZURE_36: "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV_AZURE_3: "Ensure that 'Secure transfer required' is set to 'Enabled'"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-secure-transfer-required-is-enabled
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV2_AZURE_18: "Ensure that Storage Accounts use customer-managed key for encryption"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-use-customer-managed-key-for-encryption
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV2_AZURE_8: "Ensure the storage container storing the activity logs is not publicly accessible"
+	FAILED for resource: azurerm_storage_account.example
+	File: /terraform/azurerm/storage.tf:1-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible
+
+		1  | resource "azurerm_storage_account" "example" {
+		2  |   name                      = "stor"
+		3  |   resource_group_name       = azurerm_resource_group.example.name
+		4  |   location                  = azurerm_resource_group.example.location
+		5  |   account_tier              = "Standard"
+		6  |   account_replication_type  = "GRS"
+		7  |   enable_https_traffic_only = false
+		8  |   allow_blob_public_access  = true
+		9  |
+		10 |   //to fail CKV_AZURE_35 && CKV_AZURE_36
+		11 |   network_rules {
+		12 |     default_action = "Deny"
+		13 |     bypass         = ["Metrics"]
+		14 |   }
+		15 | }
+
+
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to an other resource"
+	FAILED for resource: aws_security_group.fail
+	File: /terraform/aws/security_group.tf:1-16
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		1  | resource "aws_security_group" "fail" {
+		2  |   name_prefix = "hot-stuff"
+		3  |   vpc_id      = aws_vpc.web_vpc.id
+		4  |   ingress {
+		5  |     from_port   = 22
+		6  |     to_port     = 22
+		7  |     cidr_blocks = ["0.0.0.0/0"]
+		8  |   }
+		9  |
+		10 |   ingress {
+		11 |     from_port   = 3389
+		12 |     to_port     = 3389
+		13 |     cidr_blocks = ["0.0.0.0/0"]
+		14 |   }
+		15 |
+		16 | }
+
+
+Check: CKV2_AWS_19: "Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances"
+	FAILED for resource: aws_eip.solo
+	File: /terraform/aws/eip.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-eip-addresses-allocated-to-a-vpc-are-attached-to-ec2-instances
+
+		1 | resource "aws_eip" "solo" {
+		2 |   vpc = true
+		3 | }
+
+Check: CKV2_AWS_2: "Ensure that only encrypted EBS volumes are attached to EC2 instances"
+	FAILED for resource: aws_ebs_volume.fail
+	File: /terraform/aws/ebs.tf:6-9
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-only-encrypted-ebs-volumes-are-attached-to-ec2-instances
+
+		6 | resource "aws_ebs_volume" "fail" {
+		7 |   availability_zone = "eu-west-1a"
+		8 |   size              = 1
+		9 | }
+
+
+Check: CKV2_AWS_10: "Ensure CloudTrail trails are integrated with CloudWatch Logs"
+	FAILED for resource: aws_cloudtrail.fail
+	File: /terraform/aws/cloudtrail.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/ensure-cloudtrail-trails-are-integrated-with-cloudwatch-logs
+
+		1 | resource "aws_cloudtrail" "fail" {
+		2 |   name                          = "TRAIL"
+		3 |   s3_bucket_name                = aws_s3_bucket.test.id
+		4 |   include_global_service_events = true
+		5 | }
+
+Check: CKV2_AWS_4: "Ensure API Gateway stage have logging level defined as appropriate"
+	FAILED for resource: aws_api_gateway_stage.fail
+	File: /terraform/aws/apigateway.tf:13-15
+	Guide: https://docs.bridgecrew.io/docs/ensure-api-gateway-stage-have-logging-level-defined-as-appropiate
+
+		13 | resource "aws_api_gateway_stage" "fail" {
+		14 |   name = "example"
+		15 | }
+
+
+Check: CKV2_AWS_16: "Ensure that Auto Scaling is enabled on your DynamoDB tables"
+	FAILED for resource: aws_dynamodb_table.default
+	File: /terraform/aws/dynamocdb.tf:1-13
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-auto-scaling-is-enabled-on-your-dynamodb-tables
+
+		1  | resource "aws_dynamodb_table" "default" {
+		2  |   name           = "GameScores"
+		3  |   billing_mode   = "PROVISIONED"
+		4  |   read_capacity  = 20
+		5  |   write_capacity = 20
+		6  |   hash_key       = "UserId"
+		7  |   range_key      = "UserId"
+		8  |
+		9  |   attribute {
+		10 |     name = "UserId"
+		11 |     type = "S"
+		12 |   }
+		13 | }
+
+
+Check: CKV2_AWS_12: "Ensure the default security group of every VPC restricts all traffic"
+	FAILED for resource: aws_vpc.eks_vpc
+	File: /terraform/aws/vpc.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/networking_4
+
+		1 | resource "aws_vpc" "eks_vpc" {
+		2 |   cidr_block           = "10.10.0.0/16"
+		3 |   enable_dns_hostnames = true
+		4 |   enable_dns_support   = true
+		5 | }
+
+
+Check: CKV2_AWS_11: "Ensure VPC flow logging is enabled in all VPCs"
+	FAILED for resource: aws_vpc.eks_vpc
+	File: /terraform/aws/vpc.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/logging_9-enable-vpc-flow-logging
+
+		1 | resource "aws_vpc" "eks_vpc" {
+		2 |   cidr_block           = "10.10.0.0/16"
+		3 |   enable_dns_hostnames = true
+		4 |   enable_dns_support   = true
+		5 | }
+
+
+Check: CKV2_AWS_27: "Ensure Postgres RDS as aws_rds_cluster has Query Logging enabled"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-postgres-rds-has-query-logging-enabled
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV2_AWS_28: "Ensure public facing ALB are protected by WAF"
+	FAILED for resource: aws_alb.disabled
+	File: /terraform/aws/lb.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-public-facing-alb-are-protected-by-waf
+
+		12 | resource "aws_alb" "disabled" {
+		13 |   internal           = false
+		14 |   load_balancer_type = "application"
+		15 |   name               = "alb"
+		16 |   subnets            = var.public_subnet_ids
+		17 | }
+
+
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: aws_s3_bucket.fail
+	File: /terraform/aws/s3.tf:1-25
+	Guide: https://docs.bridgecrew.io/docs/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+
+		1  | resource "aws_s3_bucket" "fail" {
+		2  |   acl    = "public-read-write"
+		3  |   bucket = "superfail"
+		4  |
+		5  |   versioning {
+		6  |     enabled    = false
+		7  |     mfa_delete = false
+		8  |   }
+		9  |
+		10 |   policy = <<POLICY
+		11 | {
+		12 |   "Version":"2012-10-17",
+		13 |   "Statement":[
+		14 |     {
+		15 |       "Sid":"AddCannedAcl",
+		16 |       "Effect":"Allow",
+		17 |       "Principal": {"AWS": ["*"]},
+		18 |       "Action":["s3:PutObject","s3:PutObjectAcl"],
+		19 |       "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+		20 |       "Condition":{"StringEquals":{"s3:x-amz-acl":["public-read"]}}
+		21 |     }
+		22 |   ]
+		23 | }
+		24 | POLICY
+		25 | }
+
+
+Check: CKV2_AWS_8: "Ensure that RDS clusters has backup plan of AWS Backup"
+	FAILED for resource: aws_rds_cluster.fail2
+	File: /terraform/aws/rds.tf:12-17
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-rds-clusters-has-backup-plan-of-aws-backup
+
+		12 | resource "aws_rds_cluster" "fail2" {
+		13 |   backup_retention_period = 0
+		14 |   db_subnet_group_name    = aws_db_subnet_group.default.name
+		15 |   master_username         = "james"
+		16 |   master_password         = "password12345"
+		17 | }
+
+
+Check: CKV2_AWS_13: "Ensure that Redshift clusters has backup plan of AWS Backup"
+	FAILED for resource: aws_redshift_cluster.fail
+	File: /terraform/aws/redshift.tf:1-11
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-redshift-clusters-has-backup-plan-of-aws-backup
+
+		1  | resource "aws_redshift_cluster" "fail" {
+		2  |   cluster_identifier                  = "examplea"
+		3  |   availability_zone                   = data.aws_availability_zones.available.names[0]
+		4  |   database_name                       = "mydb"
+		5  |   master_username                     = "foo_test"
+		6  |   master_password                     = "Mustbe8characters"
+		7  |   node_type                           = "dc2.large"
+		8  |   automated_snapshot_retention_period = 0
+		9  |   allow_version_upgrade               = false
+		10 |   skip_final_snapshot                 = true
+		11 | }
+
+Check: CKV2_AWS_18: "Ensure that Elastic File System (Amazon EFS) file systems are added in the backup plans of AWS Backup"
+	FAILED for resource: aws_efs_file_system.sharedstore
+	File: /terraform/aws/efs.tf:4-19
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-elastic-file-system-amazon-efs-file-systems-are-added-in-the-backup-plans-of-aws-backup
+
+		4  | resource "aws_efs_file_system" "sharedstore" {
+		5  |
+		6  |   creation_token = var.efs["creation_token"]
+		7  |
+		8  |   lifecycle_policy {
+		9  |     transition_to_ia = var.efs["transition_to_ia"]
+		10 |   }
+		11 |
+		12 |   kms_key_id                      = ""
+		13 |   encrypted                       = false
+		14 |   performance_mode                = var.efs["performance_mode"]
+		15 |   provisioned_throughput_in_mibps = var.efs["provisioned_throughput_in_mibps"]
+		16 |   throughput_mode                 = var.efs["throughput_mode"]
+		17 |   tags                            = var.common_tags
+		18 |
+		19 | }
+
+
+Check: CKV2_AWS_9: "Ensure that EBS are added in the backup plans of AWS Backup"
+	FAILED for resource: aws_ebs_volume.fail
+	File: /terraform/aws/ebs.tf:6-9
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-ebs-are-added-in-the-backup-plans-of-aws-backup
+
+		6 | resource "aws_ebs_volume" "fail" {
+		7 |   availability_zone = "eu-west-1a"
+		8 |   size              = 1
+		9 | }
+
+
+cloudformation scan results:
+
+Passed checks: 1, Failed checks: 8, Skipped checks: 0, Parsing errors: 1
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/s3_13-enable-logging
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_19
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_20
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/s3_16-enable-versioning
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_21
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+	FAILED for resource: AWS::S3::Bucket.Bucket
+	File: /cloudformation/goat.yml:10-16
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_22
+
+		10 |   Bucket:
+		11 |     Type: AWS::S3::Bucket
+		12 |     Properties:
+		13 |       AccessControl: PublicRead
+		14 |       WebsiteConfiguration:
+		15 |         IndexDocument: index.html
+		16 |         ErrorDocument: index.html
+
+
+Error parsing file ./results.json
+serverless scan results:
+
+Passed checks: 17, Failed checks: 2, Skipped checks: 1
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_19
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_20
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/s3_16-enable-versioning
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_21
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+	PASSED for resource: AWS::S3::Bucket.Bucket
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_22
+
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: func1
+	File: /serverless/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_43
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: func1
+	File: /serverless/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: func1
+	File: /serverless/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/iam_23
+
+Check: CKV_AWS_32: "Ensure ECR policy is not set to public"
+	PASSED for resource: AWS::ECR::Repository.EcrRepository
+	File: /serverless/parsefail/serverless.yml:35-41
+	Guide: https://docs.bridgecrew.io/docs/public_1-ecr-repositories-not-public
+
+Check: CKV_AWS_51: "Ensure ECR Image Tags are immutable"
+	PASSED for resource: AWS::ECR::Repository.EcrRepository
+	File: /serverless/parsefail/serverless.yml:35-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_24
+
+Check: CKV_AWS_97: "Ensure Encryption in transit is enabled for EFS volumes in ECS Task definitions"
+	PASSED for resource: AWS::ECS::TaskDefinition.FargateTask
+	File: /serverless/parsefail/serverless.yml:42-52
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_general_39
+
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: func1
+	File: /serverless/parsefail/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_43
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: func1
+	File: /serverless/parsefail/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: func1
+	File: /serverless/parsefail/serverless.yml:29-32
+	Guide: https://docs.bridgecrew.io/docs/iam_23
+
+Check: CKV_AWS_163: "Ensure ECR image scanning on push is enabled"
+	FAILED for resource: AWS::ECR::Repository.EcrRepository
+	File: /serverless/parsefail/serverless.yml:35-41
+	Guide: https://docs.bridgecrew.io/docs/general_8
+
+		35 |     EcrRepository:
+		36 |       Type: AWS::ECR::Repository
+		37 |       Properties:
+		38 |         RepositoryName:  test
+		39 |         ImageTagMutability: IMMUTABLE
+		40 |         ImageScanningConfiguration:
+		41 |           scanOnPush: true
+
+
+Check: CKV_AWS_136: "Ensure that ECR repositories are encrypted using KMS"
+	FAILED for resource: AWS::ECR::Repository.EcrRepository
+	File: /serverless/parsefail/serverless.yml:35-41
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-ecr-repositories-are-encrypted
+
+		35 |     EcrRepository:
+		36 |       Type: AWS::ECR::Repository
+		37 |       Properties:
+		38 |         RepositoryName:  test
+		39 |         ImageTagMutability: IMMUTABLE
+		40 |         ImageScanningConfiguration:
+		41 |           scanOnPush: true
+
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	SKIPPED for resource: AWS::S3::Bucket.Bucket
+	Suppress comment:  not log\n')
+	File: /serverless/serverless.yml:36-55
+	Guide: https://docs.bridgecrew.io/docs/s3_13-enable-logging
+
+dockerfile scan results:
+
+Passed checks: 2, Failed checks: 2, Skipped checks: 0
+
+Check: CKV_DOCKER_5: "Ensure update instructions are not use alone in the Dockerfile"
+	PASSED for resource: /docker/Dockerfile.
+	File: /docker/Dockerfile:1-6
+	Guide: https://docs.bridgecrew.io/docs/ensure-update-instructions-are-not-used-alone-in-the-dockerfile
+
+Check: CKV_DOCKER_7: "Ensure the base image uses a non latest version tag"
+	PASSED for resource: /docker/Dockerfile.
+	File: /docker/Dockerfile:1-6
+	Guide: https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag
+
+Check: CKV_DOCKER_2: "Ensure that HEALTHCHECK instructions have been added to container images"
+	FAILED for resource: /docker/Dockerfile.
+	File: /docker/Dockerfile:1-6
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images
+
+		1 | FROM python:3.8-alpine
+		2 |
+		3 | RUN apk update && apk add git
+		4 |
+		5 | RUN pip install -U checkov
+		6 | ENTRYPOINT ["checkov"]
+
+Check: CKV_DOCKER_3: "Ensure that a user for the container has been created"
+	FAILED for resource: /docker/Dockerfile.
+	File: /docker/Dockerfile:1-6
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created
+
+		1 | FROM python:3.8-alpine
+		2 |
+		3 | RUN apk update && apk add git
+		4 |
+		5 | RUN pip install -U checkov
+		6 | ENTRYPOINT ["checkov"]
+
+secrets scan results:
+
+Passed checks: 0, Failed checks: 13, Skipped checks: 0
+
+Check: CKV_SECRET_2: "AWS Access Key"
+	FAILED for resource: 25910f981e85ca04baf359199dd0bd4a3ae738b6
+	File: /results.json:937-938
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_2
+
+		937 |                             "  access_key = \"AKIAIOSFODNN7EXAMPLE\"\n"
+
+
+Check: CKV_SECRET_2: "AWS Access Key"
+	FAILED for resource: 0a58724379fd7176daefafebe955e6caf571ff5a
+	File: /results.json:8011-8012
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_2
+
+		8011 |                             "  access_key = \"AKIAXYZDQCEN346Y6EVN\"\n"
+
+
+Check: CKV_SECRET_1: "Artifactory Credentials"
+	FAILED for resource: 5582233d29ece1ede0d19e79cde01a25b74bf10d
+	File: /results.json:14863-14864
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_1
+
+		14863 |                             "  default = \"AKCp5budTFpbypBqQbGJPz3pGCi28pPivfWczqjfYb9drAmd9LbRZbj6UpKFxJXA8ksWGc9fM\"\n"
+
+
+Check: CKV_SECRET_1: "Artifactory Credentials"
+	FAILED for resource: 5582233d29ece1ede0d19e79cde01a25b74bf10d
+	File: /secrets/BC_GIT_1.tf:3-4
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_1
+
+		3 |   default = "AKCp5budTFpbypBqQbGJPz3pGCi28pPivfWczqjfYb9drAmd9LbRZbj6UpKFxJXA8ksWGc9fM"
+
+
+Check: CKV_SECRET_2: "AWS Access Key"
+	FAILED for resource: 25910f981e85ca04baf359199dd0bd4a3ae738b6
+	File: /secrets/BC_GIT_2.tf:2-3
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_2
+
+		2 |   access_key = "AKIAIOSFODNN7EXAMPLE"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: d70eab08607a4d05faa2d0d6647206599e9abc65
+	File: /secrets/BC_GIT_2.tf:3-4
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		3 |   secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: e007561f3cd8f0eb7ca97fbdefd6ce377939b2ca
+	File: /secrets/BC_GIT_6.tf:7-8
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		7 |   password              = "changeme-dy2xPjgW"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: f5d4da20e0415b51f4b2963d5a0717253904aa62
+	File: /terraform/aws/lambda.tf:18-19
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		18 |       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: 154ecf9575cc39dede35116346a5d5b11b7a1f04
+	File: /terraform/aws/mq_broker.tf:11-12
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		11 |     password = "MindTheGap"
+
+
+Check: CKV_SECRET_2: "AWS Access Key"
+	FAILED for resource: 0a58724379fd7176daefafebe955e6caf571ff5a
+	File: /terraform/aws/provider.tf:10-11
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_2
+
+		10 |   access_key = "AKIAXYZDQCEN346Y6EVN"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: 543fb814801bf1925142196407311f2770e4637f
+	File: /terraform/aws/provider.tf:11-12
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		11 |   secret_key = "50W3qN7CuaMUl68u0CoAVY6fQykksBumX3Mq3VlI"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: ae9030c665364eb2651d450e8321ae62dd51a726
+	File: /terraform/aws/rds.tf:16-17
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		16 |   master_password         = "password12345"
+
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: 7b5865e6360213cdd65426347e9c465041a038e5
+	File: /terraform/aws/redshift.tf:6-7
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		6 |   master_password                     = "Mustbe8characters"

@@ -4,4 +4,3 @@ terraform.tfstate.backup
 .terraform.lock.hcl
 .terraform
 *results.json
-fails*.txt

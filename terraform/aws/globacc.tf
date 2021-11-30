@@ -6,6 +6,6 @@ resource "aws_globalaccelerator_accelerator" "example" {
   ip_address_type = "IPV4"
   enabled         = true
   attributes {
-    flow_logs_enabled   = false
+    flow_logs_enabled = false
   }
 }
