@@ -3,5 +3,5 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform.lock.hcl
 .terraform
-results.json
-fails.txt
+*results.json
+fails*.txt
