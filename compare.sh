@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+figlet Compare Tools
 
 file="results.json"
 
@@ -7,11 +8,12 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=98
+expected=106
 tfexpected=29
 
 # run the tools
 checkov -o json -d . >$file
+
 tfsec -f json -s --out "tfsec_$file"  2> /dev/null
 
 tfsec_count=$(cat "tfsec_$file" | jq -r '.results | length')
@@ -22,20 +24,17 @@ total=$(($secrets+$terraform))
 
 # shellcheck disable=SC2086
 if [ $total != $expected  ]; then
-    echo "Error expected $expected but found $total"
-    exit 1
+    echo "Error: expected $expected but found $total"
 fi
 
 # shellcheck disable=SC2086
 if [ $tfsec_count != $tfexpected  ]; then
-    echo "Error Tfsec expected $tfexpected but found $tfsec_count"
-    exit 1
+    echo "Error: Tfsec expected $tfexpected but found $tfsec_count"
 fi
 
 # shellcheck disable=SC2086
 if [ $tfsec_count -gt $total ]; then
-    echo "Error Tfsec found more $tfsex_count but we found $total"
-    exit 1
+    echo "Error: Tfsec found more $tfsex_count but we found $total"
 fi
 
 echo "Found Terraform $terraform"
@@ -43,5 +42,5 @@ echo "Found Secrets $secrets"
 echo "Found TFSec $tfsec_count"
 
 echo "Expected $expected and found $total"
-echo "Checkov: $total tfsec: $tfsec_count"
+echo "Checkov: $total TFSec: $tfsec_count"
 exit 0

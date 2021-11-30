@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+figlet "Analysing code.."
 file="fails.txt"
 
 if [ -f "$file" ] ; then
@@ -7,5 +8,6 @@ if [ -f "$file" ] ; then
 fi
 
 checkov  -d . >$file
-tfsec -f json >fails_tfsec.txt
+echo .
+tfsec -f json --out fails_tfsec.txt 2> /dev/null
 echo finished!

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+figlet "Checkov Scan"
 file="results.json"
 
 if [ -f "$file" ] ; then
@@ -7,7 +8,7 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=98
+expected=106
 
 # run the tools
 checkov -o json -d . >$file
@@ -19,12 +20,13 @@ total=$(($secrets+$terraform))
 
 # shellcheck disable=SC2086
 if [ $total != $expected  ]; then
-    echo "Error expected $expected but found $total"
+    echo "Error: expected $expected but found $total"
     exit 1
 fi
 
+figlet Results
 echo "Found Terraform $terraform"
 echo "Found Secrets $secrets"
 
-echo "Expected $expected and found $total"
+echo "Expected: $expected and found: $total"
 exit 0
