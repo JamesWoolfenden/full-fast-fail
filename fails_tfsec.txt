@@ -1,732 +1,1899 @@
 {
 	"results": [
 		{
-			"rule_id": "GEN003",
-			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_id": "aws-config-aggregate-all-regions",
+			"legacy_rule_id": "AWS085",
+			"rule_description": "Config configuration aggregator should be using all regions for source",
+			"rule_provider": "aws",
+			"impact": "Sources that aren't covered by the aggregator are not include in the configuration",
+			"resolution": "Set the aggregator to cover all regions",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/config/aggregate-all-regions",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_aggregator#all_regions",
+				"https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html"
+			],
+			"description": "Resource 'aws_config_configuration_aggregator.organization' should have account aggregation sources to all regions",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\config.tf",
+				"start_line": 1,
+				"end_line": 9
+			},
+			"resource": "aws_config_configuration_aggregator.organization"
+		},
+		{
+			"rule_id": "aws-mq-enable-general-logging",
+			"legacy_rule_id": "",
+			"rule_description": "MQ Broker should have general logging enabled",
+			"rule_provider": "aws",
+			"impact": "Without logging it is difficult to trace issues",
+			"resolution": "Enable general logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/mq/enable-general-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#general"
+			],
+			"description": "Resource 'aws_mq_broker.example' uses default value for logs.general",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\mq_broker.tf",
+				"start_line": 1,
+				"end_line": 13
+			},
+			"resource": "aws_mq_broker.example"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute-value",
+			"legacy_rule_id": "GEN005",
+			"rule_description": "The attribute has potentially sensitive data, passwords, tokens or keys in it",
 			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
+			"impact": "Sensitive credentials may be compromised",
+			"resolution": "Check the code for vulnerabilities and move to variables",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute-value",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'aws_instance.fail' includes potentially sensitive data. Check for AWS Access Key Id",
+			"severity": "CRITICAL",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/secrets/BC_GIT_2.tf",
-				"start_line": 3,
-				"end_line": 3
-			},
-			"description": "Block 'provider.aws' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS059",
-			"rule_description": "Athena databases and workgroup configurations are created unencrypted at rest by default, they should be encrypted",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS059/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena_database.tf",
-				"start_line": 3,
-				"end_line": 5
-			},
-			"description": "Resource 'aws_athena_database.fail' missing encryption configuration block.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS071",
-			"rule_description": "Cloudfront distribution should have Access Logging configured",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS071/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront.tf",
-				"start_line": 7,
-				"end_line": 82
-			},
-			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' does not have Access Logging configured",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS051",
-			"rule_description": "There is no encryption specified or encryption is disabled on the RDS Cluster.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS051/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds.tf",
-				"start_line": 12,
-				"end_line": 17
-			},
-			"description": "Resource 'aws_rds_cluster.fail2' defines a disabled RDS Cluster encryption.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "GEN003",
-			"rule_description": "Potentially sensitive data stored in block attribute.",
-			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds.tf",
-				"start_line": 16,
-				"end_line": 16
-			},
-			"description": "Block 'aws_rds_cluster.fail2' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS062",
-			"rule_description": "User data for EC2 instances must not contain sensitive AWS keys",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS062/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance.tf",
+				"filename": "F:\\Code\\fail\\terraform\\aws\\instance.tf",
 				"start_line": 16,
 				"end_line": 26
 			},
-			"description": "Resource 'aws_instance.fail' has userdata with access key id defined.",
-			"severity": "ERROR",
-			"passed": false
+			"resource": "aws_instance.fail"
 		},
 		{
-			"rule_id": "AWS024",
-			"rule_description": "Kinesis stream is unencrypted.",
+			"rule_id": "aws-kms-auto-rotate-keys",
+			"legacy_rule_id": "AWS019",
+			"rule_description": "A KMS key is not configured to auto-rotate.",
 			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS024/ for more information.",
+			"impact": "Long life KMS keys increase the attack surface when compromised",
+			"resolution": "Configure KMS key to auto rotate",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/kms/auto-rotate-keys",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key#enable_key_rotation",
+				"https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html"
+			],
+			"description": "Resource 'aws_kms_key.fail_0' does not have KMS Key auto-rotation enabled.",
+			"severity": "MEDIUM",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kinesis_stream.tf",
-				"start_line": 2,
-				"end_line": 5
-			},
-			"description": "Resource 'aws_kinesis_stream.fail' defines an unencrypted Kinesis Stream.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS044",
-			"rule_description": "AWS provider has access credentials specified.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS044/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/secrets/BC_GIT_2.tf",
-				"start_line": 2,
-				"end_line": 2
-			},
-			"description": "Provider 'provider.aws' has an access key specified.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS017",
-			"rule_description": "Unencrypted S3 bucket.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS017/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3.tf",
+				"filename": "F:\\Code\\fail\\terraform\\aws\\kms.tf",
 				"start_line": 1,
-				"end_line": 25
+				"end_line": 26
 			},
-			"description": "Resource 'aws_s3_bucket.fail' defines an unencrypted S3 bucket (missing server_side_encryption_configuration block).",
-			"severity": "ERROR",
-			"passed": false
+			"resource": "aws_kms_key.fail_0"
 		},
 		{
-			"rule_id": "AWS005",
-			"rule_description": "Load balancer is exposed to the internet.",
+			"rule_id": "aws-neptune-enable-log-export",
+			"legacy_rule_id": "",
+			"rule_description": "Nepture logs export should be enabled",
 			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS005/ for more information.",
+			"impact": "Limited visibility of audit trail for changes to Neptune",
+			"resolution": "Enable export logs",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/neptune/enable-log-export",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster#enable_cloudwatch_logs_exports"
+			],
+			"description": "Resource 'aws_neptune_cluster.default' uses default value for enable_cloudwatch_logs_exports",
+			"severity": "MEDIUM",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb.tf",
-				"start_line": 13,
-				"end_line": 13
-			},
-			"description": "Resource 'aws_alb.disabled' is exposed publicly.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS055",
-			"rule_description": "ElasticSearch nodes should communicate with node to node encryption enabled.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS055/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elastisearch_domain.tf",
-				"start_line": 9,
-				"end_line": 9
-			},
-			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' explicitly disables node to node encryption on the domain.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS061",
-			"rule_description": "API Gateway stages for V1 and V2 should have access logging enabled",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS061/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/apigateway.tf",
-				"start_line": 13,
-				"end_line": 15
-			},
-			"description": "Resource 'aws_api_gateway_stage.fail' is missing access log settings block.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS045",
-			"rule_description": "CloudFront distribution does not have a WAF in front.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS045/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront.tf",
-				"start_line": 7,
-				"end_line": 82
-			},
-			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' does not have a WAF in front of it.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS031",
-			"rule_description": "Elasticsearch domain isn't encrypted at rest.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS031/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elastisearch_domain.tf",
-				"start_line": 1,
-				"end_line": 11
-			},
-			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an unencrypted Elasticsearch domain (missing encrypt_at_rest block).",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS032",
-			"rule_description": "Elasticsearch domain uses plaintext traffic for node to node communication.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS032/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elastisearch_domain.tf",
-				"start_line": 8,
-				"end_line": 10
-			},
-			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an Elasticsearch domain with plaintext traffic (enabled attribute set to false).",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS008",
-			"rule_description": "An inline ingress security group rule allows traffic from `/0`.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS008/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_group.tf",
-				"start_line": 7,
-				"end_line": 7
-			},
-			"description": "Resource 'aws_security_group.fail' defines a fully open ingress security group.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS008",
-			"rule_description": "An inline ingress security group rule allows traffic from `/0`.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS008/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_group.tf",
-				"start_line": 13,
-				"end_line": 13
-			},
-			"description": "Resource 'aws_security_group.fail' defines a fully open ingress security group.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS003",
-			"rule_description": "AWS Classic resource usage.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS003/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache_security_group.tf",
-				"start_line": 2,
-				"end_line": 5
-			},
-			"description": "Resource 'aws_elasticache_security_group.bar' uses EC2 Classic. Use a VPC instead.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AZU014",
-			"rule_description": "Storage accounts should be configured to only accept transfers that are over secure connections",
-			"rule_provider": "azure",
-			"link": "See https://tfsec.dev/docs/azure/AZU014/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage.tf",
-				"start_line": 1,
-				"end_line": 15
-			},
-			"description": "Resource 'azurerm_storage_account.example' explicitly turns off secure transfer to storage account.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS011",
-			"rule_description": "A resource is marked as publicly accessible.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS011/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dms.tf",
-				"start_line": 4,
-				"end_line": 4
-			},
-			"description": "Resource 'aws_dms_replication_instance.public' is exposed publicly.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS023",
-			"rule_description": "ECR repository has image scans disabled.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS023/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr.tf",
-				"start_line": 1,
-				"end_line": 4
-			},
-			"description": "Resource 'aws_ecr_repository.name' defines a disabled ECR image scan.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS033",
-			"rule_description": "Elasticsearch doesn't enforce HTTPS traffic.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS033/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elastisearch_domain.tf",
-				"start_line": 1,
-				"end_line": 11
-			},
-			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an Elasticsearch domain with plaintext traffic (missing domain_endpoint_options block).",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS059",
-			"rule_description": "Athena databases and workgroup configurations are created unencrypted at rest by default, they should be encrypted",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS059/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena.tf",
-				"start_line": 11,
-				"end_line": 13
-			},
-			"description": "Resource 'aws_athena_workgroup.fail' missing encryption configuration block.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS060",
-			"rule_description": "Athena workgroups should enforce configuration to prevent client disabling encryption",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS060/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena.tf",
-				"start_line": 7,
+				"filename": "F:\\Code\\fail\\terraform\\aws\\neptune.tf",
+				"start_line": 5,
 				"end_line": 14
 			},
-			"description": "Resource 'aws_athena_workgroup.fail' has enforce_workgroup_configuration set to false.",
-			"severity": "ERROR",
-			"passed": false
+			"resource": "aws_neptune_cluster.default"
 		},
 		{
-			"rule_id": "AWS065",
-			"rule_description": "Cloudtrail should be encrypted at rest to secure access to sensitive trail data",
+			"rule_id": "aws-athena-enable-at-rest-encryption",
+			"legacy_rule_id": "AWS059",
+			"rule_description": "Athena databases and workgroup configurations are created unencrypted at rest by default, they should be encrypted",
 			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS065/ for more information.",
+			"impact": "Data can be read if the Athena Database is compromised",
+			"resolution": "Enable encryption at rest for Athena databases and workgroup configurations",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/athena/enable-at-rest-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup#encryption_configuration",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_database#encryption_configuration",
+				"https://docs.aws.amazon.com/athena/latest/ug/encryption.html"
+			],
+			"description": "Resource 'aws_athena_workgroup.fail' missing encryption configuration block.",
+			"severity": "HIGH",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail.tf",
-				"start_line": 1,
+				"filename": "F:\\Code\\fail\\terraform\\aws\\athena.tf",
+				"start_line": 4,
+				"end_line": 15
+			},
+			"resource": "aws_athena_workgroup.fail"
+		},
+		{
+			"rule_id": "aws-elasticache-add-description-for-security-group",
+			"legacy_rule_id": "",
+			"rule_description": "Missing description for security group/security group rule.",
+			"rule_provider": "aws",
+			"impact": "Descriptions provide context for the firewall rule reasons",
+			"resolution": "Add descriptions for all security groups and rules",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elasticache/add-description-for-security-group",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_security_group#description"
+			],
+			"description": "Resource 'aws_elasticache_security_group.bar' uses default value for description",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache_security_group.tf",
+				"start_line": 2,
 				"end_line": 5
 			},
-			"description": "Resource 'aws_cloudtrail.fail' does not have a kms_key_id set.",
-			"severity": "ERROR",
-			"passed": false
+			"resource": "aws_elasticache_security_group.bar"
 		},
 		{
-			"rule_id": "AZU013",
-			"rule_description": "Trusted Microsoft Services should have bypass access to Storage accounts",
-			"rule_provider": "azure",
-			"link": "See https://tfsec.dev/docs/azure/AZU013/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/netrules.tf",
-				"start_line": 1,
-				"end_line": 9
-			},
-			"description": "Resource 'azurerm_storage_account_network_rules.test' defines a network rule that doesn't allow bypass of Microsoft Services.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "GEN003",
-			"rule_description": "Potentially sensitive data stored in block attribute.",
-			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/secrets/BC_GIT_6.tf",
-				"start_line": 7,
-				"end_line": 7
-			},
-			"description": "Block 'azuread_user.james_woolfenden' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS021",
-			"rule_description": "CloudFront distribution uses outdated SSL/TLS protocols.",
+			"rule_id": "aws-elasticache-enable-in-transit-encryption",
+			"legacy_rule_id": "AWS036",
+			"rule_description": "Elasticache Replication Group uses unencrypted traffic.",
 			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS021/ for more information.",
+			"impact": "In transit data in the Replication Group could be read if intercepted",
+			"resolution": "Enable in transit encryption for replication group",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elasticache/enable-in-transit-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#transit_encryption_enabled",
+				"https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html"
+			],
+			"description": "Resource 'aws_elasticache_replication_group.fail' defines an unencrypted Elasticache Replication Group (missing transit_encryption_enabled attribute).",
+			"severity": "HIGH",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront.tf",
-				"start_line": 76,
-				"end_line": 76
-			},
-			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' defines outdated SSL/TLS policies (not using TLSv1.2_2019)",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS002",
-			"rule_description": "S3 Bucket does not have logging enabled.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS002/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3.tf",
-				"start_line": 1,
-				"end_line": 25
-			},
-			"description": "Resource 'aws_s3_bucket.fail' does not have logging enabled.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS077",
-			"rule_description": "S3 Data should be versioned",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS077/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3.tf",
-				"start_line": 1,
-				"end_line": 25
-			},
-			"description": "Resource 'aws_s3_bucket.fail' has versioning block but is disabled",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "GEN003",
-			"rule_description": "Potentially sensitive data stored in block attribute.",
-			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/opsworks_rds_db_instance.tf",
-				"start_line": 5,
-				"end_line": 5
-			},
-			"description": "Block 'aws_opsworks_rds_db_instance.my_instance' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS011",
-			"rule_description": "A resource is marked as publicly accessible.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS011/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance.tf",
-				"start_line": 30,
-				"end_line": 30
-			},
-			"description": "Resource 'aws_db_instance.default' is exposed publicly.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS064",
-			"rule_description": "Cloudtrail log validation should be enabled to prevent tampering of log data",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS064/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail.tf",
-				"start_line": 1,
-				"end_line": 5
-			},
-			"description": "Resource 'aws_cloudtrail.fail' does not enable log file validation.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AZU010",
-			"rule_description": "Ensure HTTPS is enabled on Azure Storage Account",
-			"rule_provider": "azure",
-			"link": "See https://tfsec.dev/docs/azure/AZU010/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage.tf",
-				"start_line": 7,
-				"end_line": 7
-			},
-			"description": "Resource 'azurerm_storage_account.example' enable_https_traffic_only disabled.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS035",
-			"rule_description": "Unencrypted Elasticache Replication Group.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS035/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache_replication.tf",
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache_replication.tf",
 				"start_line": 1,
 				"end_line": 12
 			},
-			"description": "Resource 'aws_elasticache_replication_group.fail' defines an unencrypted Elasticache Replication Group (missing at_rest_encryption_enabled attribute).",
-			"severity": "ERROR",
-			"passed": false
+			"resource": "aws_elasticache_replication_group.fail"
 		},
 		{
-			"rule_id": "GEN003",
+			"rule_id": "azure-storage-allow-microsoft-service-bypass",
+			"legacy_rule_id": "AZU013",
+			"rule_description": "Trusted Microsoft Services should have bypass access to Storage accounts",
+			"rule_provider": "azure",
+			"impact": "Trusted Microsoft Services won't be able to access storage account unless rules set to allow",
+			"resolution": "Allow Trusted Microsoft Services to bypass",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/azure/storage/allow-microsoft-service-bypass",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#bypass",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#bypass",
+				"https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services"
+			],
+			"description": "Resource 'azurerm_storage_account.example' defines a network rule that doesn't allow bypass of Microsoft Services.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\azurerm\\storage.tf",
+				"start_line": 1,
+				"end_line": 15
+			},
+			"resource": "azurerm_storage_account.example"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
 			"rule_description": "Potentially sensitive data stored in block attribute.",
 			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'aws_redshift_cluster.fail' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift.tf",
+				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift.tf",
 				"start_line": 6,
 				"end_line": 6
 			},
-			"description": "Block 'aws_redshift_cluster.fail' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
+			"resource": "aws_redshift_cluster.fail"
 		},
 		{
-			"rule_id": "AWS057",
-			"rule_description": "Domain logging should be enabled for Elastic Search domains",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS057/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elastisearch_domain.tf",
-				"start_line": 1,
-				"end_line": 11
-			},
-			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' does not configure logging at rest on the domain.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "GEN003",
-			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_id": "general-secrets-sensitive-in-attribute-value",
+			"legacy_rule_id": "GEN005",
+			"rule_description": "The attribute has potentially sensitive data, passwords, tokens or keys in it",
 			"rule_provider": "general",
-			"link": "See https://tfsec.dev/docs/general/GEN003/ for more information.",
+			"impact": "Sensitive credentials may be compromised",
+			"resolution": "Check the code for vulnerabilities and move to variables",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute-value",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'provider.aws' includes potentially sensitive data. Check for AWS Access Key Id",
+			"severity": "CRITICAL",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/provider.tf",
-				"start_line": 11,
-				"end_line": 11
-			},
-			"description": "Block 'provider.aws' includes a potentially sensitive attribute which is defined within the project.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS048",
-			"rule_description": "EFS Encryption has not been enabled",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS048/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/efs.tf",
-				"start_line": 13,
-				"end_line": 13
-			},
-			"description": "Resource 'aws_efs_file_system.sharedstore' actively does not have encryption applied.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AZU015",
-			"rule_description": "The minimum TLS version for Storage Accounts should be TLS1_2",
-			"rule_provider": "azure",
-			"link": "See https://tfsec.dev/docs/azure/AZU015/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage.tf",
-				"start_line": 1,
-				"end_line": 15
-			},
-			"description": "Resource 'azurerm_storage_account.example' should have the min tls version set to TLS1_2 .",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS046",
-			"rule_description": "AWS IAM policy document has wildcard action statement.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS046/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/data.iam_policy_document.tf",
-				"start_line": 4,
-				"end_line": 12
-			},
-			"description": "Resource 'data.aws_iam_policy_document.fail' has a wildcard action specified.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS036",
-			"rule_description": "Elasticache Replication Group uses unencrypted traffic.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS036/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache_replication.tf",
-				"start_line": 1,
-				"end_line": 12
-			},
-			"description": "Resource 'aws_elasticache_replication_group.fail' defines an unencrypted Elasticache Replication Group (missing transit_encryption_enabled attribute).",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS001",
-			"rule_description": "S3 Bucket has an ACL defined which allows public access.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS001/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3.tf",
+				"filename": "F:\\Code\\fail\\secrets\\BC_GIT_2.tf",
 				"start_line": 2,
 				"end_line": 2
 			},
-			"description": "Resource 'aws_s3_bucket.fail' has an ACL which allows public access.",
-			"severity": "WARNING",
-			"passed": false
+			"resource": "provider.aws"
 		},
 		{
-			"rule_id": "AWS022",
-			"rule_description": "A MSK cluster allows unencrypted data in transit.",
+			"rule_id": "aws-cloudtrail-enable-log-validation",
+			"legacy_rule_id": "AWS064",
+			"rule_description": "Cloudtrail log validation should be enabled to prevent tampering of log data",
 			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS022/ for more information.",
+			"impact": "Illicit activity could be removed from the logs",
+			"resolution": "Turn on log validation for Cloudtrail",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudtrail/enable-log-validation",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#enable_log_file_validation",
+				"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html"
+			],
+			"description": "Resource 'aws_cloudtrail.fail' does not enable log file validation.",
+			"severity": "HIGH",
+			"status": "failed",
 			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/msk.tf",
-				"start_line": 1,
-				"end_line": 3
-			},
-			"description": "Resource 'aws_msk_cluster.name' defines a MSK cluster that allows plaintext as well as TLS encrypted data in transit (missing encryption_info block).",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AZU013",
-			"rule_description": "Trusted Microsoft Services should have bypass access to Storage accounts",
-			"rule_provider": "azure",
-			"link": "See https://tfsec.dev/docs/azure/AZU013/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage.tf",
-				"start_line": 11,
-				"end_line": 14
-			},
-			"description": "Resource 'network_rules.' defines a network rule that doesn't allow bypass of Microsoft Services.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS072",
-			"rule_description": "Viewer Protocol Policy in Cloudfront Distribution Cache should always be set to HTTPS",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS072/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront.tf",
-				"start_line": 24,
-				"end_line": 41
-			},
-			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' does not use HTTPS in Viewer Protocol Policy",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS018",
-			"rule_description": "Missing description for security group/security group rule.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS018/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_group.tf",
-				"start_line": 1,
-				"end_line": 16
-			},
-			"description": "Resource 'aws_security_group.fail' should include a description for auditing purposes.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS044",
-			"rule_description": "AWS provider has access credentials specified.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS044/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/provider.tf",
-				"start_line": 10,
-				"end_line": 10
-			},
-			"description": "Provider 'provider.aws' has an access key specified.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS052",
-			"rule_description": "RDS encryption has not been enabled at a DB Instance level.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS052/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance.tf",
-				"start_line": 27,
-				"end_line": 27
-			},
-			"description": "Resource 'aws_db_instance.default' has storage encrypted set to false",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS019",
-			"rule_description": "A KMS key is not configured to auto-rotate.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS019/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kms.tf",
-				"start_line": 1,
-				"end_line": 26
-			},
-			"description": "Resource 'aws_kms_key.fail_0' does not have KMS Key auto-rotation enabled.",
-			"severity": "WARNING",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS012",
-			"rule_description": "A resource has a public IP address.",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS012/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance.tf",
-				"start_line": 12,
-				"end_line": 12
-			},
-			"description": "Resource 'aws_instance.fail' has a public IP address associated.",
-			"severity": "ERROR",
-			"passed": false
-		},
-		{
-			"rule_id": "AWS063",
-			"rule_description": "Cloudtrail should be enabled in all regions regardless of where your AWS resources are generally homed",
-			"rule_provider": "aws",
-			"link": "See https://tfsec.dev/docs/aws/AWS063/ for more information.",
-			"location": {
-				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail.tf",
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail.tf",
 				"start_line": 1,
 				"end_line": 5
 			},
+			"resource": "aws_cloudtrail.fail"
+		},
+		{
+			"rule_id": "aws-elastic-search-encrypt-replication-group",
+			"legacy_rule_id": "AWS035",
+			"rule_description": "Unencrypted Elasticache Replication Group.",
+			"rule_provider": "aws",
+			"impact": "Data in the replication group could be readable if compromised",
+			"resolution": "Enable encryption for replication group",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-search/encrypt-replication-group",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#at_rest_encryption_enabled",
+				"https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html"
+			],
+			"description": "Resource 'aws_elasticache_replication_group.fail' defines an unencrypted Elasticache Replication Group (missing at_rest_encryption_enabled attribute).",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache_replication.tf",
+				"start_line": 1,
+				"end_line": 12
+			},
+			"resource": "aws_elasticache_replication_group.fail"
+		},
+		{
+			"rule_id": "aws-vpc-add-description-to-security-group",
+			"legacy_rule_id": "AWS018",
+			"rule_description": "Missing description for security group/security group rule.",
+			"rule_provider": "aws",
+			"impact": "Descriptions provide context for the firewall rule reasons",
+			"resolution": "Add descriptions for all security groups and rules",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/vpc/add-description-to-security-group",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule",
+				"https://www.cloudconformity.com/knowledge-base/aws/EC2/security-group-rules-description.html"
+			],
+			"description": "Resource 'aws_security_group.fail' should include a description for auditing purposes.",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\security_group.tf",
+				"start_line": 1,
+				"end_line": 16
+			},
+			"resource": "aws_security_group.fail"
+		},
+		{
+			"rule_id": "aws-dynamodb-table-customer-key",
+			"legacy_rule_id": "AWS092",
+			"rule_description": "DynamoDB tables should use at rest encryption with a Customer Managed Key",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys does not allow for fine grained control",
+			"resolution": "Enable server side encryption with a customer managed key",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/dynamodb/table-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#server_side_encryption",
+				"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.html"
+			],
+			"description": "Resource 'aws_dynamodb_table.default' is not using KMS CMK for encryption",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamocdb.tf",
+				"start_line": 1,
+				"end_line": 13
+			},
+			"resource": "aws_dynamodb_table.default"
+		},
+		{
+			"rule_id": "aws-elb-drop-invalid-headers",
+			"legacy_rule_id": "AWS083",
+			"rule_description": "Load balancers should drop invalid headers",
+			"rule_provider": "aws",
+			"impact": "Invalid headers being passed through to the target of the load balance may exploit vulnerabilities",
+			"resolution": "Set drop_invalid_header_fields to true",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elb/drop-invalid-headers",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb#drop_invalid_header_fields",
+				"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html"
+			],
+			"description": "Resource 'aws_alb.disabled' does not drop invalid header fields",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\lb.tf",
+				"start_line": 12,
+				"end_line": 17
+			},
+			"resource": "aws_alb.disabled"
+		},
+		{
+			"rule_id": "aws-lambda-enable-tracing",
+			"legacy_rule_id": "",
+			"rule_description": "Lambda functions should have X-Ray tracing enabled",
+			"rule_provider": "aws",
+			"impact": "Without full tracing enabled, it is difficult to trace the flow of logs",
+			"resolution": "Enable tracing",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/lambda/enable-tracing",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#mode"
+			],
+			"description": "Resource 'aws_lambda_function.morefail' uses default value for tracing_config.mode",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda.tf",
+				"start_line": 10,
+				"end_line": 21
+			},
+			"resource": "aws_lambda_function.morefail"
+		},
+		{
+			"rule_id": "aws-s3-enable-bucket-encryption",
+			"legacy_rule_id": "AWS017",
+			"rule_description": "Unencrypted S3 bucket.",
+			"rule_provider": "aws",
+			"impact": "The bucket objects could be read if compromised",
+			"resolution": "Configure bucket encryption",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/s3/enable-bucket-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption",
+				"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html"
+			],
+			"description": "Resource 'aws_s3_bucket.fail' defines an unencrypted S3 bucket (missing server_side_encryption_configuration block).",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\s3.tf",
+				"start_line": 1,
+				"end_line": 25
+			},
+			"resource": "aws_s3_bucket.fail"
+		},
+		{
+			"rule_id": "azure-storage-use-secure-tls-policy",
+			"legacy_rule_id": "AZU015",
+			"rule_description": "The minimum TLS version for Storage Accounts should be TLS1_2",
+			"rule_provider": "azure",
+			"impact": "The TLS version being outdated and has known vulnerabilities",
+			"resolution": "Use a more recent TLS/SSL policy for the load balancer",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/azure/storage/use-secure-tls-policy",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#min_tls_version",
+				"https://docs.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version"
+			],
+			"description": "Resource 'azurerm_storage_account.example' should have the min tls version set to TLS1_2 .",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\azurerm\\storage.tf",
+				"start_line": 1,
+				"end_line": 15
+			},
+			"resource": "azurerm_storage_account.example"
+		},
+		{
+			"rule_id": "aws-cloudfront-enable-waf",
+			"legacy_rule_id": "AWS045",
+			"rule_description": "CloudFront distribution does not have a WAF in front.",
+			"rule_provider": "aws",
+			"impact": "Complex web application attacks can more easily be performed without a WAF",
+			"resolution": "Enable WAF for the CloudFront distribution",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudfront/enable-waf",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#web_acl_id",
+				"https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-features.html"
+			],
+			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' does not have a WAF in front of it.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront.tf",
+				"start_line": 7,
+				"end_line": 82
+			},
+			"resource": "aws_cloudfront_distribution.s3_distribution"
+		},
+		{
+			"rule_id": "aws-cloudwatch-log-group-customer-key",
+			"legacy_rule_id": "AWS089",
+			"rule_description": "CloudWatch log groups should be encrypted using CMK",
+			"rule_provider": "aws",
+			"impact": "Log data may be leaked if the logs are compromised. No auditing of who have viewed the logs.",
+			"resolution": "Enable CMK encryption of CloudWatch Log Groups",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudwatch/log-group-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group#kms_key_id",
+				"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html"
+			],
+			"description": "Resource 'aws_cloudwatch_log_group.logs' is only using default encryption",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudwatch.tf",
+				"start_line": 5,
+				"end_line": 8
+			},
+			"resource": "aws_cloudwatch_log_group.logs"
+		},
+		{
+			"rule_id": "aws-documentdb-encryption-customer-key",
+			"legacy_rule_id": "",
+			"rule_description": "DocumentDB encryption should use Customer Managed Keys",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys does not allow for fine grained control",
+			"resolution": "Enable encryption using customer managed keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/documentdb/encryption-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#kms_key_id"
+			],
+			"description": "Resource 'aws_docdb_cluster.examplea' does not use CMK",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\docdb.tf",
+				"start_line": 7,
+				"end_line": 24
+			},
+			"resource": "aws_docdb_cluster.examplea"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
+			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_provider": "general",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'aws_rds_cluster.fail2' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\rds.tf",
+				"start_line": 16,
+				"end_line": 16
+			},
+			"resource": "aws_rds_cluster.fail2"
+		},
+		{
+			"rule_id": "aws-s3-enable-bucket-logging",
+			"legacy_rule_id": "AWS002",
+			"rule_description": "S3 Bucket does not have logging enabled.",
+			"rule_provider": "aws",
+			"impact": "There is no way to determine the access to this bucket",
+			"resolution": "Add a logging block to the resource to enable access logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/s3/enable-bucket-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket",
+				"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html"
+			],
+			"description": "Resource 'aws_s3_bucket.fail' does not have logging enabled.",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\s3.tf",
+				"start_line": 1,
+				"end_line": 25
+			},
+			"resource": "aws_s3_bucket.fail"
+		},
+		{
+			"rule_id": "aws-ssm-secret-use-customer-key",
+			"legacy_rule_id": "AWS095",
+			"rule_description": "Secrets Manager should use customer managed keys",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys reduces the flexibility and control over the encryption key",
+			"resolution": "Use customer managed keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ssm/secret-use-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret#kms_key_id",
+				"https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html#asm-encrypt"
+			],
+			"description": "Resource 'aws_secretsmanager_secret.default' does not use CMK",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\secret_manager.tf",
+				"start_line": 1,
+				"end_line": 3
+			},
+			"resource": "aws_secretsmanager_secret.default"
+		},
+		{
+			"rule_id": "aws-elastic-search-enable-logging",
+			"legacy_rule_id": "AWS070",
+			"rule_description": "AWS ES Domain should have logging enabled",
+			"rule_provider": "aws",
+			"impact": "Logging provides vital information about access and usage",
+			"resolution": "Enable logging for ElasticSearch domains",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-search/enable-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+			],
+			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' is missing 'AUDIT_LOGS` in one of the `log_publishing_options`-`log_type` attributes so audit log is not enabled",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elastisearch_domain.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled"
+		},
+		{
+			"rule_id": "aws-misc-no-exposing-plaintext-credentials",
+			"legacy_rule_id": "AWS044",
+			"rule_description": "AWS provider has access credentials specified.",
+			"rule_provider": "aws",
+			"impact": "Exposing the credentials in the Terraform provider increases the risk of secret leakage",
+			"resolution": "Don't include access credentials in plain text",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/misc/no-exposing-plaintext-credentials",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs#argument-reference",
+				"https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html"
+			],
+			"description": "Provider 'provider.aws' has an access key specified.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\provider.tf",
+				"start_line": 10,
+				"end_line": 10
+			},
+			"resource": "provider.aws"
+		},
+		{
+			"rule_id": "aws-msk-enable-in-transit-encryption",
+			"legacy_rule_id": "AWS022",
+			"rule_description": "A MSK cluster allows unencrypted data in transit.",
+			"rule_provider": "aws",
+			"impact": "Intercepted data can be read in transit",
+			"resolution": "Enable in transit encryption",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/msk/enable-in-transit-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#encryption_info-argument-reference",
+				"https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html"
+			],
+			"description": "Resource 'aws_msk_cluster.name' defines a MSK cluster that allows plaintext as well as TLS encrypted data in transit (missing encryption_info block).",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\msk.tf",
+				"start_line": 1,
+				"end_line": 3
+			},
+			"resource": "aws_msk_cluster.name"
+		},
+		{
+			"rule_id": "aws-rds-backup-retention-specified",
+			"legacy_rule_id": "AWS091",
+			"rule_description": "RDS Cluster and RDS instance should have backup retention longer than default 1 day",
+			"rule_provider": "aws",
+			"impact": "Potential loss of data and short opportunity for recovery",
+			"resolution": "Explicitly set the retention period to greater than the default",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/backup-retention-specified",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster#backup_retention_period",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period",
+				"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupRetention"
+			],
+			"description": "Resource 'aws_rds_cluster.fail2' has backup retention period set to a low value",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\rds.tf",
+				"start_line": 13,
+				"end_line": 13
+			},
+			"resource": "aws_rds_cluster.fail2"
+		},
+		{
+			"rule_id": "aws-rds-backup-retention-specified",
+			"legacy_rule_id": "AWS091",
+			"rule_description": "RDS Cluster and RDS instance should have backup retention longer than default 1 day",
+			"rule_provider": "aws",
+			"impact": "Potential loss of data and short opportunity for recovery",
+			"resolution": "Explicitly set the retention period to greater than the default",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/backup-retention-specified",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster#backup_retention_period",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period",
+				"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupRetention"
+			],
+			"description": "Resource 'aws_db_instance.default' has backup retention period set to a low value",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance.tf",
+				"start_line": 26,
+				"end_line": 26
+			},
+			"resource": "aws_db_instance.default"
+		},
+		{
+			"rule_id": "aws-documentdb-enable-storage-encryption",
+			"legacy_rule_id": "",
+			"rule_description": "DocumentDB storage must be encrypted",
+			"rule_provider": "aws",
+			"impact": "Unencrypted sensitive data is vulnerable to compromise.",
+			"resolution": "Enable storage encryption",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/documentdb/enable-storage-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#storage_encrypted"
+			],
+			"description": "Resource 'aws_docdb_cluster.examplea' uses default value for storage_encrypted",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\docdb.tf",
+				"start_line": 7,
+				"end_line": 24
+			},
+			"resource": "aws_docdb_cluster.examplea"
+		},
+		{
+			"rule_id": "aws-dynamodb-enable-at-rest-encryption",
+			"legacy_rule_id": "AWS081",
+			"rule_description": "DAX Cluster should always encrypt data at rest",
+			"rule_provider": "aws",
+			"impact": "Data can be freely read if compromised",
+			"resolution": "Enable encryption at rest for DAX Cluster",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/dynamodb/enable-at-rest-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dax_cluster#server_side_encryption",
+				"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAXEncryptionAtRest.html",
+				"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html"
+			],
+			"description": "DAX cluster 'aws_dax_cluster.name' does not have server side encryption configured. By default it is disabled.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\dax.tf",
+				"start_line": 1,
+				"end_line": 7
+			},
+			"resource": "aws_dax_cluster.name"
+		},
+		{
+			"rule_id": "aws-ecr-repository-customer-key",
+			"legacy_rule_id": "AWS093",
+			"rule_description": "ECR Repository should use customer managed keys to allow more control",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys does not allow for fine grained control",
+			"resolution": "Use customer managed keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ecr/repository-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#encryption_configuration",
+				"https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html"
+			],
+			"description": "Resource 'aws_ecr_repository.name' does not have CMK encryption configured",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr.tf",
+				"start_line": 1,
+				"end_line": 4
+			},
+			"resource": "aws_ecr_repository.name"
+		},
+		{
+			"rule_id": "aws-ecs-enable-container-insight",
+			"legacy_rule_id": "AWS090",
+			"rule_description": "ECS clusters should have container insights enabled",
+			"rule_provider": "aws",
+			"impact": "Not all metrics and logs may be gathered for containers when Container Insights isn't enabled",
+			"resolution": "Enable Container Insights",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ecs/enable-container-insight",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster#setting",
+				"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html"
+			],
+			"description": "Resource 'aws_ecs_cluster.my_cluster' does not have containerInsights enabled",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs.tf",
+				"start_line": 1,
+				"end_line": 3
+			},
+			"resource": "aws_ecs_cluster.my_cluster"
+		},
+		{
+			"rule_id": "aws-elastic-search-enable-domain-logging",
+			"legacy_rule_id": "AWS057",
+			"rule_description": "Domain logging should be enabled for Elastic Search domains",
+			"rule_provider": "aws",
+			"impact": "Logging provides vital information about access and usage",
+			"resolution": "Enable logging for ElasticSearch domains",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-search/enable-domain-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_type",
+				"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createdomain-configure-slow-logs.html"
+			],
+			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' does not configure logging at rest on the domain.",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elastisearch_domain.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled"
+		},
+		{
+			"rule_id": "aws-elbv2-alb-not-public",
+			"legacy_rule_id": "AWS005",
+			"rule_description": "Load balancer is exposed to the internet.",
+			"rule_provider": "aws",
+			"impact": "The load balancer is exposed on the internet",
+			"resolution": "Switch to an internal load balancer or add a tfsec ignore",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elbv2/alb-not-public",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb"
+			],
+			"description": "Resource 'aws_alb.disabled' is exposed publicly.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\lb.tf",
+				"start_line": 13,
+				"end_line": 13
+			},
+			"resource": "aws_alb.disabled"
+		},
+		{
+			"rule_id": "aws-mq-enable-audit-logging",
+			"legacy_rule_id": "",
+			"rule_description": "MQ Broker should have audit logging enabled",
+			"rule_provider": "aws",
+			"impact": "Without audit logging it is difficult to trace activity in the MQ broker",
+			"resolution": "Enable audit logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/mq/enable-audit-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#audit"
+			],
+			"description": "Resource 'aws_mq_broker.example' uses default value for logs.audit",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\mq_broker.tf",
+				"start_line": 1,
+				"end_line": 13
+			},
+			"resource": "aws_mq_broker.example"
+		},
+		{
+			"rule_id": "aws-api-gateway-enable-tracing",
+			"legacy_rule_id": "",
+			"rule_description": "API Gateway must have X-Ray tracing enabled",
+			"rule_provider": "aws",
+			"impact": "WIthout full tracing enabled it is difficult to trace the flow of logs",
+			"resolution": "Enable tracing",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/api-gateway/enable-tracing",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_stage#xray_tracing_enabled"
+			],
+			"description": "Resource 'aws_api_gateway_stage.fail' uses default value for xray_tracing_enabled",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\apigateway.tf",
+				"start_line": 13,
+				"end_line": 15
+			},
+			"resource": "aws_api_gateway_stage.fail"
+		},
+		{
+			"rule_id": "aws-cloudfront-enforce-https",
+			"legacy_rule_id": "AWS020",
+			"rule_description": "CloudFront distribution allows unencrypted (HTTP) communications.",
+			"rule_provider": "aws",
+			"impact": "CloudFront is available through an unencrypted connection",
+			"resolution": "Only allow HTTPS for CloudFront distribution communication",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudfront/enforce-https",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#viewer_protocol_policy",
+				"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-s3-origin.html"
+			],
+			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' defines a CloudFront distribution that allows unencrypted communications.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront.tf",
+				"start_line": 37,
+				"end_line": 37
+			},
+			"resource": "aws_cloudfront_distribution.s3_distribution"
+		},
+		{
+			"rule_id": "aws-codebuild-enable-encryption",
+			"legacy_rule_id": "AWS080",
+			"rule_description": "CodeBuild Project artifacts encryption should not be disabled",
+			"rule_provider": "aws",
+			"impact": "CodeBuild project artifacts are unencrypted",
+			"resolution": "Enable encryption for CodeBuild project artifacts",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/codebuild/enable-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#encryption_disabled",
+				"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html",
+				"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html"
+			],
+			"description": "CodeBuild project 'aws_codebuild_project.default' does not encrypt produced artifacts",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\codebuild.tf",
+				"start_line": 7,
+				"end_line": 7
+			},
+			"resource": "aws_codebuild_project.default"
+		},
+		{
+			"rule_id": "aws-vpc-no-public-ingress-sg",
+			"legacy_rule_id": "AWS008",
+			"rule_description": "An inline ingress security group rule allows traffic from /0.",
+			"rule_provider": "aws",
+			"impact": "The port is exposed for ingress from the internet",
+			"resolution": "Set a more restrictive cidr range",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/vpc/no-public-ingress-sg",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group"
+			],
+			"description": "Resource 'aws_security_group.fail' defines a fully open ingress security group.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\security_group.tf",
+				"start_line": 7,
+				"end_line": 7
+			},
+			"resource": "aws_security_group.fail"
+		},
+		{
+			"rule_id": "azure-storage-allow-microsoft-service-bypass",
+			"legacy_rule_id": "AZU013",
+			"rule_description": "Trusted Microsoft Services should have bypass access to Storage accounts",
+			"rule_provider": "azure",
+			"impact": "Trusted Microsoft Services won't be able to access storage account unless rules set to allow",
+			"resolution": "Allow Trusted Microsoft Services to bypass",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/azure/storage/allow-microsoft-service-bypass",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#bypass",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#bypass",
+				"https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services"
+			],
+			"description": "Resource 'azurerm_storage_account_network_rules.test' defines a network rule that doesn't allow bypass of Microsoft Services.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\azurerm\\netrules.tf",
+				"start_line": 1,
+				"end_line": 9
+			},
+			"resource": "azurerm_storage_account_network_rules.test"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
+			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_provider": "general",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'provider.aws' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\secrets\\BC_GIT_2.tf",
+				"start_line": 3,
+				"end_line": 3
+			},
+			"resource": "provider.aws"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
+			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_provider": "general",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'aws_opsworks_rds_db_instance.my_instance' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\opsworks_rds_db_instance.tf",
+				"start_line": 5,
+				"end_line": 5
+			},
+			"resource": "aws_opsworks_rds_db_instance.my_instance"
+		},
+		{
+			"rule_id": "aws-msk-enable-logging",
+			"legacy_rule_id": "",
+			"rule_description": "Ensure MSK Cluster logging is enabled",
+			"rule_provider": "aws",
+			"impact": "Without logging it is difficult to trace issues",
+			"resolution": "Enable logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/msk/enable-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#"
+			],
+			"description": "Resource 'aws_msk_cluster.name' does not have any broker logging enabled",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\msk.tf",
+				"start_line": 1,
+				"end_line": 3
+			},
+			"resource": "aws_msk_cluster.name"
+		},
+		{
+			"rule_id": "aws-redshift-non-default-vpc-deployment",
+			"legacy_rule_id": "AWS087",
+			"rule_description": "Redshift cluster should be deployed into a specific VPC",
+			"rule_provider": "aws",
+			"impact": "Redshift cluster does not benefit from VPC security if it is deployed in EC2 classic mode",
+			"resolution": "Deploy Redshift cluster into a non default VPC",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/redshift/non-default-vpc-deployment",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/redshift_cluster#cluster_subnet_group_name",
+				"https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html"
+			],
+			"description": "Resource 'aws_redshift_cluster.fail' is being deployed outside of a VPC",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_redshift_cluster.fail"
+		},
+		{
+			"rule_id": "aws-s3-enable-versioning",
+			"legacy_rule_id": "AWS077",
+			"rule_description": "S3 Data should be versioned",
+			"rule_provider": "aws",
+			"impact": "Deleted or modified data would not be recoverable",
+			"resolution": "Enable versioning to protect against accidental/malicious removal or modification",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/s3/enable-versioning",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#versioning",
+				"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html"
+			],
+			"description": "Resource 'aws_s3_bucket.fail' has versioning block but is disabled",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\s3.tf",
+				"start_line": 1,
+				"end_line": 25
+			},
+			"resource": "aws_s3_bucket.fail"
+		},
+		{
+			"rule_id": "aws-efs-enable-at-rest-encryption",
+			"legacy_rule_id": "AWS048",
+			"rule_description": "EFS Encryption has not been enabled",
+			"rule_provider": "aws",
+			"impact": "Data can be read from the EFS if compromised",
+			"resolution": "Enable encryption for EFS",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/efs/enable-at-rest-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system",
+				"https://docs.aws.amazon.com/efs/latest/ug/encryption.html"
+			],
+			"description": "Resource 'aws_efs_file_system.sharedstore' actively does not have encryption applied.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\efs.tf",
+				"start_line": 13,
+				"end_line": 13
+			},
+			"resource": "aws_efs_file_system.sharedstore"
+		},
+		{
+			"rule_id": "aws-elastic-search-enable-in-transit-encryption",
+			"legacy_rule_id": "AWS032",
+			"rule_description": "Elasticsearch domain uses plaintext traffic for node to node communication.",
+			"rule_provider": "aws",
+			"impact": "In transit data between nodes could be read if intercepted",
+			"resolution": "Enable encrypted node to node communication",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-search/enable-in-transit-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#encrypt_at_rest",
+				"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/ntn.html"
+			],
+			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an Elasticsearch domain with plaintext traffic (enabled attribute set to false).",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elastisearch_domain.tf",
+				"start_line": 9,
+				"end_line": 9
+			},
+			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled"
+		},
+		{
+			"rule_id": "aws-elastic-service-enable-domain-encryption",
+			"legacy_rule_id": "AWS031",
+			"rule_description": "Elasticsearch domain isn't encrypted at rest.",
+			"rule_provider": "aws",
+			"impact": "Data will be readable if compromised",
+			"resolution": "Enable ElasticSearch domain encryption",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-service/enable-domain-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#encrypt_at_rest",
+				"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/encryption-at-rest.html"
+			],
+			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an unencrypted Elasticsearch domain (missing encrypt_at_rest block).",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elastisearch_domain.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled"
+		},
+		{
+			"rule_id": "aws-elasticache-enable-backup-retention",
+			"legacy_rule_id": "AWS088",
+			"rule_description": "Redis cluster should have backup retention turned on",
+			"rule_provider": "aws",
+			"impact": "Without backups of the redis cluster recovery is made difficult",
+			"resolution": "Configure snapshot retention for redis cluster",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elasticache/enable-backup-retention",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit",
+				"https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html"
+			],
+			"description": "Resource 'aws_elasticache_cluster.default' should have snapshot retention specified",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache_cluster.tf",
+				"start_line": 1,
+				"end_line": 7
+			},
+			"resource": "aws_elasticache_cluster.default"
+		},
+		{
+			"rule_id": "aws-rds-encrypt-cluster-storage-data",
+			"legacy_rule_id": "AWS051",
+			"rule_description": "There is no encryption specified or encryption is disabled on the RDS Cluster.",
+			"rule_provider": "aws",
+			"impact": "Data can be read from the RDS cluster if it is compromised",
+			"resolution": "Enable encryption for RDS clusters",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/encrypt-cluster-storage-data",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster",
+				"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html"
+			],
+			"description": "Resource 'aws_rds_cluster.fail2' defines a enabled RDS Cluster encryption but not the required encrypted_storage.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\rds.tf",
+				"start_line": 12,
+				"end_line": 17
+			},
+			"resource": "aws_rds_cluster.fail2"
+		},
+		{
+			"rule_id": "aws-api-gateway-enable-access-logging",
+			"legacy_rule_id": "AWS061",
+			"rule_description": "API Gateway stages for V1 and V2 should have access logging enabled",
+			"rule_provider": "aws",
+			"impact": "Logging provides vital information about access and usage",
+			"resolution": "Enable logging for API Gateway stages",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/api-gateway/enable-access-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/apigatewayv2_stage#access_log_settings",
+				"https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html"
+			],
+			"description": "Resource 'aws_api_gateway_stage.fail' is missing access log settings block.",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\apigateway.tf",
+				"start_line": 13,
+				"end_line": 15
+			},
+			"resource": "aws_api_gateway_stage.fail"
+		},
+		{
+			"rule_id": "aws-ebs-encryption-customer-key",
+			"legacy_rule_id": "",
+			"rule_description": "EBS volume encryption should use Customer Managed Keys",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys does not allow for fine grained control",
+			"resolution": "Enable encryption using customer managed keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ebs/encryption-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id"
+			],
+			"description": "Resource 'aws_ebs_volume.fail' does not use CMK",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ebs.tf",
+				"start_line": 6,
+				"end_line": 9
+			},
+			"resource": "aws_ebs_volume.fail"
+		},
+		{
+			"rule_id": "aws-ec2-enforce-http-token-imds",
+			"legacy_rule_id": "AWS079",
+			"rule_description": "aws_instance should activate session tokens for Instance Metadata Service.",
+			"rule_provider": "aws",
+			"impact": "Instance metadata service can be interacted with freely",
+			"resolution": "Enable HTTP token requirement for IMDS",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/enforce-http-token-imds",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options",
+				"https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service"
+			],
+			"description": "Resource 'aws_instance.fail' is missing `metadata_options` block - it is required with `http_tokens` set to `required` to make Instance Metadata Service more secure.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\instance.tf",
+				"start_line": 9,
+				"end_line": 27
+			},
+			"resource": "aws_instance.fail"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
+			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_provider": "general",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'provider.aws' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\provider.tf",
+				"start_line": 11,
+				"end_line": 11
+			},
+			"resource": "provider.aws"
+		},
+		{
+			"rule_id": "aws-rds-encrypt-instance-storage-data",
+			"legacy_rule_id": "AWS052",
+			"rule_description": "RDS encryption has not been enabled at a DB Instance level.",
+			"rule_provider": "aws",
+			"impact": "Data can be read from RDS instances if compromised",
+			"resolution": "Enable encryption for RDS instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/encrypt-instance-storage-data",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance",
+				"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html"
+			],
+			"description": "Resource 'aws_db_instance.default' has storage encrypted set to false",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance.tf",
+				"start_line": 27,
+				"end_line": 27
+			},
+			"resource": "aws_db_instance.default"
+		},
+		{
+			"rule_id": "aws-rds-no-public-db-access",
+			"legacy_rule_id": "AWS011",
+			"rule_description": "A database resource is marked as publicly accessible.",
+			"rule_provider": "aws",
+			"impact": "The database instance is publicly accessible",
+			"resolution": "Set the database to not be publicly accessible",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/no-public-db-access",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance"
+			],
+			"description": "Resource 'aws_db_instance.default' is exposed publicly.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance.tf",
+				"start_line": 30,
+				"end_line": 30
+			},
+			"resource": "aws_db_instance.default"
+		},
+		{
+			"rule_id": "aws-s3-no-public-access-with-acl",
+			"legacy_rule_id": "AWS001",
+			"rule_description": "S3 Bucket has an ACL defined which allows public access.",
+			"rule_provider": "aws",
+			"impact": "The contents of the bucket can be accessed publicly",
+			"resolution": "Apply a more restrictive bucket ACL",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/s3/no-public-access-with-acl",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket",
+				"https://aws.amazon.com/premiumsupport/knowledge-center/secure-s3-resources/"
+			],
+			"description": "Resource 'aws_s3_bucket.fail' has an ACL which allows public access.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\s3.tf",
+				"start_line": 2,
+				"end_line": 2
+			},
+			"resource": "aws_s3_bucket.fail"
+		},
+		{
+			"rule_id": "aws-cloudtrail-enable-all-regions",
+			"legacy_rule_id": "AWS063",
+			"rule_description": "Cloudtrail should be enabled in all regions regardless of where your AWS resources are generally homed",
+			"rule_provider": "aws",
+			"impact": "Activity could be happening in your account in a different region",
+			"resolution": "Enable Cloudtrail in all regions",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudtrail/enable-all-regions",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail",
+				"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html"
+			],
 			"description": "Resource 'aws_cloudtrail.fail' does not set multi region trail config.",
-			"severity": "WARNING",
-			"passed": false
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail.tf",
+				"start_line": 1,
+				"end_line": 5
+			},
+			"resource": "aws_cloudtrail.fail"
+		},
+		{
+			"rule_id": "aws-mq-no-public-access",
+			"legacy_rule_id": "",
+			"rule_description": "Ensure MQ Broker is not publicly exposed",
+			"rule_provider": "aws",
+			"impact": "Publicly accessible MQ Broker may be vulnerable to compromise",
+			"resolution": "Disable public access when not required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/mq/no-public-access",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#publicly_accessible"
+			],
+			"description": "Resource 'aws_mq_broker.example' does not have publicly_accessible set to false",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\mq_broker.tf",
+				"start_line": 7,
+				"end_line": 7
+			},
+			"resource": "aws_mq_broker.example"
+		},
+		{
+			"rule_id": "aws-ecr-enable-image-scans",
+			"legacy_rule_id": "AWS023",
+			"rule_description": "ECR repository has image scans disabled.",
+			"rule_provider": "aws",
+			"impact": "The ability to scan images is not being used and vulnerabilities will not be highlighted",
+			"resolution": "Enable ECR image scanning",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ecr/enable-image-scans",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#image_scanning_configuration",
+				"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"
+			],
+			"description": "Resource 'aws_ecr_repository.name' defines a disabled ECR image scan.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr.tf",
+				"start_line": 1,
+				"end_line": 4
+			},
+			"resource": "aws_ecr_repository.name"
+		},
+		{
+			"rule_id": "aws-rds-no-public-db-access",
+			"legacy_rule_id": "AWS011",
+			"rule_description": "A database resource is marked as publicly accessible.",
+			"rule_provider": "aws",
+			"impact": "The database instance is publicly accessible",
+			"resolution": "Set the database to not be publicly accessible",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/no-public-db-access",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance"
+			],
+			"description": "Resource 'aws_dms_replication_instance.public' is exposed publicly.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\dms.tf",
+				"start_line": 4,
+				"end_line": 4
+			},
+			"resource": "aws_dms_replication_instance.public"
+		},
+		{
+			"rule_id": "aws-ssm-secret-use-customer-key",
+			"legacy_rule_id": "AWS095",
+			"rule_description": "Secrets Manager should use customer managed keys",
+			"rule_provider": "aws",
+			"impact": "Using AWS managed keys reduces the flexibility and control over the encryption key",
+			"resolution": "Use customer managed keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ssm/secret-use-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret#kms_key_id",
+				"https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html#asm-encrypt"
+			],
+			"description": "Resource 'aws_secretsmanager_secret.default' does not use CMK",
+			"severity": "LOW",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\secret.tf",
+				"start_line": 1,
+				"end_line": 3
+			},
+			"resource": "aws_secretsmanager_secret.default"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute",
+			"legacy_rule_id": "GEN003",
+			"rule_description": "Potentially sensitive data stored in block attribute.",
+			"rule_provider": "general",
+			"impact": "Block attribute could be leaking secrets",
+			"resolution": "Don't include sensitive data in blocks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'azuread_user.james_woolfenden' includes a potentially sensitive attribute which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\secrets\\BC_GIT_6.tf",
+				"start_line": 7,
+				"end_line": 7
+			},
+			"resource": "azuread_user.james_woolfenden"
+		},
+		{
+			"rule_id": "aws-documentdb-enable-log-export",
+			"legacy_rule_id": "",
+			"rule_description": "DocumentDB logs export should be enabled",
+			"rule_provider": "aws",
+			"impact": "Limited visibility of audit trail for changes to the DocumentDB",
+			"resolution": "Enable export logs",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/documentdb/enable-log-export",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#enabled_cloudwatch_logs_exports"
+			],
+			"description": "Resource 'aws_docdb_cluster.examplea' uses default value for enabled_cloudwatch_logs_exports",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\docdb.tf",
+				"start_line": 7,
+				"end_line": 24
+			},
+			"resource": "aws_docdb_cluster.examplea"
+		},
+		{
+			"rule_id": "aws-dynamodb-enable-recovery",
+			"legacy_rule_id": "AWS086",
+			"rule_description": "Point in time recovery should be enabled to protect DynamoDB table",
+			"rule_provider": "aws",
+			"impact": "Accidental or malicious writes and deletes can't be rolled back",
+			"resolution": "Enable point in time recovery",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/dynamodb/enable-recovery",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#point_in_time_recovery",
+				"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.html"
+			],
+			"description": "Resource 'aws_dynamodb_table.default' doesn't have point in time recovery",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamocdb.tf",
+				"start_line": 1,
+				"end_line": 13
+			},
+			"resource": "aws_dynamodb_table.default"
+		},
+		{
+			"rule_id": "aws-ebs-enable-volume-encryption",
+			"legacy_rule_id": "",
+			"rule_description": "EBS volumes must be encrypted",
+			"rule_provider": "aws",
+			"impact": "Unencrypted sensitive data is vulnerable to compromise.",
+			"resolution": "Enable encryption of EBS volumes",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ebs/enable-volume-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#encrypted"
+			],
+			"description": "Resource 'aws_ebs_volume.fail' uses default value for encrypted",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ebs.tf",
+				"start_line": 6,
+				"end_line": 9
+			},
+			"resource": "aws_ebs_volume.fail"
+		},
+		{
+			"rule_id": "general-secrets-sensitive-in-attribute-value",
+			"legacy_rule_id": "GEN005",
+			"rule_description": "The attribute has potentially sensitive data, passwords, tokens or keys in it",
+			"rule_provider": "general",
+			"impact": "Sensitive credentials may be compromised",
+			"resolution": "Check the code for vulnerabilities and move to variables",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/sensitive-in-attribute-value",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Block 'provider.aws' includes potentially sensitive data. Check for AWS Access Key Id",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\provider.tf",
+				"start_line": 10,
+				"end_line": 10
+			},
+			"resource": "provider.aws"
+		},
+		{
+			"rule_id": "aws-neptune-enable-storage-encryption",
+			"legacy_rule_id": "",
+			"rule_description": "Neptune storage must be encrypted at rest",
+			"rule_provider": "aws",
+			"impact": "Unencrypted sensitive data is vulnerable to compromise.",
+			"resolution": "Enable encryption of Neptune storage",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/neptune/enable-storage-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster#storage_encrypted"
+			],
+			"description": "Resource 'aws_neptune_cluster.default' does not have storage_encrypted set to true",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\neptune.tf",
+				"start_line": 13,
+				"end_line": 13
+			},
+			"resource": "aws_neptune_cluster.default"
+		},
+		{
+			"rule_id": "aws-rds-no-classic-resources",
+			"legacy_rule_id": "AWS003",
+			"rule_description": "AWS Classic resource usage.",
+			"rule_provider": "aws",
+			"impact": "Classic resources are running in a shared environment with other customers",
+			"resolution": "Switch to VPC resources",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/no-classic-resources",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_security_group",
+				"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-classic-platform.html"
+			],
+			"description": "Resource 'aws_elasticache_security_group.bar' uses EC2 Classic. Use a VPC instead.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache_security_group.tf",
+				"start_line": 2,
+				"end_line": 5
+			},
+			"resource": "aws_elasticache_security_group.bar"
+		},
+		{
+			"rule_id": "aws-redshift-encryption-customer-key",
+			"legacy_rule_id": "AWS094",
+			"rule_description": "Redshift clusters should use at rest encryption",
+			"rule_provider": "aws",
+			"impact": "Data may be leaked if infrastructure is compromised",
+			"resolution": "Enable encryption using CMK",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/redshift/encryption-customer-key",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/redshift_cluster#encrypted",
+				"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html"
+			],
+			"description": "Resource 'aws_redshift_cluster.fail' does not have encryption enabled",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_redshift_cluster.fail"
+		},
+		{
+			"rule_id": "azure-storage-enforce-https",
+			"legacy_rule_id": "AZU014",
+			"rule_description": "Storage accounts should be configured to only accept transfers that are over secure connections",
+			"rule_provider": "azure",
+			"impact": "Insecure transfer of data into secure accounts could be read if intercepted",
+			"resolution": "Only allow secure connection for transferring data into storage accounts",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/azure/storage/enforce-https",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#enable_https_traffic_only",
+				"https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer"
+			],
+			"description": "Resource 'azurerm_storage_account.example' explicitly turns off secure transfer to storage account.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\azurerm\\storage.tf",
+				"start_line": 1,
+				"end_line": 15
+			},
+			"resource": "azurerm_storage_account.example"
+		},
+		{
+			"rule_id": "aws-cloudfront-use-secure-tls-policy",
+			"legacy_rule_id": "AWS021",
+			"rule_description": "CloudFront distribution uses outdated SSL/TLS protocols.",
+			"rule_provider": "aws",
+			"impact": "Outdated SSL policies increase exposure to known vulnerabilities",
+			"resolution": "Use the most modern TLS/SSL policies available",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudfront/use-secure-tls-policy",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#minimum_protocol_version",
+				"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html"
+			],
+			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' defines outdated SSL/TLS policies (not using TLSv1.2_2021)",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront.tf",
+				"start_line": 76,
+				"end_line": 76
+			},
+			"resource": "aws_cloudfront_distribution.s3_distribution"
+		},
+		{
+			"rule_id": "aws-cloudtrail-enable-at-rest-encryption",
+			"legacy_rule_id": "AWS065",
+			"rule_description": "Cloudtrail should be encrypted at rest to secure access to sensitive trail data",
+			"rule_provider": "aws",
+			"impact": "Data can be freely read if compromised",
+			"resolution": "Enable encryption at rest",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudtrail/enable-at-rest-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#kms_key_id",
+				"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html"
+			],
+			"description": "Resource 'aws_cloudtrail.fail' does not have a kms_key_id set.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail.tf",
+				"start_line": 1,
+				"end_line": 5
+			},
+			"resource": "aws_cloudtrail.fail"
+		},
+		{
+			"rule_id": "aws-elastic-search-enforce-https",
+			"legacy_rule_id": "AWS033",
+			"rule_description": "Elasticsearch doesn't enforce HTTPS traffic.",
+			"rule_provider": "aws",
+			"impact": "HTTP traffic can be intercepted and the contents read",
+			"resolution": "Enforce the use of HTTPS for ElasticSearch",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elastic-search/enforce-https",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#enforce_https",
+				"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-data-protection.html"
+			],
+			"description": "Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an Elasticsearch domain with plaintext traffic (missing domain_endpoint_options block).",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\elastisearch_domain.tf",
+				"start_line": 1,
+				"end_line": 11
+			},
+			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled"
+		},
+		{
+			"rule_id": "aws-misc-no-exposing-plaintext-credentials",
+			"legacy_rule_id": "AWS044",
+			"rule_description": "AWS provider has access credentials specified.",
+			"rule_provider": "aws",
+			"impact": "Exposing the credentials in the Terraform provider increases the risk of secret leakage",
+			"resolution": "Don't include access credentials in plain text",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/misc/no-exposing-plaintext-credentials",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs#argument-reference",
+				"https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html"
+			],
+			"description": "Provider 'provider.aws' has an access key specified.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\secrets\\BC_GIT_2.tf",
+				"start_line": 2,
+				"end_line": 2
+			},
+			"resource": "provider.aws"
+		},
+		{
+			"rule_id": "aws-vpc-no-public-ingress-sg",
+			"legacy_rule_id": "AWS008",
+			"rule_description": "An inline ingress security group rule allows traffic from /0.",
+			"rule_provider": "aws",
+			"impact": "The port is exposed for ingress from the internet",
+			"resolution": "Set a more restrictive cidr range",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/vpc/no-public-ingress-sg",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group"
+			],
+			"description": "Resource 'aws_security_group.fail' defines a fully open ingress security group.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\security_group.tf",
+				"start_line": 13,
+				"end_line": 13
+			},
+			"resource": "aws_security_group.fail"
+		},
+		{
+			"rule_id": "aws-workspace-enable-disk-encryption",
+			"legacy_rule_id": "AWS084",
+			"rule_description": "Root and user volumes on Workspaces should be encrypted",
+			"rule_provider": "aws",
+			"impact": "Data can be freely read if compromised",
+			"resolution": "Root and user volume encryption should be enabled",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/workspace/enable-disk-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled",
+				"https://docs.aws.amazon.com/workspaces/latest/adminguide/encrypt-workspaces.html"
+			],
+			"description": "Resource 'aws_workspaces_workspace.fail' should have root volume encryption enabled",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\workspace.tf",
+				"start_line": 1,
+				"end_line": 15
+			},
+			"resource": "aws_workspaces_workspace.fail"
+		},
+		{
+			"rule_id": "aws-athena-enable-at-rest-encryption",
+			"legacy_rule_id": "AWS059",
+			"rule_description": "Athena databases and workgroup configurations are created unencrypted at rest by default, they should be encrypted",
+			"rule_provider": "aws",
+			"impact": "Data can be read if the Athena Database is compromised",
+			"resolution": "Enable encryption at rest for Athena databases and workgroup configurations",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/athena/enable-at-rest-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup#encryption_configuration",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_database#encryption_configuration",
+				"https://docs.aws.amazon.com/athena/latest/ug/encryption.html"
+			],
+			"description": "Resource 'aws_athena_database.fail' missing encryption configuration block.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\athena_database.tf",
+				"start_line": 3,
+				"end_line": 5
+			},
+			"resource": "aws_athena_database.fail"
+		},
+		{
+			"rule_id": "aws-ec2-no-secrets-in-user-data",
+			"legacy_rule_id": "AWS062",
+			"rule_description": "User data for EC2 instances must not contain sensitive AWS keys",
+			"rule_provider": "aws",
+			"impact": "User data is visible through the AWS Management console",
+			"resolution": "Remove sensitive data from the EC2 instance user-data",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/no-secrets-in-user-data",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#user_data",
+				"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html"
+			],
+			"description": "Resource 'aws_instance.fail' has userdata with access key id defined.",
+			"severity": "CRITICAL",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\instance.tf",
+				"start_line": 16,
+				"end_line": 26
+			},
+			"resource": "aws_instance.fail"
+		},
+		{
+			"rule_id": "aws-ecr-enforce-immutable-repository",
+			"legacy_rule_id": "AWS078",
+			"rule_description": "ECR images tags shouldn't be mutable.",
+			"rule_provider": "aws",
+			"impact": "Image tags could be overwritten with compromised images",
+			"resolution": "Only use immutable images in ECR",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ecr/enforce-immutable-repository",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository",
+				"https://sysdig.com/blog/toctou-tag-mutability/"
+			],
+			"description": "Resource 'aws_ecr_repository.name' has `image_tag_mutability` attribute  not set to `IMMUTABLE`",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr.tf",
+				"start_line": 3,
+				"end_line": 3
+			},
+			"resource": "aws_ecr_repository.name"
+		},
+		{
+			"rule_id": "aws-kinesis-enable-in-transit-encryption",
+			"legacy_rule_id": "AWS024",
+			"rule_description": "Kinesis stream is unencrypted.",
+			"rule_provider": "aws",
+			"impact": "Intercepted data can be read in transit",
+			"resolution": "Enable in transit encryption",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/kinesis/enable-in-transit-encryption",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_stream#encryption_type",
+				"https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html"
+			],
+			"description": "Resource 'aws_kinesis_stream.fail' defines an unencrypted Kinesis Stream.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\kinesis_stream.tf",
+				"start_line": 2,
+				"end_line": 5
+			},
+			"resource": "aws_kinesis_stream.fail"
+		},
+		{
+			"rule_id": "aws-s3-specify-public-access-block",
+			"legacy_rule_id": "AWS098",
+			"rule_description": "S3 buckets should each define an aws_s3_bucket_public_access_block",
+			"rule_provider": "aws",
+			"impact": "Public access policies may be applied to sensitive data buckets",
+			"resolution": "Define a aws_s3_bucket_public_access_block for the given bucket to control public access policies",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/s3/specify-public-access-block",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#bucket",
+				"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html"
+			],
+			"description": "Resource aws_s3_bucket.fail has no associated aws_s3_bucket_public_access_block.",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\s3.tf",
+				"start_line": 1,
+				"end_line": 25
+			},
+			"resource": "aws_s3_bucket.fail"
+		},
+		{
+			"rule_id": "aws-athena-no-encryption-override",
+			"legacy_rule_id": "AWS060",
+			"rule_description": "Athena workgroups should enforce configuration to prevent client disabling encryption",
+			"rule_provider": "aws",
+			"impact": "Clients can ignore encryption requirements",
+			"resolution": "Enforce the configuration to prevent client overrides",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/athena/no-encryption-override",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup#configuration",
+				"https://docs.aws.amazon.com/athena/latest/ug/manage-queries-control-costs-with-workgroups.html"
+			],
+			"description": "Resource 'aws_athena_workgroup.fail' has enforce_workgroup_configuration set to false.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\athena.tf",
+				"start_line": 8,
+				"end_line": 8
+			},
+			"resource": "aws_athena_workgroup.fail"
+		},
+		{
+			"rule_id": "aws-autoscaling-no-public-ip",
+			"legacy_rule_id": "AWS012",
+			"rule_description": "A resource has a public IP address.",
+			"rule_provider": "aws",
+			"impact": "The instance or configuration is publicly accessible",
+			"resolution": "Set the instance to not be publicly accessible",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/autoscaling/no-public-ip",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#associate_public_ip_address",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#associate_public_ip_address",
+				"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html"
+			],
+			"description": "Resource 'aws_instance.fail' has a public IP address associated.",
+			"severity": "HIGH",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\instance.tf",
+				"start_line": 12,
+				"end_line": 12
+			},
+			"resource": "aws_instance.fail"
+		},
+		{
+			"rule_id": "aws-cloudfront-enable-logging",
+			"legacy_rule_id": "AWS071",
+			"rule_description": "Cloudfront distribution should have Access Logging configured",
+			"rule_provider": "aws",
+			"impact": "Logging provides vital information about access and usage",
+			"resolution": "Enable logging for CloudFront distributions",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/cloudfront/enable-logging",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#logging_config",
+				"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html"
+			],
+			"description": "Resource 'aws_cloudfront_distribution.s3_distribution' does not have Access Logging configured",
+			"severity": "MEDIUM",
+			"status": "failed",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront.tf",
+				"start_line": 7,
+				"end_line": 82
+			},
+			"resource": "aws_cloudfront_distribution.s3_distribution"
 		}
 	]
 }
