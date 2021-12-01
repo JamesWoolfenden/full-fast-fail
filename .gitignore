@@ -4,3 +4,5 @@ terraform.tfstate.backup
 .terraform.lock.hcl
 .terraform
 *results.json
+Pipfile
+Pipfile.lock

@@ -1,7 +1,6 @@
 param (
     [string]$path=".",
-    [int]$expected=180,
-    [int]$tfexpected=87)
+    [int]$expected=271)
 
 figlet "Checkov Scan"
 
