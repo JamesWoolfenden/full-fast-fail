@@ -1,5 +1,5 @@
 variable "block_of_bad" {
-  default=<<BADSTUFF
+  default = <<BADSTUFF
 {
   'api_1234234',
   'auth_1234234',

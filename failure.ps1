@@ -1,6 +1,6 @@
 #Uses  npm install -g figlet-cli
 
-figlet "Analysing code.."
+figlet "Finding Failures..."
 $file="fails.txt"
 
 remove-item $file -ErrorAction SilentlyContinue

@@ -8,6 +8,6 @@ resource "aws_redshift_cluster" "fail" {
   automated_snapshot_retention_period = 0
   allow_version_upgrade               = false
   skip_final_snapshot                 = true
-  kms_key_id = ""
-  cluster_subnet_group_name = ""
+  kms_key_id                          = ""
+  cluster_subnet_group_name           = ""
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-figlet "Analysing code.."
+figlet "Finding Failures.."
 file="fails.txt"
 
 if [ -f "$file" ] ; then

@@ -11,8 +11,8 @@
 # AWS061 -aws_apigateway_stage.fail is missing access log settings block
 
 resource "aws_api_gateway_stage" "fail" {
-  deployment_id = aws_api_gateway_deployment.example.id
-  rest_api_id   = aws_api_gateway_rest_api.example.id
-  stage_name    = "example"
+  deployment_id        = aws_api_gateway_deployment.example.id
+  rest_api_id          = aws_api_gateway_rest_api.example.id
+  stage_name           = "example"
   xray_tracing_enabled = false
 }

@@ -18,5 +18,5 @@ resource "aws_elasticache_replication_group" "fail" {
   parameter_group_name          = "default.redis3.2"
   availability_zones            = [data.aws_availability_zones.available.names[0]]
   engine_version                = "3.2.6"
-  transit_encryption_enabled = false
+  transit_encryption_enabled    = false
 }
