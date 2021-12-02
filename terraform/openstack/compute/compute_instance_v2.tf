@@ -1,3 +1,8 @@
+# fails
+
+# tfsec
+# Resource 'openstack_compute_instance_v2.fail' specifies a plain text password
+
 resource "openstack_compute_instance_v2" "fail" {
   name            = "basic"
   image_id        = "ad091b52-742f-469e-8f3c-fd81cadf0743"

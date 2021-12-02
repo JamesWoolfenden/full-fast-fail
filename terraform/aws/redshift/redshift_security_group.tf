@@ -1,5 +1,5 @@
 resource "aws_redshift_security_group" "fail" {
-  name        = "http"
+  name = "http"
 
   ingress {
     description = "HTTP from VPC"
