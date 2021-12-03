@@ -1,3 +1,6 @@
+# fails
+# CKV_GCP_39: "Ensure Compute instances are launched with Shielded VM enabled"
+# CKV_GCP_39: "Ensure Compute instances are launched with Shielded VM enabled"
 
 resource "google_service_account" "default" {
   account_id   = "service_account_id"

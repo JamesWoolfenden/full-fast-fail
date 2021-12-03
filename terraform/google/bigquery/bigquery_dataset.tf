@@ -1,3 +1,5 @@
+# fails
+# CKV_GCP_15: "Ensure that BigQuery datasets are not anonymously or publicly accessible"
 
 resource "google_bigquery_dataset" "fail" {
   dataset_id                  = "example_dataset"
