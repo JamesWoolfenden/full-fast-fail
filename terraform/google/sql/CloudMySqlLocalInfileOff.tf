@@ -1,5 +1,5 @@
 
-resource "google_sql_database_instance" "tfer--general-002D-mysql81" {
+resource "google_sql_database_instance" "fail" {
   database_version = "MYSQL_8_0"
   name             = "mysql81"
   project          = "gcp-bridgecrew-deployment"

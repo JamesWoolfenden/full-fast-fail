@@ -1,5 +1,5 @@
 
-resource "google_sql_database_instance" "tfer--general-002D-pos121" {
+resource "google_sql_database_instance" "fail" {
   database_version = "POSTGRES_12"
   name             = "general-pos121"
   project          = "gcp-bridgecrew-deployment"

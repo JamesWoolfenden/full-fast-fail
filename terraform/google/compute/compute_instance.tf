@@ -15,7 +15,7 @@ resource "google_compute_instance" "default" {
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
   boot_disk {}
-    service_account {
+  service_account {
     scopes = ["https://www.googleapis.com/auth/cloud-platform", "compute-ro", "storage-ro"]
   }
   access_config {
@@ -23,7 +23,7 @@ resource "google_compute_instance" "default" {
   }
   metadata = {
     serial-port-enable = true
-    enable-oslogin = false
+    enable-oslogin     = false
   }
-  can_ip_forward=true
+  can_ip_forward = true
 }

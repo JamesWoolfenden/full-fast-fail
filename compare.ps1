@@ -1,7 +1,7 @@
 param (
     [string]$path=".",
-    [int]$expected=1051,
-    [int]$tfexpected=910)
+    [int]$expected=1961,
+    [int]$tfexpected=1010)
 
 #Uses  npm install -g figlet-cli
 
@@ -29,7 +29,7 @@ if ($tfsec_count -ne $tfexpected)
 
 if ($tfsec_count -gt $total)
 {
-       Write-Host "Error: Tfsec found more $tfsex_count but we found $total"
+   Write-Host "Error: Tfsec found more $tfsec_count but we found $total"
 }
 
 Write-Host "Found Terraform $terraform"

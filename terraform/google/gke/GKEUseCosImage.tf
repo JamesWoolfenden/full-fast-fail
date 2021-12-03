@@ -1,11 +1,11 @@
 
-resource "google_container_node_pool" "tfer" {
+resource "google_container_node_pool" "fail" {
   autoscaling {
     max_node_count = "4"
     min_node_count = "1"
   }
 
-  cluster            = google_container_cluster.tfer.name
+  cluster            = google_container_cluster.fail.name
   initial_node_count = "2"
   location           = "us-west1"
 

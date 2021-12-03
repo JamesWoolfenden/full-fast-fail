@@ -1,5 +1,5 @@
 
-resource "google_sql_database_instance" "tfer--general-002D-sqlserver12" {
+resource "google_sql_database_instance" "fail" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"
   project          = "gcp-bridgecrew-deployment"
