@@ -27,8 +27,9 @@ resource "azurerm_kubernetes_cluster" "fail-cluster" {
     enabled = false
   }
   addon_profile {
-      kube_dashboard {
-          enabled=true}
+    kube_dashboard {
+      enabled = true
+    }
   }
   tags = { Environment = "Production" }
 }
