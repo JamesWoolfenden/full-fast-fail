@@ -5,8 +5,8 @@ resource "google_container_cluster" "success" {
   initial_node_count = 1
   project            = data.google_project.project.name
 
-  network    = var.network
-  subnetwork = var.subnetwork
+  network                     = var.network
+  subnetwork                  = var.subnetwork
   enable_intranode_visibility = true
 
   ip_allocation_policy {
@@ -26,7 +26,7 @@ resource "google_container_cluster" "success" {
     }
     shielded_instance_config {
       enable_integrity_monitoring = true
-      enable_secure_boot = true
+      enable_secure_boot          = true
     }
   }
 
@@ -108,7 +108,7 @@ resource "google_container_cluster" "fail" {
     }
     shielded_instance_config {
       enable_integrity_monitoring = true
-      enable_secure_boot = true
+      enable_secure_boot          = true
     }
   }
 
