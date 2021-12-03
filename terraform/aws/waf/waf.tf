@@ -1,3 +1,6 @@
+#fail
+#CKV_AWS_175: "Ensure WAF has associated rules"
+#CKV_AWS_176: "Ensure Logging is enabled for WAF  Web Access Control Lists"
 
 resource "aws_wafregional_web_acl" "fail" {
   name        = "tfWebACLregionalfail"

@@ -6,6 +6,11 @@
 # CKV_AWS_135: "Ensure that EC2 is EBS optimized"
 # CKV_AWS_8: "Ensure all data stored in the Launch configuration EBS is securely encrypted"
 
+# tfsec
+# AWS062 Resource 'aws_instance.fail' has userdata with access secret key defined.
+# AWS012 Resource 'aws_instance.fail' has a public IP address associated.
+# AWS079 Resource 'aws_instance.fail' is missing `metadata_options` block - it is required with `http_tokens` set to `required` to make Instance Metadata Service more secure.
+
 resource "aws_instance" "fail" {
   ami                         = var.ami
   instance_type               = "t2.nano"

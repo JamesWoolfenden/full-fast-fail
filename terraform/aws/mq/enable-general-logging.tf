@@ -1,3 +1,10 @@
+# fail
+# todo
+# todo
+
+# tfsec
+# Resource 'aws_mq_broker.fail' does not have logs.general set to true
+# Resource 'aws_mq_broker.fail' does not have logs.audit set to true
 
 resource "aws_mq_broker" "fail" {
   broker_name = "example"
@@ -18,5 +25,6 @@ resource "aws_mq_broker" "fail" {
   }
   logs {
     general = false
+    audit   = false
   }
 }

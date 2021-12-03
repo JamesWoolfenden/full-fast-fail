@@ -1,3 +1,10 @@
+#fail
+#CKV_AWS_155: "Ensure that Workspace user volumes are encrypted"
+#CKV_AWS_156: "Ensure that Workspace root volumes are encrypted"
+
+#tfsec
+#AWS084 Resource 'aws_workspaces_workspace.fail' should have user volume encryption enabled
+
 resource "aws_workspaces_workspace" "fail" {
   directory_id = aws_workspaces_directory.main.id
   bundle_id    = data.aws_workspaces_bundle.bundle.id
