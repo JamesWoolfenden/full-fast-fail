@@ -1,5 +1,9 @@
+# fails
+
+# tfsec
+# AWS047 SQS policy 'aws_sqs_queue_policy.fail' has a wildcard action specified.
 resource "aws_sqs_queue_policy" "fail" {
-  queue_url = aws_sqs_queue.q.id
+  queue_url = aws_sqs_queue.fail.id
 
   policy = <<POLICY
 {
@@ -12,8 +16,8 @@ resource "aws_sqs_queue_policy" "fail" {
             ]
           },
           "Effect": "Allow",
-          "Action": "sqs:SendMessage",
-          "Resource": "${aws_sqs_queue_policy.q.arn}"
+          "Action": "*",
+          "Resource": "${aws_sqs_queue_policy.fail.arn}"
        }
     ]
 }
