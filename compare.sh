@@ -8,17 +8,17 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1961
-tfexpected=1010
+expected=1739
+tfexpected=277
 kicsexpected=1294
 
 # run the tools
 checkov -o json -d . >$file
 
 tfsec -f json -s --out "tfsec_$file"  2> /dev/null
-kics scan -p . -o . --output-name "kics_$file"
+# kics scan -p . -o . --output-name "kics_$file"
 
-kics_count=$(cat kics_$file| jq -r '.total_counter')
+# kics_count=$(cat kics_$file| jq -r '.total_counter')
 
 tfsec_count=$(cat "tfsec_$file" | jq -r '.results | length')
 terraform=$(cat $file | jq '.[]| select(.check_type=="terraform")| .summary.failed')
@@ -42,9 +42,9 @@ if [ $tfsec_count -gt $total ]; then
 fi
 
 # shellcheck disable=SC2086
-if [ $kics_count -gt $total ]; then
-    echo "Error: Kics found more $tfsex_count but we found $total"
-fi
+# if [ $kics_count -gt $total ]; then
+#     echo "Error: Kics found more $tfsex_count but we found $total"
+# fi
 
 echo "Found Terraform $terraform"
 echo "Found Secrets $secrets"

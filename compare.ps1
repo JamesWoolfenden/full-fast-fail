@@ -1,7 +1,7 @@
 param (
     [string]$path=".",
-    [int]$expected=1961,
-    [int]$tfexpected=1010,
+    [int]$expected=1739,
+    [int]$tfexpected=277,
     [int]$kicsexpected=1294)
 
 #Uses  npm install -g figlet-cli
