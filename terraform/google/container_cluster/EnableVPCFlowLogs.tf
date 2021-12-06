@@ -1,3 +1,13 @@
+# fails
+# CKV_GCP_13: "Ensure a client certificate is used by clients to authenticate to Kubernetes Engine Clusters"
+# CKV_GCP_68: "Ensure Secure Boot for Shielded GKE Nodes is Enabled"
+# CKV_GCP_65: "Manage Kubernetes RBAC users with Google Groups for GKE"
+# CKV_GCP_66: "Ensure use of Binary Authorization"
+# CKV_GCP_21: "Ensure Kubernetes Clusters are configured with Labels"
+# CKV_GCP_71: "Ensure Shielded GKE Nodes are Enabled"
+# CKV_GCP_67: "Ensure legacy Compute Engine instance metadata APIs are Disabled"
+# CKV_GCP_61: "Enable VPC Flow Logs and Intranode Visibility"
+
 resource "google_container_cluster" "fail-flowlogs" {
   name               = var.name
   location           = var.location
@@ -20,7 +30,7 @@ resource "google_container_cluster" "fail-flowlogs" {
 
   node_config {
     workload_metadata_config {
-      node_metadata = "GKE_METADATA_SERVER"
+      # node_metadata = "GKE_METADATA_SERVER"
     }
     shielded_instance_config {
       enable_integrity_monitoring = true
