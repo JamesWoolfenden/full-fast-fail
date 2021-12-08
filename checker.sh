@@ -8,7 +8,7 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1736
+expected=1579
 
 # run the tools
 checkov -o json -d . >$file

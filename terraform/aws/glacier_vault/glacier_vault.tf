@@ -1,3 +1,8 @@
+# fails
+# CKV_AWS_75: "Ensure Global Accelerator accelerator has flow logs enabled"
+
+# tfsec
+
 resource "aws_glacier_vault" "my_archive2" {
   name = "MyArchive"
 

@@ -7,6 +7,9 @@
 # CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
 # CKV_SECRET_6: "Base64 High Entropy String"
 
+# tfsec
+# Resource 'aws_lambda_function.morefail' uses default value for tracing_config.mode
+
 resource "aws_lambda_function" "morefail" {
   function_name = "morefail"
   role          = ""

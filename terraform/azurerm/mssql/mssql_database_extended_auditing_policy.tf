@@ -1,3 +1,5 @@
+# fail
+# CKV_AZURE_46: "Specifies a retention period of less than 90 days."
 
 resource "azurerm_mssql_database_extended_auditing_policy" "example" {
   database_id                             = azurerm_mssql_database.examplea.id

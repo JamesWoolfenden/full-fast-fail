@@ -1,3 +1,5 @@
+# fails
+# CKV_AWS_169: "Ensure SNS topic policy is not public by only allowing specific services or principals to access it"
 resource "aws_sns_topic_policy" "sns_tp2" {
   arn = aws_sns_topic.test.arn
 

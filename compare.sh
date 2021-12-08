@@ -8,7 +8,7 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1739
+expected=1579
 tfexpected=277
 kicsexpected=1294
 
@@ -17,7 +17,6 @@ checkov -o json -d . >$file
 
 tfsec -f json -s --out "tfsec_$file"  2> /dev/null
 # kics scan -p . -o . --output-name "kics_$file"
-
 # kics_count=$(cat kics_$file| jq -r '.total_counter')
 
 tfsec_count=$(cat "tfsec_$file" | jq -r '.results | length')
@@ -41,7 +40,7 @@ if [ $tfsec_count -gt $total ]; then
     echo "Error: Tfsec found more $tfsex_count but we found $total"
 fi
 
-# shellcheck disable=SC2086
+# # shellcheck disable=SC2086
 # if [ $kics_count -gt $total ]; then
 #     echo "Error: Kics found more $tfsex_count but we found $total"
 # fi
@@ -49,7 +48,7 @@ fi
 echo "Found Terraform $terraform"
 echo "Found Secrets $secrets"
 echo "Found TFSec $tfsec_count"
-echo "Found Kics $kics_count"
+# echo "Found Kics $kics_count"
 
 echo "Expected $expected and found $total"
 echo "Checkov: $total TFSec: $tfsec_count"
