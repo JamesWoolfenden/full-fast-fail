@@ -7,8 +7,8 @@
 
 # AWS015 Resource 'aws_sqs_queue.fail' defines an unencrypted SQS queue.
 resource "aws_sqs_queue" "fail" {
- #   kms_master_key_id  =aws_kms_key.pass.arn
-      policy = <<POLICY
+  #   kms_master_key_id  =aws_kms_key.pass.arn
+  policy = <<POLICY
 {
   "Statement": [
     {

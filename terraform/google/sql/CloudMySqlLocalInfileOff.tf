@@ -20,13 +20,13 @@ resource "google_sql_database_instance" "fail" {
   settings {
     activation_policy = "ALWAYS"
 
-    database_flags =[{
+    database_flags = [{
       name  = "night"
       value = "on"
-    },
-    {
-      name  = "local_infile"
-      value = "on"
+      },
+      {
+        name  = "local_infile"
+        value = "on"
     }]
 
     availability_type = "ZONAL"

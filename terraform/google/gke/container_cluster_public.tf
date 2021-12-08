@@ -21,17 +21,16 @@
 resource "google_container_cluster" "fail-public" {
   node_config {
     shielded_instance_config {
-      enable_integrity_monitoring=false
+      enable_integrity_monitoring = false
     }
   }
 
   enable_legacy_abac = true
-  logging_service="none"
-  monitoring_service="none"
+  logging_service    = "none"
+  monitoring_service = "none"
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block="0.0.0.0/0"
+      cidr_block = "0.0.0.0/0"
     }
   }
 }
-

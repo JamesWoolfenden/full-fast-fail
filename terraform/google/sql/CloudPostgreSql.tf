@@ -24,7 +24,7 @@ resource "google_sql_database_instance" "fail" {
 
   settings {
     ip_configuration {
-      require_ssl=false
+      require_ssl  = false
       ipv4_enabled = false
       authorized_networks {
         value = "108.12.12.0/24"
@@ -37,7 +37,7 @@ resource "google_sql_database_instance" "fail" {
       }
     }
     backup_configuration {
-      enabled=false
+      enabled = false
     }
     activation_policy = "ALWAYS"
     availability_type = "ZONAL"
