@@ -1,3 +1,11 @@
+#  fails
+#  tfsec
+# todo
+# todo
+
+#  Resource 'kubernetes_network_policy.fail' allows egress traffic to the internet
+#  Resource 'kubernetes_network_policy.fail' allows ingress traffic from the internet
+
 resource "kubernetes_network_policy" "fail" {
   metadata {
     name      = "terraform-example-network-policy"

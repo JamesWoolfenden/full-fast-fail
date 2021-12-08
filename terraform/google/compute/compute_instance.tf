@@ -26,13 +26,13 @@ resource "google_compute_instance" "default" {
 
   metadata = {
     block-project-ssh-keys = false
-    serial-port-enable = true
-    enable-oslogin     = false
+    serial-port-enable     = true
+    enable-oslogin         = false
   }
 
-  can_ip_forward = true
-  enable_flow_logs= false
-    service_account {
+  can_ip_forward   = true
+  enable_flow_logs = false
+  service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     email  = "1234567890-compute@developer.gserviceaccount.com"
     scopes = ["cloud-platform"]

@@ -12,7 +12,7 @@ resource "google_project" "fail" {
 }
 
 resource "google_compute_network" "vpc_network_bad" {
-  name = "vpc-legacy"
+  name                    = "vpc-legacy"
   auto_create_subnetworks = true
-  project = google_project.fail.id
+  project                 = google_project.fail.id
 }

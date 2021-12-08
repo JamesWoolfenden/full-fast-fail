@@ -4,8 +4,9 @@
 
 # tfsec
 #  'google_folder_iam_binding.folder' grants IAM to a user object. It is recommended to manage user permissions with groups.
+# Resource 'google_folder_iam_binding.folder' assigns a role to a default service account.
 
-resource "google_folder_iam_binding" "folder" {
+resource "google_folder_iam_binding" "fail" {
   folder = "folders/1234567"
   role   = "roles/editor"
 
