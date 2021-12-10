@@ -1,3 +1,9 @@
+# fails
+# triggered pass but should not
+# todo CKV_AZURE_83: "Ensure that 'Java version' is the latest, if used to run the web app"
+# CKV_AZURE_81: "Ensure that 'PHP version' is the latest, if used to run the web app"
+# CKV_AZURE_82: "Ensure that 'Python version' is the latest, if used to run the web app"
+
 
 resource "azurerm_app_service" "example" {
   name                = "example-app-service"

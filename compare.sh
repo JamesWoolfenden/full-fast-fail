@@ -8,8 +8,8 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1579
-tfexpected=277
+expected=1235
+tfexpected=346
 kicsexpected=1294
 
 # run the tools
