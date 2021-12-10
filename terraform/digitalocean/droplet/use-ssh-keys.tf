@@ -1,7 +1,7 @@
 # fails
-# todo
+# CKV_DIO_2: "Ensure the droplet specifies an SSH key"
 # tfsec
-# Resource 'digitalocean_droplet.good_example' does not define ssh_keys
+# DIG003: Resource 'digitalocean_droplet.good_example' does not define ssh_keys
 
 resource "digitalocean_droplet" "fail" {
   image  = "ubuntu-18-04-x64"

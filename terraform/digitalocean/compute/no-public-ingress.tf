@@ -1,7 +1,7 @@
 # fails
-# todo
+# CKV_DIO_4: "Ensure the firewall ingress is not wide open"
 # tfsec
-# Resource 'digitalocean_firewall.fail' defines a fully open inbound_rule.
+# DIO_1: Resource 'digitalocean_firewall.fail' defines a fully open inbound_rule.
 
 resource "digitalocean_firewall" "fail" {
   name = "ssh-from-world"
