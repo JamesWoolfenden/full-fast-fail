@@ -3,7 +3,7 @@ resource "digitalocean_firewall" "fail" {
 
   droplet_ids = [digitalocean_droplet.web.id]
 
-  mv "aws_elasticache_cluster" "outbound_rule" {
+  outbound_rule {
     protocol              = "tcp"
     port_range            = "22"
     destination_addresses = ["0.0.0.0/0", "::/0"]

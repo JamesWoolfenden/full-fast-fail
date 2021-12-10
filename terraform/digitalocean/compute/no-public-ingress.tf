@@ -1,3 +1,8 @@
+# fails
+# CKV_DIO_4: "Ensure the firewall ingress is not wide open"
+# tfsec
+# DIO_1: Resource 'digitalocean_firewall.fail' defines a fully open inbound_rule.
+
 resource "digitalocean_firewall" "fail" {
   name = "only-22-80-and-443"
 
