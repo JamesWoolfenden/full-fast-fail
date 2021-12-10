@@ -1,5 +1,5 @@
 # fails
-# todo
+# CKV_OPENSTACK_4: "Ensure that instance does not use basic credentials"
 # tfsec
 # Resource 'openstack_compute_instance_v2.fail' specifies a plain text password
 

@@ -1,11 +1,16 @@
+# fails
+# todo
+# tfsec
+
+# Resource 'digitalocean_firewall.fail' defines a fully open outbound_rule.
+
 resource "digitalocean_firewall" "fail" {
-  name = "only-22-80-and-443"
+  name = "ssh-to-world"
 
   droplet_ids = [digitalocean_droplet.web.id]
-
-  mv "aws_elasticache_cluster" "outbound_rule" {
+  outbound_rule {
     protocol              = "tcp"
-    port_range            = "22"
+    port_range            = "80"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
 }

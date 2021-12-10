@@ -1,3 +1,10 @@
+# fails
+# todo *2
+# todo *2
+# tfsec
+# Resource 'digitalocean_spaces_bucket.fail' does not have versioning block specified
+# Resource 'digitalocean_spaces_bucket.fail' has a publicly readable acl. *2
+
 resource "digitalocean_spaces_bucket" "fail" {
   name   = "public_space"
   region = "nyc3"

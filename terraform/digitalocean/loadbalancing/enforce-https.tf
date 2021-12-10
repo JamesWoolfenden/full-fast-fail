@@ -1,5 +1,7 @@
-
-
+# fails
+# todo
+# tfsec
+# Resource 'digitalocean_loadbalancer.fail' uses plain HTTP instead of HTTPS.
 resource "digitalocean_loadbalancer" "fail" {
   name   = "fail-1"
   region = "nyc3"

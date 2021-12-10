@@ -1,4 +1,3 @@
-
 # fails
 # CKV_AZURE_13: "Ensure App Service Authentication is set on Azure App Service"
 # CKV_AZURE_14: "Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service"
