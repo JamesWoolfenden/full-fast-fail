@@ -1,3 +1,5 @@
+# fails
+# CKV_AZURE_106: "Ensure that Azure Event Grid Domain public network access is disabled"
 
 resource "azurerm_eventgrid_domain" "example" {
   name                = "example-app-service"

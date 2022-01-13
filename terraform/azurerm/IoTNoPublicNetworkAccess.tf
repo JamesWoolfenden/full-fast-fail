@@ -1,8 +1,11 @@
+# fails
+# Check: CKV_AZURE_108: "Ensure that Azure IoT Hub disables public network access"
 
 resource "azurerm_iothub" "example" {
-  name                = "Example-IoTHub"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+  name                          = "Example-IoTHub"
+  resource_group_name           = azurerm_resource_group.example.name
+  location                      = azurerm_resource_group.example.location
+  public_network_access_enabled = true
 
   sku {
     name     = "S1"
@@ -46,9 +49,5 @@ resource "azurerm_iothub" "example" {
     key            = "tenant"
     value          = "$twin.tags.Tenant"
     endpoint_names = ["export", "export2"]
-  }
-
-  tags = {
-    purpose = "testing"
   }
 }

@@ -18,20 +18,36 @@
 # CKV_AZURE_83: "Ensure that 'Java version' is the latest, if used to run the web app"
 # CKV_AZURE_88: "Ensure that app services use Azure Files"
 
+# tfsec
+# Resource 'azurerm_app_service.fail' does not have logs enabled
+# Resource 'azurerm_app_service.fail' does not have logs enabled
+# Resource 'azurerm_app_service.fail' does not have logs enabled
+# Resource 'azurerm_app_service.fail' does not have site_config.min_tls_version set to 1.2
+# Resource 'azurerm_app_service.fail' does not have site_config.php_version set to 7.4 which is the latest version
+# Resource 'azurerm_app_service.fail' does not have site_config.python_version set to 3.4 which is the latest version
+# Resource 'azurerm_app_service.fail' does not set identity
+# Resource 'azurerm_app_service.fail' is configured with ftps enabled
+# Resource 'azurerm_app_service.fail' is configured with incorrect values
+# Resource 'azurerm_app_service.fail' uses default value (true) for https_only
+# Resource 'azurerm_app_service.fail' uses default value for auth_setting.enabled
+# Resource 'azurerm_app_service.fail' uses default value for client_cert_enabled
+# Resource 'azurerm_app_service.fail' uses default value for site_config.http2_enabled
+
 resource "azurerm_app_service" "fail" {
-  name                = "example-app-service"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-  app_service_plan_id = azurerm_app_service_plan.example.id
-  remote_debugging_enabled=true
+  name                     = "example-app-service"
+  location                 = azurerm_resource_group.example.location
+  resource_group_name      = azurerm_resource_group.example.name
+  app_service_plan_id      = azurerm_app_service_plan.example.id
+  remote_debugging_enabled = true
   site_config {
-    python_version = "2.7"
-    php_version="7.1"
-    min_tls_version="1.0"
-    java_version = "7.0"
-    cors{
-    allowed_origins=["*"]
+    python_version  = "2.7"
+    php_version     = "7.1"
+    min_tls_version = "1.0"
+    java_version    = "7.0"
+    dotnet_framework_version = "v4.0"
+    cors {
+      allowed_origins = ["*"]
     }
-}
+  }
 
 }

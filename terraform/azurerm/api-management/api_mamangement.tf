@@ -1,3 +1,5 @@
+# fails
+# CKV_AZURE_107: "Ensure that API management services use virtual networks"
 
 resource "azurerm_api_management" "example" {
   name                = "example-apim"

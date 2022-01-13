@@ -1,3 +1,5 @@
+# fails
+# CKV_AZURE_73: "Ensure that Automation account variables are encrypted"
 
 resource "azurerm_automation_variable_string" "example" {
   name                    = "tfex-example-var"

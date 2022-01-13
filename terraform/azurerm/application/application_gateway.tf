@@ -1,3 +1,5 @@
+# fails
+# CKV_AZURE_120: "Ensure that Application Gateway enables WAF"
 
 resource "azurerm_application_gateway" "network" {
   name                = "example-appgateway"

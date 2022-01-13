@@ -1,4 +1,6 @@
-
+# fails
+# tfsec
+# Resource 'azurerm_app_service.example' uses default value (true) for https_only
 resource "azurerm_app_service" "example" {
   name                = "example-app-service"
   location            = azurerm_resource_group.example.location

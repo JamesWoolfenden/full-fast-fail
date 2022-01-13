@@ -14,6 +14,6 @@ resource "azurerm_mssql_server_security_alert_policy" "fail" {
     "Data_Exfiltration"
   ]
   email_account_admins = false
-  retention_days = 20
-  email_addresses = []
+  retention_days       = 20
+  email_addresses      = []
 }

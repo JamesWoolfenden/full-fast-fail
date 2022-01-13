@@ -9,12 +9,12 @@
 # CKV_SECRET_6: "Base64 High Entropy String"
 
 resource "azurerm_sql_server" "example" {
-  name                         = "mssqlserver"
-  resource_group_name          = azurerm_resource_group.example.name
-  location                     = azurerm_resource_group.example.location
-  version                      = "12.0"
-  administrator_login          = "mradministrator"
-  administrator_login_password = "thisIsDog11"
+  name                          = "mssqlserver"
+  resource_group_name           = azurerm_resource_group.example.name
+  location                      = azurerm_resource_group.example.location
+  version                       = "12.0"
+  administrator_login           = "mradministrator"
+  administrator_login_password  = "thisIsDog11"
   minimum_tls_version           = "1.1"
   public_network_access_enabled = true
   extended_auditing_policy {

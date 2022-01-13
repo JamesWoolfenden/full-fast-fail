@@ -1,3 +1,5 @@
+# fails
+# CKV_AZURE_122: "Ensure that Application Gateway uses WAF in "Detection" or "Prevention" modes"
 resource "azurerm_web_application_firewall_policy" "example" {
   name                = "example-wafpolicy"
   resource_group_name = azurerm_resource_group.example.name
