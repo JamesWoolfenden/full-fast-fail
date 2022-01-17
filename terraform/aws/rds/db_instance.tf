@@ -5,6 +5,7 @@
 # CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
 # CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
 # CKV_AWS_133: "Ensure that RDS instances has backup policy"
+# CKV2_AWS_30: "Ensure Postgres RDS as aws_db_instance has Query Logging enabled"
 
 # tfsec
 # AWS011 Resource 'aws_db_instance.fail' is exposed publicly.
@@ -15,4 +16,5 @@ resource "aws_db_instance" "fail" {
   //storage_encrypted  = true
   publicly_accessible     = true
   backup_retention_period = 0
+  engine="postgres"
 }

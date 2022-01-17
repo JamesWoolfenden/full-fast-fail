@@ -3,6 +3,7 @@
 # CKV_AWS_86: "Ensure Cloudfront distribution has Access Logging enabled"
 # CKV_AWS_174: "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2"
 # CKV_AWS_68: "CloudFront Distribution should have WAF enabled"
+# CKV2_AWS_32: "Ensure CloudFront distribution has a strict security headers policy attached"
 
 # tfsec
 # AWS020 Resource 'aws_cloudfront_distribution.s3_distribution' defines a CloudFront distribution that allows unencrypted communications.
