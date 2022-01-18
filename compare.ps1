@@ -1,39 +1,37 @@
 param (
-    [string]$path=".",
-    [int]$expected=1235,
-    [int]$tfexpected=346,
-    [int]$kicsexpected=1294)
+   [string]$path = ".",
+   [int]$expected = 1314,
+   [int]$tfexpected = 346,
+   [int]$kicsexpected = 1294)
 
 #Uses  npm install -g figlet-cli
 
 figlet Compare Tools
 
 # run the tools
-$checkov=(checkov -o json -d $path)|ConvertFrom-Json
+$checkov = (checkov -o json -d $path) | ConvertFrom-Json
 
 # kics scan -p . -o . --output-name fails-kics.json
 # $kics_count=(cat fails-kics.json)|ConvertFrom-Json
 # $kics_total=$kics_count.total_counter
 
-$tfsec=(tfsec $path -f json )|ConvertFrom-Json
+$tfsec = (tfsec $path -f json ) | ConvertFrom-Json
 
-$tfsec_count=$tfsec.results.Length
-$terraform=$checkov[0].results.failed_checks.Length
-$secrets=$checkov[4].results.failed_checks.Length
-$total=$secrets+$terraform
+$tfsec_count = $tfsec.results.Length
+$terraform = $checkov[0].results.failed_checks.Length
+$secrets = $checkov[4].results.failed_checks.Length
+$total = $secrets + $terraform
 
 
 if ($total -ne $expected) {
    Write-Host "Error: Checkov expected $expected but found $total"
 }
 
-if ($tfsec_count -ne $tfexpected)
-{
+if ($tfsec_count -ne $tfexpected) {
    Write-Host "Error: Tfsec expected $tfexpected but found $tfsec_count"
 }
 
-if ($tfsec_count -gt $total)
-{
+if ($tfsec_count -gt $total) {
    Write-Host "Error: Tfsec found more $tfsec_count but we found $total"
 }
 

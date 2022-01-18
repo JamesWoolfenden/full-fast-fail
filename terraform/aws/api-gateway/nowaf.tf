@@ -19,3 +19,11 @@ resource "aws_api_gateway_stage" "no_assoc" {
   rest_api_id   = aws_api_gateway_rest_api.no_assoc.id
   stage_name    = "example"
 }
+
+variable "name" {
+  default="gateway"
+}
+
+resource "aws_api_gateway_deployment" "example" {
+  rest_api_id=aws_api_gateway_rest_api.no_assoc.id
+}

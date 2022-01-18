@@ -1,30 +1,30 @@
 param (
-    [string]$path=".",
-    [int]$expected=1244)
+    [string]$path = ".",
+    [int]$expected = 1314)
 
 
-    function scan {
-        [CmdletBinding()]
-        param (
-            [Parameter()]
-            [string]
-            $path="."
-        )
-        return (checkov -o json -d $path)|ConvertFrom-Json
-    }
+function scan {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [string]
+        $path = "."
+    )
+    return (checkov -o json -d $path) | ConvertFrom-Json
+}
 
 
 figlet "Checkov Scan"
 
 # run the tools
-$checkov=scan
+$checkov = scan
 
-$terraform=$checkov[0].results.failed_checks.Length
-$secrets=$checkov[4].results.failed_checks.Length
-$total=$secrets+$terraform
+$terraform = $checkov[0].results.failed_checks.Length
+$secrets = $checkov[4].results.failed_checks.Length
+$total = $secrets + $terraform
 
 
-if ( $total -ne $expected ){
+if ( $total -ne $expected ) {
     write-host "Error: expected $expected but found $total"
     exit 1
 }

@@ -1,4 +1,5 @@
-
+# fail
+# CKV_AZURE_98: "Ensure that Azure Container group is deployed into virtual network"
 resource "azurerm_container_group" "example" {
   name                = "example-continst"
   location            = azurerm_resource_group.example.location
