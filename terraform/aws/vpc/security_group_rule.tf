@@ -1,6 +1,6 @@
 # fails
 # CKV_AWS_23: "Ensure every security groups rule has a description"
-# todo CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+# tf CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
 # todo CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
 
 # tfsec

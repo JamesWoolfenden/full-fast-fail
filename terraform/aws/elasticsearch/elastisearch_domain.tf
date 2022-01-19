@@ -4,7 +4,7 @@
 # CKV_AWS_5: "Ensure all data stored in the Elasticsearch is securely encrypted at rest"
 # CKV_AWS_137: "Ensure that Elasticsearch is configured inside a VPC"
 # CKV_AWS_84: "Ensure Elasticsearch Domain Logging is enabled"
-#todo needs parity policy
+# CKV_AWS_197: "Verify ElasticSearch domain is using an up to date TLS policy"
 
 # tfsec
 # AWS032 Resource 'aws_elasticsearch_domain.node_to_node_encryption_disabled' defines an Elasticsearch domain with plaintext traffic (enabled attribute set to false).

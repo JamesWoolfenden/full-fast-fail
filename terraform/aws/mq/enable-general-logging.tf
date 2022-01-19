@@ -1,6 +1,7 @@
 # fail
-# todo
-# todo
+# CKV_AWS_69: "Ensure MQ Broker is not publicly exposed"
+# CKV_AWS_48: "Ensure MQ Broker logging is enabled"
+# CKV_AWS_197: check for audit logs
 
 # tfsec
 # Resource 'aws_mq_broker.fail' does not have logs.general set to true

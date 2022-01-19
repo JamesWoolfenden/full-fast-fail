@@ -2,7 +2,7 @@
 # CKV_SECRET_6: "Base64 High Entropy String"
 # CKV2_AWS_13: "Ensure that Redshift clusters has backup plan of AWS Backup"
 # CKV_AWS_141: "Ensured that redshift cluster allowing version upgrade by default"
-# todo remove CKV_AWS_188: "Ensure RedShift Cluster is encrypted by KMS using a customer managed Key (CMK)"
+# CKV_AWS_188: "Ensure RedShift Cluster is encrypted by KMS using a customer managed Key (CMK)"
 # CKV_AWS_142: "Ensure that Redshift cluster is encrypted by KMS"
 # CKV_AWS_87: "Redshift cluster should not be publicly accessible"
 # CKV_AWS_71: "Ensure Redshift Cluster logging is enabled"

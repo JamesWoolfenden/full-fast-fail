@@ -1,9 +1,8 @@
 # fail
 # CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
 # CKV_AWS_23: "Ensure every security groups rule has a description"
-# todo
-# todo
-# TODO dont mix inline rules with separate resources
+# CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+# CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
 
 # tfsec
 # Mixed usage between 'aws_security_group_rule.fail' and 'aws_security_group.fail_sg'
