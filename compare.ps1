@@ -1,7 +1,7 @@
 param (
    [string]$path = ".",
-   [int]$expected = 1314,
-   [int]$tfexpected = 346,
+   [int]$expected = 1322,
+   [int]$tfexpected = 370,
    [int]$kicsexpected = 1294)
 
 #Uses  npm install -g figlet-cli
@@ -44,9 +44,17 @@ if ($tfsec_count -gt $total) {
 Write-Host "Found Terraform $terraform"
 Write-Host "Found Secrets $secrets"
 # Write-Host "Found TFSec $tfsec_count"
-Write-Host "Found Kics $kics_total"
+# Write-Host "Found Kics $kics_total"
 
 
 Write-Host "Expected $expected and found $total"
 Write-Host "Checkov: $total TFSec: $tfsec_count"
+
+
+figlet Versions
+
+terraform version
+write-output "Checkov $(checkov -v)"
+write-output "tfsec $(tfsec -version)"
+#write-output "kics $(kics version)"
 exit 0

@@ -56,7 +56,6 @@ Error: Checkov expected 1314 but found 1322
 Error: Tfsec expected 346 but found 370
 Found Terraform 1308
 Found Secrets 14
-Found Kics
 Expected 1314 and found 1322
 Checkov: 1322 TFSec: 370
 ```
