@@ -46,15 +46,17 @@ Run to see what rules are being triggered/passed.
 Run this to see how SAST tools compare on a code base
 
 ./compare.sh
-  ____                                       _____           _
- / ___|___  _ __ ___  _ __   __ _ _ __ ___  |_   _|__   ___ | |___
-| |   / _ \| '_ ` _ \| '_ \ / _` | '__/ _ \   | |/ _ \ / _ \| / __|
-| |__| (_) | | | | | | |_) | (_| | | |  __/   | | (_) | (_) | \__ \
- \____\___/|_| |_| |_| .__/ \__,_|_|  \___|   |_|\___/ \___/|_|___/
-                     |_|
-Found Terraform 98
-Found Secrets 8
-Found TFSec 29
-Expected 106 and found 106
-Checkov: 106 TFSec: 29
+   ____                                       _____           _
+  / ___|___  _ __ ___  _ __   __ _ _ __ ___  |_   _|__   ___ | |___
+ | |   / _ \| '_ ` _ \| '_ \ / _` | '__/ _ \   | |/ _ \ / _ \| / __|
+ | |__| (_) | | | | | | |_) | (_| | | |  __/   | | (_) | (_) | \__ \
+  \____\___/|_| |_| |_| .__/ \__,_|_|  \___|   |_|\___/ \___/|_|___/
+                      |_|
+Error: Checkov expected 1314 but found 1322
+Error: Tfsec expected 346 but found 370
+Found Terraform 1308
+Found Secrets 14
+Found Kics
+Expected 1314 and found 1322
+Checkov: 1322 TFSec: 370
 ```
