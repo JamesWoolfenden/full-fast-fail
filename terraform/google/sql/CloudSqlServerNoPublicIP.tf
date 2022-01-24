@@ -17,8 +17,6 @@ resource "google_sql_database_instance" "tfer--general-002D-sqlserver12" {
       start_time                     = "00:00"
     }
 
-    crash_safe_replication = "false"
-
     database_flags {
       name  = "cross db ownership chaining"
       value = "on"
@@ -34,7 +32,7 @@ resource "google_sql_database_instance" "tfer--general-002D-sqlserver12" {
     disk_type       = "PD_SSD"
 
     ip_configuration {
-      ipv4_enabled    = ""
+      ipv4_enabled    = true
       private_network = "projects/gcp-bridgecrew-deployment/global/networks/default"
       require_ssl     = "false"
     }
@@ -44,12 +42,11 @@ resource "google_sql_database_instance" "tfer--general-002D-sqlserver12" {
     }
 
     maintenance_window {
-      day  = "0"
+      day  = "1"
       hour = "0"
     }
 
-    pricing_plan     = "PER_USE"
-    replication_type = "SYNCHRONOUS"
-    tier             = "db-custom-1-4096"
+    pricing_plan = "PER_USE"
+    tier         = "db-custom-1-4096"
   }
 }

@@ -2,6 +2,8 @@
 # CKV_GCP_43: "Ensure KMS encryption keys are rotated within a period of 90 days"
 # CKV2_GCP_6: "Ensure that Cloud KMS cryptokeys are not anonymously or publicly accessible"
 
+# tfsec
+# google-kms-rotate-kms-keys
 resource "google_kms_key_ring" "keyring" {
   name     = "keyring-example"
   location = "global"

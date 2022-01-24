@@ -4,6 +4,8 @@
 # todo google_project_iam_policy cannot be used in conjunction with google_project_iam_binding, google_project_iam_member, or google_project_iam_audit_config or they will fight over what your policy should be.
 # todo google_project_iam_binding resources can be used in conjunction with google_project_iam_member resources only if they do not grant privilege to the same role.
 
+# tfsec
+# no-default-network
 resource "google_project" "fail" {
   name                = "My Project"
   project_id          = "your-project-id"

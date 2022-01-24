@@ -1,5 +1,5 @@
 
-resource "google_sql_database_instance" "fail" {
+resource "google_sql_database_instance" "fail-chain" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"
   project          = "gcp-bridgecrew-deployment"
@@ -17,15 +17,14 @@ resource "google_sql_database_instance" "fail" {
       start_time                     = "00:00"
     }
 
-    crash_safe_replication = "false"
-
-    database_flags = [{
+    database_flags {
       name  = "cross db ownership chaining"
       value = "on"
-      }, {
+    }
+    database_flags {
       name  = "contained database authentication"
       value = "off"
-    }]
+    }
 
     disk_autoresize = "true"
     disk_size       = "20"
@@ -42,12 +41,11 @@ resource "google_sql_database_instance" "fail" {
     }
 
     maintenance_window {
-      day  = "0"
+      day  = "1"
       hour = "0"
     }
 
-    pricing_plan     = "PER_USE"
-    replication_type = "SYNCHRONOUS"
-    tier             = "db-custom-1-4096"
+    pricing_plan = "PER_USE"
+    tier         = "db-custom-1-4096"
   }
 }

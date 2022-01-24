@@ -1,6 +1,9 @@
 # fails
 # CKV_GCP_15: "Ensure that BigQuery datasets are not anonymously or publicly accessible"
 
+# tfsec
+# Resource 'google_bigquery_dataset.fail' has access.special_group set to allAuthenticatedUsers
+
 resource "google_bigquery_dataset" "fail" {
   dataset_id                  = "example_dataset"
   friendly_name               = "test"
