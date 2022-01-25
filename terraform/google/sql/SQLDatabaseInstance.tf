@@ -1,3 +1,13 @@
+# fails
+# CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV_GCP_11: "Ensure that Cloud SQL database Instances are not open to the world"
+# CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
+# CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
+
+# tfsec
+# google-sql-encrypt-in-transit-data
+# google-sql-enable-backup
+# google-sql-no-public-access
 resource "google_sql_database_instance" "instance1-fail" {
   name             = "instance"
   region           = "us-central1"

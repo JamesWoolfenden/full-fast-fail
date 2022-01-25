@@ -1,13 +1,14 @@
 # fails
 # CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
-# CKV_GCP_57: "Ensure PostgreSQL database 'log_min_duration_statement' flag is set to '-1'"
-# CKV_GCP_56: "Ensure PostgreSQL database 'log_temp_files flag is set to '0'"
-# CKV_GCP_55: "Ensure PostgreSQL database 'log_min_messages' flag is set to a valid value"
-# CKV_GCP_54: "Ensure PostgreSQL database 'log_lock_waits' flag is set to 'on'"
-# CKV_GCP_53: "Ensure PostgreSQL database 'log_disconnections' flag is set to 'on'"
-# CKV_GCP_52: "Ensure PostgreSQL database 'log_connections' flag is set to 'on'"
-# CKV_GCP_51: "Ensure PostgreSQL database 'log_checkpoints' flag is set to 'on'"
 # CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
+# CKV_GCP_51: "Ensure PostgreSQL database 'log_checkpoints' flag is set to 'on'"
+# CKV_GCP_52: "Ensure PostgreSQL database 'log_connections' flag is set to 'on'"
+# CKV_GCP_53: "Ensure PostgreSQL database 'log_disconnections' flag is set to 'on'"
+# CKV_GCP_54: "Ensure PostgreSQL database 'log_lock_waits' flag is set to 'on'"
+# CKV_GCP_55: "Ensure PostgreSQL database 'log_min_messages' flag is set to a valid value"
+# CKV_GCP_56: "Ensure PostgreSQL database 'log_temp_files flag is set to '0'"
+# CKV_GCP_57: "Ensure PostgreSQL database 'log_min_duration_statement' flag is set to '-1'"
+
 
 # should not trigger
 # todo CKV2_GCP_7: "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges"
@@ -17,9 +18,15 @@
 # CKV_GCP_50: "Ensure MySQL database 'local_infile' flag is set to 'off'"
 
 # tfsec
-# enable-backup
-# enable-pg-temp-file-logging
-# encrypt-in-transit-data
+# google-sql-encrypt-in-transit-data
+# google-sql-pg-no-min-statement-logging
+# google-sql-pg-log-connections
+# google-sql-pg-log-lock-waits
+# google-sql-pg-log-disconnections
+# google-sql-enable-backup
+# google-sql-enable-pg-temp-file-logging
+# google-sql-pg-log-checkpoints
+# google-sql-no-public-access
 
 resource "google_sql_database_instance" "fail-all" {
   database_version = "POSTGRES_12"

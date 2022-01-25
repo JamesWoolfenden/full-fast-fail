@@ -1,4 +1,10 @@
+# fails
+# CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
 
+# tfsec
+# google-sql-no-cross-db-ownership-chaining
+# google-sql-encrypt-in-transit-data
 resource "google_sql_database_instance" "fail-chain" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"

@@ -1,11 +1,15 @@
 
 # fails
 # CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
-# CKV_GCP_50: "Ensure MySQL database 'local_infile' flag is set to 'off'"
 # CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
+# CKV_GCP_50: "Ensure MySQL database 'local_infile' flag is set to 'off'"
 
 # tfsec
-# mysql-no-local-infile
+# google-sql-enable-backup
+# google-sql-encrypt-in-transit-data
+# google-sql-mysql-no-local-infile
+# google-sql-no-public-access
+
 resource "google_sql_database_instance" "unknown" {
   name             = "db"
   database_version = "MYSQL_5_6"

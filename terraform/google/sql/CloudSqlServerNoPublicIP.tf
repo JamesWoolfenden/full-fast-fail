@@ -1,5 +1,15 @@
+# fails
+# CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
+# CKV_GCP_59: "Ensure SQL database 'contained database authentication' flag is set to 'off'"
+# CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
 
-resource "google_sql_database_instance" "tfer--general-002D-sqlserver12" {
+# tfsec
+# google-sql-no-public-access
+# google-sql-no-cross-db-ownership-chaining
+# google-sql-no-contained-db-auth
+# google-sql-encrypt-in-transit-data
+resource "google_sql_database_instance" "fail" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"
   project          = "gcp-bridgecrew-deployment"

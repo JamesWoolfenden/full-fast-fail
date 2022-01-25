@@ -1,4 +1,12 @@
+# fails
+# CKV_GCP_59: "Ensure SQL database 'contained database authentication' flag is set to 'off'"
+# CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
+# CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
 
+# tfsec
+# google-sql-encrypt-in-transit-data
+# google-sql-no-cross-db-ownership-chaining
+# google-sql-no-contained-db-auth
 resource "google_sql_database_instance" "fail-auth" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"

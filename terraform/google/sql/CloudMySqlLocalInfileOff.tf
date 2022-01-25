@@ -1,12 +1,16 @@
 # fails
 # CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV2_GCP_7: "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges"
+# CKV_GCP_11: "Ensure that Cloud SQL database Instances are not open to the world"
 # CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
 # CKV_GCP_50: "Ensure MySQL database 'local_infile' flag is set to 'off'"
+# CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
 
-# these should not trigger pass or fail as bd is mysql
-# todo CKV_GCP_53: "Ensure PostgreSQL database 'log_disconnections' flag is set to 'on'"
-# todo CKV_GCP_54: "Ensure PostgreSQL database 'log_lock_waits' flag is set to 'on'"
-# todo CKV_GCP_55: "Ensure PostgreSQL database 'log_min_messages' flag is set to a valid value"
+# tfsec
+# google-sql-no-public-access
+# google-sql-enable-backup
+# google-sql-encrypt-in-transit-data
+# google-sql-mysql-no-local-infile
 
 resource "google_sql_database_instance" "fail" {
   database_version = "MYSQL_8_0"
@@ -16,7 +20,7 @@ resource "google_sql_database_instance" "fail" {
   settings {
     ip_configuration {
       require_ssl  = false
-      ipv4_enabled = false
+      ipv4_enabled = true
       authorized_networks {
         value = "108.12.12.0/24"
         name  = "internal"
@@ -41,4 +45,10 @@ resource "google_sql_database_instance" "fail" {
 
     availability_type = "ZONAL"
   }
+}
+
+resource "google_sql_user" "root_bad" {
+  name     = "root@#"
+  instance = google_sql_database_instance.fail.name
+  host     = "me.com"
 }
