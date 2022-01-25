@@ -1,5 +1,6 @@
 # fails
 # CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV_GCP_11: "Ensure that Cloud SQL database Instances are not open to the world"
 # CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
 # CKV_GCP_51: "Ensure PostgreSQL database 'log_checkpoints' flag is set to 'on'"
 # CKV_GCP_52: "Ensure PostgreSQL database 'log_connections' flag is set to 'on'"
@@ -8,14 +9,10 @@
 # CKV_GCP_55: "Ensure PostgreSQL database 'log_min_messages' flag is set to a valid value"
 # CKV_GCP_56: "Ensure PostgreSQL database 'log_temp_files flag is set to '0'"
 # CKV_GCP_57: "Ensure PostgreSQL database 'log_min_duration_statement' flag is set to '-1'"
-
-
+# CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
 # should not trigger
 # todo CKV2_GCP_7: "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges"
-# todo SQLServer? CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
-# todo SQLServer? CKV_GCP_59: "Ensure SQL database 'contained database authentication' flag is set to 'off'"
-# todo SQLServer? CKV_GCP_60: "Ensure SQL database do not have public IP"
-# CKV_GCP_50: "Ensure MySQL database 'local_infile' flag is set to 'off'"
+
 
 # tfsec
 # google-sql-encrypt-in-transit-data
@@ -37,7 +34,7 @@ resource "google_sql_database_instance" "fail-all" {
   settings {
     ip_configuration {
       require_ssl  = false
-      ipv4_enabled = false
+      ipv4_enabled = true
       authorized_networks {
         value = "108.12.12.0/24"
         name  = "internal"

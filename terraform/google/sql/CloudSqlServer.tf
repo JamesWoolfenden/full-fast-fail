@@ -1,7 +1,10 @@
 # fails
-# CKV_GCP_59: "Ensure SQL database 'contained database authentication' flag is set to 'off'"
-# CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
 # CKV_GCP_6: "Ensure all Cloud SQL database instance requires all incoming connections to use SSL"
+# CKV_GCP_11: "Ensure that Cloud SQL database Instances are not open to the world"
+# CKV_GCP_14: "Ensure all Cloud SQL database instance have backup configuration enabled"
+# CKV_GCP_58: "Ensure SQL database 'cross db ownership chaining' flag is set to 'off'"
+# CKV_GCP_59: "Ensure SQL database 'contained database authentication' flag is set to 'off'"
+# CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
 
 # tfsec
 # google-sql-encrypt-in-transit-data
@@ -18,10 +21,10 @@ resource "google_sql_database_instance" "fail-auth" {
     availability_type = "ZONAL"
 
     backup_configuration {
-      binary_log_enabled             = "false"
-      enabled                        = "true"
+      binary_log_enabled             = false
+      enabled                        = false
       location                       = "us"
-      point_in_time_recovery_enabled = "false"
+      point_in_time_recovery_enabled = false
       start_time                     = "00:00"
     }
 
@@ -34,14 +37,19 @@ resource "google_sql_database_instance" "fail-auth" {
       value = "on"
     }
 
+
     disk_autoresize = "true"
     disk_size       = "20"
     disk_type       = "PD_SSD"
 
     ip_configuration {
-      ipv4_enabled    = "false"
+      ipv4_enabled    = true
       private_network = "projects/gcp-bridgecrew-deployment/global/networks/default"
-      require_ssl     = "false"
+      require_ssl     = false
+      authorized_networks {
+        name="theworld"
+        value = "0.0.0.0/0"
+      }
     }
 
     location_preference {
