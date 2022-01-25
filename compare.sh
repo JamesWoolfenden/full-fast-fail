@@ -8,7 +8,7 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1312
+expected=1272
 tfexpected=346
 kicsexpected=1294
 
