@@ -3,5 +3,5 @@
 
 
 resource "aws_sagemaker_notebook_instance" "name" {
-  direct_internet_access="enabled"
+  direct_internet_access = "enabled"
 }

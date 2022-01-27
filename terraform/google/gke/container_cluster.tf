@@ -34,7 +34,7 @@
 # use-cluster-labels
 # use-rbac-permissions
 resource "google_container_cluster" "fail" {
-   enable_shielded_nodes = false #defaults to true for this
+  enable_shielded_nodes = false #defaults to true for this
   node_config {
     shielded_instance_config {
       enable_integrity_monitoring = false

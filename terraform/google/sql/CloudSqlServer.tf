@@ -47,7 +47,7 @@ resource "google_sql_database_instance" "fail-auth" {
       private_network = "projects/gcp-bridgecrew-deployment/global/networks/default"
       require_ssl     = false
       authorized_networks {
-        name="theworld"
+        name  = "theworld"
         value = "0.0.0.0/0"
       }
     }

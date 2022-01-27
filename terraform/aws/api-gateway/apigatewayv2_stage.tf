@@ -14,6 +14,6 @@ resource "aws_apigatewayv2_stage" "fail" {
 }
 
 resource "aws_apigatewayv2_api" "example" {
-  protocol_type="HTTP"
-  name=var.name
+  protocol_type = "HTTP"
+  name          = var.name
 }

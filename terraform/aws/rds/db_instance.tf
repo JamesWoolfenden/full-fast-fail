@@ -16,5 +16,5 @@ resource "aws_db_instance" "fail" {
   //storage_encrypted  = true
   publicly_accessible     = true
   backup_retention_period = 0
-  engine="postgres"
+  engine                  = "postgres"
 }

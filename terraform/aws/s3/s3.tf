@@ -17,9 +17,9 @@ resource "aws_s3_bucket" "fail" {
     mfa_delete = false
   }
 
-object_lock_configuration {
-  object_lock_enabled =false
-}
+  object_lock_configuration {
+    object_lock_enabled = false
+  }
 
   policy = <<POLICY
 {

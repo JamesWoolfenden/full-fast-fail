@@ -15,8 +15,8 @@ resource "aws_emr_cluster" "test" {
   keep_job_flow_alive_when_no_steps = true
 
   kerberos_attributes {
-    kdc_admin_password                = "somePassword"
-    }
+    kdc_admin_password = "somePassword"
+  }
 }
 
 resource "aws_emr_cluster" "cluster_connected_to_wrong_group" {

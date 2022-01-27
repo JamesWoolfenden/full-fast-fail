@@ -1,6 +1,6 @@
 # fails
 # CKV_GIT_1: "Ensure Repository is Private"
-# todo
+# CKV_GIT_3: vulnerability_alerts set to true
 
 # tfsec
 # Resource 'github_repository.fail' does not have vulnerability_alerts set to true

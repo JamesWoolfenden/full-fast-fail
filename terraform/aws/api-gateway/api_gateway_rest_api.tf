@@ -7,9 +7,9 @@
 
 
 resource "aws_api_gateway_stage" "fail-waf" {
-  deployment_id=aws_api_gateway_deployment.example.id
-  stage_name="fail-waf"
-  rest_api_id=aws_api_gateway_rest_api.fail.id
+  deployment_id = aws_api_gateway_deployment.example.id
+  stage_name    = "fail-waf"
+  rest_api_id   = aws_api_gateway_rest_api.fail.id
 }
 
 resource "aws_api_gateway_rest_api" "fail" {
@@ -17,5 +17,5 @@ resource "aws_api_gateway_rest_api" "fail" {
 }
 
 provider "aws" {
-  region="eu-west-1"
+  region = "eu-west-1"
 }

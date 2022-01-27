@@ -38,12 +38,12 @@ resource "google_compute_instance" "default" {
     scopes = ["https://www.googleapis.com/auth/cloud-platform", "compute-ro", "storage-ro"]
   }
 
-network_interface {
-  network = "default"
-  access_config {
-    network_tier = "STANDARD"
+  network_interface {
+    network = "default"
+    access_config {
+      network_tier = "STANDARD"
+    }
   }
-}
   metadata = {
     block-project-ssh-keys = false
     serial-port-enable     = true

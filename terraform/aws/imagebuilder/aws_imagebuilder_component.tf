@@ -20,3 +20,7 @@ resource "aws_imagebuilder_component" "fail" {
   platform = "Linux"
   version  = "1.0.0"
 }
+
+provider "aws" {
+  region = "eu-west-1"
+}
