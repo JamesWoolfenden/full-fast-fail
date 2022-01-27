@@ -8,6 +8,10 @@
 # CKV_AZURE_7: "Ensure AKS cluster has Network Policy configured"
 # CKV_AZURE_8: "Ensure Kubernetes Dashboard is disabled"
 
+# tfsec
+# azure-container-limit-authorized-ips
+# azure-container-logging
+# azure-container-use-rbac-permissions
 resource "azurerm_kubernetes_cluster" "fail-cluster" {
   name                = "example-aks1"
   location            = azurerm_resource_group.example.location

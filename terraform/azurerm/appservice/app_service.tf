@@ -19,19 +19,19 @@
 # CKV_AZURE_88: "Ensure that app services use Azure Files"
 
 # tfsec
-# Resource 'azurerm_app_service.fail' does not have logs enabled
-# Resource 'azurerm_app_service.fail' does not have logs enabled
-# Resource 'azurerm_app_service.fail' does not have logs enabled
-# Resource 'azurerm_app_service.fail' does not have site_config.min_tls_version set to 1.2
-# Resource 'azurerm_app_service.fail' does not have site_config.php_version set to 7.4 which is the latest version
-# Resource 'azurerm_app_service.fail' does not have site_config.python_version set to 3.4 which is the latest version
-# Resource 'azurerm_app_service.fail' does not set identity
-# Resource 'azurerm_app_service.fail' is configured with ftps enabled
-# Resource 'azurerm_app_service.fail' is configured with incorrect values
-# Resource 'azurerm_app_service.fail' uses default value (true) for https_only
-# Resource 'azurerm_app_service.fail' uses default value for auth_setting.enabled
-# Resource 'azurerm_app_service.fail' uses default value for client_cert_enabled
-# Resource 'azurerm_app_service.fail' uses default value for site_config.http2_enabled
+# azure-appservice-account-identity-registered
+# azure-appservice-authentication-enabled
+# azure-appservice-detailed-error-messages-enabled
+# azure-appservice-dotnet-framework-version
+# azure-appservice-enable-http2
+# azure-appservice-enable-https-only
+# azure-appservice-failed-request-tracing-enabled
+# azure-appservice-ftp-deployments-disabled
+# azure-appservice-http-logs-enabled
+# azure-appservice-php-version
+# azure-appservice-python-version
+# azure-appservice-require-client-cert
+# azure-appservice-use-secure-tls-policy
 
 resource "azurerm_app_service" "fail" {
   name                     = "example-app-service"
