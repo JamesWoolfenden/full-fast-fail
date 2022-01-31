@@ -1,6 +1,6 @@
 param (
     [string]$path = ".",
-    [int]$expected = 1272)
+    [int]$expected = 1044)
 
 
 function scan {
@@ -34,4 +34,8 @@ write-host "Found Terraform $terraform"
 write-host "Found Secrets $secrets"
 
 write-host "Expected: $expected and found: $total"
+figlet Versions
+
+terraform version
+write-output "Checkov $(checkov -v)"
 exit 0
