@@ -1,9 +1,12 @@
 # fail
-# CKV2_AWS_15: "Ensure that auto Scaling groups that are associated with a load balancer, are using Elastic Load Balancing health checks."
-# CKV_AWS_153: "Autoscaling groups should supply tags to launch configurations"
+# CKV_AWS_92: "Ensure the ELB has access logging enabled"
 # CKV_AWS_127: "Ensure that Elastic Load Balancer(s) uses SSL certificates provided by AWS Certificate Manager"
-#  CKV_AWS_138: "Ensure that ELB is cross-zone-load-balancing enabled"
-#  CKV_AWS_92: "Ensure the ELB has access logging enabled"
+# CKV_AWS_138: "Ensure that ELB is cross-zone-load-balancing enabled"
+# CKV_AWS_153: "Autoscaling groups should supply tags to launch configurations"
+# CKV2_AWS_15: "Ensure that auto Scaling groups that are associated with a load balancer, are using Elastic Load Balancing health checks."
+# todo aws-elbv2-alb-not-public ?
+# tfsec
+# aws-elbv2-alb-not-public
 resource "aws_autoscaling_group" "autoscalling_bad" {
   max_size                  = 5
   min_size                  = 2

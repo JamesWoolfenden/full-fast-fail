@@ -10,7 +10,7 @@ Write-Host .
 
 tfsec -f json --out fails_tfsec.txt
 
-# kics scan -p . -o . --output-name fails_kics.txt
+kics scan -p . -o . --output-name fails_kics.txt
 
 Write-Host Finished
 exit 0

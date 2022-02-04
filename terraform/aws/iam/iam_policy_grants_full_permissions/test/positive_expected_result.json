@@ -1,0 +1,8 @@
+[
+  {
+    "queryName": "IAM Policy Grants Full Permissions",
+    "severity": "MEDIUM",
+    "line": 20,
+    "fileName": "positive.tf"
+  }
+]

@@ -2,6 +2,9 @@
 # CKV2_AWS_18: "Ensure that Elastic File System (Amazon EFS) file systems are added in the backup plans of AWS Backup"
 # CKV_AWS_42: "Ensure EFS is securely encrypted"
 # CKV_AWS_184: "Ensure resource is encrypted by KMS using a customer managed Key (CMK)"
+# tfsec
+# aws-efs-enable-at-rest-encryption
+
 
 resource "aws_backup_plan" "example" {
   name = "tf_example_backup_plan"

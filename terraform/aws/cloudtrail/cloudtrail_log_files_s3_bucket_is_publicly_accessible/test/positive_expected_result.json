@@ -1,0 +1,14 @@
+[
+  {
+    "queryName": "CloudTrail Log Files S3 Bucket is Publicly Accessible",
+    "severity": "HIGH",
+    "line": 12,
+    "filename": "positive1.tf"
+  },
+  {
+    "queryName": "CloudTrail Log Files S3 Bucket is Publicly Accessible",
+    "severity": "HIGH",
+    "line": 23,
+    "filename": "positive2.tf"
+  }
+]

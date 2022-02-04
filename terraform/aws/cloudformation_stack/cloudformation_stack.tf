@@ -8,3 +8,7 @@ resource "aws_cloudformation_stack" "default" {
     VPCCidr = "10.0.0.0/16"
   }
 }
+
+provider "aws" {
+  region = "eu-west-1"
+}
