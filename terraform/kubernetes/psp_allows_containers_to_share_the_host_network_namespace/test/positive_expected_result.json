@@ -1,7 +1,0 @@
-[
-  {
-    "queryName": "PSP Allows Containers To Share The Host Network Namespace",
-    "severity": "HIGH",
-    "line": 8
-  }
-]
