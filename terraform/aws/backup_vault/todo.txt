@@ -1,0 +1,14 @@
+todo AWS Backup Service Lifecycle Configuration
+Ensure Amazon Backup plans have a compliant lifecycle configuration enabled.
+
+todo Check for Protected Amazon Backup Resource Types
+Ensure that the appropriate resource types are protected by Amazon Backup within your AWS account.
+
+todo Configure AWS Backup Vault Access Policy
+Prevent deletion of backups using an Amazon Backup vault resource-based access policy.
+
+todo Enable Alert Notifications for Failed Backup Jobs
+Ensure that email notifications for unsuccessful backup jobs are enabled.
+
+todo Use AWS Backup Service in Use for Amazon RDS
+Ensure that Amazon Backup service is used to manage AWS RDS database snapshots.

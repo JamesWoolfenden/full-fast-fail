@@ -4,6 +4,7 @@
 # CKV_AWS_90: "Ensure DocDB TLS is not disabled"
 # CKV_AWS_104: "Ensure DocDB has audit logs enabled"
 # CKV_AWS_182: "Ensure Doc DB is encrypted by KMS using a customer managed Key (CMK)"
+# todo Ensure that your Amazon DocumentDB database clusters have set a minimum backup retention period in order to fulfill your organization compliance requirements 7 or greate
 
 # tfsec
 # Resource 'aws_docdb_cluster.examplea' uses default value for storage_encrypted

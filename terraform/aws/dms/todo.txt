@@ -1,0 +1,8 @@
+todo DMS Auto Minor Version Upgrade
+Ensure that Amazon DMS replication instances have Auto Minor Version Upgrade feature enabled.
+
+todo DMS Multi-AZ
+Ensure that Amazon DMS replication instances have the Multi-AZ feature enabled
+
+todo  Publicly Accessible DMS Replication Instances
+Ensure that AWS DMS replication instances are not publicly accessible and prone to security risks.

@@ -1,0 +1,6 @@
+todo
+Enable Access Logging for App Mesh Virtual Gateways
+Ensure that Access Logging is enabled for your Amazon App Mesh virtual gateways.
+
+todo Restrict External Traffic
+Ensure that Amazon App Mesh proxies are only forwarding traffic between each other.
