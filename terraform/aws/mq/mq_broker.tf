@@ -1,7 +1,7 @@
 # fail
 # CKV_AWS_48: "Ensure MQ Broker logging is enabled"
 # CKV_AWS_69: "Ensure MQ Broker is not publicly exposed"
-
+# CKV_AWS_197: Ensure MQ Broker Audit logging is enabled
 # tfsec
 # Resource 'aws_mq_broker.example' uses default value for logs.audit
 # Resource 'aws_mq_broker.example' uses default value for logs.general
@@ -19,4 +19,6 @@ resource "aws_mq_broker" "example" {
     username = "ExampleUser"
     password = "MindTheGap"
   }
+
+  # publicly_accessible = true
 }

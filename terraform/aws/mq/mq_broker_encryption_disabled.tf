@@ -1,3 +1,6 @@
+# fails
+# todo check encryption options as comment
+
 resource "aws_mq_broker" "positive1" {
   broker_name = "example"
 
@@ -15,4 +18,13 @@ resource "aws_mq_broker" "positive1" {
     username = "ExampleUser"
     password = "MindTheGap"
   }
+
+  # encryption_options {
+  #   use_aws_owned_key=false
+  #   kms_key_id=aws_kms_key.examplea.arn
+  # }
+}
+
+resource "aws_kms_key" "example" {
+
 }

@@ -1,3 +1,6 @@
+#fails
+#todo check efs policy is not too permissive
+
 provider "aws" {
   region = "us-east-1"
 }

@@ -1,6 +1,6 @@
-# fails 
+# fails
 # kics
-# todo heck mfa_configuration is set to 'ON' or 'OPTIONAL"
+# todo check mfa_configuration is set to 'ON' or 'OPTIONAL"
 # todo check has 'sms_configuration' or 'software_token_mfa_configuration' defined
 
 resource "aws_cognito_user_pool" "fail" {

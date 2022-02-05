@@ -1,8 +1,0 @@
-[
-  {
-    "queryName": "Secretsmanager Secret Without KMS",
-    "severity": "MEDIUM",
-    "line": 1,
-    "filename": "positive1.tf"
-  }
-]

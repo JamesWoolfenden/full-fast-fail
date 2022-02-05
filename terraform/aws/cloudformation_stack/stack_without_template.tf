@@ -1,4 +1,4 @@
-# # fails
+# fails
 # CKV_AWS_124: "Ensure that CloudFormation stacks are sending event notifications to an SNS topic"
 # kics
 # todo check if template_body or template_url are set

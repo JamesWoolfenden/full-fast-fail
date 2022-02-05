@@ -2,7 +2,7 @@
 # CKV_AWS_198: "Ensure no aws_db_security_group resources exist"
 # kics
 # public
-# cidr range to large 
+# todo cidr range to large
 
 resource "aws_db_security_group" "positive1" {
   name = "rds_sg"
@@ -11,7 +11,7 @@ resource "aws_db_security_group" "positive1" {
     cidr = "0.0.0.0/0"
   }
 
-    ingress {
+  ingress {
     cidr = "10.0.0.0/24"
   }
 }

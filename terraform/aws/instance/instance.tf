@@ -1,10 +1,10 @@
 # fails
+# CKV_AWS_8: "Ensure all data stored in the Launch configuration EBS is securely encrypted"
+# CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
 # CKV_AWS_79: "Ensure Instance Metadata Service Version 1 is not enabled"
 # CKV_AWS_88: "EC2 instance should not have public IP."
-# CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
 # CKV_AWS_126: "Ensure that detailed monitoring is enabled for EC2 instances"
 # CKV_AWS_135: "Ensure that EC2 is EBS optimized"
-# CKV_AWS_8: "Ensure all data stored in the Launch configuration EBS is securely encrypted"
 
 # tfsec
 # AWS062 Resource 'aws_instance.fail' has userdata with access secret key defined.

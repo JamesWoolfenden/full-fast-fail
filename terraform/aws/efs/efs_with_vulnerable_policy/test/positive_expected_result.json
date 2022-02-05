@@ -1,8 +1,0 @@
-[
-  {
-    "queryName": "EFS With Vulnerable Policy",
-    "severity": "HIGH",
-    "line": 16,
-    "fileName": "positive.tf"
-  }
-]

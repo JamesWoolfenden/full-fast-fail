@@ -1,9 +1,9 @@
 # fail
-# CKV_AWS_83: "Ensure Elasticsearch Domain enforces HTTPS"
-# CKV_AWS_6: "Ensure all Elasticsearch has node-to-node encryption enabled"
 # CKV_AWS_5: "Ensure all data stored in the Elasticsearch is securely encrypted at rest"
-# CKV_AWS_137: "Ensure that Elasticsearch is configured inside a VPC"
+# CKV_AWS_6: "Ensure all Elasticsearch has node-to-node encryption enabled"
+# CKV_AWS_83: "Ensure Elasticsearch Domain enforces HTTPS"
 # CKV_AWS_84: "Ensure Elasticsearch Domain Logging is enabled"
+# CKV_AWS_137: "Ensure that Elasticsearch is configured inside a VPC"
 # CKV_AWS_197: "Verify ElasticSearch domain is using an up to date TLS policy"
 
 # tfsec

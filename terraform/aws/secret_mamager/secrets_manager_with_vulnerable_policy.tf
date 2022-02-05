@@ -1,3 +1,6 @@
+# fails
+# todo policy is to permissive
+
 provider "aws" {
   region = "us-east-1"
 }

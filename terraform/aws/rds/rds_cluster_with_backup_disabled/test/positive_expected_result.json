@@ -1,8 +1,0 @@
-[
-  {
-    "queryName": "RDS Cluster With Backup Disabled",
-    "severity": "MEDIUM",
-    "line": 1,
-    "filename": "positive1.tf"
-  }
-]
