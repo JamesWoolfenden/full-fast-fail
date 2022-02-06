@@ -1,8 +1,8 @@
 # fail
-# todo deployment has accesss logs (from stage settings) 
+# todo deployment has access logs (from stage settings)
 resource "aws_api_gateway_deployment" "fail" {
-  rest_api_id   = "some rest api id"
-  stage_name = "some name"
+  rest_api_id = "some rest api id"
+  stage_name  = "some name"
   tags {
     project = "ProjectName"
   }

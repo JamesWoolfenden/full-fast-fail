@@ -9,5 +9,5 @@ resource "aws_api_gateway_stage" "fail" {
   stage_name    = "prod"
   rest_api_id   = aws_api_gateway_rest_api.fail.id
   deployment_id = aws_api_gateway_deployment.fail.id
-#   client_certificate_id = "12131323"
+  #   client_certificate_id = "12131323"
 }

@@ -1,4 +1,7 @@
 
+# fails
+# CKV_AZURE_93: "Ensure that managed disks use a specific set of disk encryption sets for the customer-managed key encryption"
+
 resource "azurerm_managed_disk" "source" {
   name                 = "acctestmd1"
   location             = "West US 2"

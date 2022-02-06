@@ -1,4 +1,8 @@
+# fails
+# CKV_AZURE_2: "Ensure Azure managed disk has encryption enabled"
 
+# tfsec
+# azure-compute-enable-disk-encryption
 resource "azurerm_managed_disk" "example" {
   name                 = var.disk_name
   location             = var.location
