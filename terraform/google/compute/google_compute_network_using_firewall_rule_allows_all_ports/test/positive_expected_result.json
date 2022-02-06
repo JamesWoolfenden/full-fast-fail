@@ -1,8 +1,0 @@
-[
-	{
-		"queryName": "Google Compute Network Using Firewall Rule that Allows All Ports",
-		"severity": "MEDIUM",
-		"line": 17,
-		"fileName": "positive.tf"
-	}
-]
