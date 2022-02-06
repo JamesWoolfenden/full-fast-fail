@@ -1,8 +1,8 @@
 param (
    [string]$path = ".",
-   [int]$expected = 1044,
+   [int]$expected = 2053,
    [int]$tfexpected = 370,
-   [int]$kicsexpected = 1294)
+   [int]$kicsexpected = 5100)
 
 #Uses  npm install -g figlet-cli
 
@@ -31,24 +31,20 @@ if ($tfsec_count -ne $tfexpected) {
    Write-Host "Error: Tfsec expected $tfexpected but found $tfsec_count"
 }
 
-if ($tfsec_count -gt $total) {
-   Write-Host "Error: Tfsec found more $tfsec_count but we found $total"
-}
-
 if ($kics_total -gt $total)
 {
-   Write-Host "Error: Kics found more $kics_total but we found $total"
+   Write-Host "Error: Kics expected $kicsexpected but found $kics_total"
 }
 
 
 Write-Host "Found Terraform $terraform"
 Write-Host "Found Secrets $secrets"
-# Write-Host "Found TFSec $tfsec_count"
+Write-Host "Found TFSec $tfsec_count"
 Write-Host "Found Kics $kics_total"
 
 
 Write-Host "Expected $expected and found $total"
-Write-Host "Checkov: $total TFSec: $tfsec_count"
+Write-Host "Checkov: $total TFSec: $tfsec_count Kics: $kics_total"
 
 
 figlet Versions
