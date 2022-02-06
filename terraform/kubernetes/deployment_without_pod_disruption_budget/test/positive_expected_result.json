@@ -1,7 +1,0 @@
-[
-  {
-    "queryName": "Deployment Without PodDisruptionBudget",
-    "severity": "LOW",
-    "line": 13
-  }
-]
