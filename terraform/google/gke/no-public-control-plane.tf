@@ -1,5 +1,6 @@
 
-
+# fails
+# todo ensure no public control plane
 resource "google_container_node_pool" "primary_preemptible_nodes_plane" {
   name       = "my-node-pool"
   location   = "us-central1"

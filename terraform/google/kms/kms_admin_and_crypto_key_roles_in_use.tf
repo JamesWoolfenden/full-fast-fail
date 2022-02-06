@@ -1,3 +1,5 @@
+# fails
+# todo investigate rule
 resource "google_project_iam_policy" "positive1" {
   project     = "your-project-id"
   policy_data = data.google_iam_policy.positive1.policy_data

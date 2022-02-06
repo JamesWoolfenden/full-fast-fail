@@ -1,3 +1,5 @@
+# fails
+# todo ensure key is not publically available
 resource "google_kms_key_ring" "positive1" {
   name     = "keyring-example"
   location = "global"

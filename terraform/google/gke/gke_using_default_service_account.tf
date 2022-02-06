@@ -1,3 +1,5 @@
+# fails
+# todo using default service account
 resource "google_container_cluster" "positive1" {
   name                     = "my-gke-cluster"
   location                 = "us-central1"

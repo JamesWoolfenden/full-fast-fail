@@ -1,3 +1,5 @@
+# fails
+# todo check dnsec algorithm
 resource "google_dns_managed_zone" "positive1" {
   name        = "example-zone"
   dns_name    = "example-${random_id.rnd.hex}.com."
