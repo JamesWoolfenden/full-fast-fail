@@ -1,8 +1,0 @@
-[
-	{
-		"queryName": "ElastiCache Without VPC",
-		"severity": "LOW",
-		"line": 1,
-		"fileName": "positive.tf"
-	}
-]

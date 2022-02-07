@@ -1,8 +1,0 @@
-[
-  {
-    "queryName": "Elasticsearch Domain With Vulnerable Policy",
-    "severity": "MEDIUM",
-    "line": 18,
-    "fileName": "positive.tf"
-  }
-]
