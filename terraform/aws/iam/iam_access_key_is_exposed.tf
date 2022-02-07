@@ -1,5 +1,5 @@
 resource "aws_iam_access_key" "positive1" {
-  user = "some-user"
+  user   = "some-user"
   status = "Active"
 }
 
