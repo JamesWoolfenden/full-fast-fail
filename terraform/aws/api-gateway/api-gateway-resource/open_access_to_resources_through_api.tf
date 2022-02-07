@@ -1,6 +1,9 @@
 # fails
 # kics
 # todo
+# API Gateway With Open Access, Severity: MEDIUM, Results: 1
+# Description: API Gateway Method should restrict the authorization type, except for the HTTP OPTIONS method.
+
 resource "aws_api_gateway_rest_api" "positive1" {
   name        = "MyDemoAPI"
   description = "This is my API for demonstration purposes"

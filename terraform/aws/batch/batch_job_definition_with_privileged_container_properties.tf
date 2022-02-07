@@ -1,5 +1,5 @@
-# fails 
-# todo defines container with priviledged permissions
+# fails
+# todo defines container with privileged permissions
 
 resource "aws_batch_job_definition" "positive1" {
   name = "tf_test_batch_job_definition"

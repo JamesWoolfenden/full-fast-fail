@@ -1,3 +1,8 @@
+# fails
+
+# kics
+# todo API Gateway Without Content Encoding
+# todo API Gateway Without Configured Authorizer
 resource "aws_api_gateway_authorizer" "demo" {
   name                   = "demo"
   rest_api_id            = aws_api_gateway_rest_api.demo.id

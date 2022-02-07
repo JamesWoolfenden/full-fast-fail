@@ -1,5 +1,5 @@
 # fail
-# todo check policy is at least TLS_1_2
+# CKV_AWS_206: "Ensure API Gateway Domain uses a modern security Policy"
 # tfsec
 # Resource 'aws_api_gateway_domain_name.fail' defines outdated SSL/TLS policies (not using TLS_1_2).
 
