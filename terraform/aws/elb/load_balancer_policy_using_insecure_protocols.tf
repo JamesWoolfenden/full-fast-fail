@@ -1,8 +1,10 @@
-#this is a problematic code where the query should report a result(s)
-resource "aws_elb" "positive1" {
-  name               = "wu-tang"
-  availability_zones = ["us-east-1a"]
+# fail
+# CKV_AWS_213 Ensure ELB Policy uses only secure protocols
+# todo elb should use vpc- subnets (not availability zones)
+resource "aws_elb" "wu-tang" {
+  name = "wu-tang"
 
+  subnets = ["subnet-08d97e381dbc80d40", "subnet-03fdfb13a135366a7"]
   listener {
     instance_port      = 443
     instance_protocol  = "http"
@@ -16,7 +18,7 @@ resource "aws_elb" "positive1" {
   }
 }
 
-resource "aws_load_balancer_policy" "positive4" {
+resource "aws_load_balancer_policy" "fail" {
   load_balancer_name = aws_elb.wu-tang.name
   policy_name        = "wu-tang-ssl"
   policy_type_name   = "SSLNegotiationPolicyType"
@@ -32,13 +34,7 @@ resource "aws_load_balancer_policy" "positive4" {
   }
 }
 
-resource "aws_load_balancer_policy" "positive5" {
-  load_balancer_name = aws_elb.wu-tang.name
-  policy_name        = "wu-tang-ssl"
-  policy_type_name   = "SSLNegotiationPolicyType"
 
-  policy_attribute {
-    name  = "Protocol-SSLv3"
-    value = "true"
-  }
+provider "aws" {
+  region = "eu-west-2"
 }

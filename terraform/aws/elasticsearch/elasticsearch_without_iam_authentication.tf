@@ -1,3 +1,5 @@
+# fails
+# todo
 resource "aws_elasticsearch_domain" "example" {
   domain_name           = "tf-test"
   elasticsearch_version = "2.3"

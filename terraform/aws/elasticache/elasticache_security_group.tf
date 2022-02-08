@@ -4,7 +4,7 @@
 
 # tfsec
 # AWS003 Resource 'aws_elasticache_security_group.bar' uses EC2 Classic. Use a VPC instead.
-resource "aws_elasticache_security_group" "bar" {
+resource "aws_elasticache_security_group" "fail" {
   name                 = "elasticache-security-group"
   security_group_names = [aws_security_group.bar.name]
 }
