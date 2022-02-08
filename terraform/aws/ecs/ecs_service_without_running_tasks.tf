@@ -1,4 +1,4 @@
-resource "aws_ecs_service" "positive1" {
-  name    = "positive1"
-  cluster = aws_ecs_cluster.example.id
+resource "aws_ecs_service" "fail-notasks" {
+  name    = "empty"
+  cluster = aws_ecs_cluster.fail.id
 }

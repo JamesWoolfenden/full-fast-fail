@@ -5,6 +5,7 @@
 # Resource 'aws_ecs_task_definition.fail' has efs configuration with in transit encryption implicitly disabled
 
 resource "aws_ecs_task_definition" "fail" {
+  family                = "service"
   container_definitions = <<EOF
 [
   {
@@ -26,9 +27,20 @@ EOF
       file_system_id = aws_efs_file_system.fs.id
       root_directory = "/opt/data"
       authorization_config {
-        access_point_id = aws_efs_access_point.test.id
+        access_point_id = aws_efs_access_point.fail.id
         iam             = "ENABLED"
       }
     }
   }
+}
+
+
+resource "aws_efs_file_system" "fs" {}
+
+resource "aws_efs_access_point" "fail" {
+  file_system_id = aws_efs_file_system.fs.id
+}
+
+provider "aws" {
+  region = "eu-west-2"
 }

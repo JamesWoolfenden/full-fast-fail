@@ -1,8 +1,10 @@
-#this is a problematic code where the query should report a result(s)
-resource "aws_ecs_service" "positive1" {
+# fails
+# todo
+
+resource "aws_ecs_service" "fail-service" {
   name            = "mongodb"
-  cluster         = aws_ecs_cluster.foo.id
-  task_definition = aws_ecs_task_definition.mongo.arn
+  cluster         = aws_ecs_cluster.fail.id
+  task_definition = aws_ecs_task_definition.fail.arn
   desired_count   = 3
   iam_role        = "admin"
   depends_on      = [aws_iam_role_policy.foo]

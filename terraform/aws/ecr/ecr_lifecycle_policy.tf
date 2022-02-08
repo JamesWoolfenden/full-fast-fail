@@ -1,5 +1,5 @@
 # fails
-# todo ensure policy exuist for repo
+# todo ensure policy exist for repo -graph
 resource "aws_ecr_lifecycle_policy" "foopolicy" {
   repository = aws_ecr_repository.foo.name
 

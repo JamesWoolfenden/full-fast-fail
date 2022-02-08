@@ -1,46 +1,47 @@
-resource "aws_ecs_task_definition" "positive1" {
-  family                = "service"
-  container_definitions = <<EOF
-  {
-    "family": "",
-    "taskRoleArn": "",
-    "executionRoleArn": "",
-    "networkMode": "awsvpc",
-    "containerDefinitions": [
+# fails todo secrets scan inside of a container definition - env vars
+resource "aws_ecs_task_definition" "fail-password" {
+  family = "service"
+  container_definitions = jsonencode([
+    {
+      "command" : [],
+      "cpu" : 0,
+      "disableNetworking" : null,
+      "dnsSearchDomains" : null,
+      "dnsServers" : null,
+      "dockerLabels" : null,
+      "dockerSecurityOptions" : null,
+      "entryPoint" : [],
+      "environment" : [
         {
-            "name": "",
-            "image": "",
-            "repositoryCredentials": {"credentialsParameter": ""},
-            "cpu": 0,
-            "memory": 0,
-            "memoryReservation": 0,
-            "links": [""],
-            "portMappings": [
-                {
-                    "containerPort": 0,
-                    "hostPort": 0,
-                    "protocol": "tcp"
-                }
-            ],
-            "essential": true,
-            "entryPoint": [""],
-            "command": [""],
-            "environment": [
-                {
-                    "name": "password",
-                    "value": "123231231213"
-                }
-            ],
-            "environmentFiles": [
-                {
-                    "value": "",
-                    "type": "s3"
-                }
-            ]
+          "name" : "password",
+          "value" : "123231231213"
         }
+      ],
+      "essential" : true,
+      "extraHosts" : null,
+      "hostname" : null,
+      "image" : "cassandra:2",
+      "links" : [],
+      "logConfiguration" : null,
+      "memory" : 512,
+      "mountPoints" : [],
+      "name" : "cassandra",
+      "portMappings" : [
+        {
+          "containerPort" : 9042,
+          "hostPort" : 9042,
+          "protocol" : "tcp"
+        }
+      ],
+      "privileged" : null,
+      "readonlyRootFilesystem" : null,
+      "ulimits" : null,
+      "user" : null,
+      "volumesFrom" : [],
+      "workingDirectory" : null
+    }
     ]
-}
-EOF
+  )
 
   volume {
     name      = "service-storage"

@@ -1,3 +1,5 @@
+# fails
+# todo graph check that route53 zone always has a matching query log
 resource "aws_route53_zone" "no_query_log" {
   name = "example.com"
 }

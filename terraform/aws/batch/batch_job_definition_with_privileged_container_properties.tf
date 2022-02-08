@@ -1,5 +1,5 @@
 # fails
-# todo defines container with privileged permissions
+# Batch job does not define a privileged containerCheckov (CKV_AWS_210)
 
 resource "aws_batch_job_definition" "positive1" {
   name = "tf_test_batch_job_definition"
