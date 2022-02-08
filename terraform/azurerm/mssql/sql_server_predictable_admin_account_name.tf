@@ -1,4 +1,5 @@
-#this is a problematic code where the query should report a result(s)
+# fails
+# todo
 resource "azurerm_resource_group" "positive1" {
   name     = "database-rg"
   location = "West US"

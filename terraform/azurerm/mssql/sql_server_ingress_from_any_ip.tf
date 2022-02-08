@@ -1,4 +1,5 @@
-resource "azurerm_sql_firewall_rule" "positive1" {
+# todo
+resource "azurerm_sql_firewall_rule" "fail" {
   name                = "FirewallRule1"
   resource_group_name = azurerm_resource_group.example.name
   server_name         = azurerm_sql_server.example.name
