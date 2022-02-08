@@ -1,4 +1,4 @@
-#this is a problematic code where the query should report a result(s)
+# todo
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "positive1" {

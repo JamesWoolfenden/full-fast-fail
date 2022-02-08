@@ -382,4 +382,3 @@ resource "kubernetes_stateful_set" "prometheus-2" {
     }
   }
 }
-

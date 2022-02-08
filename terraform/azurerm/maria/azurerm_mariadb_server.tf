@@ -1,3 +1,7 @@
+# fails
+# Ensure that MariaDB server enables geo-redundant backupsCheckov CKV_AZURE_129
+# Ensure 'public network access enabled' is set to 'False' for MariaDB serversCheckov CKV_AZURE_48
+# Ensure 'Enforce SSL connection' is set to 'ENABLED' for MariaDB serversCheckov CKV_AZURE_47
 resource "azurerm_mariadb_server" "example" {
   name                          = var.server_name
   location                      = var.resource_group.location
@@ -10,7 +14,7 @@ resource "azurerm_mariadb_server" "example" {
   auto_grow_enabled             = true
   backup_retention_days         = 7
   geo_redundant_backup_enabled  = false
-  public_network_access_enabled = false
+  public_network_access_enabled = true
   #test this i guess
   ssl_enforcement_enabled = false
 }

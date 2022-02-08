@@ -1,3 +1,5 @@
+# fails
+# todo
 resource "azurerm_sql_database" "positive1" {
   name                = "myexamplesqldatabase"
   resource_group_name = azurerm_resource_group.example.name

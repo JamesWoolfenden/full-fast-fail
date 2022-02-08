@@ -1,4 +1,4 @@
-
+# todo
 resource "azurerm_monitor_log_profile" "example" {
   name = "default"
   categories = [
