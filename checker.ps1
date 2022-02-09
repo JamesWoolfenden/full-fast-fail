@@ -1,6 +1,6 @@
 param (
     [string]$path = ".",
-    [int]$expected = 1044)
+    [int]$expected = 1971)
 
 
 function scan {
