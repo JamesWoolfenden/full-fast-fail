@@ -1,3 +1,5 @@
+# fails
+# todo
 resource "azurerm_network_interface" "positive" {
   name                = "example-nic"
   location            = azurerm_resource_group.example.location

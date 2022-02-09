@@ -1,4 +1,6 @@
-resource "azurerm_network_interface" "positive" {
+# fails
+# Ensure that Network Interfaces disable IP forwardingCheckov CKV_AZURE_118
+resource "azurerm_network_interface" "fail" {
   name                = "example-nic"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name

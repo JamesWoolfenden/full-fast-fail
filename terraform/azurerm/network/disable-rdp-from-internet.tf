@@ -1,4 +1,18 @@
-
+# Fails
+# todo
+resource "azurerm_network_security_rule" "fail-range" {
+  name                        = "example"
+  priority                    = 100
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "*"
+  source_port_range           = "*"
+  destination_port_range      = "2000-4430"
+  source_address_prefix       = "internet"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.example.name
+  network_security_group_name = azurerm_network_security_group.example.name
+}
 
 resource "azurerm_network_security_rule" "fail" {
   name                       = "fail_security_rule"

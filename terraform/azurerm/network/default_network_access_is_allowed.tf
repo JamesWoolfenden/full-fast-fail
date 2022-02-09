@@ -1,4 +1,5 @@
-#this is a problematic code where the query should report a result(s)
+# fail
+# Ensure default network access rule for Storage Accounts is set to denyCheckov CKV_AZURE_35
 resource "azurerm_resource_group" "positive1" {
   name     = "example-resources"
   location = "West Europe"
@@ -10,7 +11,6 @@ resource "azurerm_virtual_network" "positive2" {
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 }
-
 resource "azurerm_subnet" "positive3" {
   name                 = "example-subnet"
   resource_group_name  = azurerm_resource_group.example.name
