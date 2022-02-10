@@ -5,7 +5,7 @@
 # CKV_GCP_68: "Ensure Secure Boot for Shielded GKE Nodes is Enabled"
 # CKV_GCP_69: "Ensure the GKE Metadata Server is Enabled"
 # CKV_GCP_72: "Ensure Integrity Monitoring for Shielded GKE Nodes is Enabled"
-# todo google-gke-node-pool-uses-cos - check node_config[0]/image_type=COS_CONTAINERD
+
 
 # tfsec
 # enable-auto-repair

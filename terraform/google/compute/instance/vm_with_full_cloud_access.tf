@@ -1,5 +1,5 @@
 # fails
-# todo investigate check
+# todo investigate check - looks at value of serviceaccount.scope to check for cloud-platform
 resource "google_compute_instance" "positive1" {
   name         = "test"
   machine_type = "e2-medium"

@@ -1,0 +1,51 @@
+
+Check for PostgreSQL Major Version
+Ensure that PostgreSQL database servers are using the latest major version of PostgreSQL database.
+
+Configure "log_min_error_statement" Flag for PostgreSQL Database Instances
+Ensure that PostgreSQL database instances have the appropriate configuration set for the "log_min_error_statement" flag.
+set to ERROR
+
+Configure "max_connections" Flag for PostgreSQL Database Instances
+Ensure that PostgreSQL database instances have the appropriate configuration set for the "max_connections" flag.
+arbitary
+
+Configure Automatic Storage Increase Limit
+Ensure there is an automatic storage increase limit configured for your Cloud SQL database instances.
+
+Configure Root Password for MySQL Database Access
+Ensure that MySQL databases can't be accessed with administrative privileges only (i.e. without using passwords).
+
+Disable "Contained Database Authentication" Flag for SQL Server Database Instances
+Ensure that SQL Server database instances have "contained database authentication" flag set to Off.
+
+Disable "Cross DB Ownership Chaining" Flag for SQL Server Database Instances
+Ensure that SQL Server database instances have "cross db ownership chaining" flag set to Off.
+
+Disable "local_infile" Flag for MySQL Database Instances
+Ensure that MySQL database instances have the "local_infile" flag set to Off (disabled).
+
+
+Enable "slow_query_log" Flag for MySQL Database Servers
+Ensure that MySQL database instances have the "slow_query_log" flag set to On (enabled).
+
+Enable Automated Backups for Cloud SQL Database Instances
+Ensure that Cloud SQL database instances are configured with automated backups.
+
+Enable Automatic Storage Increase
+Ensure that automatic storage increase is enabled for your Cloud SQL database instances.
+
+Enable Cloud SQL Instance Encryption with Customer-Managed Keys
+Ensure that Cloud SQL instances are encrypted with Customer-Managed Keys (CMKs).
+
+Enable High Availability for Cloud SQL Database Instances
+Ensure that production SQL database instances are configured to automatically fail over to another zone within the selected cloud region.
+
+Enable Point-in-Time Recovery for MySQL Database Instances
+Ensure that your MySQL database instances have Point-in-Time Recovery feature enabled.
+
+Enable SSL/TLS for Cloud SQL Incoming Connections
+Ensure that Cloud SQL database instances require all incoming connections to use SSL/TLS.
+
+Rotate Server Certificates for Cloud SQL Database Instances
+Ensure that Cloud SQL server certificates are rotated (renewed) before their

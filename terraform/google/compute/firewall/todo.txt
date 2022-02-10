@@ -1,0 +1,30 @@
+todo
+Check for Unrestricted DNS Access
+Ensure there are no VPC firewall rules that allow unrestricted inbound access on TCP and UDP port 53 (DNS).
+
+todo
+Check for Unrestricted ICMP Access
+Ensure that no VPC firewall rules allow unrestricted inbound access using Internet Control Message Protocol (ICMP).
+
+todo
+Check for Unrestricted MySQL Database Access
+Ensure there are no VPC firewall rules that allow unrestricted inbound access on TCP port 3306 (MySQL Database).
+
+todo
+Check for Unrestricted Oracle Database Access
+Ensure there are no VPC firewall rules that allow unrestricted inbound access on TCP port 1521 (Oracle Database).
+
+todo
+Check for Unrestricted PostgreSQL Database Access
+Ensure that no VPC firewall rules allow unrestricted inbound access on TCP port 5432 (PostgreSQL Database Server).
+
+todo
+Check for Unrestricted RPC Access
+Ensure there are no VPC firewall rules that allow unrestricted inbound access on TCP port 135 (Remote Procedure Call – RPC).
+
+todo
+Check for Unrestricted SMTP Access
+Ensure that no VPC firewall rules allow unrestricted inbound access on TCP port 25 (SMTP).
+
+Check for Unrestricted SQL Server Access
+Ensure that no VPC firewall rules allow unrestricted inbound access on TCP port 1433 (Microsoft SQL Server).

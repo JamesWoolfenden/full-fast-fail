@@ -1,5 +1,5 @@
 # fails
-# todo investigate rule
+# todo should not assign assigns a KMS admin role and CryptoKey role to the same member
 resource "google_project_iam_policy" "positive1" {
   project     = "your-project-id"
   policy_data = data.google_iam_policy.positive1.policy_data

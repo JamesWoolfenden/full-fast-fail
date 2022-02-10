@@ -1,4 +1,5 @@
-#this is a problematic code where the query should report a result(s)
+# fails
+# todo
 resource "google_container_cluster" "positive1" {
   name               = "marcellus-wallace"
   location           = "us-central1-a"

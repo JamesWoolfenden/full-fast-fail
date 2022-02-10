@@ -1,4 +1,12 @@
-
+# fails
+# Ensure PodSecurityPolicy controller is enabled on the Kubernetes Engine ClustersCheckov CKV_GCP_24
+# Ensure the GKE Release Channel is setCheckov CKV_GCP_70
+# Ensure clusters are created with Private NodesCheckov CKV_GCP_64
+# Ensure Network Policy is enabled on Kubernetes Engine ClustersCheckov CKV_GCP_12
+# Manage Kubernetes RBAC users with Google Groups for GKECheckov CKV_GCP_65
+# Ensure GKE basic auth is disabledCheckov CKV_GCP_19
+# Ensure a client certificate is used by clients to authenticate to Kubernetes Engine ClustersCheckov CKV_GCP_13
+# Ensure Kubernetes Clusters are configured with LabelsCheckov CKV_GCP_21
 resource "google_container_cluster" "fail1" {
   name               = var.name
   location           = var.location

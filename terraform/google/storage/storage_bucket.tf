@@ -12,4 +12,9 @@ resource "google_storage_bucket" "static-site" {
   # logging {
   #   log_bucket = "image-store.com"
   # }
+
+
+  versioning = {
+    enabled = false
+  }
 }

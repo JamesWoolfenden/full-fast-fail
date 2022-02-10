@@ -1,5 +1,13 @@
+# fails
+# Manage Kubernetes RBAC users with Google Groups for GKECheckov CKV_GCP_65
+# Ensure a client certificate is used by clients to authenticate to Kubernetes Engine ClustersCheckov CKV_GCP_13
+# Ensure Kubernetes Clusters are configured with LabelsCheckov CKV_GCP_21
+# Ensure use of Binary AuthorizationCheckov CKV_GCP_66
+# Ensure Shielded GKE Nodes are EnabledCheckov CKV_GCP_71
+# Enable VPC Flow Logs and Intranode VisibilityCheckov CKV_GCP_61
+# Ensure the GKE Metadata Server is EnabledCheckov CKV_GCP_69
 
-resource "google_container_cluster" "fail1" {
+resource "google_container_cluster" "fail-flowlogs" {
   name               = var.name
   location           = var.location
   initial_node_count = 1
@@ -7,6 +15,9 @@ resource "google_container_cluster" "fail1" {
 
   network    = var.network
   subnetwork = var.subnetwork
+  management {
+    auto_upgrade = false
+  }
 
   ip_allocation_policy {
     cluster_ipv4_cidr_block       = var.ip_allocation_policy["cluster_ipv4_cidr_block"]
@@ -15,12 +26,17 @@ resource "google_container_cluster" "fail1" {
     services_secondary_range_name = var.ip_allocation_policy["services_secondary_range_name"]
   }
 
-  remove_default_node_pool    = var.remove_default_node_pool
-  enable_binary_authorization = false
+  remove_default_node_pool = var.remove_default_node_pool
+
+  min_master_version = "1.12"
 
   node_config {
     workload_metadata_config {
-      node_metadata = "GKE_METADATA_SERVER"
+      # node_metadata = "GKE_METADATA_SERVER"
+    }
+    shielded_instance_config {
+      enable_integrity_monitoring = true
+      enable_secure_boot          = true
     }
   }
 

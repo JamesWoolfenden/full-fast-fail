@@ -1,5 +1,5 @@
 # fails
-# todo ensure key is not publically available
+# todo ensure key is not publicly available -KMS Crypto Key policy should not set 'allUsers' or 'allAuthenticatedUsers' in the attribute 'member'/'members'
 resource "google_kms_key_ring" "positive1" {
   name     = "keyring-example"
   location = "global"

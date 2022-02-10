@@ -1,0 +1,3 @@
+https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ResourceManager/restrict-shared-vps-subnetworks.html
+and
+https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ResourceManager/disable-default-network-creation.html

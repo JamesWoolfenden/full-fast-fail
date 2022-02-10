@@ -1,3 +1,5 @@
+# fails
+# todo
 resource "azurerm_kubernetes_cluster" "positive1" {
   name                = "example-aks1"
   location            = azurerm_resource_group.example.location
@@ -6,11 +8,10 @@ resource "azurerm_kubernetes_cluster" "positive1" {
 
   addon_profile {
 
-   azure_policy {
+    azure_policy {
 
-     enabled = false
+      enabled = false
 
-   }
- }
+    }
+  }
 }
-
