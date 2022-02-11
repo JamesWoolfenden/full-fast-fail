@@ -1,8 +1,8 @@
 # fails
-# CKV_GCP_2: "Ensure Google compute firewall ingress does not allow unrestricted ssh access"
-# CKV_GCP_3: "Ensure Google compute firewall ingress does not allow unrestricted rdp access"
-# ftp 21
-# ftp 20
+# Ensure Google compute firewall ingress does not allow unrestricted FTP access Checkov (CKV_GCP_75)
+# Ensure Google compute firewall ingress does not allow unrestricted rdp access Checkov CKV_GCP_3
+# Ensure Google compute firewall ingress does not allow on ftp port Checkov (CKV_GCP_77)
+# Ensure Google compute firewall ingress does not allow unrestricted ssh access Checkov CKV_GCP_2
 # todo ensure that rule does not define full public egress
 # todo check log_config setting
 

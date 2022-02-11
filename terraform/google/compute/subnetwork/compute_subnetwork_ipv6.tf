@@ -1,8 +1,7 @@
 # fail
-# CKV_GCP_26 : "Ensure that VPC Flow Logs is enabled for every subnet in a VPC Network"
-# CKV_GCP_76:"Ensure that private_ip_google_access is enabled for Subnet"
-# CKV_GCP_74: "Ensure that private_ip_google_access is enabled for Subnet"
-# todo private_ipv6_google_access is true for ipv6 networks
+# Ensure that Private google access is enabled for IPV6 Checkov (CKV_GCP_76)
+# Ensure that private_ip_google_access is enabled for Subnet Checkov (CKV_GCP_74)
+# Ensure that VPC Flow Logs is enabled for every subnet in a VPC Network Checkov CKV_GCP_26
 # tfsec
 # Resource 'google_compute_subnetwork.without_logging' uses default value for enable_flow_logs
 

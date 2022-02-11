@@ -24,4 +24,8 @@ resource "google_bigquery_dataset" "fail" {
     role   = "READER"
     domain = "hashicorp.com"
   }
+
+  # default_encryption_configuration {
+  #   kms_key_name=
+  # }
 }
