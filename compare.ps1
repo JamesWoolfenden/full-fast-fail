@@ -1,6 +1,6 @@
 param (
    [string]$path = ".",
-   [int]$expected = 1984,
+   [int]$expected = 1542,
    [int]$tfexpected = 1255,
    [int]$kicsexpected = 3796)
 
