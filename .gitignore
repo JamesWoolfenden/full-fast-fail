@@ -8,3 +8,4 @@ Pipfile
 Pipfile.lock
 .DS_Store
 *.orig
+fails-kics.json

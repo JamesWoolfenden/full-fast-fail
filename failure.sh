@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
+path="${1:-.}"
 
-figlet "Finding Failures.."
-file="fails.txt"
+RED="\e[31m"
+ORANGE="\e[33m"
+BLUE="\e[94m"
+GREEN="\e[92m"
+STOP="\e[0m"
+
+printf "${BLUE}"
+figlet -w 200 -f  small "Finding Failures.."
+file="$path/fails.txt"
 
 if [ -f "$file" ] ; then
     rm "$file"
 fi
 
-checkov  -d . >$file
+checkov  -d $path >$file
 echo .
-tfsec -f json --out fails_tfsec.txt 2> /dev/null
+tfsec $path -f json --out "$path/fails_tfsec.txt" 2> /dev/null
 echo .
-kics scan -p . -o . --output-name fails-kics.txt
+kics scan -p $path -o $path --output-name "fails-kics.txt"
+
+printf "${STOP}"
 
 echo finished!

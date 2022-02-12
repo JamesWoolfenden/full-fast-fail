@@ -1,7 +1,11 @@
 param (
-    [string]$path = ".",
+    [string]$path = "terraform",
     [int]$expected = 1542)
 
+if (!(test-path -Path $path)) {
+    Write-Error "path $path not found"
+    exit 1
+}
 
 function scan {
     [CmdletBinding()]

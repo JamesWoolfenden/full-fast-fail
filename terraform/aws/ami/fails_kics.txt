@@ -1,0 +1,72 @@
+{
+	"kics_version": "1.4.9",
+	"files_scanned": 2,
+	"files_parsed": 2,
+	"files_failed_to_scan": 0,
+	"queries_total": 851,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"HIGH": 1,
+		"INFO": 1,
+		"LOW": 0,
+		"MEDIUM": 0,
+		"TRACE": 0
+	},
+	"total_counter": 2,
+	"total_bom_resources": 0,
+	"start": "2022-02-12T23:01:20.9300645Z",
+	"end": "2022-02-12T23:01:33.2919461Z",
+	"paths": [
+		".\\terraform\\aws\\ami"
+	],
+	"queries": [
+		{
+			"query_name": "AMI Not Encrypted",
+			"query_id": "8bbb242f-6e38-4127-86d4-d8f0b2687ae2",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Encryption",
+			"description": "AWS AMI Encryption is not enabled",
+			"description_id": "248fe368",
+			"files": [
+				{
+					"file_name": "terraform\\aws\\ami\\notencrypted.tf",
+					"similarity_id": "59ecfb78dea6a7bf37740a31354edd4ef731961f0056b4b78866ab52d707c3e0",
+					"line": 8,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_ami[fail].ebs_block_device",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "One of 'rule.ebs_block_device.encrypted' is 'true'",
+					"actual_value": "One of 'rule.ebs_block_device.encrypted' is not 'true'"
+				}
+			]
+		},
+		{
+			"query_name": "Resource Not Using Tags",
+			"query_id": "e38a8e0a-b88b-4902-b3fe-b0fcb17d5c10",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/resource-tagging",
+			"severity": "INFO",
+			"platform": "Terraform",
+			"category": "Best Practices",
+			"description": "AWS services resource tags are an essential part of managing components",
+			"description_id": "09db2d52",
+			"files": [
+				{
+					"file_name": "terraform\\aws\\ami\\notencrypted.tf",
+					"similarity_id": "f00d0cad43d00fceeb70f4cc2ad4a61dde2e4ad0fb12b73c5e56d24d8c6ad5dd",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_ami[{{fail}}]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_ami[{{fail}}].tags is defined and not null",
+					"actual_value": "aws_ami[{{fail}}].tags is undefined or null"
+				}
+			]
+		}
+	]
+}
