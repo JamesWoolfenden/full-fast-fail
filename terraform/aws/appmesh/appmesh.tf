@@ -6,4 +6,7 @@ resource "aws_appmesh_mesh" "simple" {
       type = "ALLOW_ALL"
     }
   }
+  tags = {
+    "key" = "value"
+  }
 }

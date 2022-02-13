@@ -29,6 +29,9 @@ resource "aws_docdb_cluster" "examplea" {
   skip_final_snapshot             = true
   vpc_security_group_ids          = []
   enabled_cloudwatch_logs_exports = "something"
+  tags = {
+    "key" = "value"
+  }
 }
 
 resource "aws_docdb_cluster_parameter_group" "examplea" {

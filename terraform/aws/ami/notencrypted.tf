@@ -9,6 +9,9 @@ resource "aws_ami" "fail" {
     device_name = "/dev/xvda"
     volume_size = 8
   }
+  tags = {
+    "key" = "value"
+  }
 }
 
 provider "aws" {

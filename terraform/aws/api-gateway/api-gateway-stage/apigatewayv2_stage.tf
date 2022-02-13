@@ -11,6 +11,9 @@
 resource "aws_apigatewayv2_stage" "fail" {
   api_id = aws_apigatewayv2_api.example.id
   name   = "example-stage"
+  tags = {
+    "key" = "value"
+  }
 }
 
 resource "aws_apigatewayv2_api" "example" {
@@ -20,4 +23,7 @@ resource "aws_apigatewayv2_api" "example" {
   #   access_log_settings {
   #   destination_arn = "dest"
   # }
+  tags = {
+    "key" = "value"
+  }
 }

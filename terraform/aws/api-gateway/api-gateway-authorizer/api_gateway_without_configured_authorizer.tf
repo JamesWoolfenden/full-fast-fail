@@ -12,4 +12,7 @@ resource "aws_api_gateway_authorizer" "demo" {
 
 resource "aws_api_gateway_rest_api" "demo2" {
   name = "auth-demo"
+  tags = {
+    "key" = "value"
+  }
 }
