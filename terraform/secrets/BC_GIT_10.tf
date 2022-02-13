@@ -1,4 +1,5 @@
 variable "block_of_bad" {
+  type        = list(any)
   description = "test of secret"
   default     = <<BADSTUFF
 {

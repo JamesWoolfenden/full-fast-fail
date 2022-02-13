@@ -10,9 +10,9 @@ resource "aws_cloudwatch_log_group" "logs" {
 }
 
 variable "log_group_name" {
+  type        = string
   description = "testcode"
-
-  default = "MyLogGroupName"
+  default     = "MyLogGroupName"
 }
 
 variable "common_tags" {

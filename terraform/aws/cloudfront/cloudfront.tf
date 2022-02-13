@@ -88,6 +88,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 variable "viewer_certificate" {
+  type        = map(any)
   description = "testcode"
 
   default = {

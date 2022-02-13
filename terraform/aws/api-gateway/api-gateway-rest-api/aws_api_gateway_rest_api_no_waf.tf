@@ -21,6 +21,7 @@ resource "aws_api_gateway_stage" "no_assoc" {
 }
 
 variable "name" {
+  type        = string
   description = "testcode"
   default     = "gateway"
 }

@@ -46,18 +46,3 @@ resource "kubernetes_pod" "with_pod_affinity" {
     service_account_name = "terraform-example"
   }
 }
-
-resource "kubernetes_service_account" "terraform-example" {
-  metadata {
-    name = "terraform-example"
-  }
-  secret {
-    name = kubernetes_secret.example.metadata.0.name
-  }
-}
-
-resource "kubernetes_secret" "example" {
-  metadata {
-    name = "terraform-example"
-  }
-}
