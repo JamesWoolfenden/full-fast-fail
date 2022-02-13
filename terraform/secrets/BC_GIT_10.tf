@@ -1,5 +1,6 @@
 variable "block_of_bad" {
-  default = <<BADSTUFF
+  description = "test of secret"
+  default     = <<BADSTUFF
 {
   'api_1234234',
   'auth_1234234',

@@ -88,6 +88,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 variable "viewer_certificate" {
+  description = "testcode"
+
   default = {
     cloudfront_default_certificate = false
     minimum_protocol_version       = "TLSv1.1_2015"

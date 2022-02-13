@@ -10,10 +10,14 @@ resource "aws_cloudwatch_log_group" "logs" {
 }
 
 variable "log_group_name" {
+  description = "testcode"
+
   default = "MyLogGroupName"
 }
 
 variable "common_tags" {
+  description = "testcode"
+
   type = map(string)
   default = {
     automatedby = "JamesWoolfenden"

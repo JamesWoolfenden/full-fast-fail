@@ -27,5 +27,5 @@ data "aws_partition" "current" {}
 data "aws_region" "current" {}
 
 # resource "aws_kms_key" "fail" {
-  
+
 # }

@@ -1,3 +1,3 @@
 provider "openstack" {
-    auth_url="nowhere"
+  auth_url = "nowhere"
 }

@@ -94,6 +94,8 @@ variable "profiler_threshold_ms" {
 
 
 variable "ttl_monitor" {
+  description = "testcode"
+
   type    = string
   default = "enabled"
   validation {
@@ -103,6 +105,8 @@ variable "ttl_monitor" {
 }
 
 variable "profiler" {
+  description = "testcode"
+
   type    = string
   default = "disabled"
   validation {

@@ -1,6 +1,6 @@
 # Summary
 
-- Found Terraform 1
+- Found Terraform 7
 - Found TFSec 3
 - Found Kics 13
 

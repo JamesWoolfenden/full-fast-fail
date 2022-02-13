@@ -13,9 +13,9 @@ resource "aws_autoscaling_group" "bar" {
 }
 
 resource "aws_launch_template" "foobar" {
-  
+
 }
 
 provider "aws" {
-  region="eu-west-1"
+  region = "eu-west-1"
 }

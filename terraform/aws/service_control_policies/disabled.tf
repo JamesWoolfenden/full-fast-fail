@@ -1,4 +1,4 @@
-# fails 
+# fails
 # todo policy is disabled
 resource "aws_organizations_policy" "positive1" {
   name = "example"
@@ -18,8 +18,8 @@ CONTENT
 }
 
 resource "aws_organizations_policy" "positive2" {
-  name = "example"
-  type = "SERVICE_CONTROL_POLICY"
+  name    = "example"
+  type    = "SERVICE_CONTROL_POLICY"
   content = <<CONTENT
 {
   "Version": "2012-10-17",

@@ -21,7 +21,8 @@ resource "aws_api_gateway_stage" "no_assoc" {
 }
 
 variable "name" {
-  default = "gateway"
+  description = "testcode"
+  default     = "gateway"
 }
 
 resource "aws_api_gateway_deployment" "example" {
