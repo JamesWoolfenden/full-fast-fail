@@ -1,6 +1,6 @@
 # fails
-# CKV_GCP_15: "Ensure that BigQuery datasets are not anonymously or publicly accessible"
-# todo default_encryption_configuration/kms_key_name is set
+# Ensure that BigQuery datasets are not anonymously or publicly accessibleCheckov CKV_GCP_15
+# Ensure Big Query Tables are encrypted with Customer Supplied Encryption Keys (CSEK)Checkov (CKV_GCP_81)
 # tfsec
 # Resource 'google_bigquery_dataset.fail' has access.special_group set to allAuthenticatedUsers
 
