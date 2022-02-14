@@ -1,5 +1,4 @@
 # fails
-# todo ssl_policy is set and is modern
 resource "google_compute_target_ssl_proxy" "default" {
   name             = "test-proxy"
   backend_service  = google_compute_backend_service.default.id

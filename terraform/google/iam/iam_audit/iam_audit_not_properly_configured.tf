@@ -1,5 +1,6 @@
 # fails
 # todo service must be allServices with no exceptions
+# audit_log_config.exempted_members must be empty
 resource "google_project_iam_audit_config" "fail" {
   project = "your-project-id"
   service = "some_specific_service"

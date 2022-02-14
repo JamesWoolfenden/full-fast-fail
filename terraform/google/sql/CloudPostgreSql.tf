@@ -25,7 +25,7 @@
 # google-sql-pg-log-checkpoints
 # google-sql-no-public-access
 
-resource "google_sql_database_instance" "fail-all" {
+resource "google_sql_database_instance" "fail_all" {
   database_version = "POSTGRES_12"
   name             = "general-pos121"
   project          = "gcp-bridgecrew-deployment"

@@ -1,4 +1,5 @@
-# todo
+# fails
+# todo kms
 resource "google_dataflow_job" "fail" {
   name              = "dataflow-job"
   template_gcs_path = "gs://my-bucket/templates/template_file"

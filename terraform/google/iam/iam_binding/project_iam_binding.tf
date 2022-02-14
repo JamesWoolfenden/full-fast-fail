@@ -5,7 +5,7 @@
 # tfsec
 #  Resource 'google_project_iam_binding.project-123' grants service account access to a user at project level.
 
-resource "google_project_iam_binding" "project-123" {
+resource "google_project_iam_binding" "project_123" {
   project = "project-123"
   role    = "roles/iam.serviceAccountUser"
   members = ["serviceAccount:test-compute@appspot.gserviceaccount.com", ]

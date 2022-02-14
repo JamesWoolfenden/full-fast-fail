@@ -1,3 +1,0 @@
-todo enable_stackdriver_logging = true
-todo enable_stackdriver_monitoring = true
-todo private_instance = true

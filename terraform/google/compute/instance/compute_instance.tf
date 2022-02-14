@@ -9,7 +9,6 @@
 # CKV_GCP_39: "Ensure Compute instances are launched with Shielded VM enabled"
 # CKV_GCP_40: "Ensure that Compute instances do not have public IP addresses" access_config is inside of network_interface
 # CKV_GCP_36: "Ensure that IP forwarding is not enabled on Instances"
-# todo  has shielded_instance_config.enable_vtpm set to false  enables advanced protection capabilities
 # todo no-plaintext-vm-disk-keys e.g. disk_encryption_key_raw is set
 
 # tfsec

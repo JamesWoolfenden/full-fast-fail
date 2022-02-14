@@ -1,91 +1,63 @@
 # fails
-# Manage Kubernetes RBAC users with Google Groups for GKECheckov CKV_GCP_65
-# Ensure a client certificate is used by clients to authenticate to Kubernetes Engine ClustersCheckov CKV_GCP_13
-# Ensure Kubernetes Clusters are configured with LabelsCheckov CKV_GCP_21
-# Ensure use of Binary AuthorizationCheckov CKV_GCP_66
-# Ensure Shielded GKE Nodes are EnabledCheckov CKV_GCP_71
-# Enable VPC Flow Logs and Intranode VisibilityCheckov CKV_GCP_61
-# Ensure the GKE Metadata Server is EnabledCheckov CKV_GCP_69
+# CKV_GCP_1: "Ensure Stackdriver Logging is set to Enabled on Kubernetes Engine Clusters"
+# CKV_GCP_7: "Ensure Legacy Authorization is set to Disabled on Kubernetes Engine Clusters"
+# CKV_GCP_8: "Ensure Stackdriver Monitoring is set to Enabled on Kubernetes Engine Clusters"
+# CKV_GCP_12: "Ensure Network Policy is enabled on Kubernetes Engine Clusters"
+# CKV_GCP_13: "Ensure a client certificate is used by clients to authenticate to Kubernetes Engine Clusters"
+# CKV_GCP_19: "Ensure GKE basic auth is disabled"
+# CKV_GCP_20: "Ensure master authorized networks is set to enabled in GKE clusters"
+# CKV_GCP_21: "Ensure Kubernetes Clusters are configured with Labels"
+# CKV_GCP_23: "Ensure Kubernetes Cluster is created with Alias IP ranges enabled"
+# CKV_GCP_24: "Ensure PodSecurityPolicy controller is enabled on the Kubernetes Engine Clusters"
+# CKV_GCP_25: "Ensure Kubernetes Cluster is created with Private cluster enabled"
+# CKV_GCP_61: "Enable VPC Flow Logs and Intranode Visibility"
+# CKV_GCP_64: "Ensure clusters are created with Private Nodes"
+# CKV_GCP_65: "Manage Kubernetes RBAC users with Google Groups for GKE"
+# CKV_GCP_66: "Ensure use of Binary Authorization"
+# CKV_GCP_67: "Ensure legacy Compute Engine instance metadata APIs are Disabled"
+# CKV_GCP_68: "Ensure Secure Boot for Shielded GKE Nodes is Enabled"
+# CKV_GCP_69: "Ensure the GKE Metadata Server is Enabled"
+# CKV_GCP_70: "Ensure the GKE Release Channel is set"
+# CKV_GCP_71: "Ensure Shielded GKE Nodes are Enabled"
+# CKV_GCP_72: "Ensure Integrity Monitoring for Shielded GKE Nodes is Enabled"
+# to master auth password and username set
 
-resource "google_container_cluster" "fail-flowlogs" {
-  name               = var.name
-  location           = var.location
-  initial_node_count = 1
-  project            = data.google_project.project.name
-
-  network    = var.network
-  subnetwork = var.subnetwork
-  management {
-    auto_upgrade = false
-  }
-
-  ip_allocation_policy {
-    cluster_ipv4_cidr_block       = var.ip_allocation_policy["cluster_ipv4_cidr_block"]
-    cluster_secondary_range_name  = var.ip_allocation_policy["cluster_secondary_range_name"]
-    services_ipv4_cidr_block      = var.ip_allocation_policy["services_ipv4_cidr_block"]
-    services_secondary_range_name = var.ip_allocation_policy["services_secondary_range_name"]
-  }
-
-  remove_default_node_pool = var.remove_default_node_pool
-
-  min_master_version = "1.12"
-
+# tfsec
+# enable-ip-aliasing
+# enable-master-networks
+# enable-stackdriver-logging
+# enable-stackdriver-monitoring
+# metadata-endpoints-disabled
+# no-legacy-auth
+# no-legacy-authentication
+# no-public-control-plane
+# use-cluster-labels
+# use-rbac-permissions
+resource "google_container_cluster" "fail" {
+  enable_shielded_nodes = false #defaults to true for this
   node_config {
-    workload_metadata_config {
-      # node_metadata = "GKE_METADATA_SERVER"
-    }
     shielded_instance_config {
-      enable_integrity_monitoring = true
-      enable_secure_boot          = true
+      enable_integrity_monitoring = false
     }
   }
-
-  release_channel {
-    channel = var.release_channel
-  }
-
+  #ip_allocation_policy = {}
+  enable_legacy_abac = true
+  logging_service    = "none"
+  monitoring_service = "none"
+  # master_authorized_networks_config {
+  #   cidr_blocks {
+  #     cidr_block="0.0.0.0/0"
+  #   }
+  # }
   master_auth {
-
-    client_certificate_config {
-      issue_client_certificate = false
-    }
+    username = "paddy"
+    password = "james"
+    # client_certificate_config {
+    #   issue_client_certificate = true
+    # }
   }
-
-  addons_config {
-    http_load_balancing {
-      disabled = var.http_load_balancing_disabled
-    }
-
-    network_policy_config {
-      disabled = var.network_policy_config_disabled
-    }
-  }
-
-  maintenance_policy {
-    daily_maintenance_window {
-      start_time = var.maintenance_window
-    }
-  }
-
-  private_cluster_config {
-    enable_private_nodes    = var.private_cluster_config["enable_private_nodes"]
-    enable_private_endpoint = var.private_cluster_config["enable_private_endpoint"]
-    master_ipv4_cidr_block  = var.private_cluster_config["master_ipv4_cidr_block"]
-  }
-
-  master_authorized_networks_config {
-    cidr_blocks {
-      cidr_block = var.master_authorized_network_cidr
-    }
-  }
-
-  network_policy {
-    enabled = true
-  }
-
   pod_security_policy_config {
-    enabled = var.pod_security_policy_config_enabled
+    enabled = "false"
   }
 
-  resource_labels = var.resource_labels
 }

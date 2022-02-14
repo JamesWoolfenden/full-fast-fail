@@ -10,7 +10,7 @@
 # google-sql-encrypt-in-transit-data
 # google-sql-no-cross-db-ownership-chaining
 # google-sql-no-contained-db-auth
-resource "google_sql_database_instance" "fail-auth" {
+resource "google_sql_database_instance" "fail_auth" {
   database_version = "SQLSERVER_2017_STANDARD"
   name             = "general-sqlserver12"
   project          = "gcp-bridgecrew-deployment"

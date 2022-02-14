@@ -18,7 +18,7 @@
 # CKV_GCP_70: "Ensure the GKE Release Channel is set"
 # CKV_GCP_71: "Ensure Shielded GKE Nodes are Enabled"
 
-resource "google_container_cluster" "fail-public" {
+resource "google_container_cluster" "fail_public" {
   node_config {
     shielded_instance_config {
       enable_integrity_monitoring = false

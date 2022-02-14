@@ -1,26 +1,4 @@
-{
-	"kics_version": "1.4.9",
-	"files_scanned": 600,
-	"files_parsed": 599,
-	"files_failed_to_scan": 0,
-	"queries_total": 1945,
-	"queries_failed_to_execute": 0,
-	"queries_failed_to_compute_similarity_id": 0,
-	"scan_id": "console",
-	"severity_counters": {
-		"HIGH": 1047,
-		"INFO": 369,
-		"LOW": 731,
-		"MEDIUM": 1346,
-		"TRACE": 0
-	},
-	"total_counter": 3493,
-	"total_bom_resources": 0,
-	"start": "2022-02-12T22:30:21.1197301Z",
-	"end": "2022-02-12T22:31:33.4243207Z",
-	"paths": [
-		"."
-	],
+
 	"queries": [
 		{
 			"query_name": "AD Admin Not Configured For SQL Server",
@@ -817,28 +795,8 @@
 					"expected_value": "Attribute 'client_certificate_config' in 'master_auth' is defined",
 					"actual_value": "Attribute 'client_certificate_config' in 'master_auth' is undefined"
 				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\ip_aliasing_disabled.tf",
-					"similarity_id": "69be0bb5b678309fc175673ac7232184fc3415e2b63383a62824cf4928c57aca",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'master_auth' is defined",
-					"actual_value": "Attribute 'master_auth' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\ip_aliasing_disabled.tf",
-					"similarity_id": "2195309d1ea7524157a569326736438db5753ef623f12229bca78bf2a3e985e7",
-					"line": 27,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[positive3]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'master_auth' is defined",
-					"actual_value": "Attribute 'master_auth' is undefined"
-				},
+
+
 				{
 					"file_name": "terraform\\google\\container_cluster\\pod_security_policy_disabled.tf",
 					"similarity_id": "0bbe3d309ce721e57ce0794e1d58076bcf5201f0130a42262cce313f09f3fd4f",
@@ -12066,74 +12024,11 @@
 					"expected_value": "Attribute 'monitoring_service' is defined",
 					"actual_value": "Attribute 'monitoring_service' is undefined"
 				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\ip_aliasing_disabled.tf",
-					"similarity_id": "c0070cdd0b2d7112dad01bbb65f93cbe4cdaa9b71d7772fdc78bd52ad42f53f7",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\ip_aliasing_disabled.tf",
-					"similarity_id": "4543277d7ad62dbd49e4285137e567b5ce95c34716fe0abe9a6bea9531246fb3",
-					"line": 14,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[positive2]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\PrivateNodes.tf",
-					"similarity_id": "c73dd6b4f42c0d237da28b99325e3b239ef7d55fc12fe894b6111a0ccf13b10d",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\ShieldedNodes.tf",
-					"similarity_id": "79616c80192eecf162a49e5caf287422a18b379971a6bc8bd1409c75efe59f22",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\network_policy_disabled.tf",
-					"similarity_id": "02a2c4d7ab05a521e152e078a4ca6b19796b6514d7754cf3a9b93b04946edec2",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "154f58489b5d064e37727cd99b4a94af9ca8c0c835474ddc7e9df294abbcb6fc",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
-				}
-			]
-		},
+
+
+
+
+
 		{
 			"query_name": "Storage Account Not Forcing HTTPS",
 			"query_id": "12944ec4-1fa0-47be-8b17-42a034f937c2",

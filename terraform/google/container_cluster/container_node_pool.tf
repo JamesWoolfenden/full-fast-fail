@@ -32,7 +32,7 @@ resource "google_container_node_pool" "fail_pool" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
-    image_type = "something"
+    image_type = "UBUNTU_CONTAINERD"
   }
   management {
     auto_repair  = false

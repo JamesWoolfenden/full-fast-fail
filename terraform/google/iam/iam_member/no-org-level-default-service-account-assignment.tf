@@ -5,7 +5,7 @@
 # tfsec
 #  Resource 'google_project_iam_member.project-123' assigns a role to a default service account.
 
-resource "google_organization_iam_member" "org-123" {
+resource "google_organization_iam_member" "org_123" {
   org_id = "organization-123"
   role   = "roles/editor"
   member = "123-compute@developer.gserviceaccount.com"
