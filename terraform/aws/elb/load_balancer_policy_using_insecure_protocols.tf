@@ -1,7 +1,7 @@
 # fail
 # CKV_AWS_213 Ensure ELB Policy uses only secure protocols
 # todo elb should use vpc- subnets (not availability zones)
-resource "aws_elb" "wu-tang" {
+resource "aws_elb" "wu_tang" {
   name = "wu-tang"
 
   subnets = ["subnet-08d97e381dbc80d40", "subnet-03fdfb13a135366a7"]

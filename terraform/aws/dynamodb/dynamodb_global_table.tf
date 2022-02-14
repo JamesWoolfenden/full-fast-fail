@@ -1,8 +1,8 @@
 resource "aws_dynamodb_global_table" "myTable" {
 
   depends_on = [
-    aws_dynamodb_table.us-east-1,
-    aws_dynamodb_table.us-west-2,
+    aws_dynamodb_table.us_east-1,
+    aws_dynamodb_table.us_west-2,
   ]
   provider = aws.us-east-1
 

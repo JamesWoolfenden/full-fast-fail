@@ -13,7 +13,7 @@ resource "aws_vpc" "main" {
   enable_dns_support = true
 }
 
-resource "aws_subnet" "private-subnet" {
+resource "aws_subnet" "private_subnet" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "192.168.100.128/25"
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "private-subnet" {
   }
 }
 
-resource "aws_route_table" "private-rtb" {
+resource "aws_route_table" "private_rtb" {
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -30,14 +30,14 @@ resource "aws_route_table" "private-rtb" {
   }
 }
 
-resource "aws_vpc_endpoint" "dynamodb-vpce-gw" {
+resource "aws_vpc_endpoint" "dynamodb_vpce_gw" {
   vpc_id       = aws_vpc.main.id
   service_name = "com.amazonaws.us-east-1.dynamodb"
 }
 
-resource "aws_network_acl" "allow-public-outbound-nacl" {
+resource "aws_network_acl" "allow_public_outbound_nacl" {
   vpc_id     = aws_vpc.main.id
-  subnet_ids = [aws_subnet.private-subnet.id]
+  subnet_ids = [aws_subnet.private_subnet.id]
 
   egress {
     protocol   = "tcp"
@@ -53,7 +53,7 @@ resource "aws_network_acl" "allow-public-outbound-nacl" {
   }
 }
 
-resource "aws_security_group" "allow-public-outbound-sg" {
+resource "aws_security_group" "allow_public_outbound_sg" {
   name        = "allow-public-outbound-sg"
   description = "Allow HTTPS outbound traffic"
   vpc_id      = aws_vpc.main.id
@@ -86,11 +86,11 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "test" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.allow-public-outbound-sg.id]
-  subnet_id              = aws_subnet.private-subnet.id
+  vpc_security_group_ids = [aws_security_group.allow_public_outbound_sg.id]
+  subnet_id              = aws_subnet.private_subnet.id
 }
 
-resource "aws_dynamodb_table" "basic-dynamodb-table" {
+resource "aws_dynamodb_table" "basic_dynamodb_table" {
   name           = "GameScores"
   billing_mode   = "PROVISIONED"
   read_capacity  = 5

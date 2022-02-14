@@ -1,7 +1,7 @@
 //  Create a role which OpenShift instances will assume.
 //  This role has a policy saying it can be assumed by ec2
 //  instances.
-resource "aws_iam_role" "positive1" {
+resource "aws_iam_role" "fail" {
   name = "${var.name_tag_prefix}-openshift-instance-role"
 
   assume_role_policy = <<EOF

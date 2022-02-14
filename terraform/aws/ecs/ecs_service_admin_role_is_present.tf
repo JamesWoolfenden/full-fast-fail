@@ -1,7 +1,7 @@
 # fails
 # todo
 
-resource "aws_ecs_service" "fail-service" {
+resource "aws_ecs_service" "fail_service" {
   name            = "mongodb"
   cluster         = aws_ecs_cluster.fail.id
   task_definition = aws_ecs_task_definition.fail.arn

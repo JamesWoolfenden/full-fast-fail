@@ -6,7 +6,7 @@
 # Check: CKV2_AWS_29: "Ensure public API gateway are protected by WAF"
 
 
-resource "aws_api_gateway_stage" "fail-waf" {
+resource "aws_api_gateway_stage" "fail_waf" {
   deployment_id = aws_api_gateway_deployment.example.id
   stage_name    = "fail-waf"
   rest_api_id   = aws_api_gateway_rest_api.fail.id

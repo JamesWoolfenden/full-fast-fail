@@ -4,7 +4,7 @@
 
 # tfsec
 # Resource 'aws_elasticache_cluster.default' should have snapshot retention specified
-resource "aws_elasticache_cluster" "fail-redis" {
+resource "aws_elasticache_cluster" "fail_redis" {
   cluster_id           = "cluster"
   engine               = "redis"
   node_type            = "cache.t2.micro"

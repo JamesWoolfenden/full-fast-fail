@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = false
 }
 
-resource "aws_subnet" "public-subnet" {
+resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.main.id
   cidr_block = local.public_subnet_cidr_block
 
@@ -24,12 +24,12 @@ resource "aws_subnet" "public-subnet" {
   }
 }
 
-resource "aws_route_table" "public-rtb" {
+resource "aws_route_table" "public_rtb" {
   vpc_id = aws_vpc.main.id
 
   route {
     cidr_block      = local.cidr_block
-    vpc_endpoint_id = aws_vpc_endpoint.sqs-vpc-endpoint.id
+    vpc_endpoint_id = aws_vpc_endpoint.sqs_vpc_endpoint.id
   }
 
   route {
@@ -42,12 +42,12 @@ resource "aws_route_table" "public-rtb" {
   }
 }
 
-resource "aws_route_table_association" "public-rtb-assoc" {
-  subnet_id      = aws_subnet.public-subnet.id
-  route_table_id = aws_route_table.public-rtb.id
+resource "aws_route_table_association" "public_rtb_assoc" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_rtb.id
 }
 
-resource "aws_security_group" "public-internet-sg" {
+resource "aws_security_group" "public_internet_sg" {
   name        = "public-internet-sg"
   description = "Allow all local traffic with internet access"
   vpc_id      = aws_vpc.main.id
@@ -87,20 +87,20 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "test-ec2-instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
-  subnet_id              = aws_subnet.public-subnet.id
-  vpc_security_group_ids = [aws_security_group.public-internet-sg.id]
+  subnet_id              = aws_subnet.public_subnet.id
+  vpc_security_group_ids = [aws_security_group.public_internet_sg.id]
 }
 
-resource "aws_vpc_endpoint" "sqs-vpc-endpoint" {
+resource "aws_vpc_endpoint" "sqs_vpc_endpoint" {
   vpc_id              = aws_vpc.main.id
   service_name        = "com.amazonaws.${local.region}.sqs"
   vpc_endpoint_type   = "Interface"
   private_dns_enabled = true
-  subnet_ids          = [aws_subnet.public-subnet.id]
-  security_group_ids  = [aws_security_group.public-internet-sg.id]
+  subnet_ids          = [aws_subnet.public_subnet.id]
+  security_group_ids  = [aws_security_group.public_internet_sg.id]
 }
 
-resource "aws_sqs_queue" "test-queue" {
+resource "aws_sqs_queue" "test_queue" {
   name = "test-queue"
 }
 

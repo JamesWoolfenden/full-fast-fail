@@ -1,5 +1,5 @@
 # fails todo secrets scan inside of a container definition - env vars
-resource "aws_ecs_task_definition" "fail-password" {
+resource "aws_ecs_task_definition" "fail_password" {
   family = "service"
   container_definitions = jsonencode([
     {
