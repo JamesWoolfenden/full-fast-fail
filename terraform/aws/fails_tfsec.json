@@ -19,7 +19,7 @@
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\api-gateway\\api-gateway-stage\\apigatewayv2_stage.tf",
 				"start_line": 11,
-				"end_line": 14
+				"end_line": 17
 			}
 		},
 		{
@@ -103,7 +103,7 @@
 			"description": "Access logging is not configured.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_api_gateway_stage.fail-waf",
+			"resource": "aws_api_gateway_stage.fail_waf",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\api-gateway\\api-gateway-rest-api\\api_gateway_rest_api.tf",
 				"start_line": 9,
@@ -323,7 +323,7 @@
 			"description": "X-Ray tracing is not enabled,",
 			"severity": "LOW",
 			"status": 0,
-			"resource": "aws_api_gateway_stage.fail-waf",
+			"resource": "aws_api_gateway_stage.fail_waf",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\api-gateway\\api-gateway-rest-api\\api_gateway_rest_api.tf",
 				"start_line": 9,
@@ -1364,7 +1364,7 @@
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
 				"start_line": 14,
-				"end_line": 32
+				"end_line": 35
 			}
 		},
 		{
@@ -1386,7 +1386,7 @@
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
 				"start_line": 14,
-				"end_line": 32
+				"end_line": 35
 			}
 		},
 		{
@@ -1408,7 +1408,7 @@
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
 				"start_line": 14,
-				"end_line": 32
+				"end_line": 35
 			}
 		},
 		{
@@ -1426,7 +1426,7 @@
 			"description": "Cluster encryption is not enabled.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_dynamodb_table.basic-dynamodb-table",
+			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 93,
@@ -1492,7 +1492,7 @@
 			"description": "Point-in-time recovery is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_dynamodb_table.basic-dynamodb-table",
+			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 93,
@@ -1558,7 +1558,7 @@
 			"description": "Cluster encryption does not use a customer-managed KMS key.",
 			"severity": "LOW",
 			"status": 0,
-			"resource": "aws_dynamodb_table.basic-dynamodb-table",
+			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 93,
@@ -1668,7 +1668,7 @@
 			"description": "Root block device is not encrypted.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_instance.test-ec2-instance",
+			"resource": "aws_instance.test_ec2_instance",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 87,
@@ -1822,7 +1822,7 @@
 			"description": "Instance does not require IMDS access to require a token",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_instance.test-ec2-instance",
+			"resource": "aws_instance.test_ec2_instance",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 87,
@@ -2262,7 +2262,7 @@
 			"description": "Container definition contains a potentially sensitive environment variable 'password': ",
 			"severity": "CRITICAL",
 			"status": 0,
-			"resource": "aws_ecs_task_definition.fail-password.container_definitions",
+			"resource": "aws_ecs_task_definition.fail_password.container_definitions",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition_with_plaintext_password.tf",
 				"start_line": 4,
@@ -2457,6 +2457,28 @@
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/eks/enable-control-plane-logging/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
 			],
+			"description": "Control plane API logging is not enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_eks_cluster.fail",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
+				"start_line": 13,
+				"end_line": 20
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0038",
+			"long_id": "aws-eks-enable-control-plane-logging",
+			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
+			"rule_provider": "aws",
+			"rule_service": "eks",
+			"impact": "Logging provides valuable information about access and usage",
+			"resolution": "Enable logging for the EKS control plane",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/eks/enable-control-plane-logging/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
+			],
 			"description": "Control plane audit logging is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
@@ -2502,28 +2524,6 @@
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
 			],
 			"description": "Control plane scheduler logging is not enabled.",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_eks_cluster.fail",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 20
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0038",
-			"long_id": "aws-eks-enable-control-plane-logging",
-			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
-			"rule_provider": "aws",
-			"rule_service": "eks",
-			"impact": "Logging provides valuable information about access and usage",
-			"resolution": "Enable logging for the EKS control plane",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/eks/enable-control-plane-logging/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
-			],
-			"description": "Control plane API logging is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
@@ -2658,7 +2658,7 @@
 			"description": "Domain does not have at-rest encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.example",
+			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
@@ -2680,7 +2680,7 @@
 			"description": "Domain does not have at-rest encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.es-not-secure-policy",
+			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -2746,7 +2746,7 @@
 			"description": "Domain audit logging is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.example",
+			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
@@ -2768,7 +2768,7 @@
 			"description": "Domain audit logging is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.es-not-secure-policy",
+			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -2834,7 +2834,7 @@
 			"description": "Domain does not have in-transit encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.example",
+			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
@@ -2856,7 +2856,7 @@
 			"description": "Domain does not have in-transit encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.es-not-secure-policy",
+			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -2922,7 +2922,7 @@
 			"description": "Domain does not enforce HTTPS.",
 			"severity": "CRITICAL",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.example",
+			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
@@ -2944,7 +2944,7 @@
 			"description": "Domain does not enforce HTTPS.",
 			"severity": "CRITICAL",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.es-not-secure-policy",
+			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -3010,7 +3010,7 @@
 			"description": "Domain does not have a secure TLS policy.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.example",
+			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
@@ -3032,7 +3032,7 @@
 			"description": "Domain does not have a secure TLS policy.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elasticsearch_domain.es-not-secure-policy",
+			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -3120,7 +3120,7 @@
 			"description": "Cluster snapshot retention is not enabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_elasticache_cluster.fail-redis",
+			"resource": "aws_elasticache_cluster.fail_redis",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\elasticache_cluster.tf",
 				"start_line": 7,
@@ -3252,7 +3252,7 @@
 			"description": "Load balancer is exposed publicly.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elb.wu-tang",
+			"resource": "aws_elb.wu_tang",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\load_balancer_policy_using_insecure_protocols.tf",
 				"start_line": 4,
@@ -3428,7 +3428,7 @@
 			"description": "Application load balancer is not set to drop invalid headers.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elb.wu-tang",
+			"resource": "aws_elb.wu_tang",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\load_balancer_policy_using_insecure_protocols.tf",
 				"start_line": 4,
@@ -3568,75 +3568,6 @@
 			}
 		},
 		{
-			"rule_id": "AVD-AWS-0123",
-			"long_id": "aws-iam-enforce-mfa",
-			"rule_description": "IAM Groups should have MFA enforcement activated.",
-			"rule_provider": "aws",
-			"rule_service": "iam",
-			"impact": "User accounts are more vulnerable to compromise without multi factor authentication activated",
-			"resolution": "Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/enforce-mfa/",
-				"https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/latest",
-				"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details"
-			],
-			"description": "Multi-Factor Authentication is not enforced for group",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_iam_group.group3",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_group_without_users.tf",
-				"start_line": 33,
-				"end_line": 35
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0123",
-			"long_id": "aws-iam-enforce-mfa",
-			"rule_description": "IAM Groups should have MFA enforcement activated.",
-			"rule_provider": "aws",
-			"rule_service": "iam",
-			"impact": "User accounts are more vulnerable to compromise without multi factor authentication activated",
-			"resolution": "Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/enforce-mfa/",
-				"https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/latest",
-				"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details"
-			],
-			"description": "Multi-Factor Authentication is not enforced for group",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_iam_group.group2",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_group_without_users.tf",
-				"start_line": 12,
-				"end_line": 14
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0123",
-			"long_id": "aws-iam-enforce-mfa",
-			"rule_description": "IAM Groups should have MFA enforcement activated.",
-			"rule_provider": "aws",
-			"rule_service": "iam",
-			"impact": "User accounts are more vulnerable to compromise without multi factor authentication activated",
-			"resolution": "Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/enforce-mfa/",
-				"https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/latest",
-				"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details"
-			],
-			"description": "Multi-Factor Authentication is not enforced for group",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_iam_group.bad_group",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_group.tf",
-				"start_line": 12,
-				"end_line": 14
-			}
-		},
-		{
 			"rule_id": "AVD-AWS-0056",
 			"long_id": "aws-iam-no-password-reuse",
 			"rule_description": "IAM Password policy should prevent password reuse.",
@@ -3651,33 +3582,11 @@
 			"description": "Password policy allows reuse of recent passwords.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_iam_account_password_policy.positive1",
+			"resource": "aws_iam_account_password_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
-				"start_line": 1,
-				"end_line": 9
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0057",
-			"long_id": "aws-iam-no-policy-wildcards",
-			"rule_description": "IAM policy should avoid use of wildcards and instead apply the principle of least privilege",
-			"rule_provider": "aws",
-			"rule_service": "iam",
-			"impact": "Overly permissive policies may grant access to sensitive resources",
-			"resolution": "Specify the exact permissions required, and to which resources they should apply instead of using wildcards.",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/no-policy-wildcards/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
-			],
-			"description": "IAM policy document uses wildcarded resource for sensitive action(s): action ec2:Describe* on resource *",
-			"severity": "HIGH",
-			"status": 0,
-			"resource": "aws_iam_role_policy.positiveinlinepolicy1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
-				"start_line": 88,
-				"end_line": 107
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
 			}
 		},
 		{
@@ -3717,11 +3626,11 @@
 			"description": "IAM policy document uses wildcarded resource for sensitive action(s): action ec2:Describe* on resource *",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_iam_policy.positivecustomermanagedpolicy2",
+			"resource": "aws_iam_role_policy.positiveinlinepolicy1",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
-				"start_line": 129,
-				"end_line": 147
+				"start_line": 88,
+				"end_line": 107
 			}
 		},
 		{
@@ -3736,7 +3645,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses wildcarded action: ec2:Describe*",
+			"description": "IAM policy document uses wildcarded resource for sensitive action(s): action ec2:Describe* on resource *",
 			"severity": "HIGH",
 			"status": 0,
 			"resource": "aws_iam_policy.positivecustomermanagedpolicy2",
@@ -3761,11 +3670,11 @@
 			"description": "IAM policy document uses wildcarded action: ec2:Describe*",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_iam_policy.positivecustomermanagedpolicy1",
+			"resource": "aws_iam_policy.positivecustomermanagedpolicy2",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
-				"start_line": 109,
-				"end_line": 127
+				"start_line": 129,
+				"end_line": 147
 			}
 		},
 		{
@@ -3802,14 +3711,58 @@
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses wildcarded resource for sensitive action(s): action logs:CreateLogGroup on resource arn:aws:logs:*:*:*",
+			"description": "IAM policy document uses wildcarded action: ec2:Describe*",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_iam_policy.positive3",
+			"resource": "aws_iam_policy.positivecustomermanagedpolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_policy_grants_assumerole_permission_across_all_services.tf",
-				"start_line": 27,
-				"end_line": 51
+				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"start_line": 109,
+				"end_line": 127
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0057",
+			"long_id": "aws-iam-no-policy-wildcards",
+			"rule_description": "IAM policy should avoid use of wildcards and instead apply the principle of least privilege",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Overly permissive policies may grant access to sensitive resources",
+			"resolution": "Specify the exact permissions required, and to which resources they should apply instead of using wildcards.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/no-policy-wildcards/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
+			],
+			"description": "IAM policy document uses wildcarded action: ec2:Describe*",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "aws_iam_user_policy.fail_key",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_root_account_has_active_access_keys.tf",
+				"start_line": 12,
+				"end_line": 30
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0057",
+			"long_id": "aws-iam-no-policy-wildcards",
+			"rule_description": "IAM policy should avoid use of wildcards and instead apply the principle of least privilege",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Overly permissive policies may grant access to sensitive resources",
+			"resolution": "Specify the exact permissions required, and to which resources they should apply instead of using wildcards.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/no-policy-wildcards/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
+			],
+			"description": "IAM policy document uses wildcarded resource for sensitive action(s): action ec2:Describe* on resource *",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "aws_iam_user_policy.fail_key",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_root_account_has_active_access_keys.tf",
+				"start_line": 12,
+				"end_line": 30
 			}
 		},
 		{
@@ -3989,6 +3942,94 @@
 			}
 		},
 		{
+			"rule_id": "AVD-AWS-0058",
+			"long_id": "aws-iam-require-lowercase-in-passwords",
+			"rule_description": "IAM Password policy should have requirement for at least one lowercase character.",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Short, simple passwords are easier to compromise",
+			"resolution": "Enforce longer, more complex passwords in the policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/require-lowercase-in-passwords/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy"
+			],
+			"description": "Password policy does not require lowercase characters.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_iam_account_password_policy.fail",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0059",
+			"long_id": "aws-iam-require-numbers-in-passwords",
+			"rule_description": "IAM Password policy should have requirement for at least one number in the password.",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Short, simple passwords are easier to compromise",
+			"resolution": "Enforce longer, more complex passwords in the policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/require-numbers-in-passwords/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy"
+			],
+			"description": "Password policy does not require numbers.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_iam_account_password_policy.fail",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0060",
+			"long_id": "aws-iam-require-symbols-in-passwords",
+			"rule_description": "IAM Password policy should have requirement for at least one symbol in the password.",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Short, simple passwords are easier to compromise",
+			"resolution": "Enforce longer, more complex passwords in the policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/require-symbols-in-passwords/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy"
+			],
+			"description": "Password policy does not require symbols.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_iam_account_password_policy.fail",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0061",
+			"long_id": "aws-iam-require-uppercase-in-passwords",
+			"rule_description": "IAM Password policy should have requirement for at least one uppercase character.",
+			"rule_provider": "aws",
+			"rule_service": "iam",
+			"impact": "Short, simple passwords are easier to compromise",
+			"resolution": "Enforce longer, more complex passwords in the policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/iam/require-uppercase-in-passwords/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy"
+			],
+			"description": "Password policy does not require uppercase characters.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_iam_account_password_policy.fail",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
+			}
+		},
+		{
 			"rule_id": "AVD-AWS-0062",
 			"long_id": "aws-iam-set-max-password-age",
 			"rule_description": "IAM Password policy should have expiry less than or equal to 90 days.",
@@ -4003,11 +4044,11 @@
 			"description": "Password policy allows a maximum password age of greater than 90 days.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_iam_account_password_policy.positive1.max_password_age",
+			"resource": "aws_iam_account_password_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
-				"start_line": 8,
-				"end_line": 8
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
 			}
 		},
 		{
@@ -4025,11 +4066,11 @@
 			"description": "Password policy has a minimum password length of less than 14 characters.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_iam_account_password_policy.positive1.minimum_password_length",
+			"resource": "aws_iam_account_password_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
-				"start_line": 2,
-				"end_line": 2
+				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+				"start_line": 11,
+				"end_line": 12
 			}
 		},
 		{
@@ -4179,7 +4220,7 @@
 			"description": "Function does not have tracing enabled.",
 			"severity": "LOW",
 			"status": 0,
-			"resource": "aws_lambda_function.my-lambda",
+			"resource": "aws_lambda_function.my_lambda",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_with_vulnerable_policy.tf",
 				"start_line": 5,
@@ -5756,7 +5797,7 @@
 			"description": "Bucket does not have encryption enabled",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_s3_bucket.public-bucket",
+			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
@@ -5954,7 +5995,7 @@
 			"description": "Bucket does not have logging enabled",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_s3_bucket.public-bucket",
+			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
@@ -6152,7 +6193,7 @@
 			"description": "Bucket does not have versioning enabled",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "aws_s3_bucket.public-bucket",
+			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
@@ -6482,7 +6523,7 @@
 			"description": "Bucket has a public ACL: 'public-read-write'.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_s3_bucket.public-bucket.acl",
+			"resource": "aws_s3_bucket.public_bucket.acl",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 7,
@@ -6900,7 +6941,7 @@
 			"description": "Queue is not encrypted with a customer managed key.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_sqs_queue.test-queue",
+			"resource": "aws_sqs_queue.test_queue",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 103,
@@ -8012,7 +8053,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/workspaces/enable-disk-encryption/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled"
 			],
-			"description": "User volume does not have encryption enabled.",
+			"description": "Root volume does not have encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
 			"resource": "aws_workspaces_workspace.fail",
@@ -8034,7 +8075,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/aws/workspaces/enable-disk-encryption/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled"
 			],
-			"description": "Root volume does not have encryption enabled.",
+			"description": "User volume does not have encryption enabled.",
 			"severity": "HIGH",
 			"status": 0,
 			"resource": "aws_workspaces_workspace.fail",

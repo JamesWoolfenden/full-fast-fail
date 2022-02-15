@@ -4,7 +4,7 @@
 # tfsec
 # google-compute-use-secure-tls-policy
 resource "google_compute_ssl_policy" "modern_profile" {
-  name            = "nonprod-ssl-policy"
+  name            = "nonprodssl"
   profile         = "MODERN"
   min_tls_version = "TLS_1_1"
 }

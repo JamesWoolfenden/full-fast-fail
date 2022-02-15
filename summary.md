@@ -1,8 +1,8 @@
 # Summary
 
-- Found Terraform 1367
-- Found TFSec 916
-- Found Kics 2700
+- Found Terraform 1365
+- Found TFSec 915
+- Found Kics 2677
 
 ## Versions
 

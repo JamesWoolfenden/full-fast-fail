@@ -9,17 +9,17 @@ STOP="\e[0m"
 
 printf "${BLUE}"
 figlet -w 200 -f  small "Finding Failures.."
-file="$path/fails.txt"
+file="$path/fails.json"
 
 if [ -f "$file" ] ; then
     rm "$file"
 fi
 
-checkov  -d $path >$file
+checkov  -d $path -o json >$file
 echo .
-tfsec $path -f json --out "$path/fails_tfsec.txt" 2> /dev/null
+tfsec $path -f json --out "$path/fails_$file" 2> /dev/null
 echo .
-kics scan -p $path -o $path --output-name "fails-kics.txt"
+kics scan -p $path -o $path --output-name "fails-$file"
 
 printf "${STOP}"
 

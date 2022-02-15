@@ -8,16 +8,16 @@ if (!(test-path -Path $path)) {
 }
 
 figlet "Finding Failures..."
-$file="fails.txt"
+$file="fails.json"
 
 remove-item $file -ErrorAction SilentlyContinue
 
-checkov  -d $path >"$path\$file"
+checkov  -d $path -o json >"$path\$file"
 Write-Host .
 
-tfsec $path -f json --out "$path\fails_tfsec.txt"
+tfsec $path -f json --out "$path\fails_$file"
 
-kics scan -s -p $path -o $path --output-name fails_kics.txt
+kics scan -s -p $path -o $path --output-name "fails_$file"
 
 Write-Host Finished
 exit 0
