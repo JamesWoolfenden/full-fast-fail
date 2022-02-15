@@ -15,9 +15,9 @@ remove-item $file -ErrorAction SilentlyContinue
 checkov  -d $path -o json >"$path\$file"
 Write-Host .
 
-tfsec $path -f json --out "$path\fails_$file"
+tfsec $path -f json --out "$path\fails_tfsec.json"
 
-kics scan -s -p $path -o $path --output-name "fails_$file"
+kics scan -s -p $path -o $path --output-name "fails_kics.json"
 
 Write-Host Finished
 exit 0

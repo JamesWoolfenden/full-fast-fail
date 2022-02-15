@@ -17,9 +17,9 @@ fi
 
 checkov  -d $path -o json >$file
 echo .
-tfsec $path -f json --out "$path/fails_$file" 2> /dev/null
+tfsec $path -f json --out "$path/fails_tfsec.json" 2> /dev/null
 echo .
-kics scan -p $path -o $path --output-name "fails-$file"
+kics scan -s -p $path -o $path --output-name "fails_kics.json"
 
 printf "${STOP}"
 

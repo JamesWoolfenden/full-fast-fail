@@ -1,5 +1,5 @@
 # fails
-# todo kms
+# CKV_GCP_90
 resource "google_dataflow_job" "fail" {
   name              = "dataflow-job"
   template_gcs_path = "gs://my-bucket/templates/template_file"

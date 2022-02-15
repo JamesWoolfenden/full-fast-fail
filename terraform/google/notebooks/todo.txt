@@ -1,3 +1,0 @@
-todo
-https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/notebooks_instance
-no_public_ip

@@ -18,8 +18,8 @@ write-host -f red "Scanning $path"
 # run the tools
 $checkov = (checkov -o json -d $path) | ConvertFrom-Json
 
-kics scan -s -p $path -o $path --output-name "fails-kics.json"
-$kics_count=(Get-Content "$path\fails-kics.json")|ConvertFrom-Json
+kics scan -s -p $path -o $path --output-name "fails_kics.json"
+$kics_count=(Get-Content "$path\fails_kics.json")|ConvertFrom-Json
 $kics_total=$kics_count.total_counter
 
 $tfsec = (tfsec $path -f json ) | ConvertFrom-Json

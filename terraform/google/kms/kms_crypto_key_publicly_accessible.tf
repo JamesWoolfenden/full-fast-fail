@@ -13,15 +13,14 @@ resource "google_kms_crypto_key" "positive1" {
   }
 }
 
-data "google_iam_policy" "positive1" {
+data "google_iam_policy" "fail_access" {
   binding {
     role = "roles/cloudkms.cryptoKeyEncrypter"
-
     member = "allUsers"
   }
 }
 
 resource "google_kms_crypto_key_iam_policy" "positive1" {
   crypto_key_id = google_kms_crypto_key.positive1.id
-  policy_data   = data.google_iam_policy.positive1.policy_data
+  policy_data   = data.google_iam_policy.fail_access.policy_data
 }

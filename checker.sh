@@ -8,7 +8,7 @@ STOP="\e[0m"
 
 printf "${BLUE}"
 figlet -w 200 -f  small "Checkov Scan"
-file="results.json"
+file="fails.json"
 path="${1:-.}"
 
 echo "Scanning path:$path"

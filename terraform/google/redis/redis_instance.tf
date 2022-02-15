@@ -1,4 +1,4 @@
-# todo transit_encryption_mode
+# todo transit_encryption_mode = SERVER_AUTHENTICATION default is disabled
 resource "google_redis_instance" "fail" {
   provider       = google-beta
   name           = "mrr-memory-cache"
