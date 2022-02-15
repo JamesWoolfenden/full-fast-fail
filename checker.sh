@@ -23,15 +23,15 @@ expected=1542
 # run the tools
 checkov -o json -d $path >"$path/$file"
 
-terraform=$(cat "$path/$file" | jq '.[]| select(.check_type=="terraform")| .summary.failed')
-secrets=$(cat "$path/$file" | jq '.[]| select(.check_type=="secrets")| .summary.failed')
-total=$(($secrets + $terraform))
+terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.failed') 
+
+for i in ${terraform[@]}; do
+  let total+=$i
+done
 
 printf "${RED}"
 
 figlet -w 200 -f  small "Results"
-echo "Found Terraform $terraform"
-echo "Found Secrets $secrets"
 
 echo "Expected: $expected and found: $total"
 printf "${STOP}"

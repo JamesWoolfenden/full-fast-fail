@@ -1,8 +1,8 @@
 param (
    [string]$path = ".",
-   [int]$expected = 1542,
-   [int]$tfexpected = 1255,
-   [int]$kicsexpected = 3796)
+   [int]$expected = 1341,
+   [int]$tfexpected = 917,
+   [int]$kicsexpected = 2704)
 
 if (!(test-path -Path $path)) {
       Write-Error "path $path not found"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+folder="${1:-.}"
 figlet Compare Tools
 
 file="results.json"
@@ -8,27 +9,32 @@ if [ -f "$file" ] ; then
 fi
 
 #define expectations
-expected=1542
-tfexpected=1255
-kicsexpected=3796
+expected=1362
+tfexpected=917
+kicsexpected=2704
 
 # run the tools
-checkov -o json -d . >$file
+checkov -o json -d $folder >"$folder/$file"
 
-tfsec -f json -s --out "tfsec_$file"  2> /dev/null
+tfsec $folder -f json -s --out "$folder/tfsec_$file"  2> /dev/null
 # snyk iac test . --json-file-output="synk__$file"  2> /dev/null
-kics scan -p . -o . --output-name "kics_$file"
-kics_count=$(cat kics_$file| jq -r '.total_counter')
+kics scan -s -p $folder -o $folder --output-name "kics_$file"
+kics_count=$(cat "$folder/kics_$file"| jq -r '.total_counter')
 
-tfsec_count=$(cat "tfsec_$file" | jq -r '.results | length')
-terraform=$(cat $file | jq '.[]| select(.check_type=="terraform")| .summary.failed')
-secrets=$(cat $file | jq '.[]| select(.check_type=="secrets")| .summary.failed')
-total=$(($secrets+$terraform))
+tfsec_count=$(cat "$folder/tfsec_$file" | jq -r '.results | length')
+terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2> /dev/null
 
+if [ -z "$terraform" ]; then
+    terraform=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.failed')
+fi
+
+for i in ${terraform[@]}; do                                                                                                
+  let total+=$i
+done
 
 # shellcheck disable=SC2086
 if [ $total != $expected  ]; then
-    echo "Error: expected $expected but found $total"
+    echo "Error: Checkov expected $expected but found $total"
 fi
 
 # shellcheck disable=SC2086
@@ -38,19 +44,28 @@ fi
 
 # shellcheck disable=SC2086
 if [ $tfsec_count -gt $total ]; then
-    echo "Error: Tfsec found more $tfsex_count but we found $total"
+    echo "Error: Tfsec found more $tfsec_count but we found $total"
 fi
 
 # shellcheck disable=SC2086
 if [ $kics_count -gt $total ]; then
-    echo "Error: Kics found more $tfsex_count but we found $total"
+    echo "Error: Kics found more $kics_count but we found $total"
 fi
 
-echo "Found Terraform $terraform"
-echo "Found Secrets $secrets"
-echo "Found TFSec $tfsec_count"
-echo "Found Kics $kics_count"
 
-echo "Expected $expected and found $total"
-echo "Checkov: $total TFSec: $tfsec_count"
+echo "# Summary" > "$folder/summary.md"
+echo -e ""  >>"$folder/summary.md"
+echo "- Found Checkov $total" >>"$folder/summary.md"
+echo "- Found TFSec $tfsec_count" >>"$folder/summary.md"
+echo "- Found Kics $kics_count" >>"$folder/summary.md"
+figlet Versions
+echo -e ""  >>"$folder/summary.md"
+
+echo "## Versions" >>"$folder/summary.md"
+echo -e "" >>"$folder/summary.md"
+echo "- $(terraform version)"  >>"$folder/summary.md"
+echo "- Checkov $(checkov -v)" >>"$folder/summary.md"
+echo "- Tfsec $(tfsec -version)" >>"$folder/summary.md"
+echo "- Kics $(kics version)" >>"$folder/summary.md"
+
 exit 0
