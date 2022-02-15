@@ -1,4 +1,4 @@
-resource "aws_lambda_permission" "positive1" {
+resource "aws_lambda_permission" "positive_wild" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.test_lambda.function_name

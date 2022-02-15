@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_elasticsearch_domain" "es-not-secure-policy" {
+resource "aws_elasticsearch_domain" "es_not_secure_policy" {
   domain_name = "es-not-secure-policy"
 
   ebs_options {
@@ -13,7 +13,7 @@ resource "aws_elasticsearch_domain" "es-not-secure-policy" {
 }
 
 resource "aws_elasticsearch_domain_policy" "main" {
-  domain_name = aws_elasticsearch_domain.es-not-secure-policy.domain_name
+  domain_name = aws_elasticsearch_domain.es_not_secure_policy.domain_name
 
   access_policies = <<POLICIES
 {

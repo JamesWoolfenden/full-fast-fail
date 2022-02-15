@@ -20,3 +20,7 @@ repos:
       language: system
       types: [shell]
       pass_filenames: false
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: v0.1.17
+  hooks:
+    - id: tflint

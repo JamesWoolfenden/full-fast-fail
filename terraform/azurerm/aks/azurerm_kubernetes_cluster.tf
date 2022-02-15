@@ -12,7 +12,7 @@
 # azure-container-limit-authorized-ips
 # azure-container-logging
 # azure-container-use-rbac-permissions
-resource "azurerm_kubernetes_cluster" "fail-cluster" {
+resource "azurerm_kubernetes_cluster" "fail_cluster" {
   name                = "example-aks1"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name

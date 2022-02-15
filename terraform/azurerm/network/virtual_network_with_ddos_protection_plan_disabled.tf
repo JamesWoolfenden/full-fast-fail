@@ -1,26 +1,26 @@
 # fails
 # todo
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "example_ddos" {
   name     = "example-resources"
   location = "West Europe"
 }
 
-resource "azurerm_network_security_group" "example" {
+resource "azurerm_network_security_group" "example_ddos" {
   name                = "acceptanceTestSecurityGroup1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example_ddos.location
+  resource_group_name = azurerm_resource_group.example_ddos.name
 }
 
-resource "azurerm_network_ddos_protection_plan" "example" {
+resource "azurerm_network_ddos_protection_plan" "example_ddos" {
   name                = "ddospplan1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example_ddos.location
+  resource_group_name = azurerm_resource_group.example_ddos.name
 }
 
-resource "azurerm_virtual_network" "positive1" {
+resource "azurerm_virtual_network" "example_ddos" {
   name                = "virtualNetwork1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example_ddos.location
+  resource_group_name = azurerm_resource_group.example_ddos.name
   address_space       = ["10.0.0.0/16"]
   dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
@@ -37,7 +37,7 @@ resource "azurerm_virtual_network" "positive1" {
   subnet {
     name           = "subnet3"
     address_prefix = "10.0.3.0/24"
-    security_group = azurerm_network_security_group.example.id
+    security_group = azurerm_network_security_group.example_ddos.id
   }
 
   tags = {

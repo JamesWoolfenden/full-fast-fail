@@ -18,7 +18,7 @@ resource "kubernetes_service" "example" {
   }
 }
 
-resource "kubernetes_stateful_set" "prometheus" {
+resource "kubernetes_stateful_set" "prometheus_fail" {
   metadata {
     annotations = {
       SomeAnnotation = "foobar"

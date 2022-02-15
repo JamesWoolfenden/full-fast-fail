@@ -1,17 +1,17 @@
 #this is a problematic code where the query should report a result(s)
-resource "aws_iam_access_key" "positive1" {
+resource "aws_iam_access_key" "fail_key" {
   user    = "root"
   pgp_key = "keybase:some_person_that_exists"
 }
 
-resource "aws_iam_user" "positive3" {
+resource "aws_iam_user" "fail_key" {
   name = "loadbalancer"
   path = "/system/"
 }
 
-resource "aws_iam_user_policy" "positive4" {
+resource "aws_iam_user_policy" "fail_key" {
   name = "test"
-  user = aws_iam_user.lb.name
+  user = aws_iam_user.fail_key.name
 
   policy = <<EOF
 {
@@ -27,8 +27,4 @@ resource "aws_iam_user_policy" "positive4" {
   ]
 }
 EOF
-}
-
-output "secret" {
-  value = aws_iam_access_key.lb.encrypted_secret
 }

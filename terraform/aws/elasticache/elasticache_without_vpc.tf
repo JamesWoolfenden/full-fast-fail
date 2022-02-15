@@ -1,6 +1,6 @@
 # fails
 # todo needs to have a link to aws_elasticache_subnet_group- a graph check
-resource "aws_elasticache_cluster" "fail-vpc" {
+resource "aws_elasticache_cluster" "fail_vpc" {
   cluster_id      = "cluster-example"
   engine          = "memcached"
   node_type       = "cache.t2.micro"

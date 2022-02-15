@@ -5,13 +5,13 @@ provider "aws" {
 resource "aws_lambda_function" "my_lambda" {
   filename      = "~/Downloads/lambda.json.zip"
   function_name = "my-lambda"
-  role          = aws_iam_role.lambda-role.arn
+  role          = aws_iam_role.lambda_role.arn
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.8"
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "lambda-role"
+  name_name_prefix = "lambda"
 
   assume_role_policy = <<EOF
 {
@@ -41,7 +41,7 @@ resource "aws_lambda_permission" "all" {
 }
 
 
-resource "aws_lambda_alias" "my-lambda_alias" {
+resource "aws_lambda_alias" "my_lambda_alias" {
   name             = "v1"
   description      = "a sample description"
   function_name    = aws_lambda_function.my_lambda.function_name

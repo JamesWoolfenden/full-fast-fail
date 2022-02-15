@@ -1,6 +1,6 @@
 # fails
 # todo
-resource "azurerm_network_security_rule" "fail" {
+resource "azurerm_network_security_rule" "fail_ssh" {
   name                       = "fail_security_rule"
   direction                  = "Inbound"
   access                     = "Allow"
@@ -11,10 +11,10 @@ resource "azurerm_network_security_rule" "fail" {
   destination_address_prefix = "*"
 }
 
-resource "azurerm_network_security_group" "example" {
+resource "azurerm_network_security_group" "fail_ssh" {
   name                = "tf-appsecuritygroup"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.fail_ssh.location
+  resource_group_name = azurerm_resource_group.fail_ssh.name
 
   security_rule {
     source_port_range          = "any"
@@ -25,7 +25,7 @@ resource "azurerm_network_security_group" "example" {
 }
 
 
-resource "azurerm_network_security_rule" "fail2" {
+resource "azurerm_network_security_rule" "fail_ssh2" {
   name                        = "example"
   priority                    = 100
   direction                   = "Inbound"
@@ -35,6 +35,6 @@ resource "azurerm_network_security_rule" "fail2" {
   destination_port_range      = "22"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = azurerm_resource_group.example.name
-  network_security_group_name = azurerm_network_security_group.example.name
+  resource_group_name         = azurerm_resource_group.fail_ssh.name
+  network_security_group_name = azurerm_network_security_group.fail_ssh.name
 }

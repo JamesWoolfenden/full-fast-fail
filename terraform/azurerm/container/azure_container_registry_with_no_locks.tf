@@ -7,7 +7,7 @@ resource "azurerm_container_registry" "acr" {
 }
 
 
-resource "azurerm_management_lock" "public-ip" {
+resource "azurerm_management_lock" "public_ip" {
   name       = "resource-ip"
   scope      = azurerm_container_registry.acr1.id
   lock_level = "CanNotDelete"

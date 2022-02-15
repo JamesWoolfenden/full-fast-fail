@@ -1,4 +1,4 @@
-resource "kubernetes_stateful_set" "prometheus-1" {
+resource "kubernetes_stateful_set" "fail" {
   metadata {
     annotations = {
       SomeAnnotation = "foobar"

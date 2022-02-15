@@ -1,6 +1,6 @@
 # Fails
 # todo
-resource "azurerm_network_security_rule" "fail-range" {
+resource "azurerm_network_security_rule" "fail_range" {
   name                        = "example"
   priority                    = 100
   direction                   = "Inbound"
@@ -14,7 +14,7 @@ resource "azurerm_network_security_rule" "fail-range" {
   network_security_group_name = azurerm_network_security_group.example.name
 }
 
-resource "azurerm_network_security_rule" "fail" {
+resource "azurerm_network_security_rule" "fail_rdp" {
   name                       = "fail_security_rule"
   direction                  = "Inbound"
   access                     = "Allow"
@@ -25,7 +25,7 @@ resource "azurerm_network_security_rule" "fail" {
   destination_address_prefix = "*"
 }
 
-resource "azurerm_network_security_group" "example" {
+resource "azurerm_network_security_group" "example_drp" {
   name                = "tf-appsecuritygroup"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name

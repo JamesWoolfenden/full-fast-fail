@@ -1,4 +1,4 @@
-resource "kubernetes_stateful_set" "prometheus" {
+resource "kubernetes_stateful_set" "prometheus_budget" {
   metadata {
     annotations = {
       SomeAnnotation = "foobar"

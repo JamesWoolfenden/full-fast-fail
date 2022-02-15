@@ -1,4 +1,4 @@
-resource "aws_iam_user" "positive1" {
+resource "aws_iam_user" "fail_mfa" {
   name = "root"
   path = "/system/"
 
@@ -7,13 +7,13 @@ resource "aws_iam_user" "positive1" {
   }
 }
 
-resource "aws_iam_access_key" "positive2" {
-  user = aws_iam_user.lb.name
+resource "aws_iam_access_key" "fail_mfa" {
+  user = aws_iam_user.fail_mfa.name
 }
 
-resource "aws_iam_user_policy" "positive3" {
+resource "aws_iam_user_policy" "fail_mfa" {
   name = "test"
-  user = aws_iam_user.lb.name
+  user = aws_iam_user.fail_mfa.name
 
   policy = <<EOF
 {
