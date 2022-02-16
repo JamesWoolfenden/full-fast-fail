@@ -1,7 +1,8 @@
 # fails
 # todo enable_stackdriver_logging = true
 # todo enable_stackdriver_monitoring = true
-# todo private_instance = true
+# CKV_GCP_87: "Ensure Data fusion instances are private"
+
 resource "google_data_fusion_instance" "fail" {
   project                       = "examplea"
   provider                      = google-beta
