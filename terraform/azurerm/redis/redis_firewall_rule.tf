@@ -1,3 +1,6 @@
+# fails
+#  ip range is private
+# start_ip' and 'end_ip' should allow no more than 255 hosts
 resource "azurerm_redis_firewall_rule" "positive1" {
   name                = "someIPrange"
   redis_cache_name    = azurerm_redis_cache.example.name
