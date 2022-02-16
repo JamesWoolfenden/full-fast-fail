@@ -389,74 +389,6 @@
 			]
 		},
 		{
-			"query_name": "CosmosDB Account IP Range Filter Not Set",
-			"query_id": "c2a3efb6-8a58-481c-82f2-bfddf34bb4b7",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account#ip_range_filter",
-			"severity": "HIGH",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Networking and Firewall",
-			"description": "The Ip Range Must Contain Ips",
-			"description_id": "fd34a2d6",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/cosmosdb/cosmosdb_account_ip_range_filter_not_set.tf",
-					"similarity_id": "2d730439cf476d6058942c9734783d2475f412d19617f39654a091bcf3d62e6e",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[positive1].ip_range_filter",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_cosmosdb_account[positive1].ip_range_filter' is set",
-					"actual_value": "'azurerm_cosmosdb_account[positive1].ip_range_filter' is undefined"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBDisableAccessKeyWrite.tf",
-					"similarity_id": "ef01d0544d4dbd6bd802dc464e3395a6cb25a6b4957f33e514a4999ff6f19109",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db].ip_range_filter",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is set",
-					"actual_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is undefined"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBHaveCMK.tf",
-					"similarity_id": "7ff8e7d7c10a9da5b94c88e9565c1ad272b29e477b19f418a98970fe84a78cf5",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db].ip_range_filter",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is set",
-					"actual_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is undefined"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBAccountsRestrictedAccess.tf",
-					"similarity_id": "ef33e45acd35a2791d945a6b8a2bbe11022fb7c62344aefabe6f56d38b4a2af9",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db].ip_range_filter",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is set",
-					"actual_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is undefined"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBDisablesPublicNetwork.tf",
-					"similarity_id": "812d880097a5119baa8cbf9cfc10bc19976d89c941975728d99c0061d3a6e940",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db].ip_range_filter",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is set",
-					"actual_value": "'azurerm_cosmosdb_account[db].ip_range_filter' is undefined"
-				}
-			]
-		},
-		{
 			"query_name": "Function App Authentication Disabled",
 			"query_id": "e65a0733-94a0-4826-82f4-df529f4c593f",
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#auth_settings",
@@ -1335,76 +1267,6 @@
 					"search_value": "",
 					"expected_value": "'azurerm_network_security_rule.fail_range.destination_port_range' cannot be 3389",
 					"actual_value": "'azurerm_network_security_rule.fail_range.destination_port_range' might be 3389"
-				}
-			]
-		},
-		{
-			"query_name": "Redis Not Updated Regularly",
-			"query_id": "b947809d-dd2f-4de9-b724-04d101c515aa",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache#patch_schedule",
-			"severity": "HIGH",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Insecure Configurations",
-			"description": "Redis Cache is not configured to be updated regularly with security and operational updates",
-			"description_id": "a9726898",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/redis/RedisCachePublicNetworkAccessEnabled.tf",
-					"similarity_id": "696357cc127a3a57b558ae84db5b2ff4ae5a91b0e6b2b25dd472884a8970278a",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_redis_cache[example]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_cache[example].patch_schedule' is defined and not null",
-					"actual_value": "'azurerm_redis_cache[example].patch_schedule' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/redis/redis_not_updated_regularly.tf",
-					"similarity_id": "df3b83885cb6610e0f3ae7fb38d9fd48210411763555287596510bb30cada3fd",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_redis_cache[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_cache[positive1].patch_schedule' is defined and not null",
-					"actual_value": "'azurerm_redis_cache[positive1].patch_schedule' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/redis/RedisCacheEnableNonSSLPort.tf",
-					"similarity_id": "6b1025b9702542d40d17bcb4838cddda2ef9688062b5d1e6ae3a2acdd14fedf8",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_redis_cache[example]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_cache[example].patch_schedule' is defined and not null",
-					"actual_value": "'azurerm_redis_cache[example].patch_schedule' is undefined or null"
-				}
-			]
-		},
-		{
-			"query_name": "Redis Publicly Accessible",
-			"query_id": "5089d055-53ff-421b-9482-a5267bdce629",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_firewall_rule",
-			"severity": "HIGH",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Networking and Firewall",
-			"description": "Firewall rule allowing unrestricted access to Redis from other Azure sources",
-			"description_id": "0017c1c6",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/redis/firewall_rule_allows_too_many_hosts_to_access_redis_cache.tf",
-					"similarity_id": "b3ed75990f0d4562fe33e48add6b889caa9988858224c85aec032dce825718e9",
-					"line": 5,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_redis_firewall_rule[positive1].start_ip",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_firewall_rule[positive1]' ip range is private",
-					"actual_value": "'azurerm_redis_firewall_rule[positive1]' ip range is not private"
 				}
 			]
 		},
@@ -2851,74 +2713,6 @@
 			]
 		},
 		{
-			"query_name": "Cosmos DB Account Without Tags",
-			"query_id": "56dad03e-e94f-4dd6-93a4-c253a03ff7a0",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account",
-			"severity": "MEDIUM",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Build Process",
-			"description": "Cosmos DB Account must have a mapping of tags.",
-			"description_id": "f0bce814",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBDisableAccessKeyWrite.tf",
-					"similarity_id": "e0768d571024ddc8f7a280f74621753d8e90df77f8d54e5a288d576ad14e967b",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_cosmosdb_account[db].tags is defined'",
-					"actual_value": "azurerm_cosmosdb_account[db].tags is undefined'"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBAccountsRestrictedAccess.tf",
-					"similarity_id": "ad89db6ff088630bcdf358c70ceece7a66aa5b793990ad6b8e8e0ea61b8ae314",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_cosmosdb_account[db].tags is defined'",
-					"actual_value": "azurerm_cosmosdb_account[db].tags is undefined'"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/cosmosdb_account_ip_range_filter_not_set.tf",
-					"similarity_id": "1ff3d952a5e4d83a8c2459c48e9681b4e7620e6114913aa9a3e165ea59769752",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_cosmosdb_account[positive1].tags is defined'",
-					"actual_value": "azurerm_cosmosdb_account[positive1].tags is undefined'"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBHaveCMK.tf",
-					"similarity_id": "31081764cd5cb4c4e05e7f22688b22f9bb978e1445b65ea253018a0384784b53",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_cosmosdb_account[db].tags is defined'",
-					"actual_value": "azurerm_cosmosdb_account[db].tags is undefined'"
-				},
-				{
-					"file_name": "terraform/azurerm/cosmosdb/CosmosDBDisablesPublicNetwork.tf",
-					"similarity_id": "06612d376cf2ffb56eed28569fccc163c4e0e70d8d4cdbaaa73ce3e675e10740",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_cosmosdb_account[db]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_cosmosdb_account[db].tags is defined'",
-					"actual_value": "azurerm_cosmosdb_account[db].tags is undefined'"
-				}
-			]
-		},
-		{
 			"query_name": "Default Azure Storage Account Network Access Is Too Permissive",
 			"query_id": "a5613650-32ec-4975-a305-31af783153ea",
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#default_action",
@@ -3187,30 +2981,6 @@
 					"search_value": "",
 					"expected_value": "azurerm_managed_disk[fail].encryption_settings.enabled is true ",
 					"actual_value": "azurerm_managed_disk[fail].encryption_settings.enabled is false"
-				}
-			]
-		},
-		{
-			"query_name": "Firewall Rule Allows Too Many Hosts To Access Redis Cache",
-			"query_id": "a829b715-cf75-4e92-b645-54c9b739edfb",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_firewall_rule",
-			"severity": "MEDIUM",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Networking and Firewall",
-			"description": "Check if any firewall rule allows too many hosts to access Redis Cache",
-			"description_id": "6ac1bc00",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/redis/firewall_rule_allows_too_many_hosts_to_access_redis_cache.tf",
-					"similarity_id": "cbe8e66ba4344c5084fe5bb6ec36a33d3dafb576e6bfa3c0647b2a73b47ccb75",
-					"line": 5,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_redis_firewall_rule[positive1].start_ip",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_firewall_rule[positive1].start_ip' and 'end_ip' should allow no more than 255 hosts",
-					"actual_value": "'azurerm_redis_firewall_rule[positive1].start_ip' and 'end_ip' allow %!s(float64=3.3554432e+07) hosts"
 				}
 			]
 		},
@@ -3684,30 +3454,6 @@
 					"search_value": "",
 					"expected_value": "'azurerm_postgresql_configuration.example.value' should be 'ON'",
 					"actual_value": "'azurerm_postgresql_configuration.example.value' is 'OFF'"
-				}
-			]
-		},
-		{
-			"query_name": "Redis Cache Allows Non SSL Connections",
-			"query_id": "e29a75e6-aba3-4896-b42d-b87818c16b58",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache",
-			"severity": "MEDIUM",
-			"platform": "Terraform",
-			"cloud_provider": "AZURE",
-			"category": "Encryption",
-			"description": "Check if any Redis Cache resource allows non-SSL connections.",
-			"description_id": "b7160c8c",
-			"files": [
-				{
-					"file_name": "terraform/azurerm/redis/RedisCacheEnableNonSSLPort.tf",
-					"similarity_id": "e722cfbd22846ef6f54d22a8b35e4f0ba604acecd9183483a232d5ab9e6dca27",
-					"line": 9,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_redis_cache[example].enable_non_ssl_port",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_redis_cache[example].enable_non_ssl_port' is false or undefined (false as default)",
-					"actual_value": "'azurerm_redis_cache[example].enable_non_ssl_port' is true"
 				}
 			]
 		},

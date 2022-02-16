@@ -1,4 +1,5 @@
-
+# fails
+# todo   check is no enable_non_ssl_port           = true
 resource "azurerm_redis_cache" "example" {
   name                          = "example-cache"
   location                      = azurerm_resource_group.example.location

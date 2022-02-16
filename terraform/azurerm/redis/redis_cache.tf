@@ -1,4 +1,10 @@
-resource "azurerm_redis_cache" "positive1" {
+# fails
+# Ensure that Azure Cache for Redis disables public network accessCheckov CKV_AZURE_89
+# todo min tls
+# todo enable non ssl port
+# todo patch_schedule' is defined
+
+resource "azurerm_redis_cache" "fail" {
   name                = "timeout-redis"
   location            = "West Europe"
   resource_group_name = azurerm_resource_group.example_rg.name
@@ -11,6 +17,7 @@ resource "azurerm_redis_cache" "positive1" {
 
   enable_non_ssl_port = false
   minimum_tls_version = "1.2"
+  public_network_access_enabled = true
 
   redis_configuration {
     enable_authentication = true

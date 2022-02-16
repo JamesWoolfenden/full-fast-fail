@@ -1,5 +1,5 @@
 # fails
-# todo defines a firewall rule with no restriction on destination IP 
+# Ensure firewall rule set a destination IPCheckov (CKV_OPENSTACK_5)
 # todo defines a firewall rule with no restriction on source IP
 
 # tfsec
@@ -14,4 +14,3 @@ resource "openstack_fw_rule_v1" "fail" {
   enabled          = "true"
   # destination_ip_address = "10.0.0.1"
 }
-

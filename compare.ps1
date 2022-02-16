@@ -25,9 +25,7 @@ $kics_total=$kics_count.total_counter
 $tfsec = (tfsec $path -f json ) | ConvertFrom-Json
 $tfsec_count = $tfsec.results.Length
 
-$terraform = $checkov[0].results.failed_checks.Length
-$secrets = $checkov[4].results.failed_checks.Length
-$total = $secrets + $terraform
+$total = $checkov.results.failed_checks.Length
 
 if ($path -eq ".") {
    if ($total -ne $expected) {
