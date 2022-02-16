@@ -1,7 +1,7 @@
 #fails
 # CKV_AWS_60
 
-resource "aws_iam_role" "lambdaRole" {
+resource "aws_iam_role" "lambda" {
   namename_prefix    = "test"
   assume_role_policy = <<EOF
 {

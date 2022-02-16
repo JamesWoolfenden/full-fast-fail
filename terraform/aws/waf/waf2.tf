@@ -16,4 +16,7 @@ resource "aws_wafv2_web_acl" "no_rule" {
     metric_name                = "friendly-metric-name"
     sampled_requests_enabled   = false
   }
+  tags = {
+    "key" = "value"
+  }
 }

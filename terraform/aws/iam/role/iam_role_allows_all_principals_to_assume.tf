@@ -19,4 +19,7 @@ resource "aws_iam_role" "fail_principle" {
     ]
 }
 EOF
+tags = {
+  "key" = "value"
+}
 }

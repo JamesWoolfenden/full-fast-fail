@@ -29,4 +29,7 @@ resource "aws_instance" "fail" {
 		 export AWS_DEFAULT_REGION=us-west-2
 		 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 		 EOF
+	tags = {
+	  "key" = "value"
+	}
 }

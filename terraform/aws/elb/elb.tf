@@ -12,4 +12,7 @@ resource "aws_elb" "test" {
     lb_port           = 80
     lb_protocol       = "http"
   }
+    tags = {
+    "key" = "value"
+  }
 }

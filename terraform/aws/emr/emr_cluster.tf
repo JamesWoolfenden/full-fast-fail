@@ -17,6 +17,9 @@ resource "aws_emr_cluster" "test" {
   kerberos_attributes {
     kdc_admin_password = "somePassword"
   }
+    tags = {
+    "key" = "value"
+  }
 }
 
 resource "aws_emr_cluster" "cluster_connected_to_wrong_group" {
@@ -28,6 +31,9 @@ resource "aws_emr_cluster" "cluster_connected_to_wrong_group" {
     emr_managed_master_security_group = aws_security_group.block_access_not_ok.id
     emr_managed_slave_security_group  = aws_security_group.block_access_not_ok.id
     instance_profile                  = "connected_to_aws_iam_instance_profile"
+  }
+    tags = {
+    "key" = "value"
   }
 }
 
@@ -47,5 +53,8 @@ resource "aws_security_group" "block_access_not_ok" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+    tags = {
+    "key" = "value"
   }
 }

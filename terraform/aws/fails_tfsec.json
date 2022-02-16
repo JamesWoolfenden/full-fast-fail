@@ -1,0 +1,48 @@
+{
+	"results": [
+		{
+			"rule_id": "AVD-GEN-0004",
+			"long_id": "general-secrets-no-plaintext-exposure",
+			"rule_description": "Secret/sensitive data should not be exposed in plaintext.",
+			"rule_provider": "general",
+			"rule_service": "secrets",
+			"impact": "Sensitive data can be leaked to unauthorised people or systems.",
+			"resolution": "Remove plaintext secrets and encrypt them within a secrets manager instead.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/general/secrets/no-plaintext-exposure/",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "Attribute name appears sensitive and has a value which is defined within the project.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "provider.aws.secret_key",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\provider.tf",
+				"start_line": 4,
+				"end_line": 4
+			}
+		},
+		{
+			"rule_id": "AVD-GEN-0004",
+			"long_id": "general-secrets-no-plaintext-exposure",
+			"rule_description": "Secret/sensitive data should not be exposed in plaintext.",
+			"rule_provider": "general",
+			"rule_service": "secrets",
+			"impact": "Sensitive data can be leaked to unauthorised people or systems.",
+			"resolution": "Remove plaintext secrets and encrypt them within a secrets manager instead.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/general/secrets/no-plaintext-exposure/",
+				"https://www.terraform.io/docs/state/sensitive-data.html"
+			],
+			"description": "A potentially sensitive string was discovered within an attribute value.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "provider.aws.access_key",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\aws\\provider.tf",
+				"start_line": 3,
+				"end_line": 3
+			}
+		}
+	]
+}

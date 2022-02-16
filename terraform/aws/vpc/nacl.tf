@@ -9,4 +9,7 @@ resource "aws_vpc" "bad_vpc" {
 
 resource "aws_network_acl" "acl_bad_a" {
   vpc_id = aws_vpc.bad_vpc.id
+  tags = {
+    "key" = "value"
+  }
 }

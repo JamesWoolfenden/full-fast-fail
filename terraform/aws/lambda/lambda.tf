@@ -21,4 +21,7 @@ resource "aws_lambda_function" "morefail" {
       AWS_SECRET_ACCESS_KEY = "MYMOSTSECRETTHING"
     }
   }
+  tags = {
+    "key" = "value"
+  }
 }

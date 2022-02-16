@@ -8,6 +8,9 @@ resource "aws_elasticache_cluster" "fail_vpc" {
   //parameter_group_name = aws_elasticache_parameter_group.default.id
   port = 11211
   # subnet_group_name="subnet-04338b6369d8288a5"
+    tags = {
+    "key" = "value"
+  }
 }
 
 

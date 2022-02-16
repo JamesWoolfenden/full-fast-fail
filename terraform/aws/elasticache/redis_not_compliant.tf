@@ -7,4 +7,7 @@ resource "aws_elasticache_cluster" "fails" {
   num_cache_nodes = 1
   engine_version  = "2.6.13"
   port            = 6379
+    tags = {
+    "key" = "value"
+  }
 }

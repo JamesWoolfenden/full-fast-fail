@@ -12,6 +12,9 @@ resource "aws_api_gateway_rest_api" "no_assoc" {
   endpoint_configuration {
     types = ["REGIONAL"]
   }
+  tags = {
+    "key" = "value"
+  }
 }
 
 resource "aws_api_gateway_stage" "no_assoc" {

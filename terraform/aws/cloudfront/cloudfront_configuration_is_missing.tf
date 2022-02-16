@@ -62,6 +62,7 @@ resource "aws_cloudfront_distribution" "fail" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
+  
 }
 
 
@@ -71,4 +72,7 @@ locals {
 
 resource "aws_s3_bucket" "b" {
   bucket = "mylovelyhorse"
+  tags = {
+    "key" = "value"
+  }
 }

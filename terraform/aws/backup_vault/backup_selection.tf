@@ -21,6 +21,9 @@ resource "aws_backup_plan" "example" {
     }
     resource_type = "EC2"
   }
+  tags = {
+    "key" = "value"
+  }
 }
 
 
