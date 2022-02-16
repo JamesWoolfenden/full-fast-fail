@@ -3,6 +3,7 @@
 # todo min tls
 # todo enable non ssl port
 # todo patch_schedule' is defined
+#  ip range is not private
 
 resource "azurerm_redis_cache" "fail" {
   name                = "timeout-redis"

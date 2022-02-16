@@ -7,6 +7,7 @@
 # CKV2_AZURE_7: "Ensure that Azure Active Directory Admin is configured"
 # CKV2_AZURE_13: "Ensure that sql servers enables data security policy"
 # todo # CKV_AZURE_52: "Ensure MSSQL is using the latest version of TLS encryption" not triggered
+# todo ensure infrastructure_encryption_enabled=false
 resource "azurerm_sql_server" "example" {
   name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.example.name
@@ -15,7 +16,9 @@ resource "azurerm_sql_server" "example" {
   administrator_login          = "mradministrator"
   administrator_login_password = "thisIsDog11"
   minimum_tls_version          = "1.1"
-
+  threat_detection_policy {
+    enabled = false
+  }
 
   public_network_access_enabled = true
   extended_auditing_policy {
@@ -24,5 +27,6 @@ resource "azurerm_sql_server" "example" {
     storage_account_access_key_is_secondary = true
     retention_in_days                       = 6
   }
+  infrastructure_encryption_enabled = false
 
 }

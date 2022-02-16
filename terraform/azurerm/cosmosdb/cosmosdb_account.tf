@@ -4,6 +4,7 @@
 # Ensure that Azure Cosmos DB disables public network accessCheckov CKV_AZURE_101
 # Ensure that Cosmos DB accounts have customer-managed keys to encrypt data at restCheckov CKV_AZURE_100
 # Ensure that Local Authentication is disabled on CosmosDBCheckov (CKV_AZURE_140)
+# todo pass ip_range_filter is set
 resource "azurerm_cosmosdb_account" "fail" {
   name                = "tfex-cosmos-db-${random_integer.ri.result}"
   location            = azurerm_resource_group.rg.location

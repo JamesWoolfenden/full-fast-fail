@@ -6,6 +6,7 @@
 # Ensure Storage Account is using the latest version of TLS encryptionCheckov CKV_AZURE_44
 # Ensure that 'Secure transfer required' is set to 'Enabled'Checkov CKV_AZURE_3
 # Ensure that Storage Accounts use customer-managed key for encryptionCheckov CKV2_AZURE_18
+# todo ensure Expected 'default_action' to be set to 'Deny'
 resource "azurerm_storage_account" "example" {
   name                      = "this-is-wrong"
   resource_group_name       = azurerm_resource_group.example.name
@@ -14,6 +15,7 @@ resource "azurerm_storage_account" "example" {
   account_replication_type  = "GRS"
   enable_https_traffic_only = false
   allow_blob_public_access  = true
+
 
   //to fail CKV_AZURE_35 && CKV_AZURE_36
   network_rules {
