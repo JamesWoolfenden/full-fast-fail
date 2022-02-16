@@ -1,0 +1,2554 @@
+{
+    "check_type": "terraform",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_OCI_16",
+                "bc_check_id": "BC_OCI_NETWORKING_1",
+                "check_name": "Ensure VCN has an inbound security list",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "ingress_security_rules/[0]/protocol"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"oci_core_security_list\" \"fail2\" {\n"
+                    ],
+                    [
+                        3,
+                        "  compartment_id = oci_identity_compartment.tf-compartment.id\n"
+                    ],
+                    [
+                        4,
+                        "  vcn_id         = oci_core_vcn.test_vcn.id\n"
+                    ],
+                    [
+                        5,
+                        "  ingress_security_rules {\n"
+                    ],
+                    [
+                        6,
+                        "    protocol  = \"all\"\n"
+                    ],
+                    [
+                        7,
+                        "    source    = \"192.168.1.0/24\"\n"
+                    ],
+                    [
+                        8,
+                        "    stateless = false\n"
+                    ],
+                    [
+                        9,
+                        "  }\n"
+                    ],
+                    [
+                        10,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_security_list/stateless.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/stateless.tf",
+                "repo_file_path": "/terraform/oracle/core_security_list/stateless.tf",
+                "file_line_range": [
+                    2,
+                    10
+                ],
+                "resource": "oci_core_security_list.fail2",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.SecurityListIngress",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_networking_1"
+            }
+        ],
+        "failed_checks": [
+            {
+                "check_id": "CKV_OCI_13",
+                "bc_check_id": "BC_OCI_IAM_3",
+                "check_name": "OCI IAM password policy - must contain Special characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_special_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM/identity_authentication_policy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicySpecialCharacters",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_3"
+            },
+            {
+                "check_id": "CKV_OCI_11",
+                "bc_check_id": "BC_OCI_IAM_1",
+                "check_name": "OCI IAM password policy - must contain lower case",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_lowercase_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM/identity_authentication_policy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicyLowerCase",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_1"
+            },
+            {
+                "check_id": "CKV_OCI_18",
+                "bc_check_id": "BC_OCI_IAM_5",
+                "check_name": "OCI IAM password policy for local (non-federated) users has a minimum length of 14 characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/minimum_password_length"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM/identity_authentication_policy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordLength",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_5"
+            },
+            {
+                "check_id": "CKV_OCI_14",
+                "bc_check_id": "BC_OCI_IAM_4",
+                "check_name": "OCI IAM password policy - must contain Uppercase characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_uppercase_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM/identity_authentication_policy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicyUpperCase",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_4"
+            },
+            {
+                "check_id": "CKV_OCI_12",
+                "bc_check_id": "BC_OCI_IAM_2",
+                "check_name": "OCI IAM password policy - must contain Numeric characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_numeric_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM/identity_authentication_policy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicyNumeric",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_2"
+            },
+            {
+                "check_id": "CKV_OCI_4",
+                "bc_check_id": "BC_OCI_COMPUTE_1",
+                "check_name": "Ensure OCI Compute Instance boot volume has in-transit data encryption enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "launch_options/[0]/is_pv_encryption_in_transit_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        5,
+                        "resource \"oci_core_instance\" \"fail\" {\n"
+                    ],
+                    [
+                        6,
+                        "  availability_domain = var.instance_availability_domain\n"
+                    ],
+                    [
+                        7,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        8,
+                        "  shape               = var.instance_shape\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  agent_config {\n"
+                    ],
+                    [
+                        11,
+                        "    is_monitoring_disabled = true\n"
+                    ],
+                    [
+                        12,
+                        "  }\n"
+                    ],
+                    [
+                        13,
+                        "\n"
+                    ],
+                    [
+                        14,
+                        "  create_vnic_details {\n"
+                    ],
+                    [
+                        15,
+                        "    assign_private_dns_record = var.instance_create_vnic_details_assign_private_dns_record\n"
+                    ],
+                    [
+                        16,
+                        "    assign_public_ip          = var.instance_create_vnic_details_assign_public_ip\n"
+                    ],
+                    [
+                        17,
+                        "    defined_tags              = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        18,
+                        "    display_name              = var.instance_create_vnic_details_display_name\n"
+                    ],
+                    [
+                        19,
+                        "    freeform_tags             = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        20,
+                        "    hostname_label            = var.instance_create_vnic_details_hostname_label\n"
+                    ],
+                    [
+                        21,
+                        "    nsg_ids                   = var.instance_create_vnic_details_nsg_ids\n"
+                    ],
+                    [
+                        22,
+                        "    private_ip                = var.instance_create_vnic_details_private_ip\n"
+                    ],
+                    [
+                        23,
+                        "    skip_source_dest_check    = var.instance_create_vnic_details_skip_source_dest_check\n"
+                    ],
+                    [
+                        24,
+                        "    subnet_id                 = oci_core_subnet.test_subnet.id\n"
+                    ],
+                    [
+                        25,
+                        "    vlan_id                   = oci_core_vlan.test_vlan.id\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  dedicated_vm_host_id = oci_core_dedicated_vm_host.test_dedicated_vm_host.id\n"
+                    ],
+                    [
+                        29,
+                        "  defined_tags         = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        30,
+                        "  display_name         = var.instance_display_name\n"
+                    ],
+                    [
+                        31,
+                        "  extended_metadata = {\n"
+                    ],
+                    [
+                        32,
+                        "    some_string   = \"stringA\"\n"
+                    ],
+                    [
+                        33,
+                        "    nested_object = \"{\\\"some_string\\\": \\\"stringB\\\", \\\"object\\\": {\\\"some_string\\\": \\\"stringC\\\"}}\"\n"
+                    ],
+                    [
+                        34,
+                        "  }\n"
+                    ],
+                    [
+                        35,
+                        "\n"
+                    ],
+                    [
+                        36,
+                        "  fault_domain  = var.instance_fault_domain\n"
+                    ],
+                    [
+                        37,
+                        "  freeform_tags = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        38,
+                        "\n"
+                    ],
+                    [
+                        39,
+                        "  instance_options {\n"
+                    ],
+                    [
+                        40,
+                        "    are_legacy_imds_endpoints_disabled = false\n"
+                    ],
+                    [
+                        41,
+                        "  }\n"
+                    ],
+                    [
+                        42,
+                        "\n"
+                    ],
+                    [
+                        43,
+                        "  ipxe_script                         = var.instance_ipxe_script\n"
+                    ],
+                    [
+                        44,
+                        "  is_pv_encryption_in_transit_enabled = var.instance_is_pv_encryption_in_transit_enabled\n"
+                    ],
+                    [
+                        45,
+                        "\n"
+                    ],
+                    [
+                        46,
+                        "  launch_options {\n"
+                    ],
+                    [
+                        47,
+                        "    boot_volume_type                    = var.instance_launch_options_boot_volume_type\n"
+                    ],
+                    [
+                        48,
+                        "    firmware                            = var.instance_launch_options_firmware\n"
+                    ],
+                    [
+                        49,
+                        "    is_consistent_volume_naming_enabled = var.instance_launch_options_is_consistent_volume_naming_enabled\n"
+                    ],
+                    [
+                        50,
+                        "    network_type                        = var.instance_launch_options_network_type\n"
+                    ],
+                    [
+                        51,
+                        "    remote_data_volume_type             = var.instance_launch_options_remote_data_volume_type\n"
+                    ],
+                    [
+                        52,
+                        "  }\n"
+                    ],
+                    [
+                        53,
+                        "  metadata = var.instance_metadata\n"
+                    ],
+                    [
+                        54,
+                        "\n"
+                    ],
+                    [
+                        55,
+                        "  platform_config {\n"
+                    ],
+                    [
+                        56,
+                        "    type                               = var.instance_platform_config_type\n"
+                    ],
+                    [
+                        57,
+                        "    is_measured_boot_enabled           = var.instance_platform_config_is_measured_boot_enabled\n"
+                    ],
+                    [
+                        58,
+                        "    is_secure_boot_enabled             = var.instance_platform_config_is_secure_boot_enabled\n"
+                    ],
+                    [
+                        59,
+                        "    is_trusted_platform_module_enabled = var.instance_platform_config_is_trusted_platform_module_enabled\n"
+                    ],
+                    [
+                        60,
+                        "    numa_nodes_per_socket              = var.instance_platform_config_numa_nodes_per_socket\n"
+                    ],
+                    [
+                        61,
+                        "  }\n"
+                    ],
+                    [
+                        62,
+                        "\n"
+                    ],
+                    [
+                        63,
+                        "  preemptible_instance_config {\n"
+                    ],
+                    [
+                        64,
+                        "    preemption_action {\n"
+                    ],
+                    [
+                        65,
+                        "      type                 = var.instance_preemptible_instance_config_preemption_action_type\n"
+                    ],
+                    [
+                        66,
+                        "      preserve_boot_volume = var.instance_preemptible_instance_config_preemption_action_preserve_boot_volume\n"
+                    ],
+                    [
+                        67,
+                        "    }\n"
+                    ],
+                    [
+                        68,
+                        "  }\n"
+                    ],
+                    [
+                        69,
+                        "\n"
+                    ],
+                    [
+                        70,
+                        "  shape_config {\n"
+                    ],
+                    [
+                        71,
+                        "    baseline_ocpu_utilization = var.instance_shape_config_baseline_ocpu_utilization\n"
+                    ],
+                    [
+                        72,
+                        "    memory_in_gbs             = var.instance_shape_config_memory_in_gbs\n"
+                    ],
+                    [
+                        73,
+                        "    ocpus                     = var.instance_shape_config_ocpus\n"
+                    ],
+                    [
+                        74,
+                        "  }\n"
+                    ],
+                    [
+                        75,
+                        "\n"
+                    ],
+                    [
+                        76,
+                        "  source_details {\n"
+                    ],
+                    [
+                        77,
+                        "    source_id               = oci_core_image.test_image.id\n"
+                    ],
+                    [
+                        78,
+                        "    source_type             = \"image\"\n"
+                    ],
+                    [
+                        79,
+                        "    boot_volume_size_in_gbs = var.instance_source_details_boot_volume_size_in_gbs\n"
+                    ],
+                    [
+                        80,
+                        "    kms_key_id              = oci_kms_key.test_key.id\n"
+                    ],
+                    [
+                        81,
+                        "  }\n"
+                    ],
+                    [
+                        82,
+                        "  preserve_boot_volume = false\n"
+                    ],
+                    [
+                        83,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_instance/core_instance.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
+                "file_line_range": [
+                    5,
+                    83
+                ],
+                "resource": "oci_core_instance.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.InstanceBootVolumeIntransitEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_compute_1"
+            },
+            {
+                "check_id": "CKV_OCI_5",
+                "bc_check_id": "BC_OCI_COMPUTE_2",
+                "check_name": "Ensure OCI Compute Instance has Legacy MetaData service endpoint disabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "instance_options/[0]/are_legacy_imds_endpoints_disabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        5,
+                        "resource \"oci_core_instance\" \"fail\" {\n"
+                    ],
+                    [
+                        6,
+                        "  availability_domain = var.instance_availability_domain\n"
+                    ],
+                    [
+                        7,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        8,
+                        "  shape               = var.instance_shape\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  agent_config {\n"
+                    ],
+                    [
+                        11,
+                        "    is_monitoring_disabled = true\n"
+                    ],
+                    [
+                        12,
+                        "  }\n"
+                    ],
+                    [
+                        13,
+                        "\n"
+                    ],
+                    [
+                        14,
+                        "  create_vnic_details {\n"
+                    ],
+                    [
+                        15,
+                        "    assign_private_dns_record = var.instance_create_vnic_details_assign_private_dns_record\n"
+                    ],
+                    [
+                        16,
+                        "    assign_public_ip          = var.instance_create_vnic_details_assign_public_ip\n"
+                    ],
+                    [
+                        17,
+                        "    defined_tags              = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        18,
+                        "    display_name              = var.instance_create_vnic_details_display_name\n"
+                    ],
+                    [
+                        19,
+                        "    freeform_tags             = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        20,
+                        "    hostname_label            = var.instance_create_vnic_details_hostname_label\n"
+                    ],
+                    [
+                        21,
+                        "    nsg_ids                   = var.instance_create_vnic_details_nsg_ids\n"
+                    ],
+                    [
+                        22,
+                        "    private_ip                = var.instance_create_vnic_details_private_ip\n"
+                    ],
+                    [
+                        23,
+                        "    skip_source_dest_check    = var.instance_create_vnic_details_skip_source_dest_check\n"
+                    ],
+                    [
+                        24,
+                        "    subnet_id                 = oci_core_subnet.test_subnet.id\n"
+                    ],
+                    [
+                        25,
+                        "    vlan_id                   = oci_core_vlan.test_vlan.id\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  dedicated_vm_host_id = oci_core_dedicated_vm_host.test_dedicated_vm_host.id\n"
+                    ],
+                    [
+                        29,
+                        "  defined_tags         = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        30,
+                        "  display_name         = var.instance_display_name\n"
+                    ],
+                    [
+                        31,
+                        "  extended_metadata = {\n"
+                    ],
+                    [
+                        32,
+                        "    some_string   = \"stringA\"\n"
+                    ],
+                    [
+                        33,
+                        "    nested_object = \"{\\\"some_string\\\": \\\"stringB\\\", \\\"object\\\": {\\\"some_string\\\": \\\"stringC\\\"}}\"\n"
+                    ],
+                    [
+                        34,
+                        "  }\n"
+                    ],
+                    [
+                        35,
+                        "\n"
+                    ],
+                    [
+                        36,
+                        "  fault_domain  = var.instance_fault_domain\n"
+                    ],
+                    [
+                        37,
+                        "  freeform_tags = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        38,
+                        "\n"
+                    ],
+                    [
+                        39,
+                        "  instance_options {\n"
+                    ],
+                    [
+                        40,
+                        "    are_legacy_imds_endpoints_disabled = false\n"
+                    ],
+                    [
+                        41,
+                        "  }\n"
+                    ],
+                    [
+                        42,
+                        "\n"
+                    ],
+                    [
+                        43,
+                        "  ipxe_script                         = var.instance_ipxe_script\n"
+                    ],
+                    [
+                        44,
+                        "  is_pv_encryption_in_transit_enabled = var.instance_is_pv_encryption_in_transit_enabled\n"
+                    ],
+                    [
+                        45,
+                        "\n"
+                    ],
+                    [
+                        46,
+                        "  launch_options {\n"
+                    ],
+                    [
+                        47,
+                        "    boot_volume_type                    = var.instance_launch_options_boot_volume_type\n"
+                    ],
+                    [
+                        48,
+                        "    firmware                            = var.instance_launch_options_firmware\n"
+                    ],
+                    [
+                        49,
+                        "    is_consistent_volume_naming_enabled = var.instance_launch_options_is_consistent_volume_naming_enabled\n"
+                    ],
+                    [
+                        50,
+                        "    network_type                        = var.instance_launch_options_network_type\n"
+                    ],
+                    [
+                        51,
+                        "    remote_data_volume_type             = var.instance_launch_options_remote_data_volume_type\n"
+                    ],
+                    [
+                        52,
+                        "  }\n"
+                    ],
+                    [
+                        53,
+                        "  metadata = var.instance_metadata\n"
+                    ],
+                    [
+                        54,
+                        "\n"
+                    ],
+                    [
+                        55,
+                        "  platform_config {\n"
+                    ],
+                    [
+                        56,
+                        "    type                               = var.instance_platform_config_type\n"
+                    ],
+                    [
+                        57,
+                        "    is_measured_boot_enabled           = var.instance_platform_config_is_measured_boot_enabled\n"
+                    ],
+                    [
+                        58,
+                        "    is_secure_boot_enabled             = var.instance_platform_config_is_secure_boot_enabled\n"
+                    ],
+                    [
+                        59,
+                        "    is_trusted_platform_module_enabled = var.instance_platform_config_is_trusted_platform_module_enabled\n"
+                    ],
+                    [
+                        60,
+                        "    numa_nodes_per_socket              = var.instance_platform_config_numa_nodes_per_socket\n"
+                    ],
+                    [
+                        61,
+                        "  }\n"
+                    ],
+                    [
+                        62,
+                        "\n"
+                    ],
+                    [
+                        63,
+                        "  preemptible_instance_config {\n"
+                    ],
+                    [
+                        64,
+                        "    preemption_action {\n"
+                    ],
+                    [
+                        65,
+                        "      type                 = var.instance_preemptible_instance_config_preemption_action_type\n"
+                    ],
+                    [
+                        66,
+                        "      preserve_boot_volume = var.instance_preemptible_instance_config_preemption_action_preserve_boot_volume\n"
+                    ],
+                    [
+                        67,
+                        "    }\n"
+                    ],
+                    [
+                        68,
+                        "  }\n"
+                    ],
+                    [
+                        69,
+                        "\n"
+                    ],
+                    [
+                        70,
+                        "  shape_config {\n"
+                    ],
+                    [
+                        71,
+                        "    baseline_ocpu_utilization = var.instance_shape_config_baseline_ocpu_utilization\n"
+                    ],
+                    [
+                        72,
+                        "    memory_in_gbs             = var.instance_shape_config_memory_in_gbs\n"
+                    ],
+                    [
+                        73,
+                        "    ocpus                     = var.instance_shape_config_ocpus\n"
+                    ],
+                    [
+                        74,
+                        "  }\n"
+                    ],
+                    [
+                        75,
+                        "\n"
+                    ],
+                    [
+                        76,
+                        "  source_details {\n"
+                    ],
+                    [
+                        77,
+                        "    source_id               = oci_core_image.test_image.id\n"
+                    ],
+                    [
+                        78,
+                        "    source_type             = \"image\"\n"
+                    ],
+                    [
+                        79,
+                        "    boot_volume_size_in_gbs = var.instance_source_details_boot_volume_size_in_gbs\n"
+                    ],
+                    [
+                        80,
+                        "    kms_key_id              = oci_kms_key.test_key.id\n"
+                    ],
+                    [
+                        81,
+                        "  }\n"
+                    ],
+                    [
+                        82,
+                        "  preserve_boot_volume = false\n"
+                    ],
+                    [
+                        83,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_instance/core_instance.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
+                "file_line_range": [
+                    5,
+                    83
+                ],
+                "resource": "oci_core_instance.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.InstanceMetadataServiceEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_compute_2"
+            },
+            {
+                "check_id": "CKV_OCI_6",
+                "bc_check_id": "BC_OCI_LOGGING_1",
+                "check_name": "Ensure OCI Compute Instance has monitoring enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "agent_config/[0]/is_monitoring_disabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        5,
+                        "resource \"oci_core_instance\" \"fail\" {\n"
+                    ],
+                    [
+                        6,
+                        "  availability_domain = var.instance_availability_domain\n"
+                    ],
+                    [
+                        7,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        8,
+                        "  shape               = var.instance_shape\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  agent_config {\n"
+                    ],
+                    [
+                        11,
+                        "    is_monitoring_disabled = true\n"
+                    ],
+                    [
+                        12,
+                        "  }\n"
+                    ],
+                    [
+                        13,
+                        "\n"
+                    ],
+                    [
+                        14,
+                        "  create_vnic_details {\n"
+                    ],
+                    [
+                        15,
+                        "    assign_private_dns_record = var.instance_create_vnic_details_assign_private_dns_record\n"
+                    ],
+                    [
+                        16,
+                        "    assign_public_ip          = var.instance_create_vnic_details_assign_public_ip\n"
+                    ],
+                    [
+                        17,
+                        "    defined_tags              = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        18,
+                        "    display_name              = var.instance_create_vnic_details_display_name\n"
+                    ],
+                    [
+                        19,
+                        "    freeform_tags             = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        20,
+                        "    hostname_label            = var.instance_create_vnic_details_hostname_label\n"
+                    ],
+                    [
+                        21,
+                        "    nsg_ids                   = var.instance_create_vnic_details_nsg_ids\n"
+                    ],
+                    [
+                        22,
+                        "    private_ip                = var.instance_create_vnic_details_private_ip\n"
+                    ],
+                    [
+                        23,
+                        "    skip_source_dest_check    = var.instance_create_vnic_details_skip_source_dest_check\n"
+                    ],
+                    [
+                        24,
+                        "    subnet_id                 = oci_core_subnet.test_subnet.id\n"
+                    ],
+                    [
+                        25,
+                        "    vlan_id                   = oci_core_vlan.test_vlan.id\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  dedicated_vm_host_id = oci_core_dedicated_vm_host.test_dedicated_vm_host.id\n"
+                    ],
+                    [
+                        29,
+                        "  defined_tags         = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        30,
+                        "  display_name         = var.instance_display_name\n"
+                    ],
+                    [
+                        31,
+                        "  extended_metadata = {\n"
+                    ],
+                    [
+                        32,
+                        "    some_string   = \"stringA\"\n"
+                    ],
+                    [
+                        33,
+                        "    nested_object = \"{\\\"some_string\\\": \\\"stringB\\\", \\\"object\\\": {\\\"some_string\\\": \\\"stringC\\\"}}\"\n"
+                    ],
+                    [
+                        34,
+                        "  }\n"
+                    ],
+                    [
+                        35,
+                        "\n"
+                    ],
+                    [
+                        36,
+                        "  fault_domain  = var.instance_fault_domain\n"
+                    ],
+                    [
+                        37,
+                        "  freeform_tags = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        38,
+                        "\n"
+                    ],
+                    [
+                        39,
+                        "  instance_options {\n"
+                    ],
+                    [
+                        40,
+                        "    are_legacy_imds_endpoints_disabled = false\n"
+                    ],
+                    [
+                        41,
+                        "  }\n"
+                    ],
+                    [
+                        42,
+                        "\n"
+                    ],
+                    [
+                        43,
+                        "  ipxe_script                         = var.instance_ipxe_script\n"
+                    ],
+                    [
+                        44,
+                        "  is_pv_encryption_in_transit_enabled = var.instance_is_pv_encryption_in_transit_enabled\n"
+                    ],
+                    [
+                        45,
+                        "\n"
+                    ],
+                    [
+                        46,
+                        "  launch_options {\n"
+                    ],
+                    [
+                        47,
+                        "    boot_volume_type                    = var.instance_launch_options_boot_volume_type\n"
+                    ],
+                    [
+                        48,
+                        "    firmware                            = var.instance_launch_options_firmware\n"
+                    ],
+                    [
+                        49,
+                        "    is_consistent_volume_naming_enabled = var.instance_launch_options_is_consistent_volume_naming_enabled\n"
+                    ],
+                    [
+                        50,
+                        "    network_type                        = var.instance_launch_options_network_type\n"
+                    ],
+                    [
+                        51,
+                        "    remote_data_volume_type             = var.instance_launch_options_remote_data_volume_type\n"
+                    ],
+                    [
+                        52,
+                        "  }\n"
+                    ],
+                    [
+                        53,
+                        "  metadata = var.instance_metadata\n"
+                    ],
+                    [
+                        54,
+                        "\n"
+                    ],
+                    [
+                        55,
+                        "  platform_config {\n"
+                    ],
+                    [
+                        56,
+                        "    type                               = var.instance_platform_config_type\n"
+                    ],
+                    [
+                        57,
+                        "    is_measured_boot_enabled           = var.instance_platform_config_is_measured_boot_enabled\n"
+                    ],
+                    [
+                        58,
+                        "    is_secure_boot_enabled             = var.instance_platform_config_is_secure_boot_enabled\n"
+                    ],
+                    [
+                        59,
+                        "    is_trusted_platform_module_enabled = var.instance_platform_config_is_trusted_platform_module_enabled\n"
+                    ],
+                    [
+                        60,
+                        "    numa_nodes_per_socket              = var.instance_platform_config_numa_nodes_per_socket\n"
+                    ],
+                    [
+                        61,
+                        "  }\n"
+                    ],
+                    [
+                        62,
+                        "\n"
+                    ],
+                    [
+                        63,
+                        "  preemptible_instance_config {\n"
+                    ],
+                    [
+                        64,
+                        "    preemption_action {\n"
+                    ],
+                    [
+                        65,
+                        "      type                 = var.instance_preemptible_instance_config_preemption_action_type\n"
+                    ],
+                    [
+                        66,
+                        "      preserve_boot_volume = var.instance_preemptible_instance_config_preemption_action_preserve_boot_volume\n"
+                    ],
+                    [
+                        67,
+                        "    }\n"
+                    ],
+                    [
+                        68,
+                        "  }\n"
+                    ],
+                    [
+                        69,
+                        "\n"
+                    ],
+                    [
+                        70,
+                        "  shape_config {\n"
+                    ],
+                    [
+                        71,
+                        "    baseline_ocpu_utilization = var.instance_shape_config_baseline_ocpu_utilization\n"
+                    ],
+                    [
+                        72,
+                        "    memory_in_gbs             = var.instance_shape_config_memory_in_gbs\n"
+                    ],
+                    [
+                        73,
+                        "    ocpus                     = var.instance_shape_config_ocpus\n"
+                    ],
+                    [
+                        74,
+                        "  }\n"
+                    ],
+                    [
+                        75,
+                        "\n"
+                    ],
+                    [
+                        76,
+                        "  source_details {\n"
+                    ],
+                    [
+                        77,
+                        "    source_id               = oci_core_image.test_image.id\n"
+                    ],
+                    [
+                        78,
+                        "    source_type             = \"image\"\n"
+                    ],
+                    [
+                        79,
+                        "    boot_volume_size_in_gbs = var.instance_source_details_boot_volume_size_in_gbs\n"
+                    ],
+                    [
+                        80,
+                        "    kms_key_id              = oci_kms_key.test_key.id\n"
+                    ],
+                    [
+                        81,
+                        "  }\n"
+                    ],
+                    [
+                        82,
+                        "  preserve_boot_volume = false\n"
+                    ],
+                    [
+                        83,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_instance/core_instance.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
+                "file_line_range": [
+                    5,
+                    83
+                ],
+                "resource": "oci_core_instance.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.InstanceMonitoringEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_logging_1"
+            },
+            {
+                "check_id": "CKV_OCI_16",
+                "bc_check_id": "BC_OCI_NETWORKING_1",
+                "check_name": "Ensure VCN has an inbound security list",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "ingress_security_rules/[0]/protocol"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"oci_core_security_list\" \"fail\" {\n"
+                    ],
+                    [
+                        2,
+                        "  compartment_id = oci_identity_compartment.tf-compartment.id\n"
+                    ],
+                    [
+                        3,
+                        "  vcn_id         = oci_core_vcn.test_vcn.id\n"
+                    ],
+                    [
+                        4,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_security_list/core_security_list.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/core_security_list.tf",
+                "repo_file_path": "/terraform/oracle/core_security_list/core_security_list.tf",
+                "file_line_range": [
+                    1,
+                    4
+                ],
+                "resource": "oci_core_security_list.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.SecurityListIngress",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_networking_1"
+            },
+            {
+                "check_id": "CKV_OCI_17",
+                "bc_check_id": "BC_OCI_NETWORKING_2",
+                "check_name": "Ensure VCN inbound security lists are stateless",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "ingress_security_rules/[0]/[0]/stateless"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"oci_core_security_list\" \"fail2\" {\n"
+                    ],
+                    [
+                        3,
+                        "  compartment_id = oci_identity_compartment.tf-compartment.id\n"
+                    ],
+                    [
+                        4,
+                        "  vcn_id         = oci_core_vcn.test_vcn.id\n"
+                    ],
+                    [
+                        5,
+                        "  ingress_security_rules {\n"
+                    ],
+                    [
+                        6,
+                        "    protocol  = \"all\"\n"
+                    ],
+                    [
+                        7,
+                        "    source    = \"192.168.1.0/24\"\n"
+                    ],
+                    [
+                        8,
+                        "    stateless = false\n"
+                    ],
+                    [
+                        9,
+                        "  }\n"
+                    ],
+                    [
+                        10,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_security_list/stateless.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/stateless.tf",
+                "repo_file_path": "/terraform/oracle/core_security_list/stateless.tf",
+                "file_line_range": [
+                    2,
+                    10
+                ],
+                "resource": "oci_core_security_list.fail2",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.SecurityListIngressStateless",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_networking_1"
+            },
+            {
+                "check_id": "CKV_OCI_2",
+                "bc_check_id": "BC_OCI_Storage_1",
+                "check_name": "Ensure OCI Block Storage Block Volume has backup enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "backup_policy_id"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"oci_core_volume\" \"fail\" {\n"
+                    ],
+                    [
+                        2,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        3,
+                        "  availability_domain = var.volume_availability_domain\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "  block_volume_replicas {\n"
+                    ],
+                    [
+                        6,
+                        "    availability_domain = var.volume_block_volume_replicas_availability_domain\n"
+                    ],
+                    [
+                        7,
+                        "    display_name        = var.volume_block_volume_replicas_display_name\n"
+                    ],
+                    [
+                        8,
+                        "  }\n"
+                    ],
+                    [
+                        9,
+                        "  defined_tags         = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        10,
+                        "  display_name         = var.volume_display_name\n"
+                    ],
+                    [
+                        11,
+                        "  freeform_tags        = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        12,
+                        "  is_auto_tune_enabled = var.volume_is_auto_tune_enabled\n"
+                    ],
+                    [
+                        13,
+                        "  size_in_gbs          = var.volume_size_in_gbs\n"
+                    ],
+                    [
+                        14,
+                        "  size_in_mbs          = var.volume_size_in_mbs\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  source_details {\n"
+                    ],
+                    [
+                        17,
+                        "    id   = var.volume_source_details_id\n"
+                    ],
+                    [
+                        18,
+                        "    type = var.volume_source_details_type\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "  vpus_per_gb                    = var.volume_vpus_per_gb\n"
+                    ],
+                    [
+                        21,
+                        "  block_volume_replicas_deletion = true\n"
+                    ],
+                    [
+                        22,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_volume/core_volume.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_volume/core_volume.tf",
+                "repo_file_path": "/terraform/oracle/core_volume/core_volume.tf",
+                "file_line_range": [
+                    1,
+                    22
+                ],
+                "resource": "oci_core_volume.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.StorageBlockBackupEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_1"
+            },
+            {
+                "check_id": "CKV_OCI_3",
+                "bc_check_id": "BC_OCI_STORAGE_2",
+                "check_name": "OCI Block Storage Block Volumes are not encrypted with a Customer Managed Key (CMK)",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "kms_key_id"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"oci_core_volume\" \"fail\" {\n"
+                    ],
+                    [
+                        2,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        3,
+                        "  availability_domain = var.volume_availability_domain\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "  block_volume_replicas {\n"
+                    ],
+                    [
+                        6,
+                        "    availability_domain = var.volume_block_volume_replicas_availability_domain\n"
+                    ],
+                    [
+                        7,
+                        "    display_name        = var.volume_block_volume_replicas_display_name\n"
+                    ],
+                    [
+                        8,
+                        "  }\n"
+                    ],
+                    [
+                        9,
+                        "  defined_tags         = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        10,
+                        "  display_name         = var.volume_display_name\n"
+                    ],
+                    [
+                        11,
+                        "  freeform_tags        = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        12,
+                        "  is_auto_tune_enabled = var.volume_is_auto_tune_enabled\n"
+                    ],
+                    [
+                        13,
+                        "  size_in_gbs          = var.volume_size_in_gbs\n"
+                    ],
+                    [
+                        14,
+                        "  size_in_mbs          = var.volume_size_in_mbs\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  source_details {\n"
+                    ],
+                    [
+                        17,
+                        "    id   = var.volume_source_details_id\n"
+                    ],
+                    [
+                        18,
+                        "    type = var.volume_source_details_type\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "  vpus_per_gb                    = var.volume_vpus_per_gb\n"
+                    ],
+                    [
+                        21,
+                        "  block_volume_replicas_deletion = true\n"
+                    ],
+                    [
+                        22,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_volume/core_volume.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_volume/core_volume.tf",
+                "repo_file_path": "/terraform/oracle/core_volume/core_volume.tf",
+                "file_line_range": [
+                    1,
+                    22
+                ],
+                "resource": "oci_core_volume.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.StorageBlockEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_2"
+            },
+            {
+                "check_id": "CKV_OCI_15",
+                "bc_check_id": "BC_OCI_STORAGE_7",
+                "check_name": "Ensure OCI File System is Encrypted with a customer Managed Key",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "kms_key_id"
+                    ]
+                },
+                "code_block": [
+                    [
+                        4,
+                        "resource \"oci_file_storage_file_system\" \"fail\" {\n"
+                    ],
+                    [
+                        5,
+                        "  availability_domain = var.file_system_availability_domain\n"
+                    ],
+                    [
+                        6,
+                        "  compartment_id      = var.compartment_id\n"
+                    ],
+                    [
+                        7,
+                        "\n"
+                    ],
+                    [
+                        8,
+                        "  defined_tags       = { \"Operations.CostCenter\" = \"42\" }\n"
+                    ],
+                    [
+                        9,
+                        "  display_name       = var.file_system_display_name\n"
+                    ],
+                    [
+                        10,
+                        "  freeform_tags      = { \"Department\" = \"Finance\" }\n"
+                    ],
+                    [
+                        11,
+                        "  source_snapshot_id = oci_file_storage_snapshot.test_snapshot.id\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/file_storage_file_system/file_storage_file_system.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/file_storage_file_system/file_storage_file_system.tf",
+                "repo_file_path": "/terraform/oracle/file_storage_file_system/file_storage_file_system.tf",
+                "file_line_range": [
+                    4,
+                    12
+                ],
+                "resource": "oci_file_storage_file_system.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.FileSystemEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_7"
+            },
+            {
+                "check_id": "CKV_OCI_9",
+                "bc_check_id": "BC_OCI_STORAGE_5",
+                "check_name": "Ensure OCI Object Storage is encrypted with Customer Managed Key",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "kms_key_id"
+                    ]
+                },
+                "code_block": [
+                    [
+                        7,
+                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
+                    ],
+                    [
+                        8,
+                        "  compartment_id = var.compartment_id\n"
+                    ],
+                    [
+                        9,
+                        "  name           = var.bucket_name\n"
+                    ],
+                    [
+                        10,
+                        "  namespace      = var.namespace\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  access_type           = \"ObjectReadWithoutList\"\n"
+                    ],
+                    [
+                        13,
+                        "  defined_tags          = var.defined_tags\n"
+                    ],
+                    [
+                        14,
+                        "  freeform_tags         = var.freeform_tags\n"
+                    ],
+                    [
+                        15,
+                        "  metadata              = var.metadata\n"
+                    ],
+                    [
+                        16,
+                        "  storage_tier          = var.bucket_storage_tier\n"
+                    ],
+                    [
+                        17,
+                        "  object_events_enabled = false\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  retention_rules {\n"
+                    ],
+                    [
+                        20,
+                        "    display_name = var.retention_rule_display_name\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "    duration {\n"
+                    ],
+                    [
+                        23,
+                        "      time_amount = var.retention_rule_duration_time_amount\n"
+                    ],
+                    [
+                        24,
+                        "      time_unit   = var.retention_rule_duration_time_unit\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
+                    ],
+                    [
+                        27,
+                        "  }\n"
+                    ],
+                    [
+                        28,
+                        "\n"
+                    ],
+                    [
+                        29,
+                        "  versioning = \"Disabled\"\n"
+                    ],
+                    [
+                        30,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_line_range": [
+                    7,
+                    30
+                ],
+                "resource": "oci_objectstorage_bucket.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.ObjectStorageEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_5"
+            },
+            {
+                "check_id": "CKV_OCI_10",
+                "bc_check_id": "BC_OCI_STORAGE_6",
+                "check_name": "Ensure OCI Object Storage is not Public",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "access_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        7,
+                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
+                    ],
+                    [
+                        8,
+                        "  compartment_id = var.compartment_id\n"
+                    ],
+                    [
+                        9,
+                        "  name           = var.bucket_name\n"
+                    ],
+                    [
+                        10,
+                        "  namespace      = var.namespace\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  access_type           = \"ObjectReadWithoutList\"\n"
+                    ],
+                    [
+                        13,
+                        "  defined_tags          = var.defined_tags\n"
+                    ],
+                    [
+                        14,
+                        "  freeform_tags         = var.freeform_tags\n"
+                    ],
+                    [
+                        15,
+                        "  metadata              = var.metadata\n"
+                    ],
+                    [
+                        16,
+                        "  storage_tier          = var.bucket_storage_tier\n"
+                    ],
+                    [
+                        17,
+                        "  object_events_enabled = false\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  retention_rules {\n"
+                    ],
+                    [
+                        20,
+                        "    display_name = var.retention_rule_display_name\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "    duration {\n"
+                    ],
+                    [
+                        23,
+                        "      time_amount = var.retention_rule_duration_time_amount\n"
+                    ],
+                    [
+                        24,
+                        "      time_unit   = var.retention_rule_duration_time_unit\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
+                    ],
+                    [
+                        27,
+                        "  }\n"
+                    ],
+                    [
+                        28,
+                        "\n"
+                    ],
+                    [
+                        29,
+                        "  versioning = \"Disabled\"\n"
+                    ],
+                    [
+                        30,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_line_range": [
+                    7,
+                    30
+                ],
+                "resource": "oci_objectstorage_bucket.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.ObjectStoragePublic",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_6"
+            },
+            {
+                "check_id": "CKV_OCI_8",
+                "bc_check_id": "BC_OCI_STORAGE_4",
+                "check_name": "Ensure OCI Object Storage has versioning enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "versioning"
+                    ]
+                },
+                "code_block": [
+                    [
+                        7,
+                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
+                    ],
+                    [
+                        8,
+                        "  compartment_id = var.compartment_id\n"
+                    ],
+                    [
+                        9,
+                        "  name           = var.bucket_name\n"
+                    ],
+                    [
+                        10,
+                        "  namespace      = var.namespace\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  access_type           = \"ObjectReadWithoutList\"\n"
+                    ],
+                    [
+                        13,
+                        "  defined_tags          = var.defined_tags\n"
+                    ],
+                    [
+                        14,
+                        "  freeform_tags         = var.freeform_tags\n"
+                    ],
+                    [
+                        15,
+                        "  metadata              = var.metadata\n"
+                    ],
+                    [
+                        16,
+                        "  storage_tier          = var.bucket_storage_tier\n"
+                    ],
+                    [
+                        17,
+                        "  object_events_enabled = false\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  retention_rules {\n"
+                    ],
+                    [
+                        20,
+                        "    display_name = var.retention_rule_display_name\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "    duration {\n"
+                    ],
+                    [
+                        23,
+                        "      time_amount = var.retention_rule_duration_time_amount\n"
+                    ],
+                    [
+                        24,
+                        "      time_unit   = var.retention_rule_duration_time_unit\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
+                    ],
+                    [
+                        27,
+                        "  }\n"
+                    ],
+                    [
+                        28,
+                        "\n"
+                    ],
+                    [
+                        29,
+                        "  versioning = \"Disabled\"\n"
+                    ],
+                    [
+                        30,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_line_range": [
+                    7,
+                    30
+                ],
+                "resource": "oci_objectstorage_bucket.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.ObjectStorageVersioning",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_4"
+            },
+            {
+                "check_id": "CKV_OCI_7",
+                "bc_check_id": "BC_OCI_STORAGE_3",
+                "check_name": "Ensure OCI Object Storage bucket can emit object events",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "object_events_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        7,
+                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
+                    ],
+                    [
+                        8,
+                        "  compartment_id = var.compartment_id\n"
+                    ],
+                    [
+                        9,
+                        "  name           = var.bucket_name\n"
+                    ],
+                    [
+                        10,
+                        "  namespace      = var.namespace\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  access_type           = \"ObjectReadWithoutList\"\n"
+                    ],
+                    [
+                        13,
+                        "  defined_tags          = var.defined_tags\n"
+                    ],
+                    [
+                        14,
+                        "  freeform_tags         = var.freeform_tags\n"
+                    ],
+                    [
+                        15,
+                        "  metadata              = var.metadata\n"
+                    ],
+                    [
+                        16,
+                        "  storage_tier          = var.bucket_storage_tier\n"
+                    ],
+                    [
+                        17,
+                        "  object_events_enabled = false\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  retention_rules {\n"
+                    ],
+                    [
+                        20,
+                        "    display_name = var.retention_rule_display_name\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "    duration {\n"
+                    ],
+                    [
+                        23,
+                        "      time_amount = var.retention_rule_duration_time_amount\n"
+                    ],
+                    [
+                        24,
+                        "      time_unit   = var.retention_rule_duration_time_unit\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
+                    ],
+                    [
+                        27,
+                        "  }\n"
+                    ],
+                    [
+                        28,
+                        "\n"
+                    ],
+                    [
+                        29,
+                        "  versioning = \"Disabled\"\n"
+                    ],
+                    [
+                        30,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_line_range": [
+                    7,
+                    30
+                ],
+                "resource": "oci_objectstorage_bucket.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.ObjectStorageEmitEvents",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_3"
+            }
+        ],
+        "skipped_checks": [
+            {
+                "check_id": "CKV_OCI_17",
+                "bc_check_id": "BC_OCI_NETWORKING_2",
+                "check_name": "Ensure VCN inbound security lists are stateless",
+                "check_result": {
+                    "result": "SKIPPED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"oci_core_security_list\" \"fail\" {\n"
+                    ],
+                    [
+                        2,
+                        "  compartment_id = oci_identity_compartment.tf-compartment.id\n"
+                    ],
+                    [
+                        3,
+                        "  vcn_id         = oci_core_vcn.test_vcn.id\n"
+                    ],
+                    [
+                        4,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/core_security_list/core_security_list.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/core_security_list.tf",
+                "repo_file_path": "/terraform/oracle/core_security_list/core_security_list.tf",
+                "file_line_range": [
+                    1,
+                    4
+                ],
+                "resource": "oci_core_security_list.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.SecurityListIngressStateless",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_networking_1"
+            }
+        ],
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 1,
+        "failed": 17,
+        "skipped": 1,
+        "parsing_errors": 0,
+        "resource_count": 9,
+        "checkov_version": "2.0.826"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}

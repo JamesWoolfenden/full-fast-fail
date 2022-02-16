@@ -23,9 +23,11 @@ kics_count=$(cat "$folder/kics_$file"| jq -r '.total_counter')
 
 tfsec_count=$(cat "$folder/tfsec_$file" | jq -r '.results | length')
 terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2> /dev/null
+resources=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2> /dev/null
 
 if [ -z "$terraform" ]; then
     terraform=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.failed')
+    resources=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.resource_count')
 fi
 
 for i in ${terraform[@]}; do                                                                                                
@@ -58,6 +60,8 @@ echo -e ""  >>"$folder/summary.md"
 echo "- Found Checkov $total" >>"$folder/summary.md"
 echo "- Found TFSec $tfsec_count" >>"$folder/summary.md"
 echo "- Found Kics $kics_count" >>"$folder/summary.md"
+echo "- Resource count $resources" >>"$folder/summary.md"
+
 figlet Versions
 echo -e ""  >>"$folder/summary.md"
 

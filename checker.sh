@@ -24,9 +24,14 @@ expected=1542
 checkov -o json -d $path >"$path/$file"
 
 terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.failed') 
+counts=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.resource_count') 
 
 for i in ${terraform[@]}; do
   let total+=$i
+done
+
+for i in ${counts[@]}; do
+  let resources+=$i
 done
 
 printf "${RED}"
@@ -34,6 +39,8 @@ printf "${RED}"
 figlet -w 200 -f  small "Results"
 
 echo "Expected: $expected and found: $total"
+echo "Resource count: $resources"
+
 printf "${STOP}"
 # shellcheck disable=SC2086
 if [ $total != $expected ]; then

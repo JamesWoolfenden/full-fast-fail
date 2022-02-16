@@ -1,0 +1,2365 @@
+{
+	"results": [
+		{
+			"rule_id": "AVD-GCP-0046",
+			"long_id": "google-bigquery-no-public-access",
+			"rule_description": "BigQuery datasets should only be accessible within the organisation",
+			"rule_provider": "google",
+			"rule_service": "bigquery",
+			"impact": "Exposure of sensitive data to the public iniernet",
+			"resolution": "Configure access permissions with higher granularity",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/bigquery/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset#special_group"
+			],
+			"description": "Dataset grants access to all authenticated GCP users.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_bigquery_dataset.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/bigquery/bigquery_dataset.tf",
+				"start_line": 20,
+				"end_line": 20
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0034",
+			"long_id": "google-compute-disk-encryption-customer-key",
+			"rule_description": "Disks should be encrypted with customer managed encryption keys",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Using unmanaged keys does not allow for proper key management.",
+			"resolution": "Use managed keys to encrypt disks.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/disk-encryption-customer-key/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk#kms_key_self_link"
+			],
+			"description": "Disk is not encrypted with a customer managed key.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_compute_disk.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/disk/compute_disk.tf",
+				"start_line": 15,
+				"end_line": 17
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0037",
+			"long_id": "google-compute-disk-encryption-no-plaintext-key",
+			"rule_description": "The encryption key used to encrypt a compute disk has been specified in plaintext.",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "The encryption key should be considered compromised as it is not stored securely.",
+			"resolution": "Reference a managed key rather than include the key in raw format.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/disk-encryption-no-plaintext-key/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk#kms_key_self_link"
+			],
+			"description": "Instance disk has encryption key provided in plaintext.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 33,
+				"end_line": 33
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0037",
+			"long_id": "google-compute-disk-encryption-no-plaintext-key",
+			"rule_description": "The encryption key used to encrypt a compute disk has been specified in plaintext.",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "The encryption key should be considered compromised as it is not stored securely.",
+			"resolution": "Reference a managed key rather than include the key in raw format.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/disk-encryption-no-plaintext-key/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk#kms_key_self_link"
+			],
+			"description": "Disk encryption key is supplied in plaintext.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_compute_disk.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/disk/compute_disk.tf",
+				"start_line": 16,
+				"end_line": 16
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0045",
+			"long_id": "google-compute-enable-shielded-vm-im",
+			"rule_description": "Instances should have Shielded VM integrity monitoring enabled",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "No visibility of VM instance boot state.",
+			"resolution": "Enable Shielded VM Integrity Monitoring",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/enable-shielded-vm-im/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_vtpm"
+			],
+			"description": "Instance does not have shielded VM integrity monitoring enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 62,
+				"end_line": 62
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0041",
+			"long_id": "google-compute-enable-shielded-vm-vtpm",
+			"rule_description": "Instances should have Shielded VM VTPM enabled",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Unable to prevent unwanted system state modification",
+			"resolution": "Enable Shielded VM VTPM",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/enable-shielded-vm-vtpm/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_vtpm"
+			],
+			"description": "Instance does not have VTPM for shielded VMs enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 61,
+				"end_line": 61
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0029",
+			"long_id": "google-compute-enable-vpc-flow-logs",
+			"rule_description": "VPC flow logs should be enabled for all subnetworks",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Limited auditing capability and awareness",
+			"resolution": "Enable VPC flow logs",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/enable-vpc-flow-logs/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#enable_flow_logs"
+			],
+			"description": "Subnetwork does not have VPC flow logs enabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_compute_subnetwork.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
+				"start_line": 8,
+				"end_line": 21
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0044",
+			"long_id": "google-compute-no-default-service-account",
+			"rule_description": "Instances should not use the default service account",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Instance has full access to the project",
+			"resolution": "Remove use of default service account",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-default-service-account/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#"
+			],
+			"description": "Instance uses the default service account.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 36,
+				"end_line": 39
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0043",
+			"long_id": "google-compute-no-ip-forwarding",
+			"rule_description": "Instances should not have IP forwarding enabled",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Instance can send/receive packets without the explicit instance address",
+			"resolution": "Disable IP forwarding",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-ip-forwarding/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#can_ip_forward"
+			],
+			"description": "Instance has IP forwarding allowed.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 53,
+				"end_line": 53
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0036",
+			"long_id": "google-compute-no-oslogin-override",
+			"rule_description": "Instances should not override the project setting for OS Login",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Access via SSH key cannot be revoked automatically when an IAM user is removed.",
+			"resolution": "Enable OS Login at project level and remove instance-level overrides",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-oslogin-override/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#"
+			],
+			"description": "Instance has OS Login disabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 47,
+				"end_line": 51
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0030",
+			"long_id": "google-compute-no-project-wide-ssh-keys",
+			"rule_description": "Disable project-wide SSH keys for all instances",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Compromise of a single key pair compromises all instances",
+			"resolution": "Disable project-wide SSH keys",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-project-wide-ssh-keys/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#"
+			],
+			"description": "Instance allows use of project-level SSH keys.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 47,
+				"end_line": 51
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0027",
+			"long_id": "google-compute-no-public-ingress",
+			"rule_description": "An inbound firewall rule allows traffic from /0.",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "The port is exposed for ingress from the internet",
+			"resolution": "Set a more restrictive cidr range",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-public-ingress/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#source_ranges",
+				"https://www.terraform.io/docs/providers/google/r/compute_firewall.html"
+			],
+			"description": "Firewall rule allows ingress traffic from multiple addresses on the public internet.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_compute_firewall.allow_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/compute_firewall.tf",
+				"start_line": 16,
+				"end_line": 16
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0031",
+			"long_id": "google-compute-no-public-ip",
+			"rule_description": "Instances should not have public IP addresses",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Direct exposure of an instance to the public internet",
+			"resolution": "Remove public IP",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-public-ip/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#access_config"
+			],
+			"description": "Instance has a public IP allocated.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 43,
+				"end_line": 45
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0032",
+			"long_id": "google-compute-no-serial-port",
+			"rule_description": "Disable serial port connectivity for all instances",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Unrestricted network access to the serial console of the instance",
+			"resolution": "Disable serial port access",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/no-serial-port/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#"
+			],
+			"description": "Instance has serial port enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 47,
+				"end_line": 51
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0039",
+			"long_id": "google-compute-use-secure-tls-policy",
+			"rule_description": "SSL policies should enforce secure versions of TLS",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Data in transit is not sufficiently secured",
+			"resolution": "Enforce a minimum TLS version of 1.2",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/use-secure-tls-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_policy#min_tls_version"
+			],
+			"description": "TLS policy does not specify a minimum of TLS 1.2",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "google_compute_ssl_policy.modern_profile",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/security/compute_ssl_policy.tf",
+				"start_line": 9,
+				"end_line": 9
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0033",
+			"long_id": "google-compute-vm-disk-encryption-customer-key",
+			"rule_description": "VM disks should be encrypted with Customer Supplied Encryption Keys",
+			"rule_provider": "google",
+			"rule_service": "compute",
+			"impact": "Using unmanaged keys does not allow for proper management",
+			"resolution": "Use managed keys ",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/compute/vm-disk-encryption-customer-key/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#kms_key_self_link"
+			],
+			"description": "Instance disk encryption does not use a customer managed key.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_compute_instance.default",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/compute/instance/compute_instance.tf",
+				"start_line": 29,
+				"end_line": 34
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0013",
+			"long_id": "google-dns-enable-dnssec",
+			"rule_description": "Cloud DNS should use DNSSEC",
+			"rule_provider": "google",
+			"rule_service": "dns",
+			"impact": "Unverified DNS responses could lead to man-in-the-middle attacks",
+			"resolution": "Enable DNSSEC",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/dns/enable-dnssec/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone#state"
+			],
+			"description": "Managed zone does not have DNSSEC enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_dns_managed_zone.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/dns/dns_managed_zone.tf",
+				"start_line": 11,
+				"end_line": 23
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0012",
+			"long_id": "google-dns-no-rsa-sha1",
+			"rule_description": "Zone signing should not use RSA SHA1",
+			"rule_provider": "google",
+			"rule_service": "dns",
+			"impact": "Less secure encryption algorithm than others available",
+			"resolution": "Use RSA SHA512",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/dns/no-rsa-sha1/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone#algorithm"
+			],
+			"description": "Zone ZSK uses RSA SHA1 for signing.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_dns_managed_zone.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/dns/dns_managed_zone.tf",
+				"start_line": 14,
+				"end_line": 14
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0063",
+			"long_id": "google-gke-enable-auto-repair",
+			"rule_description": "Kubernetes should have 'Automatic repair' enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Failing nodes will require manual repair.",
+			"resolution": "Enable automatic repair",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-auto-repair/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_repair"
+			],
+			"description": "Node pool does not have auto-repair enabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.fail_pool",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
+				"start_line": 38,
+				"end_line": 38
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0058",
+			"long_id": "google-gke-enable-auto-upgrade",
+			"rule_description": "Kubernetes should have 'Automatic upgrade' enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes will need the cluster master version manually updating",
+			"resolution": "Enable automatic upgrades",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-auto-upgrade/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_upgrade"
+			],
+			"description": "Node pool does not have auto-upgraade enabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.fail_pool",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
+				"start_line": 39,
+				"end_line": 39
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0049",
+			"long_id": "google-gke-enable-ip-aliasing",
+			"rule_description": "Clusters should have IP aliasing enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes need a NAT gateway to access local services",
+			"resolution": "Enable IP aliasing",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-ip-aliasing/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#ip_allocation_policy"
+			],
+			"description": "Cluster has IP aliasing disabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0049",
+			"long_id": "google-gke-enable-ip-aliasing",
+			"rule_description": "Clusters should have IP aliasing enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes need a NAT gateway to access local services",
+			"resolution": "Enable IP aliasing",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-ip-aliasing/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#ip_allocation_policy"
+			],
+			"description": "Cluster has IP aliasing disabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0061",
+			"long_id": "google-gke-enable-master-networks",
+			"rule_description": "Master authorized networks should be configured on GKE clusters",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Unrestricted network access to the master",
+			"resolution": "Enable master authorized networks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-master-networks/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#"
+			],
+			"description": "Cluster does not have master authorized networks enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0061",
+			"long_id": "google-gke-enable-master-networks",
+			"rule_description": "Master authorized networks should be configured on GKE clusters",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Unrestricted network access to the master",
+			"resolution": "Enable master authorized networks",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-master-networks/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#"
+			],
+			"description": "Cluster does not have master authorized networks enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0056",
+			"long_id": "google-gke-enable-network-policy",
+			"rule_description": "Network Policy should be enabled on GKE clusters",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Unrestricted inter-cluster communication",
+			"resolution": "Enable network policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-network-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enabled"
+			],
+			"description": "Cluster does not have a network policy enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0056",
+			"long_id": "google-gke-enable-network-policy",
+			"rule_description": "Network Policy should be enabled on GKE clusters",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Unrestricted inter-cluster communication",
+			"resolution": "Enable network policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-network-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enabled"
+			],
+			"description": "Cluster does not have a network policy enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0056",
+			"long_id": "google-gke-enable-network-policy",
+			"rule_description": "Network Policy should be enabled on GKE clusters",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Unrestricted inter-cluster communication",
+			"resolution": "Enable network policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-network-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enabled"
+			],
+			"description": "Cluster does not have a network policy enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0059",
+			"long_id": "google-gke-enable-private-cluster",
+			"rule_description": "Clusters should be set to private",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes may be exposed to the public internet",
+			"resolution": "Enable private cluster",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-private-cluster/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_private_nodes"
+			],
+			"description": "Cluster does not have private nodes.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0059",
+			"long_id": "google-gke-enable-private-cluster",
+			"rule_description": "Clusters should be set to private",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes may be exposed to the public internet",
+			"resolution": "Enable private cluster",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-private-cluster/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_private_nodes"
+			],
+			"description": "Cluster does not have private nodes.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0059",
+			"long_id": "google-gke-enable-private-cluster",
+			"rule_description": "Clusters should be set to private",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes may be exposed to the public internet",
+			"resolution": "Enable private cluster",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-private-cluster/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_private_nodes"
+			],
+			"description": "Cluster does not have private nodes.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0060",
+			"long_id": "google-gke-enable-stackdriver-logging",
+			"rule_description": "Stackdriver Logging should be enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Visibility will be reduced",
+			"resolution": "Enable StackDriver logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-stackdriver-logging/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#logging_service"
+			],
+			"description": "Cluster does not use the logging.googleapis.com/kubernetes StackDriver logging service.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 29,
+				"end_line": 29
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0060",
+			"long_id": "google-gke-enable-stackdriver-logging",
+			"rule_description": "Stackdriver Logging should be enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Visibility will be reduced",
+			"resolution": "Enable StackDriver logging",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-stackdriver-logging/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#logging_service"
+			],
+			"description": "Cluster does not use the logging.googleapis.com/kubernetes StackDriver logging service.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 45,
+				"end_line": 45
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0052",
+			"long_id": "google-gke-enable-stackdriver-monitoring",
+			"rule_description": "Stackdriver Monitoring should be enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Visibility will be reduced",
+			"resolution": "Enable StackDriver monitoring",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-stackdriver-monitoring/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#monitoring_service"
+			],
+			"description": "Cluster does not use the monitoring.googleapis.com/kubernetes StackDriver monitoring service.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 30,
+				"end_line": 30
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0052",
+			"long_id": "google-gke-enable-stackdriver-monitoring",
+			"rule_description": "Stackdriver Monitoring should be enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Visibility will be reduced",
+			"resolution": "Enable StackDriver monitoring",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enable-stackdriver-monitoring/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#monitoring_service"
+			],
+			"description": "Cluster does not use the monitoring.googleapis.com/kubernetes StackDriver monitoring service.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 46,
+				"end_line": 46
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0047",
+			"long_id": "google-gke-enforce-pod-security-policy",
+			"rule_description": "Pod security policy enforcement not defined.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Pods could be operating with more permissions than required to be effective",
+			"resolution": "Use security policies for pods to restrict permissions to those needed to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enforce-pod-security-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#pod_security_policy_config"
+			],
+			"description": "Cluster pod security policy is not enforced.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0047",
+			"long_id": "google-gke-enforce-pod-security-policy",
+			"rule_description": "Pod security policy enforcement not defined.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Pods could be operating with more permissions than required to be effective",
+			"resolution": "Use security policies for pods to restrict permissions to those needed to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enforce-pod-security-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#pod_security_policy_config"
+			],
+			"description": "Cluster pod security policy is not enforced.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0047",
+			"long_id": "google-gke-enforce-pod-security-policy",
+			"rule_description": "Pod security policy enforcement not defined.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Pods could be operating with more permissions than required to be effective",
+			"resolution": "Use security policies for pods to restrict permissions to those needed to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/enforce-pod-security-policy/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#pod_security_policy_config"
+			],
+			"description": "Cluster pod security policy is not enforced.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 60,
+				"end_line": 60
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0048",
+			"long_id": "google-gke-metadata-endpoints-disabled",
+			"rule_description": "Legacy metadata endpoints enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Legacy metadata endpoints don't require metadata headers",
+			"resolution": "Disable legacy metadata endpoints",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/metadata-endpoints-disabled/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata"
+			],
+			"description": "Cluster has legacy metadata endpoints enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0048",
+			"long_id": "google-gke-metadata-endpoints-disabled",
+			"rule_description": "Legacy metadata endpoints enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Legacy metadata endpoints don't require metadata headers",
+			"resolution": "Disable legacy metadata endpoints",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/metadata-endpoints-disabled/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata"
+			],
+			"description": "Cluster has legacy metadata endpoints enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0048",
+			"long_id": "google-gke-metadata-endpoints-disabled",
+			"rule_description": "Legacy metadata endpoints enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Legacy metadata endpoints don't require metadata headers",
+			"resolution": "Disable legacy metadata endpoints",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/metadata-endpoints-disabled/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata"
+			],
+			"description": "Cluster has legacy metadata endpoints enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0064",
+			"long_id": "google-gke-no-legacy-authentication",
+			"rule_description": "Legacy client authentication methods utilized.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Username/password or certificate authentication methods are less secure",
+			"resolution": "Use service account or OAuth for authentication",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/no-legacy-authentication/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#master_auth"
+			],
+			"description": "Cluster allows the use of basic auth for master authentication.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 53,
+				"end_line": 53
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0053",
+			"long_id": "google-gke-no-public-control-plane",
+			"rule_description": "GKE Control Plane should not be publicly accessible",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "GKE control plane exposed to public internet",
+			"resolution": "Use private nodes and master authorised networks to prevent exposure",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/no-public-control-plane/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#"
+			],
+			"description": "Cluster exposes control plane to the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 33,
+				"end_line": 33
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0057",
+			"long_id": "google-gke-node-metadata-security",
+			"rule_description": "Node metadata value disables metadata concealment.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Metadata that isn't concealed potentially risks leakage of sensitive data",
+			"resolution": "Set node metadata to SECURE or GKE_METADATA_SERVER",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/node-metadata-security/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata"
+			],
+			"description": "Node pool exposes node metadata.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_node_pool.fail_pool",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
+				"start_line": 24,
+				"end_line": 24
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0057",
+			"long_id": "google-gke-node-metadata-security",
+			"rule_description": "Node metadata value disables metadata concealment.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Metadata that isn't concealed potentially risks leakage of sensitive data",
+			"resolution": "Set node metadata to SECURE or GKE_METADATA_SERVER",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/node-metadata-security/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata"
+			],
+			"description": "Cluster exposes node metadata of pools by default.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 22,
+				"end_line": 26
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0057",
+			"long_id": "google-gke-node-metadata-security",
+			"rule_description": "Node metadata value disables metadata concealment.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Metadata that isn't concealed potentially risks leakage of sensitive data",
+			"resolution": "Set node metadata to SECURE or GKE_METADATA_SERVER",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/node-metadata-security/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata"
+			],
+			"description": "Cluster exposes node metadata of pools by default.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 38,
+				"end_line": 42
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0054",
+			"long_id": "google-gke-node-pool-uses-cos",
+			"rule_description": "Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "COS is the recommended OS image to use on cluster nodes",
+			"resolution": "Use the COS image type",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/node-pool-uses-cos/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#image_type"
+			],
+			"description": "Node pool is not using the COS containerd image type.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.fail_pool",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
+				"start_line": 35,
+				"end_line": 35
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0055",
+			"long_id": "google-gke-node-shielding-enabled",
+			"rule_description": "Shielded GKE nodes not enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Node identity and integrity can't be verified without shielded GKE nodes",
+			"resolution": "Enable node shielding",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/node-shielding-enabled/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_shielded_nodes"
+			],
+			"description": "Cluster has shielded nodes disabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 37,
+				"end_line": 37
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0051",
+			"long_id": "google-gke-use-cluster-labels",
+			"rule_description": "Clusters should be configured with Labels",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Asset management can be limited/more difficult",
+			"resolution": "Set cluster resource labels",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-cluster-labels/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#resource_labels"
+			],
+			"description": "Cluster does not use GCE resource labels.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0051",
+			"long_id": "google-gke-use-cluster-labels",
+			"rule_description": "Clusters should be configured with Labels",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Asset management can be limited/more difficult",
+			"resolution": "Set cluster resource labels",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-cluster-labels/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#resource_labels"
+			],
+			"description": "Cluster does not use GCE resource labels.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 21,
+				"end_line": 36
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0051",
+			"long_id": "google-gke-use-cluster-labels",
+			"rule_description": "Clusters should be configured with Labels",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Asset management can be limited/more difficult",
+			"resolution": "Set cluster resource labels",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-cluster-labels/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#resource_labels"
+			],
+			"description": "Cluster does not use GCE resource labels.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 36,
+				"end_line": 63
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0062",
+			"long_id": "google-gke-use-rbac-permissions",
+			"rule_description": "Legacy ABAC permissions are enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "ABAC permissions are less secure than RBAC permissions",
+			"resolution": "Switch to using RBAC permissions",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-rbac-permissions/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_legacy_abac"
+			],
+			"description": "Cluster has legacy ABAC enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 28,
+				"end_line": 28
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0062",
+			"long_id": "google-gke-use-rbac-permissions",
+			"rule_description": "Legacy ABAC permissions are enabled.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "ABAC permissions are less secure than RBAC permissions",
+			"resolution": "Switch to using RBAC permissions",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-rbac-permissions/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_legacy_abac"
+			],
+			"description": "Cluster has legacy ABAC enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 44,
+				"end_line": 44
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0050",
+			"long_id": "google-gke-use-service-account",
+			"rule_description": "Checks for service account defined for GKE nodes",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Service accounts with wide permissions can increase the risk of compromise",
+			"resolution": "Use limited permissions for service accounts to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-service-account/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#service_account"
+			],
+			"description": "Cluster does not override the default service account.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+				"start_line": 10,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0050",
+			"long_id": "google-gke-use-service-account",
+			"rule_description": "Checks for service account defined for GKE nodes",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Service accounts with wide permissions can increase the risk of compromise",
+			"resolution": "Use limited permissions for service accounts to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-service-account/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#service_account"
+			],
+			"description": "Cluster does not override the default service account.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail_public",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+				"start_line": 22,
+				"end_line": 26
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0050",
+			"long_id": "google-gke-use-service-account",
+			"rule_description": "Checks for service account defined for GKE nodes",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Service accounts with wide permissions can increase the risk of compromise",
+			"resolution": "Use limited permissions for service accounts to be effective",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/gke/use-service-account/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#service_account"
+			],
+			"description": "Cluster does not override the default service account.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_container_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
+				"start_line": 38,
+				"end_line": 42
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0010",
+			"long_id": "google-iam-no-default-network",
+			"rule_description": "Default network should not be created at project level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Exposure of internal infrastructure/services to public internet",
+			"resolution": "Disable automatic default network creation",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-default-network/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project#auto_create_network"
+			],
+			"description": "Project has automatic network creation enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_project.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project.tf",
+				"start_line": 13,
+				"end_line": 13
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0004",
+			"long_id": "google-iam-no-folder-level-default-service-account-assignment",
+			"rule_description": "Roles should not be assigned to default service accounts",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Violation of principal of least privilege",
+			"resolution": "Use specialised service accounts for specific purposes.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-folder-level-default-service-account-assignment/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam",
+				""
+			],
+			"description": "Role is assigned to a default service account at folder level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_folder_iam_member.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_member/folder_iam_member.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0004",
+			"long_id": "google-iam-no-folder-level-default-service-account-assignment",
+			"rule_description": "Roles should not be assigned to default service accounts",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Violation of principal of least privilege",
+			"resolution": "Use specialised service accounts for specific purposes.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-folder-level-default-service-account-assignment/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam",
+				""
+			],
+			"description": "Role is assigned to a default service account at folder level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_folder_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
+				"start_line": 13,
+				"end_line": 16
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0008",
+			"long_id": "google-iam-no-org-level-default-service-account-assignment",
+			"rule_description": "Roles should not be assigned to default service accounts",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Violation of principal of least privilege",
+			"resolution": "Use specialised service accounts for specific purposes.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-org-level-default-service-account-assignment/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam",
+				""
+			],
+			"description": "Role is assigned to a default service account at organisation level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_organization_iam_binding.organization",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
+				"start_line": 9,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0008",
+			"long_id": "google-iam-no-org-level-default-service-account-assignment",
+			"rule_description": "Roles should not be assigned to default service accounts",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Violation of principal of least privilege",
+			"resolution": "Use specialised service accounts for specific purposes.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-org-level-default-service-account-assignment/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam",
+				""
+			],
+			"description": "Role is assigned to a default service account at organisation level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_organization_iam_member.org_123",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_member/no-org-level-default-service-account-assignment.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0008",
+			"long_id": "google-iam-no-org-level-default-service-account-assignment",
+			"rule_description": "Roles should not be assigned to default service accounts",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Violation of principal of least privilege",
+			"resolution": "Use specialised service accounts for specific purposes.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-org-level-default-service-account-assignment/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam",
+				""
+			],
+			"description": "Role is assigned to a default service account at organisation level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_organization_iam_binding.organization_123",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/organization_iam_bindin.tf",
+				"start_line": 12,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0009",
+			"long_id": "google-iam-no-org-level-service-account-impersonation",
+			"rule_description": "Users should not be granted service account access at the organization level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Privilege escalation, impersonation of any/all services",
+			"resolution": "Provide access at the service-level instead of organization-level, if required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-org-level-service-account-impersonation/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam"
+			],
+			"description": "Service account access is granted to a user at organization level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_organization_iam_binding.organization_123",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/organization_iam_bindin.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0007",
+			"long_id": "google-iam-no-privileged-service-accounts",
+			"rule_description": "Service accounts should not have roles assigned with excessive privileges",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Cloud account takeover if a resource using a service account is compromised",
+			"resolution": "Limit service account access to minimal required set",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-privileged-service-accounts/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account is granted a privileged role.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_project_iam_binding.fail_service",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_binding.tf",
+				"start_line": 6,
+				"end_line": 6
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0007",
+			"long_id": "google-iam-no-privileged-service-accounts",
+			"rule_description": "Service accounts should not have roles assigned with excessive privileges",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Cloud account takeover if a resource using a service account is compromised",
+			"resolution": "Limit service account access to minimal required set",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-privileged-service-accounts/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account is granted a privileged role.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_organization_iam_binding.organization",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
+				"start_line": 7,
+				"end_line": 7
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0007",
+			"long_id": "google-iam-no-privileged-service-accounts",
+			"rule_description": "Service accounts should not have roles assigned with excessive privileges",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Cloud account takeover if a resource using a service account is compromised",
+			"resolution": "Limit service account access to minimal required set",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-privileged-service-accounts/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account is granted a privileged role.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_folder_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0007",
+			"long_id": "google-iam-no-privileged-service-accounts",
+			"rule_description": "Service accounts should not have roles assigned with excessive privileges",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Cloud account takeover if a resource using a service account is compromised",
+			"resolution": "Limit service account access to minimal required set",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-privileged-service-accounts/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account is granted a privileged role.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_folder_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0011",
+			"long_id": "google-iam-no-project-level-service-account-impersonation",
+			"rule_description": "Users should not be granted service account access at the project level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Privilege escalation, impersonation of any/all services",
+			"resolution": "Provide access at the service-level instead of project-level, if required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-project-level-service-account-impersonation/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account access is granted to a user at project level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.positive1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+				"start_line": 5,
+				"end_line": 5
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0011",
+			"long_id": "google-iam-no-project-level-service-account-impersonation",
+			"rule_description": "Users should not be granted service account access at the project level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Privilege escalation, impersonation of any/all services",
+			"resolution": "Provide access at the service-level instead of project-level, if required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-project-level-service-account-impersonation/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account access is granted to a user at project level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.project",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/RoleServiceAccountUser.tf",
+				"start_line": 9,
+				"end_line": 9
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0011",
+			"long_id": "google-iam-no-project-level-service-account-impersonation",
+			"rule_description": "Users should not be granted service account access at the project level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Privilege escalation, impersonation of any/all services",
+			"resolution": "Provide access at the service-level instead of project-level, if required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-project-level-service-account-impersonation/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account access is granted to a user at project level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.project",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_member/no-privileged-service-accounts.tf",
+				"start_line": 12,
+				"end_line": 12
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0011",
+			"long_id": "google-iam-no-project-level-service-account-impersonation",
+			"rule_description": "Users should not be granted service account access at the project level",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Privilege escalation, impersonation of any/all services",
+			"resolution": "Provide access at the service-level instead of project-level, if required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-project-level-service-account-impersonation/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam"
+			],
+			"description": "Service account access is granted to a user at project level.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_binding.project_123",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/project_iam_binding.tf",
+				"start_line": 10,
+				"end_line": 10
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_member.tf",
+				"start_line": 10,
+				"end_line": 10
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.project",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/RoleServiceAccountUser.tf",
+				"start_line": 9,
+				"end_line": 9
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_organization_iam_binding.organization",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
+				"start_line": 7,
+				"end_line": 7
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "data.google_iam_policy.positive1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/kms/kms_admin_and_crypto_key_roles_in_use.tf",
+				"start_line": 18,
+				"end_line": 18
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "data.google_iam_policy.positive1",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/kms/kms_admin_and_crypto_key_roles_in_use.tf",
+				"start_line": 10,
+				"end_line": 10
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_member.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/no-user-granted-permissions.tf",
+				"start_line": 8,
+				"end_line": 10
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_project_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/no-user-granted-permissions.tf",
+				"start_line": 2,
+				"end_line": 6
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_folder_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0003",
+			"long_id": "google-iam-no-user-granted-permissions",
+			"rule_description": "IAM granted directly to user.",
+			"rule_provider": "google",
+			"rule_service": "iam",
+			"impact": "Users shouldn't have permissions granted to them directly",
+			"resolution": "Roles should be granted permissions and assigned to users",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/iam/no-user-granted-permissions/",
+				"https://www.terraform.io/docs/providers/google/d/iam_policy.html#members"
+			],
+			"description": "Permissions are granted directly to a user.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_folder_iam_binding.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
+				"start_line": 11,
+				"end_line": 11
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0065",
+			"long_id": "google-kms-rotate-kms-keys",
+			"rule_description": "KMS keys should be rotated at least every 90 days",
+			"rule_provider": "google",
+			"rule_service": "kms",
+			"impact": "Exposure is greater if the same keys are used over a long period",
+			"resolution": "Set key rotation period to 90 days",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/kms/rotate-kms-keys/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key#rotation_period"
+			],
+			"description": "Key has a rotation period of more than 90 days.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_kms_crypto_key.fails",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/kms/google_kms_crypto_key.tf",
+				"start_line": 12,
+				"end_line": 20
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0024",
+			"long_id": "google-sql-enable-backup",
+			"rule_description": "Enable automated backups to recover from data-loss",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "No recovery of lost or corrupted data",
+			"resolution": "Enable automated backups",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/enable-backup/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#settings.backup_configuration.enabled=true"
+			],
+			"description": "Database instance does not have backups enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 25,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0024",
+			"long_id": "google-sql-enable-backup",
+			"rule_description": "Enable automated backups to recover from data-loss",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "No recovery of lost or corrupted data",
+			"resolution": "Enable automated backups",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/enable-backup/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#settings.backup_configuration.enabled=true"
+			],
+			"description": "Database instance does not have backups enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 47,
+				"end_line": 47
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0024",
+			"long_id": "google-sql-enable-backup",
+			"rule_description": "Enable automated backups to recover from data-loss",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "No recovery of lost or corrupted data",
+			"resolution": "Enable automated backups",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/enable-backup/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#settings.backup_configuration.enabled=true"
+			],
+			"description": "Database instance does not have backups enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 15,
+				"end_line": 48
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0014",
+			"long_id": "google-sql-enable-pg-temp-file-logging",
+			"rule_description": "Temporary file logging should be enabled for all temporary files.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Use of temporary files will not be logged",
+			"resolution": "Enable temporary file logging for all files",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/enable-pg-temp-file-logging/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance has temporary file logging disabled for files of certain sizes.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 73,
+				"end_line": 73
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0015",
+			"long_id": "google-sql-encrypt-in-transit-data",
+			"rule_description": "SSL connections to a SQL database instance should be enforced.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Intercepted data can be read in transit",
+			"resolution": "Enforce SSL for all connections",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/encrypt-in-transit-data/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance does not require TLS for all connections.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 48,
+				"end_line": 48
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0015",
+			"long_id": "google-sql-encrypt-in-transit-data",
+			"rule_description": "SSL connections to a SQL database instance should be enforced.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Intercepted data can be read in transit",
+			"resolution": "Enforce SSL for all connections",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/encrypt-in-transit-data/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance does not require TLS for all connections.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 34,
+				"end_line": 34
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0015",
+			"long_id": "google-sql-encrypt-in-transit-data",
+			"rule_description": "SSL connections to a SQL database instance should be enforced.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Intercepted data can be read in transit",
+			"resolution": "Enforce SSL for all connections",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/encrypt-in-transit-data/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance does not require TLS for all connections.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 22,
+				"end_line": 22
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0026",
+			"long_id": "google-sql-mysql-no-local-infile",
+			"rule_description": "Disable local_infile setting in MySQL",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Arbitrary files read by attackers when combined with a SQL injection vulnerability.",
+			"resolution": "Disable the local infile setting",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/mysql-no-local-infile/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance",
+				"https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html"
+			],
+			"description": "Database instance has local file read access enabled.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 42,
+				"end_line": 42
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0023",
+			"long_id": "google-sql-no-contained-db-auth",
+			"rule_description": "Contained database authentication should be disabled",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Access can be granted without knowledge of the database administrator",
+			"resolution": "Disable contained database authentication",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-contained-db-auth/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance has contained database authentication enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 37,
+				"end_line": 37
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0019",
+			"long_id": "google-sql-no-cross-db-ownership-chaining",
+			"rule_description": "Cross-database ownership chaining should be disabled",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Unintended access to sensitive data",
+			"resolution": "Disable cross database ownership chaining",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-cross-db-ownership-chaining/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance has cross database ownership chaining enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 33,
+				"end_line": 33
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance allows access from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 51,
+				"end_line": 51
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is granted a public internet address.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_auth",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
+				"start_line": 46,
+				"end_line": 46
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance allows access from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 42,
+				"end_line": 42
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance allows access from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 37,
+				"end_line": 37
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is granted a public internet address.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 35,
+				"end_line": 35
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance allows access from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 30,
+				"end_line": 30
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance allows access from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 25,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0017",
+			"long_id": "google-sql-no-public-access",
+			"rule_description": "Ensure that Cloud SQL Database Instances are not publicly exposed",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Public exposure of sensitive data",
+			"resolution": "Remove public access from database instances",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is granted a public internet address.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
+				"start_line": 23,
+				"end_line": 23
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0025",
+			"long_id": "google-sql-pg-log-checkpoints",
+			"rule_description": "Ensure that logging of checkpoints is enabled.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Insufficient diagnostic data.",
+			"resolution": "Enable checkpoints logging.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/pg-log-checkpoints/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is not configured to log checkpoints.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 54,
+				"end_line": 54
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0016",
+			"long_id": "google-sql-pg-log-connections",
+			"rule_description": "Ensure that logging of connections is enabled.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Insufficient diagnostic data.",
+			"resolution": "Enable connection logging.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/pg-log-connections/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is not configured to log connections.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 58,
+				"end_line": 58
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0022",
+			"long_id": "google-sql-pg-log-disconnections",
+			"rule_description": "Ensure that logging of disconnections is enabled.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Insufficient diagnostic data.",
+			"resolution": "Enable disconnection logging.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/pg-log-disconnections/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is not configured to log disconnections.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 62,
+				"end_line": 62
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0020",
+			"long_id": "google-sql-pg-log-lock-waits",
+			"rule_description": "Ensure that logging of lock waits is enabled.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Issues leading to denial of service may not be identified.",
+			"resolution": "Enable lock wait logging.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/pg-log-lock-waits/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is not configured to log lock waits.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 70,
+				"end_line": 70
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0021",
+			"long_id": "google-sql-pg-no-min-statement-logging",
+			"rule_description": "Ensure that logging of long statements is disabled.",
+			"rule_provider": "google",
+			"rule_service": "sql",
+			"impact": "Sensitive data could be exposed in the database logs.",
+			"resolution": "Disable minimum duration statement logging completely",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/sql/pg-no-min-statement-logging/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance"
+			],
+			"description": "Database instance is configured to log statements.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_sql_database_instance.fail_all",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
+				"start_line": 77,
+				"end_line": 77
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0002",
+			"long_id": "google-storage-enable-ubla",
+			"rule_description": "Ensure that Cloud Storage buckets have uniform bucket-level access enabled",
+			"rule_provider": "google",
+			"rule_service": "storage",
+			"impact": "ACLs are difficult to manage and often lead to incorrect/unintended configurations.",
+			"resolution": "Enable uniform bucket level access to provide a uniform permissioning system.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/storage/enable-ubla/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#uniform_bucket_level_access"
+			],
+			"description": "Bucket has uniform bucket level access disabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_storage_bucket.static_site",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket.tf",
+				"start_line": 9,
+				"end_line": 21
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0002",
+			"long_id": "google-storage-enable-ubla",
+			"rule_description": "Ensure that Cloud Storage buckets have uniform bucket-level access enabled",
+			"rule_provider": "google",
+			"rule_service": "storage",
+			"impact": "ACLs are difficult to manage and often lead to incorrect/unintended configurations.",
+			"resolution": "Enable uniform bucket level access to provide a uniform permissioning system.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/storage/enable-ubla/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#uniform_bucket_level_access"
+			],
+			"description": "Bucket has uniform bucket level access disabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "google_storage_bucket.fail_self",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket.tf",
+				"start_line": 23,
+				"end_line": 35
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0001",
+			"long_id": "google-storage-no-public-access",
+			"rule_description": "Ensure that Cloud Storage bucket is not anonymously or publicly accessible.",
+			"rule_provider": "google",
+			"rule_service": "storage",
+			"impact": "Public exposure of sensitive data.",
+			"resolution": "Restrict public access to the bucket.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/storage/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members"
+			],
+			"description": "Bucket allows public access.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_storage_bucket_iam_member.member",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket_iam_member.tf",
+				"start_line": 9,
+				"end_line": 9
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0001",
+			"long_id": "google-storage-no-public-access",
+			"rule_description": "Ensure that Cloud Storage bucket is not anonymously or publicly accessible.",
+			"rule_provider": "google",
+			"rule_service": "storage",
+			"impact": "Public exposure of sensitive data.",
+			"resolution": "Restrict public access to the bucket.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.1.5/checks/google/storage/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members"
+			],
+			"description": "Bucket allows public access.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_storage_bucket_iam_binding.binding",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket_iam_binding.tf",
+				"start_line": 9,
+				"end_line": 11
+			}
+		}
+	]
+}

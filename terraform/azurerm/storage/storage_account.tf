@@ -7,7 +7,7 @@
 # Ensure that 'Secure transfer required' is set to 'Enabled'Checkov CKV_AZURE_3
 # Ensure that Storage Accounts use customer-managed key for encryptionCheckov CKV2_AZURE_18
 resource "azurerm_storage_account" "example" {
-  name                      =  "this-is-wrong"
+  name                      = "this-is-wrong"
   resource_group_name       = azurerm_resource_group.example.name
   location                  = azurerm_resource_group.example.location
   account_tier              = "Standard"

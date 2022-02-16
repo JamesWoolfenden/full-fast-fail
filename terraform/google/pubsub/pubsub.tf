@@ -1,5 +1,5 @@
 # fails
-# todo check kms_key_name is set
+# Ensure PubSub Topics are encrypted with Customer Supplied Encryption Keys (CSEK)Checkov (CKV_GCP_83)
 # todo dead letter topic
 resource "google_pubsub_topic" "fail" {
   name = "example-topic"

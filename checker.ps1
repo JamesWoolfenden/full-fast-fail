@@ -23,9 +23,9 @@ figlet "Checkov Scan"
 # run the tools
 $checkov = scan
 
-$terraform = $checkov[0].results.failed_checks.Length
-$secrets = $checkov[4].results.failed_checks.Length
-$total = $secrets + $terraform
+$total = $checkov.results.failed_checks.Length
+$count = $checkov.results.resource_count.Length
+
 
 
 if ( $total -ne $expected ) {
@@ -34,8 +34,8 @@ if ( $total -ne $expected ) {
 }
 
 figlet Results
-write-host "Found Terraform $terraform"
-write-host "Found Secrets $secrets"
+write-host "Found Terraform $total"
+write-host "Resource Count: $count"
 
 write-host "Expected: $expected and found: $total"
 figlet Versions

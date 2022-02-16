@@ -15,7 +15,7 @@ resource "google_kms_crypto_key" "positive1" {
 
 data "google_iam_policy" "fail_access" {
   binding {
-    role = "roles/cloudkms.cryptoKeyEncrypter"
+    role   = "roles/cloudkms.cryptoKeyEncrypter"
     member = "allUsers"
   }
 }

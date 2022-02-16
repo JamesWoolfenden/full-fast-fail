@@ -1,4 +1,6 @@
-# todo transit_encryption_mode = SERVER_AUTHENTICATION default is disabled
+# fails
+# Ensure Memorystore for Redis has AUTH enabledCheckov (CKV_GCP_95)
+# CKV_GCP_97
 resource "google_redis_instance" "fail" {
   provider       = google-beta
   name           = "mrr-memory-cache"
@@ -15,7 +17,7 @@ resource "google_redis_instance" "fail" {
   reserved_ip_range  = "192.168.0.0/28"
   replica_count      = 5
   read_replicas_mode = "READ_REPLICAS_ENABLED"
-
+  # auth_enabled=true
   labels = {
     my_key    = "my_val"
     other_key = "other_val"

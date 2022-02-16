@@ -16,7 +16,12 @@ figlet Compare Tools
 write-host -f red "Scanning $path"
 
 # run the tools
-$checkov = (checkov -o json -d $path) | ConvertFrom-Json
+$location="$path\fails.json"
+Write-Debug $location
+rm -f "$location"
+
+checkov -o json -d $path > "$location"
+$checkov = (get-content "$location")|ConvertFrom-Json
 
 kics scan -s -p $path -o $path --output-name "fails_kics.json"
 $kics_count=(Get-Content "$path\fails_kics.json")|ConvertFrom-Json
@@ -25,7 +30,8 @@ $kics_total=$kics_count.total_counter
 $tfsec = (tfsec $path -f json ) | ConvertFrom-Json
 $tfsec_count = $tfsec.results.Length
 
-$total = $checkov.results.failed_checks.Length
+$total = $checkov.summary.failed
+$resources= $checkov.summary.resource_count
 
 if ($path -eq ".") {
    if ($total -ne $expected) {
@@ -50,6 +56,7 @@ Write-Output "`n" | Out-File $path\"summary.md" -Append -NoNewline
 Write-Output "- Found Terraform $total"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found TFSec $tfsec_count"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found Kics $kics_total" | Out-File $path\"summary.md" -Append
+Write-Output "- Resource count $resources" | Out-File $path\"summary.md" -Append
 
 figlet Versions
 

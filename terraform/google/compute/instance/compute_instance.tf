@@ -35,6 +35,7 @@ resource "google_compute_instance" "default" {
 
   service_account {
     scopes = ["https://www.googleapis.com/auth/cloud-platform", "compute-ro", "storage-ro"]
+    # email = 
   }
 
   network_interface {

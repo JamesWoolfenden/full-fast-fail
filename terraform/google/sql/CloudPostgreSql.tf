@@ -10,8 +10,6 @@
 # CKV_GCP_56: "Ensure PostgreSQL database 'log_temp_files flag is set to '0'"
 # CKV_GCP_57: "Ensure PostgreSQL database 'log_min_duration_statement' flag is set to '-1'"
 # CKV_GCP_60: "Ensure Cloud SQL database does not have public IP"
-# should not trigger
-# todo CKV2_GCP_7: "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges"
 
 
 # tfsec

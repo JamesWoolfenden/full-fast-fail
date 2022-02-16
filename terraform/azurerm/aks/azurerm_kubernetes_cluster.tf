@@ -1,12 +1,12 @@
 # fails
-# CKV_AZURE_115: "Ensure that AKS enables private clusters"
-# CKV_AZURE_116: "Ensure that AKS uses Azure Policies Add-on"
-# CKV_AZURE_117: "Ensure that AKS uses disk encryption set"
-# CKV_AZURE_4: "Ensure AKS logging to Azure Monitoring is Configured"
-# CKV_AZURE_5: "Ensure RBAC is enabled on AKS clusters"
-# CKV_AZURE_6: "Ensure AKS has an API Server Authorized IP Ranges enabled"
-# CKV_AZURE_7: "Ensure AKS cluster has Network Policy configured"
-# CKV_AZURE_8: "Ensure Kubernetes Dashboard is disabled"
+# Ensure that AKS uses Azure Policies Add-onCheckov CKV_AZURE_116
+# Ensure that AKS uses disk encryption setCheckov CKV_AZURE_117
+# Ensure that AKS enables private clustersCheckov CKV_AZURE_115
+# Ensure AKS logging to Azure Monitoring is ConfiguredCheckov CKV_AZURE_4
+# Ensure AKS cluster has Network Policy configuredCheckov CKV_AZURE_7
+# Ensure Kubernetes Dashboard is disabledCheckov CKV_AZURE_8
+# Ensure AKS has an API Server Authorized IP Ranges enabledCheckov CKV_AZURE_6
+# Ensure RBAC is enabled on AKS clustersCheckov CKV_AZURE_5
 
 # tfsec
 # azure-container-limit-authorized-ips
@@ -31,6 +31,12 @@ resource "azurerm_kubernetes_cluster" "fail_cluster" {
     enabled = false
   }
   addon_profile {
+
+    azure_policy {
+
+      enabled = false
+
+    }
     kube_dashboard {
       enabled = true
     }
