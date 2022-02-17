@@ -6,7 +6,7 @@
 # tfsec
 # AWS018 Resource 'aws_security_group_rule.fail' should include a description for auditing purposes.
 
-resource "aws_security_group_rule" "fail" {
+resource "aws_security_group_rule" "fail_rule" {
   type              = "ingress"
   from_port         = 0
   to_port           = 65535
