@@ -13,4 +13,5 @@ resource "azurerm_key_vault_key" "generated" {
     "verify",
     "wrapKey",
   ]
+
 }

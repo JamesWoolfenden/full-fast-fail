@@ -1,5 +1,5 @@
 # fails
-# todo
+# todo ssh
 resource "azurerm_network_security_rule" "fail_ssh" {
   name                       = "fail_security_rule"
   direction                  = "Inbound"

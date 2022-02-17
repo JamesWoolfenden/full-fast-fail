@@ -85,6 +85,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   lifecycle {
     ignore_changes = [tags]
   }
+  tags = {
+    "key" = "value"
+  }
 }
 
 variable "viewer_certificate" {

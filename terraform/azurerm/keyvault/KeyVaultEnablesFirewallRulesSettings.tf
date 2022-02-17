@@ -1,5 +1,5 @@
 
-resource "azurerm_key_vault" "example" {
+resource "azurerm_key_vault" "example2" {
   name                        = "examplekeyvault"
   location                    = azurerm_resource_group.example.location
   resource_group_name         = azurerm_resource_group.example.name

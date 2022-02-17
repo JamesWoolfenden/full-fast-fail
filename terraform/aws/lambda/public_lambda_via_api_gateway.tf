@@ -16,4 +16,7 @@ resource "aws_lambda_function" "example" {
   runtime = "java11"
 
   role = aws_iam_role.lambda_exec.arn
+  tags = {
+    "key" = "value"
+  }
 }

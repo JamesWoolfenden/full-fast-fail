@@ -1,9 +1,5 @@
-resource "azurerm_resource_group" "positive1" {
-  name     = "acceptanceTestResourceGroup1"
-  location = "West US"
-}
 
-resource "azurerm_sql_server" "positive2" {
+resource "azurerm_sql_server" "positive_access" {
   name                         = "mysqlserver"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = "West US"
@@ -12,7 +8,7 @@ resource "azurerm_sql_server" "positive2" {
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-resource "azurerm_sql_firewall_rule" "positive3" {
+resource "azurerm_sql_firewall_rule" "positive_acces2" {
   name                = "FirewallRule1"
   resource_group_name = azurerm_resource_group.example.name
   server_name         = azurerm_sql_server.example.name
@@ -20,7 +16,7 @@ resource "azurerm_sql_firewall_rule" "positive3" {
   end_ip_address      = "10.0.27.62"
 }
 
-resource "azurerm_sql_firewall_rule" "positive4" {
+resource "azurerm_sql_firewall_rule" "positive_access_4" {
   name                = "FirewallRule1"
   resource_group_name = azurerm_resource_group.example.name
   server_name         = azurerm_sql_server.example.name

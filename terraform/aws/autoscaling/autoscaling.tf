@@ -7,4 +7,7 @@ resource "aws_autoscaling_group" "fail" {
   min_size             = 2
   launch_configuration = aws_launch_configuration.foobar.name
   vpc_zone_identifier  = [aws_subnet.example1.id, aws_subnet.example2.id]
+  tags = {
+    "key" = "value"
+  }
 }

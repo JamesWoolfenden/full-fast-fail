@@ -5,4 +5,7 @@
 resource "aws_appsync_graphql_api" "default" {
   authentication_type = "API_KEY"
   name                = "example"
+  tags = {
+    "key" = "value"
+  }
 }

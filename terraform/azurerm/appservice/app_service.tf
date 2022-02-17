@@ -17,6 +17,9 @@
 # CKV_AZURE_82: "Ensure that 'Python version' is the latest, if used to run the web app"
 # CKV_AZURE_83: "Ensure that 'Java version' is the latest, if used to run the web app"
 # CKV_AZURE_88: "Ensure that app services use Azure Files"
+# todo  client_cert_enabled = false
+# ensure https_only =true
+# todo authsettings is set
 
 # tfsec
 # azure-appservice-account-identity-registered
@@ -39,15 +42,25 @@ resource "azurerm_app_service" "fail" {
   resource_group_name      = azurerm_resource_group.example.name
   app_service_plan_id      = azurerm_app_service_plan.example.id
   remote_debugging_enabled = true
+  https_only               = false
   site_config {
     python_version           = "2.7"
     php_version              = "7.1"
     min_tls_version          = "1.0"
     java_version             = "7.0"
     dotnet_framework_version = "v4.0"
+    scm_type                 = "LocalGit"
+    ftps_state               = "AllAllowed"
     cors {
       allowed_origins = ["*"]
     }
   }
+  identity {
 
+  }
+
+  # auth_settings {
+
+  # }
+  client_cert_enabled = false
 }

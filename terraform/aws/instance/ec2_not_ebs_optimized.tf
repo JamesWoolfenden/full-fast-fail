@@ -12,6 +12,7 @@ data "aws_ami" "ubuntu" {
   }
 
   owners = ["099720109477"] # Canonical
+
 }
 
 resource "aws_instance" "web" {
@@ -20,5 +21,6 @@ resource "aws_instance" "web" {
 
   tags = {
     Name = "HelloWorld"
+    size= "big"
   }
 }

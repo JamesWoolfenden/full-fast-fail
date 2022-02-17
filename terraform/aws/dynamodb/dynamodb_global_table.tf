@@ -1,4 +1,4 @@
-resource "aws_dynamodb_global_table" "myTable" {
+resource "aws_dynamodb_global_table" "my_table" {
 
   depends_on = [
     aws_dynamodb_table.us_east_1,

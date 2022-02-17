@@ -1,6 +1,6 @@
 # fails
 # todo
-resource "azurerm_resource_group" "positive1" {
+resource "azurerm_resource_group" "positive1rg" {
   name     = "database-rg"
   location = "West US"
 }

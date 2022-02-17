@@ -4,6 +4,9 @@
 # Ensure that PostgreSQL server disables public network accessCheckov CKV_AZURE_68
 # Ensure that PostgreSQL server enables Threat detection policyCheckov CKV_AZURE_128
 # Ensure that PostgreSQL server enables geo-redundant backupsCheckov CKV_AZURE_102
+# todo   check ssl_enforcement_enabled          = true
+# todo ensure geo_redundant_backup_enabled =true
+
 resource "azurerm_postgresql_server" "fails" {
   name                = "dbserver"
   location            = "usgovvirginia"
