@@ -30,8 +30,13 @@ $kics_total=$kics_count.total_counter
 $tfsec = (tfsec $path -f json ) | ConvertFrom-Json
 $tfsec_count = $tfsec.results.Length
 
-$total = $checkov.summary.failed
-$resources= $checkov.summary.resource_count
+foreach($i in $checkov.summary.failed) {
+   $total+=$i
+}
+
+foreach($i in $checkov.summary.resource_count) {
+   $resources+=$i
+}
 
 if ($path -eq ".") {
    if ($total -ne $expected) {
