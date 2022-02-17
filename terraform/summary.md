@@ -1,12 +1,13 @@
 # Summary
 
-- Found Terraform 1522
-- Found TFSec 1025
-- Found Kics 2857
+- Found Terraform 1053
+- Found TFSec 337
+- Found Kics 1936
+- Resource count 712
 
 ## Versions
 
-- Terraform v1.1.3 on windows_amd64
-- Checkov 2.0.831
-- Tfsec v1.0.11
-- Kics Keeping Infrastructure as Code Secure 1.4.9
+- Terraform v1.0.9 on darwin_amd64
+- Checkov 2.0.826
+- Tfsec v1.1.5
+- Kics Keeping Infrastructure as Code Secure 1.5.1

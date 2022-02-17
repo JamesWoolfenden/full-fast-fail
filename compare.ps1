@@ -18,7 +18,7 @@ write-host -f red "Scanning $path"
 # run the tools
 $location="$path\fails.json"
 Write-Debug $location
-remove-item -force "$location"
+Remove-Item -force "$location" -error-action SilentlyContinue
 
 checkov -o json -d $path > "$location"
 $checkov = (get-content "$location")|ConvertFrom-Json
