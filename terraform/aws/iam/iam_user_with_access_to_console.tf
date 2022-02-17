@@ -2,6 +2,7 @@ resource "aws_iam_user" "example" {
   name          = "example"
   path          = "/"
   force_destroy = true
+  tags          = { test = "Fail" }
 }
 
 resource "aws_iam_user_login_profile" "example_login" {

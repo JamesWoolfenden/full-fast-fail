@@ -29,7 +29,9 @@ resource "aws_mq_broker" "pass" {
   #   use_aws_owned_key = false
   #   kms_key_id        = aws_kms_key.example.arn
   # }
+  tags = { test = "Fail" }
 }
 
 resource "aws_kms_key" "example" {
+  tags = { test = "Fail" }
 }

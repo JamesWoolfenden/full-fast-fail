@@ -28,4 +28,5 @@ resource "aws_ssm_document" "s3_enabled_not_encrypted_yaml" {
       windows: ''
       linux: ''
 DOC
+  tags    = { test = "fail" }
 }

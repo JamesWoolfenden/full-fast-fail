@@ -19,4 +19,5 @@ resource "aws_s3_bucket_policy" "positive1" {
   ]
 }
 POLICY
+  tags   = { test = "Fail" }
 }

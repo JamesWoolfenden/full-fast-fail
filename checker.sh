@@ -7,7 +7,7 @@ GREEN="\e[92m"
 STOP="\e[0m"
 
 printf "${BLUE}"
-figlet -w 200 -f  small "Checkov Scan"
+figlet -w 200 -f  small "Checker"
 file="fails.json"
 path="${1:-.}"
 
@@ -23,8 +23,8 @@ expected=1542
 # run the tools
 checkov -o json -d $path >"$path/$file"
 
-terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.failed') 
-counts=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.resource_count') 
+terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.failed')
+counts=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.resource_count')
 
 for i in ${terraform[@]}; do
   let total+=$i

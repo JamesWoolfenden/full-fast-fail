@@ -7,4 +7,5 @@ resource "aws_qldb_ledger" "disabled" {
   permissions_mode = "ALLOW_ALL"
 
   deletion_protection = false
+  tags                = { test = "Fail" }
 }

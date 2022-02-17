@@ -52,4 +52,5 @@ resource "aws_ecs_task_definition" "fail_password" {
     type       = "memberOf"
     expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
   }
+  tags = { test = "Fail" }
 }

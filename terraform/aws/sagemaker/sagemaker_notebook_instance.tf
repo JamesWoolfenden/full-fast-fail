@@ -4,4 +4,5 @@
 # todo in a vpc? subnet_id is not set
 resource "aws_sagemaker_notebook_instance" "name" {
   direct_internet_access = "enabled"
+  tags                   = { test = "Fail" }
 }

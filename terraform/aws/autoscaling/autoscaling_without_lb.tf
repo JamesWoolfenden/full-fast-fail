@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "bar" {
     id      = aws_launch_template.foobar.id
     version = "$Latest"
   }
-    tags = {
+  tags = {
     "key" = "value"
   }
 }

@@ -38,4 +38,5 @@ resource "aws_elasticsearch_domain" "node_to_node_encryption_disabled" {
   #   log_type                 = "INDEX_SLOW_LOGS"
   #   enabled                  = false
   # }
+  tags = { test = "fail" }
 }

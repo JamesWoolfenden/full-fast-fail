@@ -1,5 +1,5 @@
 # fails
-# todo
+# todo ddos_protection_plan' is defined and not null - not disabled
 resource "azurerm_resource_group" "example_ddos" {
   name     = "example-resources"
   location = "West Europe"

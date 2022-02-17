@@ -62,7 +62,7 @@ resource "aws_cloudfront_distribution" "fail" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
-  
+
 }
 
 

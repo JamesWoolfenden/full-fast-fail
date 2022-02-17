@@ -40,4 +40,5 @@ resource "aws_s3_bucket" "fail" {
   ]
 }
 POLICY
+  tags   = { test = "Fail" }
 }

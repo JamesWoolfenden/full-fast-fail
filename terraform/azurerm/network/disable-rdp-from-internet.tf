@@ -1,5 +1,5 @@
 # Fails
-# todo diasble rdp fail_range.destination_port_range' cannot be 3389"
+# todo disable rdp fail_range.destination_port_range' cannot be 3389"
 resource "azurerm_network_security_rule" "fail_range" {
   name                        = "example"
   priority                    = 100

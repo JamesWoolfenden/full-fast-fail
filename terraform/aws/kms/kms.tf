@@ -29,4 +29,5 @@ resource "aws_kms_key" "fail_0" {
   ]
 }
 POLICY
+  tags        = { test = "Fail" }
 }

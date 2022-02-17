@@ -7,6 +7,7 @@
 # CKV2_AWS_20: "Ensure that ALB redirects HTTP requests into HTTPS ones"
 # CKV2_AWS_28: "Ensure public facing ALB are protected by WAF"
 resource "aws_lb" "lb_bad_1" {
+  tags = { test = "Fail" }
 }
 
 resource "aws_lb_listener" "listener_bad_1" {
@@ -17,4 +18,5 @@ resource "aws_lb_listener" "listener_bad_1" {
   default_action {
     type = "some-action"
   }
+  tags = { test = "Fail" }
 }

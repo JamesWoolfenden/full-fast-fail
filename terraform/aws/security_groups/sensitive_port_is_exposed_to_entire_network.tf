@@ -1,4 +1,4 @@
-resource "aws_security_group" "positive1" {
+resource "aws_security_group" "fail_sensitive" {
   name        = "allow_tls1"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.main.id

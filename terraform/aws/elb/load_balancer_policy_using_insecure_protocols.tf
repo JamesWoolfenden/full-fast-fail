@@ -15,6 +15,7 @@ resource "aws_elb" "wu_tang" {
 
   tags = {
     Name = "wu-tang"
+    test = "fails"
   }
 }
 
@@ -32,6 +33,7 @@ resource "aws_load_balancer_policy" "fail" {
     name  = "Protocol-TLSv1"
     value = "true"
   }
+  tags = { test = "Fail" }
 }
 
 

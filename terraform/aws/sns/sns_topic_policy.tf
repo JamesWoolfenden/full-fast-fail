@@ -31,4 +31,5 @@ resource "aws_sns_topic_policy" "sns_tp2" {
     ]
 }
 POLICY
+  tags   = { test = "fail" }
 }

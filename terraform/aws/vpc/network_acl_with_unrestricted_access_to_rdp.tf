@@ -1,20 +1,8 @@
 # fails
 # todo
 
-provider "aws" {
-  region = "us-east-1"
-}
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
-}
-
-resource "aws_network_acl" "positive1" {
+resource "aws_network_acl" "fail_rdp" {
   vpc_id = aws_vpc.main.id
 
   egress = [
@@ -41,5 +29,6 @@ resource "aws_network_acl" "positive1" {
 
   tags = {
     Name = "main"
+    test = "fail"
   }
 }

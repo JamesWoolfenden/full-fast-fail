@@ -16,6 +16,7 @@ resource "aws_rds_cluster" "fail" {
   backup_retention_period         = 0
   preferred_backup_window         = "07:00-09:00"
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.fail.name
+  tags                            = { test = "Fail" }
 }
 
 //not correct params
@@ -33,4 +34,5 @@ resource "aws_rds_cluster_parameter_group" "fail" {
     name  = "character_set_client"
     value = "utf8"
   }
+  tags = { test = "Fail" }
 }

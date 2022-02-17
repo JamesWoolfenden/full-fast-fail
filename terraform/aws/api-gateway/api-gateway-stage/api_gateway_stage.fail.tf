@@ -15,4 +15,5 @@ resource "aws_api_gateway_stage" "fail" {
   rest_api_id          = aws_api_gateway_rest_api.fail.id
   stage_name           = "example"
   xray_tracing_enabled = false
+  tags                 = { test = "Fail" }
 }

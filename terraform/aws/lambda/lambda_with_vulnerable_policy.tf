@@ -31,6 +31,7 @@ resource "aws_iam_role" "lambda_role" {
   ]
 }
 EOF
+  tags               = { test = "Fail" }
 }
 
 resource "aws_lambda_permission" "all" {

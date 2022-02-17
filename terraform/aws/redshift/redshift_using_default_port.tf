@@ -6,4 +6,5 @@ resource "aws_redshift_cluster" "positive1" {
   node_type           = "dc1.large"
   cluster_type        = "single-node"
   publicly_accessible = false
+  tags                = { test = "Fail" }
 }

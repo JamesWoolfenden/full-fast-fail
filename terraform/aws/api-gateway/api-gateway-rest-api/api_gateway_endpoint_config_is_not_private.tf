@@ -10,4 +10,5 @@ resource "aws_api_gateway_rest_api" "positive1" {
   #   endpoint_configuration {
   #   types = ["PRIVATE"]
   # }
+  tags = { test = "Fail" }
 }

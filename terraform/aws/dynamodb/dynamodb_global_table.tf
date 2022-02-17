@@ -15,4 +15,5 @@ resource "aws_dynamodb_global_table" "my_table" {
   replica {
     region_name = "us-west-2"
   }
+  tags = { test = "Fail" }
 }

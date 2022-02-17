@@ -19,4 +19,5 @@ resource "aws_glue_security_configuration" "test" {
       s3_encryption_mode = "SSE-KMS"
     }
   }
+  tags = { test = "fail" }
 }

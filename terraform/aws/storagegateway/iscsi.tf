@@ -9,4 +9,5 @@ resource "aws_storagegateway_stored_iscsi_volume" "example" {
   target_name            = "example"
   preserve_existing_data = false
   disk_id                = data.aws_storagegateway_local_disk.test.id
+  tags                   = { test = "fail" }
 }

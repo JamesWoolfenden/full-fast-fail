@@ -15,4 +15,5 @@ resource "aws_redshift_security_group" "fail" {
     protocol    = "tcp"
     cidr_blocks = [aws_vpc.main.cidr_block]
   }
+  tags = { test = "Fail" }
 }

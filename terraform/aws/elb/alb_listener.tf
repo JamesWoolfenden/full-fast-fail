@@ -7,7 +7,7 @@
 
 resource "aws_alb_listener" "fail" {
   protocol = "HTTP"
-    tags = {
+  tags = {
     "key" = "value"
   }
 }

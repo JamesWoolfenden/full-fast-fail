@@ -12,6 +12,7 @@ resource "aws_imagebuilder_image_recipe" "fail" {
     #   volume_size           = 100
     #   volume_type           = "gp2"
     # }
+
   }
 
   component {
@@ -21,6 +22,7 @@ resource "aws_imagebuilder_image_recipe" "fail" {
   name         = "example"
   parent_image = "arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x"
   version      = "1.0.0"
+  tags         = { test = "fail" }
 }
 
 data "aws_partition" "current" {}

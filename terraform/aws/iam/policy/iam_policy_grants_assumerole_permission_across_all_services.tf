@@ -20,4 +20,5 @@ resource "aws_iam_role" "positive1" {
     ]
 }
 EOF
+  tags               = { test = "Fail" }
 }

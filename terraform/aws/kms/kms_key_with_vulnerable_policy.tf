@@ -32,6 +32,7 @@ resource "aws_kms_key" "fail" {
     ]
 }
 EOF
+  tags   = { test = "Fail" }
 }
 
 provider "aws" {

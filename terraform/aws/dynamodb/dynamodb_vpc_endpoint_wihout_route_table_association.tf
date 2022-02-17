@@ -11,6 +11,7 @@ locals {
 resource "aws_vpc" "main" {
   cidr_block         = "192.168.100.0/24"
   enable_dns_support = true
+  tags               = { test = "Fail" }
 }
 
 resource "aws_subnet" "private_subnet" {
@@ -19,6 +20,7 @@ resource "aws_subnet" "private_subnet" {
 
   tags = {
     Name = "private-subnet"
+    test = "fail"
   }
 }
 
@@ -27,12 +29,14 @@ resource "aws_route_table" "private_rtb" {
 
   tags = {
     Name = "private-rtb"
+    test = "fail"
   }
 }
 
 resource "aws_vpc_endpoint" "dynamodb_vpce_gw" {
   vpc_id       = aws_vpc.main.id
   service_name = "com.amazonaws.us-east-1.dynamodb"
+  tags         = { test = "Fail" }
 }
 
 resource "aws_network_acl" "allow_public_outbound_nacl" {
@@ -50,6 +54,7 @@ resource "aws_network_acl" "allow_public_outbound_nacl" {
 
   tags = {
     Name = "allow-public-outbound-nacl"
+    test = "fail"
   }
 }
 
@@ -64,7 +69,7 @@ resource "aws_security_group" "allow_public_outbound_sg" {
     protocol    = "tcp"
     cidr_blocks = [local.s3_prefix_list_cidr_block]
   }
-
+  tags = { test = "Fail" }
 }
 
 data "aws_ami" "ubuntu" {
@@ -88,6 +93,7 @@ resource "aws_instance" "test" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_public_outbound_sg.id]
   subnet_id              = aws_subnet.private_subnet.id
+  tags                   = { test = "Fail" }
 }
 
 resource "aws_dynamodb_table" "basic_dynamodb_table" {
@@ -107,4 +113,5 @@ resource "aws_dynamodb_table" "basic_dynamodb_table" {
     name = "GameTitle"
     type = "S"
   }
+  tags = { test = "Fail" }
 }

@@ -7,6 +7,7 @@
 
 resource "aws_cloudwatch_log_group" "logs" {
   name = var.log_group_name
+  tags = { test = "fail" }
 }
 
 variable "log_group_name" {

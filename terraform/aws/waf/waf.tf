@@ -9,7 +9,7 @@ resource "aws_wafregional_web_acl" "fail" {
   default_action {
     type = "ALLOW"
   }
-
+  tags = { test = "fail" }
 }
 
 
@@ -20,4 +20,5 @@ resource "aws_waf_web_acl" "fail" {
   default_action {
     type = "ALLOW"
   }
+  tags = { test = "fail" }
 }

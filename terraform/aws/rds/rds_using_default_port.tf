@@ -9,4 +9,5 @@ resource "aws_db_instance" "positive1" {
   parameter_group_name = aws_elasticache_parameter_group.default.id
   skip_final_snapshot  = true
   port                 = 3306
+  tags                 = { test = "Fail" }
 }

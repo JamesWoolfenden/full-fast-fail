@@ -10,6 +10,7 @@ resource "aws_efs_file_system" "not_secure" {
 
   tags = {
     Name = "NotSecure"
+    test = "fails"
   }
 }
 
@@ -34,4 +35,5 @@ resource "aws_efs_file_system_policy" "not_secure_policy" {
     ]
 }
 POLICY
+  tags   = { test = "Fail" }
 }

@@ -9,6 +9,7 @@
 
 resource "aws_route53_zone" "positive2" {
   name = "example.com"
+  tags = { test = "Fail" }
 }
 
 resource "aws_shield_protection" "positive2" {

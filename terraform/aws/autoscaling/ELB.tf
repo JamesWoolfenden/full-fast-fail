@@ -18,6 +18,7 @@ resource "aws_autoscaling_group" "autoscalling_bad" {
   lifecycle {
     ignore_changes = [load_balancers, target_group_arns]
   }
+  tags = { test = "Fail" }
 }
 
 resource "aws_autoscaling_attachment" "test_bad_attachment" {
@@ -52,5 +53,6 @@ resource "aws_elb" "test_bad" {
 
   tags = {
     Name = "foobar-terraform-elb"
+    test = "fail"
   }
 }

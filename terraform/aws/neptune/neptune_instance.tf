@@ -3,4 +3,5 @@
 
 resource "aws_neptune_cluster_instance" "fail" {
   publicly_accessible = true
+  tags                = { test = "Fail" }
 }

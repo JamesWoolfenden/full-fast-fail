@@ -14,6 +14,7 @@ resource "aws_iam_role" "fail" {
         }]
 }
 POLICY
+  tags               = { test = "Fail" }
 }
 
 
@@ -31,4 +32,5 @@ resource "aws_iam_role" "fail2" {
   }]
 }
 POLICY
+  tags               = { test = "Fail" }
 }

@@ -31,7 +31,7 @@ resource "aws_cloudformation_stack_set" "example" {
   }
 }
 TEMPLATE
-
+  tags          = { test = "Fail" }
 }
 
 provider "aws" {

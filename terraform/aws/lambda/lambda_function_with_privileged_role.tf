@@ -8,6 +8,7 @@ resource "aws_lambda_function" "positivefunction1" {
 
   tags = {
     Name = "lambda"
+    test = "fail"
   }
 
   environment = {
@@ -27,6 +28,7 @@ resource "aws_lambda_function" "positivefunction2" {
 
   tags = {
     Name = "lambda"
+    test = "fail"
   }
 
   environment = {
@@ -104,6 +106,7 @@ resource "aws_iam_role_policy" "positiveinlinepolicy1" {
       },
     ]
   })
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "positivecustomermanagedpolicy1" {
@@ -124,6 +127,7 @@ resource "aws_iam_policy" "positivecustomermanagedpolicy1" {
   ]
 }
 EOF
+  tags   = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "positivecustomermanagedpolicy2" {
@@ -144,6 +148,7 @@ resource "aws_iam_policy" "positivecustomermanagedpolicy2" {
   ]
 }
 EOF
+  tags   = { test = "Fail" }
 }
 
 # Mapping of customer managed policy defined in this template set

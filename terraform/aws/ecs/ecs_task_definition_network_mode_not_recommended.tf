@@ -55,4 +55,5 @@ resource "aws_ecs_task_definition" "positive1" {
     }
     ]
   )
+  tags = { test = "Fail" }
 }

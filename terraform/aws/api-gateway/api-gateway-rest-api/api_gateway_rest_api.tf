@@ -10,10 +10,12 @@ resource "aws_api_gateway_stage" "fail_waf" {
   deployment_id = aws_api_gateway_deployment.example.id
   stage_name    = "fail-waf"
   rest_api_id   = aws_api_gateway_rest_api.fail.id
+  tags          = { test = "Fail" }
 }
 
 resource "aws_api_gateway_rest_api" "fail" {
   name = "example"
+  tags = { test = "Fail" }
 }
 
 provider "aws" {

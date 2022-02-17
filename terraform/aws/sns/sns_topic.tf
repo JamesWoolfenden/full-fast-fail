@@ -5,4 +5,5 @@
 # AWS016 Resource 'aws_sns_topic.fail' defines an unencrypted SNS topic.
 
 resource "aws_sns_topic" "fail" {
+  tags = { test = "fail" }
 }

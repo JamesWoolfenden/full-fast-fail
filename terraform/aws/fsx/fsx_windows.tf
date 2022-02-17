@@ -7,4 +7,5 @@ resource "aws_fsx_windows_file_system" "fail" {
   storage_capacity    = 32
   subnet_ids          = [aws_subnet.test1.id]
   throughput_capacity = 8
+  tags                = { test = "fail" }
 }

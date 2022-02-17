@@ -20,4 +20,5 @@ resource "aws_imagebuilder_distribution_configuration" "example" {
 
     region = "us-east-1"
   }
+  tags = { test = "Fail" }
 }

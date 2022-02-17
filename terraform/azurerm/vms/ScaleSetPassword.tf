@@ -7,5 +7,5 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
   instances                       = var.instance_count
   admin_username                  = var.admin_username
   disable_password_authentication = false
-  tags                            = var.common_tags
+  tags                            = { test = "Fail" }
 }

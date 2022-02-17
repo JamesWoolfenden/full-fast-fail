@@ -17,9 +17,6 @@
 # CKV_AZURE_82: "Ensure that 'Python version' is the latest, if used to run the web app"
 # CKV_AZURE_83: "Ensure that 'Java version' is the latest, if used to run the web app"
 # CKV_AZURE_88: "Ensure that app services use Azure Files"
-# todo  client_cert_enabled = false
-# ensure https_only =true
-# todo authsettings is set
 
 # tfsec
 # azure-appservice-account-identity-registered

@@ -11,4 +11,5 @@ resource "aws_glue_data_catalog_encryption_settings" "test" {
       catalog_encryption_mode = "DISABLED"
     }
   }
+  tags = { test = "fail" }
 }

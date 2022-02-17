@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_s3_bucket" "public_bucket" {
   bucket = "bucket-with-public-acl-3"
   acl    = "public-read-write"
+  tags   = { test = "Fail" }
 }
 
 resource "aws_s3_bucket_public_access_block" "block_public_bucket_3" {
@@ -13,4 +14,5 @@ resource "aws_s3_bucket_public_access_block" "block_public_bucket_3" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+  tags                    = { test = "Fail" }
 }

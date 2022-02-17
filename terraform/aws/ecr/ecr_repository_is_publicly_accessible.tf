@@ -1,8 +1,9 @@
-# fails 
+# fails
 # todo
 
 resource "aws_ecr_repository" "positive1" {
   name = "bar"
+  tags = { test = "fail" }
 }
 
 resource "aws_ecr_repository_policy" "positive2" {

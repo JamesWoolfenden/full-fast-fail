@@ -25,5 +25,5 @@ resource "aws_codebuild_project" "default" {
   secondary_artifacts {
     encryption_disabled = false
   }
-
+  tags = { test = "fail" }
 }

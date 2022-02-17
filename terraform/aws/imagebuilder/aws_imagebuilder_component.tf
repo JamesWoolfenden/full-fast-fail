@@ -19,6 +19,7 @@ resource "aws_imagebuilder_component" "fail" {
   name     = "examplea"
   platform = "Linux"
   version  = "1.0.0"
+  tags     = { test = "fail" }
 }
 
 provider "aws" {

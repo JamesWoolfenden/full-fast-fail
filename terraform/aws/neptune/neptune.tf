@@ -45,4 +45,5 @@ resource "aws_neptune_cluster" "default" {
   apply_immediately                   = true
   storage_encrypted                   = false
   # enable_cloudwatch_logs_exports = false
+  tags = { test = "Fail" }
 }

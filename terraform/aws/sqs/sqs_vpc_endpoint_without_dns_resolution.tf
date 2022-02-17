@@ -13,6 +13,7 @@ resource "aws_vpc" "main" {
   cidr_block           = local.cidr_block
   enable_dns_support   = false
   enable_dns_hostnames = false
+  tags                 = { test = "fail" }
 }
 
 resource "aws_subnet" "public_subnet" {
@@ -21,6 +22,7 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name = "public-subnet"
+    test = "fail"
   }
 }
 
@@ -39,6 +41,7 @@ resource "aws_route_table" "public_rtb" {
 
   tags = {
     Name = "public-rtb"
+    test = "fails"
   }
 }
 
@@ -65,7 +68,7 @@ resource "aws_security_group" "public_internet_sg" {
     protocol    = "-1"
     cidr_blocks = [local.cidr_block]
   }
-
+  tags = { test = "fail" }
 }
 
 data "aws_ami" "ubuntu" {
@@ -89,6 +92,7 @@ resource "aws_instance" "test_ec2_instance" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.public_internet_sg.id]
+  tags                   = { test = "fail" }
 }
 
 resource "aws_vpc_endpoint" "sqs_vpc_endpoint" {
@@ -98,12 +102,15 @@ resource "aws_vpc_endpoint" "sqs_vpc_endpoint" {
   private_dns_enabled = true
   subnet_ids          = [aws_subnet.public_subnet.id]
   security_group_ids  = [aws_security_group.public_internet_sg.id]
+  tags                = { test = "fail" }
 }
 
 resource "aws_sqs_queue" "test_queue" {
   name = "test-queue"
+  tags = { test = "Fail" }
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
+  tags   = { test = "fail" }
 }

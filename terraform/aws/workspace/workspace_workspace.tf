@@ -18,5 +18,5 @@ resource "aws_workspaces_workspace" "fail" {
     running_mode_auto_stop_timeout_in_minutes = 60
   }
 
-  tags = var.common_tags
+  tags = { test = "Fail" }
 }

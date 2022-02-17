@@ -19,7 +19,7 @@ resource "aws_elasticache_replication_group" "fail" {
   availability_zones            = [data.aws_availability_zones.available.names[0]]
   engine_version                = "3.2.6"
   transit_encryption_enabled    = false
-    tags = {
+  tags = {
     "key" = "value"
   }
 }

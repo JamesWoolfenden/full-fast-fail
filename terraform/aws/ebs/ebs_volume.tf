@@ -12,6 +12,7 @@
 resource "aws_ebs_volume" "fail" {
   availability_zone = "eu-west-1a"
   size              = 1
+  tags              = { test = "fail" }
 }
 
 resource "aws_volume_attachment" "ebs_att" {

@@ -36,6 +36,7 @@ resource "aws_backup_selection" "not_ok_backup" {
     aws_db_instance.example.arn,
     aws_ebs_volume.example.arn
   ]
+  tags = { test = "Fail" }
 }
 
 resource "aws_efs_file_system" "ok_efs" {
@@ -43,6 +44,7 @@ resource "aws_efs_file_system" "ok_efs" {
 
   tags = {
     Name = "MyProduct"
+    test = "fail"
   }
 }
 
@@ -51,5 +53,6 @@ resource "aws_efs_file_system" "not_ok_efs" {
 
   tags = {
     Name = "MyProduct"
+    test = "fail"
   }
 }

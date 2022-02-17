@@ -16,4 +16,5 @@ resource "aws_eks_node_group" "fail" {
     max_size     = 1
     min_size     = 1
   }
+  tags = { test = "Fail" }
 }

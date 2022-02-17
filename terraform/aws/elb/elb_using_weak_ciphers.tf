@@ -14,6 +14,7 @@ resource "aws_elb" "fail" {
 
   tags = {
     Name = "wu-tang"
+    test = "fail"
   }
 }
 
@@ -26,6 +27,7 @@ resource "aws_load_balancer_policy" "positive2" {
     name  = "PublicKey"
     value = file("wu-tang-pubkey")
   }
+  tags = { test = "Fail" }
 }
 
 resource "aws_load_balancer_policy" "positive3" {
@@ -37,4 +39,5 @@ resource "aws_load_balancer_policy" "positive3" {
     name  = "PublicKeyPolicyName"
     value = aws_load_balancer_policy.wu-tang-root-ca-pubkey-policy.policy_name
   }
+  tags = { test = "Fail" }
 }

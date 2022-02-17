@@ -3,6 +3,7 @@
 resource "aws_elasticsearch_domain" "no_iam" {
   domain_name           = "tf-test"
   elasticsearch_version = "2.3"
+  tags                  = { test = "fail" }
 }
 
 resource "aws_elasticsearch_domain_policy" "no_iam" {

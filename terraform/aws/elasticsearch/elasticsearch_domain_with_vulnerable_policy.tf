@@ -10,6 +10,7 @@ resource "aws_elasticsearch_domain" "es_not_secure_policy" {
     volume_size = 10
     volume_type = "gp2"
   }
+  tags = { test = "fail" }
 }
 
 resource "aws_elasticsearch_domain_policy" "main" {

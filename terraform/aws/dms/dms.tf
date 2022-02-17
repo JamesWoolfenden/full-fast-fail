@@ -14,4 +14,5 @@ resource "aws_dms_replication_instance" "fail" {
   replication_instance_id    = "test-dms-replication-instance-tf"
   # kms_key_arn = ""
   # auto_minor_version_upgrade=false
+  tags = { test = "fail" }
 }

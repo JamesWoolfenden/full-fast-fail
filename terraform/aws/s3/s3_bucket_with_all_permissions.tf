@@ -18,4 +18,5 @@ resource "aws_s3_bucket" "positive1" {
 	  ]
 	}
   EOF
+  tags   = { test = "Fail" }
 }

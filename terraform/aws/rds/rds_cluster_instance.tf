@@ -11,4 +11,5 @@ resource "aws_rds_cluster_instance" "fail" {
   performance_insights_kms_key_id = ""
   kms_key_id                      = ""
   publicly_accessible             = true
+  tags                            = { test = "Fail" }
 }

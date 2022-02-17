@@ -17,4 +17,5 @@ resource "aws_msk_cluster" "name" {
       in_cluster    = true
     }
   }
+  tags = { test = "fail" }
 }

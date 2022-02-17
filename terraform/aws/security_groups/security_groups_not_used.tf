@@ -3,6 +3,7 @@ resource "aws_lb" "test" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
   internal           = true
+  tags               = { test = "fail" }
 }
 
 resource "aws_security_group" "allow_tls" {
@@ -29,5 +30,6 @@ resource "aws_security_group" "allow_tls" {
 
   tags = {
     Name = "allow_tls"
+    test = "fails"
   }
 }

@@ -6,4 +6,5 @@
 resource "aws_api_gateway_domain_name" "fail" {
   security_policy = "TLS_1_0"
   domain_name     = "FreeBeer"
+  tags            = { test = "Fail" }
 }

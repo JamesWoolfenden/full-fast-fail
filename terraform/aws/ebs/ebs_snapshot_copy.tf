@@ -9,5 +9,6 @@ resource "aws_ebs_snapshot_copy" "fail" {
 
   tags = {
     Name = "testAccEBSSnapshotCopyWithKMSConfig"
+    test = "fail"
   }
 }

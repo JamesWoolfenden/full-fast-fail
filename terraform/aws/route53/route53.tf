@@ -6,4 +6,5 @@ resource "aws_route53_record" "fail" {
   type    = "A"
   ttl     = "300"
   records = ["1.1.1.1"]
+  tags    = { test = "Fail" }
 }

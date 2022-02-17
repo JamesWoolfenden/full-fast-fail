@@ -21,7 +21,7 @@ resource "aws_alb" "fail" {
   # }
 
   drop_invalid_header_fields = false
-    tags = {
+  tags = {
     "key" = "value"
   }
 }

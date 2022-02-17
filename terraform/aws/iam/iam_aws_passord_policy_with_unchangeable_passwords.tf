@@ -1,5 +1,6 @@
 resource "aws_sqs_queue" "positive1" {
   name = "examplequeue"
+  tags = { test = "fail" }
 }
 
 // comment
@@ -10,4 +11,5 @@ resource "aws_iam_account_password_policy" "positive2" {
   require_uppercase_characters   = true
   require_symbols                = true
   allow_users_to_change_password = false
+  tags                           = { test = "Fail" }
 }

@@ -26,6 +26,7 @@ resource "aws_iam_policy" "fail1" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags   = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "fail2" {
@@ -48,6 +49,7 @@ resource "aws_iam_policy" "fail2" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags   = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "fail3" {
@@ -66,6 +68,7 @@ resource "aws_iam_policy" "fail3" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags   = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "fail4" {
@@ -84,6 +87,7 @@ resource "aws_iam_policy" "fail4" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags   = { test = "Fail" }
 }
 
 resource "aws_iam_policy" "pass2" {
@@ -103,6 +107,7 @@ resource "aws_iam_policy" "pass2" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags   = { test = "Fail" }
 }
 
 
@@ -137,6 +142,7 @@ resource "aws_ssoadmin_permission_set_inline_policy" "pass1" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags               = { test = "Fail" }
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "fail1" {
@@ -162,4 +168,5 @@ resource "aws_ssoadmin_permission_set_inline_policy" "fail1" {
   "Version": "2012-10-17"
 }
 POLICY
+  tags               = { test = "Fail" }
 }

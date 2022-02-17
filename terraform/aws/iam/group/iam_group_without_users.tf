@@ -11,14 +11,17 @@ resource "aws_iam_group_membership" "team2" {
 
 resource "aws_iam_group" "group2" {
   name = "test-group"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user" "user_one2" {
   name = "test-user"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user" "user_two2" {
   name = "test-user-two"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_group_membership" "team3" {
@@ -32,4 +35,5 @@ resource "aws_iam_group_membership" "team3" {
 
 resource "aws_iam_group" "group3" {
   name = "test-group"
+  tags = { test = "Fail" }
 }

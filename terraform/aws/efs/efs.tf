@@ -18,6 +18,5 @@ resource "aws_efs_file_system" "sharedstore" {
   performance_mode                = var.efs["performance_mode"]
   provisioned_throughput_in_mibps = var.efs["provisioned_throughput_in_mibps"]
   throughput_mode                 = var.efs["throughput_mode"]
-  tags                            = var.common_tags
-
+  tags                            = { test = "Fail" }
 }

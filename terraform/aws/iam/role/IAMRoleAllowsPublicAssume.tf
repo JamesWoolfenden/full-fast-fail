@@ -26,4 +26,5 @@ resource "aws_iam_role" "lambda" {
 }
 
 EOF
+  tags               = { test = "Fail" }
 }

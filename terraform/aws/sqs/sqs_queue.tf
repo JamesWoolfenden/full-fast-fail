@@ -18,4 +18,5 @@ resource "aws_sqs_queue" "fail" {
   ]
 }
 POLICY
+  tags   = { test = "fail" }
 }

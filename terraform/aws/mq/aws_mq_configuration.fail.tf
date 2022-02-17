@@ -15,4 +15,5 @@ resource "aws_mq_configuration" "fail" {
   </plugins>
 </broker>
 DATA
+  tags = { test = "Fail" }
 }

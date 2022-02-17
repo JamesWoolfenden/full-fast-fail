@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "b" {
   bucket = "my-tf-test-bucket"
+  tags   = { test = "Fail" }
 }
 
 resource "aws_s3_bucket_policy" "b" {
@@ -27,4 +28,5 @@ resource "aws_s3_bucket_policy" "b" {
     ]
 }
 EOF
+  tags   = { test = "Fail" }
 }

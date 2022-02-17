@@ -24,4 +24,5 @@ resource "aws_ecs_service" "fail_service" {
     type       = "memberOf"
     expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
   }
+  tags = { test = "fail" }
 }

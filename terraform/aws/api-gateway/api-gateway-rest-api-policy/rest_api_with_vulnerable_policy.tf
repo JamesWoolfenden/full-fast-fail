@@ -8,6 +8,7 @@ provider "aws" {
 resource "aws_api_gateway_rest_api" "api_gw" {
   name        = "api-gw-cache-encrypted"
   description = "API GW test"
+  tags        = { test = "Fail" }
 }
 
 
@@ -35,6 +36,7 @@ resource "aws_api_gateway_rest_api_policy" "test" {
   ]
 }
 EOF
+  tags   = { test = "Fail" }
 }
 
 
@@ -76,6 +78,7 @@ resource "aws_api_gateway_stage" "api_gw_stage" {
   stage_name    = "prod"
   rest_api_id   = aws_api_gateway_rest_api.api_gw.id
   deployment_id = aws_api_gateway_deployment.api_gw_deploy.id
+  tags          = { test = "Fail" }
 }
 
 resource "aws_api_gateway_method_settings" "api_gw_method_sett" {

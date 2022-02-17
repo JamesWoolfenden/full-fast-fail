@@ -21,6 +21,6 @@ resource "aws_instance" "web" {
 
   tags = {
     Name = "HelloWorld"
-    size= "big"
+    size = "big"
   }
 }

@@ -21,6 +21,7 @@ resource "aws_api_gateway_stage" "no_assoc" {
   deployment_id = aws_api_gateway_deployment.example.id
   rest_api_id   = aws_api_gateway_rest_api.no_assoc.id
   stage_name    = "example"
+  tags          = { test = "Fail" }
 }
 
 variable "name" {
@@ -31,4 +32,5 @@ variable "name" {
 
 resource "aws_api_gateway_deployment" "example" {
   rest_api_id = aws_api_gateway_rest_api.no_assoc.id
+  tags        = { test = "Fail" }
 }

@@ -8,4 +8,5 @@ resource "aws_globalaccelerator_accelerator" "example" {
   attributes {
     flow_logs_enabled = false
   }
+  tags = { test = "fail" }
 }

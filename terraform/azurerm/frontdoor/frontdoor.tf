@@ -1,5 +1,6 @@
-
-resource "azurerm_frontdoor" "example" {
+# fails
+# Ensure that Azure Front Door enables WAFCheckov CKV_AZURE_121
+resource "azurerm_frontdoor" "fail" {
   name                                         = "example-FrontDoor"
   location                                     = "EastUS2"
   resource_group_name                          = azurerm_resource_group.example.name

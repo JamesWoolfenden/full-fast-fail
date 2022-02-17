@@ -6,4 +6,5 @@
 # AWS003 Resource 'aws_db_security_group.fail' uses EC2 Classic. Use a VPC instead.
 
 resource "aws_db_security_group" "fail" {
+  tags = { test = "Fail" }
 }

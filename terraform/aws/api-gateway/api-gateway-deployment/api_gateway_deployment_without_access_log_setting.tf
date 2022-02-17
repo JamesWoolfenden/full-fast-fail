@@ -16,4 +16,5 @@ resource "aws_api_gateway_stage" "fail" {
   #   destination_arn = "dest"
   #   format = "format"
   # }
+  tags = { test = "Fail" }
 }

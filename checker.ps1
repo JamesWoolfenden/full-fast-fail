@@ -1,9 +1,9 @@
 param (
-    [string]$path = "terraform",
-    [int]$expected = 1542)
+    [string]$folder = "terraform",
+    [int]$expected = 1237)
 
-if (!(test-path -Path $path)) {
-    Write-Error "path $path not found"
+if (!(test-path -Path $folder)) {
+    Write-Error "path $folder not found"
     exit 1
 }
 
@@ -12,21 +12,24 @@ function scan {
     param (
         [Parameter()]
         [string]
-        $path = "."
+        $folder = "."
     )
-    return (checkov -o json -d $path) | ConvertFrom-Json
+    return (checkov -o json -d $folder) | ConvertFrom-Json
 }
 
 
-figlet "Checkov Scan"
+figlet "Checker"
 
 # run the tools
-$checkov = scan
+$checkov = scan $folder
 
-$total = $checkov.results.failed_checks.Length
-$count = $checkov.results.resource_count.Length
+foreach($i in $checkov.summary.failed) {
+    $total+=$i
+ }
 
-
+ foreach($i in $checkov.summary.resource_count) {
+    $count+=$i
+ }
 
 if ( $total -ne $expected ) {
     write-host "Error: expected $expected but found $total"

@@ -6,4 +6,5 @@ resource "aws_api_gateway_method" "fail" {
   resource_id   = aws_api_gateway_resource.fail.id
   http_method   = "GET"
   authorization = "NONE"
+  tags          = { test = "Fail" }
 }

@@ -4,6 +4,7 @@ resource "aws_instance" "positive1" {
 
   tags = {
     Name = "HelloWorld"
+    test = "fails"
   }
 
   security_groups = [aws_security_group.default.id]

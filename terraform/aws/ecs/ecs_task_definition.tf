@@ -32,13 +32,17 @@ EOF
       }
     }
   }
+  tags = { test = "Fail" }
 }
 
 
-resource "aws_efs_file_system" "fs" {}
+resource "aws_efs_file_system" "fs" {
+  tags = { test = "Fail" }
+}
 
 resource "aws_efs_access_point" "fail" {
   file_system_id = aws_efs_file_system.fs.id
+  tags           = { test = "Fail" }
 }
 
 provider "aws" {

@@ -1,5 +1,6 @@
 resource "aws_sns_topic" "positive1" {
   name = "my-topic-with-policy"
+  tags = { test = "fail" }
 }
 
 resource "aws_sns_topic_policy" "positive2" {
@@ -19,4 +20,5 @@ resource "aws_sns_topic_policy" "positive2" {
   ]
 }
 POLICY
+  tags   = { test = "fail" }
 }

@@ -28,4 +28,5 @@ resource "aws_glacier_vault" "my_archive2" {
     ]
 }
 EOF
+  tags          = { test = "fail" }
 }

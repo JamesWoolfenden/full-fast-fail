@@ -20,5 +20,6 @@ resource "aws_instance" "monitoring_positive1" {
 
   tags = {
     Name = "HelloWorld"
+    test = "fail"
   }
 }

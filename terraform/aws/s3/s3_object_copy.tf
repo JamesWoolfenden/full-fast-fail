@@ -11,4 +11,5 @@ resource "aws_s3_object_copy" "fail" {
     type        = "Group"
     permissions = ["READ"]
   }
+  tags = { test = "Fail" }
 }

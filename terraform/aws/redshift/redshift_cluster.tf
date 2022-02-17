@@ -25,4 +25,5 @@ resource "aws_redshift_cluster" "fail" {
   skip_final_snapshot                 = true
   kms_key_id                          = ""
   cluster_subnet_group_name           = ""
+  tags                                = { test = "Fail" }
 }

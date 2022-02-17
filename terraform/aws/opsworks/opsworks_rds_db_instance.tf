@@ -7,4 +7,5 @@ resource "aws_opsworks_rds_db_instance" "my_instance" {
   rds_db_instance_arn = aws_db_instance.my_instance.arn
   db_user             = "someUser"
   db_password         = "somePass"
+  tags                = { test = "Fail" }
 }

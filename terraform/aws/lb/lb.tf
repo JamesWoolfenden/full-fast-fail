@@ -17,6 +17,7 @@ resource "aws_alb" "disabled" {
   name                             = "alb"
   subnets                          = var.public_subnet_ids
   enable_cross_zone_load_balancing = false
+  tags                             = { test = "Fail" }
 }
 
 resource "aws_lb" "default" {
@@ -24,4 +25,5 @@ resource "aws_lb" "default" {
   load_balancer_type = "network"
   name               = "nlb"
   subnets            = var.public_subnet_ids
+  tags               = { test = "Fail" }
 }

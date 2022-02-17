@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_iam_user" "mfa" {
   name = "aws-foundations-benchmark-1-4-0-terraform-user"
   path = "/"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user_login_profile" "mfa" {
@@ -14,6 +15,7 @@ resource "aws_iam_user_login_profile" "mfa" {
 
 resource "aws_iam_access_key" "mfa" {
   user = aws_iam_user.mfa.name
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user_policy" "mfa" {
@@ -37,4 +39,5 @@ resource "aws_iam_user_policy" "mfa" {
    ]
 }
 EOF
+  tags   = { test = "Fail" }
 }

@@ -2,11 +2,13 @@
 resource "aws_iam_access_key" "fail_key" {
   user    = "root"
   pgp_key = "keybase:some_person_that_exists"
+  tags    = { test = "Fail" }
 }
 
 resource "aws_iam_user" "fail_key" {
   name = "loadbalancer"
   path = "/system/"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user_policy" "fail_key" {
@@ -27,4 +29,5 @@ resource "aws_iam_user_policy" "fail_key" {
   ]
 }
 EOF
+  tags   = { test = "Fail" }
 }

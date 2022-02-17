@@ -32,4 +32,5 @@ resource "aws_dynamodb_table" "default" {
   # 	enabled     = true
   # 	kms_key_arn = aws_kms_key.dynamo_db_kms.key_id
   # }
+  tags = { test = "Fail" }
 }

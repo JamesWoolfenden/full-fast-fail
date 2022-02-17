@@ -12,4 +12,5 @@ resource "aws_elasticache_replication_group" "fail" {
   replication_group_description = "my foo cluster"
 
   at_rest_encryption_enabled = false
+  tags                       = { test = "fail" }
 }

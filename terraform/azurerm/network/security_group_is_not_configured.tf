@@ -1,5 +1,5 @@
 #fail
-#todo
+#todo .subnet.security_group' is defined and not null
 resource "azure_virtual_network" "positive1" {
   name          = "test-network"
   address_space = ["10.1.2.0/24"]

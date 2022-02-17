@@ -17,4 +17,5 @@ resource "aws_db_instance" "fail" {
   publicly_accessible     = true
   backup_retention_period = 0
   engine                  = "postgres"
+  tags                    = { test = "Fail" }
 }

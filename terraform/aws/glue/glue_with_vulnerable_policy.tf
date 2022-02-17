@@ -16,4 +16,5 @@ data "aws_iam_policy_document" "glue-example-policy" {
 
 resource "aws_glue_resource_policy" "example" {
   policy = data.aws_iam_policy_document.glue-example-policy.json
+  tags   = { test = "fail" }
 }

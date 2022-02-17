@@ -15,4 +15,5 @@ resource "aws_sagemaker_domain" "fail" {
   retention_policy {
     home_efs_file_system = "Delete"
   }
+  tags = { test = "Fail" }
 }

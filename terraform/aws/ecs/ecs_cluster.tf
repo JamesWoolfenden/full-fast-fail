@@ -10,4 +10,5 @@
 
 resource "aws_ecs_cluster" "fail" {
   name = "white-hart"
+  tags = { test = "fail" }
 }

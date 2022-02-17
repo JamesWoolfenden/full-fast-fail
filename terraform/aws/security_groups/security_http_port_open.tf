@@ -9,4 +9,5 @@ resource "aws_security_group" "positive1" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = { test = "fail" }
 }

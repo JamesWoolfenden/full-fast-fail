@@ -39,4 +39,5 @@ resource "aws_batch_job_definition" "positive1" {
     ]
 }
 CONTAINER_PROPERTIES
+  tags                 = { test = "fail" }
 }

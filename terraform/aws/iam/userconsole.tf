@@ -2,6 +2,7 @@
 # CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
 resource "aws_iam_user" "fail_console" {
   name = "human-user"
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user_login_profile" "fail_console" {

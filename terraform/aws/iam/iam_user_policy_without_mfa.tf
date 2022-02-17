@@ -9,6 +9,7 @@ resource "aws_iam_user" "fail_mfa" {
 
 resource "aws_iam_access_key" "fail_mfa" {
   user = aws_iam_user.fail_mfa.name
+  tags = { test = "Fail" }
 }
 
 resource "aws_iam_user_policy" "fail_mfa" {
@@ -29,4 +30,5 @@ resource "aws_iam_user_policy" "fail_mfa" {
    ]
 }
 EOF
+  tags   = { test = "Fail" }
 }

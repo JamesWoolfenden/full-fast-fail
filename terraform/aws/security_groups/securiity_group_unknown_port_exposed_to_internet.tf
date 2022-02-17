@@ -20,5 +20,6 @@ resource "aws_security_group" "positive1" {
 
   tags = {
     Name = "allow_tls"
+    test = "fail"
   }
 }

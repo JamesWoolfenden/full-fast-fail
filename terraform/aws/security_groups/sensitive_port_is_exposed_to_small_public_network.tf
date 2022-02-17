@@ -1,4 +1,4 @@
-resource "aws_security_group" "positive1" {
+resource "aws_security_group" "fail_public" {
   name        = "allow_tls1"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.main.id
@@ -10,4 +10,5 @@ resource "aws_security_group" "positive1" {
     protocol    = "-1"
     cidr_blocks = ["12.0.0.0/25"]
   }
+  tags = { test = "fail" }
 }

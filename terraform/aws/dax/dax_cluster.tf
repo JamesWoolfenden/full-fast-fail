@@ -9,5 +9,5 @@ resource "aws_dax_cluster" "name" {
   iam_role_arn         = var.iam_role_arn
   parameter_group_name = aws_dax_parameter_group.example.name
   subnet_group_name    = aws_dax_subnet_group.example.name
-  tags                 = var.common_tags
+  tags                 = { test = "Fail" }
 }

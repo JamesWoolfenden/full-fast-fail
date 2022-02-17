@@ -17,4 +17,5 @@ resource "aws_athena_workgroup" "fail" {
       output_location = "s3://mys3bucket"
     }
   }
+  tags = { test = "fail" }
 }

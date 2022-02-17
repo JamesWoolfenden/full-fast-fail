@@ -4,6 +4,7 @@
 # CKV2_AWS_12: "Ensure the default security group of every VPC restricts all traffic"
 resource "aws_vpc" "bad_vpc" {
   cidr_block = "10.0.0.0/16"
+  tags       = { test = "Fail" }
 }
 
 

@@ -8,4 +8,5 @@ resource "aws_fsx_ontap_file_system" "fail" {
   deployment_type     = "MULTI_AZ_1"
   throughput_capacity = 512
   preferred_subnet_id = aws_subnet.test1.id
+  tags                = { test = "fail" }
 }

@@ -11,4 +11,5 @@ resource "aws_db_instance" "positive1" {
   storage_encrypted                   = true
   ca_cert_identifier                  = "rds-ca-2019"
   auto_minor_version_upgrade          = false
+  tags                                = { test = "Fail" }
 }

@@ -87,7 +87,9 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-resource "aws_eip" "nat" {}
+resource "aws_eip" "nat" {
+  tags = { test = "Fail" }
+}
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
