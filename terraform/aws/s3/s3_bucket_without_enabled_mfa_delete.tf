@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "positive1" {
+resource "aws_s3_bucket" "fail_mfa" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
 

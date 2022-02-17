@@ -1,4 +1,4 @@
-resource "aws_s3_bucket_policy" "positive1" {
+resource "aws_s3_bucket_policy" "fail_all" {
   bucket = aws_s3_bucket.b.id
 
   policy = <<POLICY

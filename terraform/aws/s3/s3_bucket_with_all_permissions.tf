@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "positive1" {
+resource "aws_s3_bucket" "fail_permissions" {
   bucket = "S3B_181355"
   acl    = "private"
 

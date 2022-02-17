@@ -1,5 +1,5 @@
 
-resource "aws_network_acl_rule" "fail" {
+resource "aws_network_acl_rule" "fail_public" {
   egress      = false
   protocol    = "tcp"
   from_port   = 22
