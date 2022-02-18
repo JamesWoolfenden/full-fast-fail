@@ -1,7 +1,7 @@
 # fails
 # Batch job does not define a privileged containerCheckov (CKV_AWS_210)
 
-resource "aws_batch_job_definition" "positive1" {
+resource "aws_batch_job_definition" "fail" {
   name = "tf_test_batch_job_definition"
   type = "container"
 

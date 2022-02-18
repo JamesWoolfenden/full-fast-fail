@@ -2,13 +2,7 @@
 # kics
 
 
-
-resource "aws_s3_bucket" "positive1" {
-  # configs
-  tags = { test = "fail" }
-}
-
-resource "aws_cloudfront_distribution" "positive2" {
+resource "aws_cloudfront_distribution" "fail_defaultcert" {
   origin {
     domain_name = aws_s3_bucket.positive1.bucket_regional_domain_name
     origin_id   = local.s3_origin_id

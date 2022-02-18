@@ -1,5 +1,8 @@
 # fails
-# CKV_AWS_211
+# Ensure RDS uses a modern CaCertCheckov (CKV_AWS_211)
+# Ensure that RDS instances have Multi-AZ enabledCheckov CKV_AWS_157
+# Ensure that enhanced monitoring is enabled for Amazon RDS instancesCheckov CKV_AWS_118
+# Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabledCheckov CKV_AWS_129
 resource "aws_db_instance" "fail" {
   allocated_storage                   = 20
   storage_type                        = "gp2"

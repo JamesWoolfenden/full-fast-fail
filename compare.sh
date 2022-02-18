@@ -4,26 +4,26 @@ figlet Compare Tools
 
 file="fails.json"
 
-if [ -f "$file" ] ; then
+if [ -f "$file" ]; then
     rm "$file"
 fi
 
 #define expectations
-expected=971
+expected=954
 tfexpected=917
 kicsexpected=2704
 
 # run the tools
 checkov -o json -d $folder >"$folder/$file"
 
-tfsec $folder -f json -s --out "$folder/fails_tfsec.json"  2> /dev/null
+tfsec $folder -f json -s --out "$folder/fails_tfsec.json"
 # snyk iac test . --json-file-output="synk__$file"  2> /dev/null
 kics scan -s -p $folder -o $folder --output-name "fails_kics.json"
-kics_count=$(cat "$folder/fails_kics.json"| jq -r '.total_counter')
+kics_count=$(cat "$folder/fails_kics.json" | jq -r '.total_counter')
 
 tfsec_count=$(cat "$folder/fails_tfsec.json" | jq -r '.results | length')
-terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2> /dev/null
-resource=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2> /dev/null
+terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2>/dev/null
+resource=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2>/dev/null
 
 if [ -z "$terraform" ]; then
     terraform=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.failed')
@@ -31,20 +31,20 @@ if [ -z "$terraform" ]; then
 fi
 
 for i in ${terraform[@]}; do
-  let total+=$i
+    let total+=$i
 done
 
 for i in ${resource[@]}; do
-  let resources+=$i
+    let resources+=$i
 done
 
 # shellcheck disable=SC2086
-if [ $total != $expected  ]; then
+if [ $total != $expected ]; then
     echo "Error: Checkov expected $expected but found $total"
 fi
 
 # shellcheck disable=SC2086
-if [ $tfsec_count != $tfexpected  ]; then
+if [ $tfsec_count != $tfexpected ]; then
     echo "Error: Tfsec expected $tfexpected but found $tfsec_count"
 fi
 
@@ -58,20 +58,19 @@ if [ $kics_count -gt $total ]; then
     echo "Error: Kics found more $kics_count but we found $total"
 fi
 
-
-echo "# Summary" > "$folder/summary.md"
-echo -e ""  >>"$folder/summary.md"
+echo "# Summary" >"$folder/summary.md"
+echo -e "" >>"$folder/summary.md"
 echo "- Found Checkov $total" >>"$folder/summary.md"
 echo "- Found TFSec $tfsec_count" >>"$folder/summary.md"
 echo "- Found Kics $kics_count" >>"$folder/summary.md"
 echo "- Resource count $resources" >>"$folder/summary.md"
 
 figlet Versions
-echo -e ""  >>"$folder/summary.md"
+echo -e "" >>"$folder/summary.md"
 
 echo "## Versions" >>"$folder/summary.md"
 echo -e "" >>"$folder/summary.md"
-echo "- $(terraform version)"  >>"$folder/summary.md"
+echo "- $(terraform version)" >>"$folder/summary.md"
 echo "- Checkov $(checkov -v)" >>"$folder/summary.md"
 echo "- Tfsec $(tfsec -version)" >>"$folder/summary.md"
 echo "- Kics $(kics version)" >>"$folder/summary.md"
