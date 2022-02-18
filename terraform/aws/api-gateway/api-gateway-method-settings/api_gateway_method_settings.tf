@@ -1,6 +1,8 @@
 # fail
 # todo if cache is enabled ensure that it is encrypted
-
+# metrics enabled
+# logging level is not off
+# data trace?
 # kics
 
 resource "aws_api_gateway_method_settings" "fail" {
@@ -13,5 +15,6 @@ resource "aws_api_gateway_method_settings" "fail" {
     metrics_enabled      = true
     logging_level        = "INFO"
     cache_data_encrypted = false
+    data_trace_enabled   = false
   }
 }

@@ -15,15 +15,3 @@ resource "aws_apigatewayv2_stage" "fail" {
     "key" = "value"
   }
 }
-
-resource "aws_apigatewayv2_api" "example" {
-  protocol_type = "HTTP"
-  name          = var.name
-
-  #   access_log_settings {
-  #   destination_arn = "dest"
-  # }
-  tags = {
-    "key" = "value"
-  }
-}

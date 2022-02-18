@@ -14,13 +14,3 @@ resource "aws_autoscaling_group" "bar" {
     "key" = "value"
   }
 }
-
-resource "aws_launch_template" "foobar" {
-  tags = {
-    "key" = "value"
-  }
-}
-
-provider "aws" {
-  region = "eu-west-1"
-}

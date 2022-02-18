@@ -1,18 +1,6 @@
 # fails
 # todo
 
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_api_gateway_rest_api" "api_gw" {
-  name        = "api-gw-cache-encrypted"
-  description = "API GW test"
-  tags        = { test = "Fail" }
-}
-
-
-
 resource "aws_api_gateway_rest_api_policy" "test" {
   rest_api_id = aws_api_gateway_rest_api.api_gw.id
 
