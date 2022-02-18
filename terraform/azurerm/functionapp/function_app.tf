@@ -2,7 +2,7 @@
 # Ensure that 'HTTP Version' is the latest, if used to run the Function appCheckov CKV_AZURE_67
 # Ensure that Function apps is only accessible over HTTPSCheckov CKV_AZURE_70
 # Ensure that function apps enables AuthenticationCheckov CKV_AZURE_56
-# CKV_AZURE_142
+# CKV_AZURE_145
 # todo client_cert_mode is set The mode of the Function App's client certificates requirement for incoming requests. Possible values are Required and Optional
 # todo identity is defined and not null
 resource "azurerm_function_app" "fail" {

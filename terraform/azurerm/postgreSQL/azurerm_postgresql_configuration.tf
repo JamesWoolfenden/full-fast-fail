@@ -1,5 +1,5 @@
 # fails
-# todo log retention is not set
+# CKV_AZURE_146
 
 resource "azurerm_postgresql_configuration" "fail1" {
   name                = "log_retention"

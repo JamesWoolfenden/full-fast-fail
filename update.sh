@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 brew upgrade tfsec
 brew install tflint
 pip3 install checkov -U

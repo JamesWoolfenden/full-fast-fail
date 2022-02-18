@@ -1,5 +1,5 @@
 # fails
-# todo ssl min is TLS1_2
+# CKV_AZURE_147  ssl min is TLS1_2
 resource "azurerm_postgresql_server" "fail_psql" {
   name = "fail"
 

@@ -2,36 +2,40 @@
 folder="${1:-.}"
 figlet Compare Tools
 
-file="results.json"
+file="fails.json"
 
 if [ -f "$file" ] ; then
     rm "$file"
 fi
 
 #define expectations
-expected=1362
+expected=971
 tfexpected=917
 kicsexpected=2704
 
 # run the tools
 checkov -o json -d $folder >"$folder/$file"
 
-tfsec $folder -f json -s --out "$folder/tfsec_$file"  2> /dev/null
+tfsec $folder -f json -s --out "$folder/fails_tfsec.json"  2> /dev/null
 # snyk iac test . --json-file-output="synk__$file"  2> /dev/null
-kics scan -s -p $folder -o $folder --output-name "kics_$file"
-kics_count=$(cat "$folder/kics_$file"| jq -r '.total_counter')
+kics scan -s -p $folder -o $folder --output-name "fails_kics.json"
+kics_count=$(cat "$folder/fails_kics.json"| jq -r '.total_counter')
 
-tfsec_count=$(cat "$folder/tfsec_$file" | jq -r '.results | length')
+tfsec_count=$(cat "$folder/fails_tfsec.json" | jq -r '.results | length')
 terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2> /dev/null
-resources=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2> /dev/null
+resource=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2> /dev/null
 
 if [ -z "$terraform" ]; then
     terraform=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.failed')
-    resources=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.resource_count')
+    resource=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.resource_count')
 fi
 
-for i in ${terraform[@]}; do                                                                                                
+for i in ${terraform[@]}; do
   let total+=$i
+done
+
+for i in ${resource[@]}; do
+  let resources+=$i
 done
 
 # shellcheck disable=SC2086

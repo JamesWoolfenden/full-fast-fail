@@ -1,5 +1,5 @@
 # fails
-# todo
+# todo - not sure this is required
 resource "azurerm_postgresql_configuration" "fail2" {
   name                = "log_duration"
   resource_group_name = "example1_resource_group_name"

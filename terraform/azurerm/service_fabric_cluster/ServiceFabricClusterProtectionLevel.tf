@@ -1,8 +1,8 @@
 # fails
 # CKV_AZURE_126: "Ensures that Active Directory is used for authentication for Service Fabric"
 # CKV_AZURE_125: "Ensures that Service Fabric use three levels of protection available"
-
-resource "azurerm_service_fabric_cluster" "example" {
+# todo cluster protection
+resource "azurerm_service_fabric_cluster" "example_level" {
   name                 = "example-servicefabric"
   resource_group_name  = azurerm_resource_group.example.name
   location             = azurerm_resource_group.example.location

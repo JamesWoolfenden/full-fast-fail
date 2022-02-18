@@ -1,3 +1,5 @@
+# fails
+# todo acl.access_policy cannot contain all rwdl
 resource "azurerm_storage_share" "example" {
   name                 = "sharename"
   storage_account_name = azurerm_storage_account.example.name

@@ -1,4 +1,4 @@
-# todo
+# todo?
 resource "azurerm_monitor_log_profile" "fail" {
   name = "fail"
 

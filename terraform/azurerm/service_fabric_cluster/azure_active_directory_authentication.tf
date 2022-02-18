@@ -1,4 +1,5 @@
-resource "azurerm_service_fabric_cluster" "positive1" {
+# fails todo
+resource "azurerm_service_fabric_cluster" "fail_ad" {
   name                 = "example-servicefabric"
   resource_group_name  = azurerm_resource_group.example.name
   location             = azurerm_resource_group.example.location

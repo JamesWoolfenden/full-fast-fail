@@ -1,5 +1,6 @@
-
-resource "azurerm_postgresql_configuration" "example" {
+# fails
+# Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database ServerCheckov CKV_AZURE_31
+resource "azurerm_postgresql_configuration" "example_connections" {
   name                = "log_connections"
   resource_group_name = data.azurerm_resource_group.example.name
   server_name         = azurerm_postgresql_server.example.name

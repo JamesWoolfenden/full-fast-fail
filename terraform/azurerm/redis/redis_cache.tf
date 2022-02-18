@@ -1,7 +1,7 @@
 # fails
 # Ensure that Azure Cache for Redis disables public network accessCheckov CKV_AZURE_89
-# todo min tls
-# todo enable non ssl port
+# CKV_AZURE_148
+# Ensure that only SSL are enabled for Cache for RedisCheckov CKV_AZURE_91
 # todo patch_schedule' is defined
 #  ip range is not private
 
@@ -16,8 +16,8 @@ resource "azurerm_redis_cache" "fail" {
   sku_name    = "Premium"
   shard_count = 1
 
-  enable_non_ssl_port           = false
-  minimum_tls_version           = "1.2"
+  enable_non_ssl_port           = true
+  minimum_tls_version           = "1.1"
   public_network_access_enabled = true
 
   redis_configuration {

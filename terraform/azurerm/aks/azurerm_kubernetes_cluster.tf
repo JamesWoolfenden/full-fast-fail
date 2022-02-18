@@ -7,6 +7,7 @@
 # Ensure Kubernetes Dashboard is disabledCheckov CKV_AZURE_8
 # Ensure AKS has an API Server Authorized IP Ranges enabledCheckov CKV_AZURE_6
 # Ensure RBAC is enabled on AKS clustersCheckov CKV_AZURE_5
+# Ensure AKS cluster nodes do not have public IP addresses CKV_AZURE_143
 
 # tfsec
 # azure-container-limit-authorized-ips
@@ -18,9 +19,10 @@ resource "azurerm_kubernetes_cluster" "fail_cluster" {
   resource_group_name = azurerm_resource_group.example.name
   dns_prefix          = "exampleaks1"
   default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_D2_v2"
+    enable_node_public_ip = true
+    name                  = "default"
+    node_count            = 1
+    vm_size               = "Standard_D2_v2"
   }
   identity {
     type = "SystemAssigned"

@@ -6,8 +6,7 @@
 # CKV2_AZURE_6: "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled"
 # CKV2_AZURE_7: "Ensure that Azure Active Directory Admin is configured"
 # CKV2_AZURE_13: "Ensure that sql servers enables data security policy"
-# todo # CKV_AZURE_52: "Ensure MSSQL is using the latest version of TLS encryption" not triggered
-# todo ensure infrastructure_encryption_enabled=false
+
 resource "azurerm_sql_server" "example" {
   name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.example.name
@@ -28,5 +27,4 @@ resource "azurerm_sql_server" "example" {
     retention_in_days                       = 6
   }
   infrastructure_encryption_enabled = false
-
 }

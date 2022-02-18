@@ -1,3 +1,6 @@
+# fails
+# Ensure Storage logging is enabled for Table service for read requestsCheckov CKV2_AZURE_20
+# todo ensure acl.access_policy.permission is not rwdl
 resource "azurerm_storage_table" "table_resource" {
   name                 = "my_table_name"
   storage_account_name = "mystoragexxx"
