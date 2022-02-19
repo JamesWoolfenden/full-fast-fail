@@ -50,8 +50,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_security_list/stateless.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/stateless.tf",
+                "file_path": "/core_security_list\\stateless.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_security_list\\stateless.tf",
                 "repo_file_path": "/terraform/oracle/core_security_list/stateless.tf",
                 "file_line_range": [
                     2,
@@ -74,13 +74,13 @@
         ],
         "failed_checks": [
             {
-                "check_id": "CKV_OCI_13",
-                "bc_check_id": "BC_OCI_IAM_3",
-                "check_name": "OCI IAM password policy - must contain Special characters",
+                "check_id": "CKV_OCI_18",
+                "bc_check_id": "BC_OCI_IAM_5",
+                "check_name": "OCI IAM password policy for local (non-federated) users has a minimum length of 14 characters",
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
-                        "password_policy/[0]/is_special_characters_required"
+                        "password_policy/minimum_password_length"
                     ]
                 },
                 "code_block": [
@@ -137,8 +137,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/IAM/identity_authentication_policy.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_path": "/IAM\\identity_authentication_policy.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\IAM\\identity_authentication_policy.tf",
                 "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
                 "file_line_range": [
                     8,
@@ -146,7 +146,7 @@
                 ],
                 "resource": "oci_identity_authentication_policy.fail",
                 "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicySpecialCharacters",
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordLength",
                 "fixed_definition": null,
                 "entity_tags": null,
                 "caller_file_path": null,
@@ -156,7 +156,7 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
-                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_3"
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_5"
             },
             {
                 "check_id": "CKV_OCI_11",
@@ -222,8 +222,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/IAM/identity_authentication_policy.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_path": "/IAM\\identity_authentication_policy.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\IAM\\identity_authentication_policy.tf",
                 "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
                 "file_line_range": [
                     8,
@@ -242,176 +242,6 @@
                 "short_description": null,
                 "vulnerability_details": null,
                 "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_1"
-            },
-            {
-                "check_id": "CKV_OCI_18",
-                "bc_check_id": "BC_OCI_IAM_5",
-                "check_name": "OCI IAM password policy for local (non-federated) users has a minimum length of 14 characters",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": [
-                        "password_policy/minimum_password_length"
-                    ]
-                },
-                "code_block": [
-                    [
-                        8,
-                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
-                    ],
-                    [
-                        9,
-                        "\n"
-                    ],
-                    [
-                        10,
-                        "  compartment_id = var.tenancy_id\n"
-                    ],
-                    [
-                        11,
-                        "\n"
-                    ],
-                    [
-                        12,
-                        "  password_policy {\n"
-                    ],
-                    [
-                        13,
-                        "    is_lowercase_characters_required = false\n"
-                    ],
-                    [
-                        14,
-                        "    is_numeric_characters_required   = false\n"
-                    ],
-                    [
-                        15,
-                        "    is_special_characters_required   = false\n"
-                    ],
-                    [
-                        16,
-                        "    is_uppercase_characters_required = false\n"
-                    ],
-                    [
-                        17,
-                        "    is_username_containment_allowed  = false\n"
-                    ],
-                    [
-                        18,
-                        "    minimum_password_length          = 13\n"
-                    ],
-                    [
-                        19,
-                        "  }\n"
-                    ],
-                    [
-                        20,
-                        "}\n"
-                    ]
-                ],
-                "file_path": "/IAM/identity_authentication_policy.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
-                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
-                "file_line_range": [
-                    8,
-                    20
-                ],
-                "resource": "oci_identity_authentication_policy.fail",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordLength",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_5"
-            },
-            {
-                "check_id": "CKV_OCI_14",
-                "bc_check_id": "BC_OCI_IAM_4",
-                "check_name": "OCI IAM password policy - must contain Uppercase characters",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": [
-                        "password_policy/[0]/is_uppercase_characters_required"
-                    ]
-                },
-                "code_block": [
-                    [
-                        8,
-                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
-                    ],
-                    [
-                        9,
-                        "\n"
-                    ],
-                    [
-                        10,
-                        "  compartment_id = var.tenancy_id\n"
-                    ],
-                    [
-                        11,
-                        "\n"
-                    ],
-                    [
-                        12,
-                        "  password_policy {\n"
-                    ],
-                    [
-                        13,
-                        "    is_lowercase_characters_required = false\n"
-                    ],
-                    [
-                        14,
-                        "    is_numeric_characters_required   = false\n"
-                    ],
-                    [
-                        15,
-                        "    is_special_characters_required   = false\n"
-                    ],
-                    [
-                        16,
-                        "    is_uppercase_characters_required = false\n"
-                    ],
-                    [
-                        17,
-                        "    is_username_containment_allowed  = false\n"
-                    ],
-                    [
-                        18,
-                        "    minimum_password_length          = 13\n"
-                    ],
-                    [
-                        19,
-                        "  }\n"
-                    ],
-                    [
-                        20,
-                        "}\n"
-                    ]
-                ],
-                "file_path": "/IAM/identity_authentication_policy.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
-                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
-                "file_line_range": [
-                    8,
-                    20
-                ],
-                "resource": "oci_identity_authentication_policy.fail",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicyUpperCase",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_4"
             },
             {
                 "check_id": "CKV_OCI_12",
@@ -477,8 +307,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/IAM/identity_authentication_policy.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_path": "/IAM\\identity_authentication_policy.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\IAM\\identity_authentication_policy.tf",
                 "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
                 "file_line_range": [
                     8,
@@ -497,6 +327,176 @@
                 "short_description": null,
                 "vulnerability_details": null,
                 "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_2"
+            },
+            {
+                "check_id": "CKV_OCI_13",
+                "bc_check_id": "BC_OCI_IAM_3",
+                "check_name": "OCI IAM password policy - must contain Special characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_special_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM\\identity_authentication_policy.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\IAM\\identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicySpecialCharacters",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_3"
+            },
+            {
+                "check_id": "CKV_OCI_14",
+                "bc_check_id": "BC_OCI_IAM_4",
+                "check_name": "OCI IAM password policy - must contain Uppercase characters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "password_policy/[0]/is_uppercase_characters_required"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"oci_identity_authentication_policy\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  compartment_id = var.tenancy_id\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  password_policy {\n"
+                    ],
+                    [
+                        13,
+                        "    is_lowercase_characters_required = false\n"
+                    ],
+                    [
+                        14,
+                        "    is_numeric_characters_required   = false\n"
+                    ],
+                    [
+                        15,
+                        "    is_special_characters_required   = false\n"
+                    ],
+                    [
+                        16,
+                        "    is_uppercase_characters_required = false\n"
+                    ],
+                    [
+                        17,
+                        "    is_username_containment_allowed  = false\n"
+                    ],
+                    [
+                        18,
+                        "    minimum_password_length          = 13\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/IAM\\identity_authentication_policy.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\IAM\\identity_authentication_policy.tf",
+                "repo_file_path": "/terraform/oracle/IAM/identity_authentication_policy.tf",
+                "file_line_range": [
+                    8,
+                    20
+                ],
+                "resource": "oci_identity_authentication_policy.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.IAMPasswordPolicyUpperCase",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_iam_4"
             },
             {
                 "check_id": "CKV_OCI_4",
@@ -826,8 +826,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_instance/core_instance.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "file_path": "/core_instance\\core_instance.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_instance\\core_instance.tf",
                 "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
                 "file_line_range": [
                     5,
@@ -1175,8 +1175,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_instance/core_instance.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "file_path": "/core_instance\\core_instance.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_instance\\core_instance.tf",
                 "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
                 "file_line_range": [
                     5,
@@ -1524,8 +1524,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_instance/core_instance.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_instance/core_instance.tf",
+                "file_path": "/core_instance\\core_instance.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_instance\\core_instance.tf",
                 "repo_file_path": "/terraform/oracle/core_instance/core_instance.tf",
                 "file_line_range": [
                     5,
@@ -1573,8 +1573,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_security_list/core_security_list.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/core_security_list.tf",
+                "file_path": "/core_security_list\\core_security_list.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_security_list\\core_security_list.tf",
                 "repo_file_path": "/terraform/oracle/core_security_list/core_security_list.tf",
                 "file_line_range": [
                     1,
@@ -1642,8 +1642,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_security_list/stateless.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/stateless.tf",
+                "file_path": "/core_security_list\\stateless.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_security_list\\stateless.tf",
                 "repo_file_path": "/terraform/oracle/core_security_list/stateless.tf",
                 "file_line_range": [
                     2,
@@ -1763,8 +1763,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_volume/core_volume.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_volume/core_volume.tf",
+                "file_path": "/core_volume\\core_volume.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_volume\\core_volume.tf",
                 "repo_file_path": "/terraform/oracle/core_volume/core_volume.tf",
                 "file_line_range": [
                     1,
@@ -1884,8 +1884,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_volume/core_volume.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_volume/core_volume.tf",
+                "file_path": "/core_volume\\core_volume.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_volume\\core_volume.tf",
                 "repo_file_path": "/terraform/oracle/core_volume/core_volume.tf",
                 "file_line_range": [
                     1,
@@ -1953,8 +1953,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/file_storage_file_system/file_storage_file_system.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/file_storage_file_system/file_storage_file_system.tf",
+                "file_path": "/file_storage_file_system\\file_storage_file_system.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\file_storage_file_system\\file_storage_file_system.tf",
                 "repo_file_path": "/terraform/oracle/file_storage_file_system/file_storage_file_system.tf",
                 "file_line_range": [
                     4,
@@ -1973,6 +1973,135 @@
                 "short_description": null,
                 "vulnerability_details": null,
                 "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_7"
+            },
+            {
+                "check_id": "CKV_OCI_7",
+                "bc_check_id": "BC_OCI_STORAGE_3",
+                "check_name": "Ensure OCI Object Storage bucket can emit object events",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "object_events_enabled"
+                    ]
+                },
+                "code_block": [
+                    [
+                        7,
+                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
+                    ],
+                    [
+                        8,
+                        "  compartment_id = var.compartment_id\n"
+                    ],
+                    [
+                        9,
+                        "  name           = var.bucket_name\n"
+                    ],
+                    [
+                        10,
+                        "  namespace      = var.namespace\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  access_type           = \"ObjectReadWithoutList\"\n"
+                    ],
+                    [
+                        13,
+                        "  defined_tags          = var.defined_tags\n"
+                    ],
+                    [
+                        14,
+                        "  freeform_tags         = var.freeform_tags\n"
+                    ],
+                    [
+                        15,
+                        "  metadata              = var.metadata\n"
+                    ],
+                    [
+                        16,
+                        "  storage_tier          = var.bucket_storage_tier\n"
+                    ],
+                    [
+                        17,
+                        "  object_events_enabled = false\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  retention_rules {\n"
+                    ],
+                    [
+                        20,
+                        "    display_name = var.retention_rule_display_name\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "    duration {\n"
+                    ],
+                    [
+                        23,
+                        "      time_amount = var.retention_rule_duration_time_amount\n"
+                    ],
+                    [
+                        24,
+                        "      time_unit   = var.retention_rule_duration_time_unit\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
+                    ],
+                    [
+                        27,
+                        "  }\n"
+                    ],
+                    [
+                        28,
+                        "\n"
+                    ],
+                    [
+                        29,
+                        "  versioning = \"Disabled\"\n"
+                    ],
+                    [
+                        30,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/objectstorage_bucket\\objectstorage_bucket.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\objectstorage_bucket\\objectstorage_bucket.tf",
+                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_line_range": [
+                    7,
+                    30
+                ],
+                "resource": "oci_objectstorage_bucket.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.oci.ObjectStorageEmitEvents",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_3"
             },
             {
                 "check_id": "CKV_OCI_9",
@@ -2082,8 +2211,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_path": "/objectstorage_bucket\\objectstorage_bucket.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\objectstorage_bucket\\objectstorage_bucket.tf",
                 "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
                 "file_line_range": [
                     7,
@@ -2211,8 +2340,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_path": "/objectstorage_bucket\\objectstorage_bucket.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\objectstorage_bucket\\objectstorage_bucket.tf",
                 "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
                 "file_line_range": [
                     7,
@@ -2340,8 +2469,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
+                "file_path": "/objectstorage_bucket\\objectstorage_bucket.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\objectstorage_bucket\\objectstorage_bucket.tf",
                 "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
                 "file_line_range": [
                     7,
@@ -2360,135 +2489,6 @@
                 "short_description": null,
                 "vulnerability_details": null,
                 "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_4"
-            },
-            {
-                "check_id": "CKV_OCI_7",
-                "bc_check_id": "BC_OCI_STORAGE_3",
-                "check_name": "Ensure OCI Object Storage bucket can emit object events",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": [
-                        "object_events_enabled"
-                    ]
-                },
-                "code_block": [
-                    [
-                        7,
-                        "resource \"oci_objectstorage_bucket\" \"fail\" {\n"
-                    ],
-                    [
-                        8,
-                        "  compartment_id = var.compartment_id\n"
-                    ],
-                    [
-                        9,
-                        "  name           = var.bucket_name\n"
-                    ],
-                    [
-                        10,
-                        "  namespace      = var.namespace\n"
-                    ],
-                    [
-                        11,
-                        "\n"
-                    ],
-                    [
-                        12,
-                        "  access_type           = \"ObjectReadWithoutList\"\n"
-                    ],
-                    [
-                        13,
-                        "  defined_tags          = var.defined_tags\n"
-                    ],
-                    [
-                        14,
-                        "  freeform_tags         = var.freeform_tags\n"
-                    ],
-                    [
-                        15,
-                        "  metadata              = var.metadata\n"
-                    ],
-                    [
-                        16,
-                        "  storage_tier          = var.bucket_storage_tier\n"
-                    ],
-                    [
-                        17,
-                        "  object_events_enabled = false\n"
-                    ],
-                    [
-                        18,
-                        "\n"
-                    ],
-                    [
-                        19,
-                        "  retention_rules {\n"
-                    ],
-                    [
-                        20,
-                        "    display_name = var.retention_rule_display_name\n"
-                    ],
-                    [
-                        21,
-                        "\n"
-                    ],
-                    [
-                        22,
-                        "    duration {\n"
-                    ],
-                    [
-                        23,
-                        "      time_amount = var.retention_rule_duration_time_amount\n"
-                    ],
-                    [
-                        24,
-                        "      time_unit   = var.retention_rule_duration_time_unit\n"
-                    ],
-                    [
-                        25,
-                        "    }\n"
-                    ],
-                    [
-                        26,
-                        "    time_rule_locked = var.retention_rule_time_rule_locked\n"
-                    ],
-                    [
-                        27,
-                        "  }\n"
-                    ],
-                    [
-                        28,
-                        "\n"
-                    ],
-                    [
-                        29,
-                        "  versioning = \"Disabled\"\n"
-                    ],
-                    [
-                        30,
-                        "}\n"
-                    ]
-                ],
-                "file_path": "/objectstorage_bucket/objectstorage_bucket.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
-                "repo_file_path": "/terraform/oracle/objectstorage_bucket/objectstorage_bucket.tf",
-                "file_line_range": [
-                    7,
-                    30
-                ],
-                "resource": "oci_objectstorage_bucket.fail",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.oci.ObjectStorageEmitEvents",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "guideline": "https://docs.bridgecrew.io/docs/bc_oci_storage_3"
             }
         ],
         "skipped_checks": [
@@ -2518,8 +2518,8 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/core_security_list/core_security_list.tf",
-                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/oracle/core_security_list/core_security_list.tf",
+                "file_path": "/core_security_list\\core_security_list.tf",
+                "file_abs_path": "F:\\Code\\fail\\terraform\\oracle\\core_security_list\\core_security_list.tf",
                 "repo_file_path": "/terraform/oracle/core_security_list/core_security_list.tf",
                 "file_line_range": [
                     1,
@@ -2548,7 +2548,7 @@
         "skipped": 1,
         "parsing_errors": 0,
         "resource_count": 9,
-        "checkov_version": "2.0.826"
+        "checkov_version": "2.0.873"
     },
     "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
 }

@@ -1,9 +1,9 @@
 {
-	"kics_version": "1.5.1",
+	"kics_version": "1.4.9",
 	"files_scanned": 87,
 	"files_parsed": 87,
 	"files_failed_to_scan": 0,
-	"queries_total": 856,
+	"queries_total": 851,
 	"queries_failed_to_execute": 0,
 	"queries_failed_to_compute_similarity_id": 0,
 	"scan_id": "console",
@@ -16,10 +16,10 @@
 	},
 	"total_counter": 131,
 	"total_bom_resources": 0,
-	"start": "2022-02-18T14:29:56.025957Z",
-	"end": "2022-02-18T14:30:09.058736Z",
+	"start": "2022-02-18T20:29:30.6360169Z",
+	"end": "2022-02-18T20:29:58.9314624Z",
 	"paths": [
-		"./terraform/azurerm"
+		".\\terraform\\azurerm\\"
 	],
 	"queries": [
 		{
@@ -28,24 +28,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_active_directory_administrator",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "The Active Directory Administrator is not configured for a SQL server",
 			"description_id": "bccbda19",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-					"similarity_id": "d7e3b18a62f2234bcb2c7494bce89b9e1e0659fae5d0dcd9f502c720176d0165",
-					"line": 16,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_sql_server[positive3]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "A 'azurerm_sql_active_directory_administrator' is defined for 'azurerm_sql_server[positive3]'",
-					"actual_value": "A 'azurerm_sql_active_directory_administrator' is not defined for 'azurerm_sql_server[positive3]'"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "ca1bde5682ba831449d238aba2f6c53a8f8cca1c8761f87ede8cd1904dd3c286",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -56,7 +44,7 @@
 					"actual_value": "A 'azurerm_sql_active_directory_administrator' is not defined for 'azurerm_sql_server[positive4]'"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
 					"similarity_id": "2a71b865f4241ede0efc45baad2ad5e1c909b082f1c51b61978582c160c102db",
 					"line": 9,
 					"issue_type": "MissingAttribute",
@@ -65,6 +53,17 @@
 					"search_value": "",
 					"expected_value": "A 'azurerm_sql_active_directory_administrator' is defined for 'azurerm_sql_server[positive2]'",
 					"actual_value": "A 'azurerm_sql_active_directory_administrator' is not defined for 'azurerm_sql_server[positive2]'"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "d7e3b18a62f2234bcb2c7494bce89b9e1e0659fae5d0dcd9f502c720176d0165",
+					"line": 16,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_sql_server[positive3]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "A 'azurerm_sql_active_directory_administrator' is defined for 'azurerm_sql_server[positive3]'",
+					"actual_value": "A 'azurerm_sql_active_directory_administrator' is not defined for 'azurerm_sql_server[positive3]'"
 				}
 			]
 		},
@@ -74,13 +73,12 @@
 			"query_url": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Admin user is enabled for Container Registry",
 			"description_id": "5250257b",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/container/container_registry.tf",
+					"file_name": "terraform\\azurerm\\container\\container_registry.tf",
 					"similarity_id": "1f0a954a1572adce7812fd4aacb331d1619008ab7bf34c6ccbfb5d56a7a82ab6",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -98,13 +96,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#ftps_state",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azure App Service should only enforce FTPS when 'ftps_state' is enabled",
 			"description_id": "a1ada318",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "2705f8b5ce50badb1f07123f7ed963072f44619dd8e0070c1bce73c3ea2aae62",
 					"line": 50,
 					"issue_type": "IncorrectValue",
@@ -122,13 +119,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#min_tls_version",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Ensure App Service is using the latest version of TLS encryption",
 			"description_id": "63399f46",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "d3fcaf4febda45e732fc5d64851f76145a8b79e79eeb47ea1335998265d95d43",
 					"line": 46,
 					"issue_type": "IncorrectValue",
@@ -146,13 +142,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#client_cert_enabled",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Azure App Service client certificate should be enabled",
 			"description_id": "7beaf18e",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "ad90d3983ca268d738649de189987eaa025b40a03d5114cc01ee250bd5eab61b",
 					"line": 62,
 					"issue_type": "IncorrectValue",
@@ -170,13 +165,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azurerm Container Registry Must Contain Associated Locks ",
 			"description_id": "adb235b6",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/container/azure_container_registry_with_no_locks.tf",
+					"file_name": "terraform\\azurerm\\container\\azure_container_registry_with_no_locks.tf",
 					"similarity_id": "8dd8836f029773d70d59bc1c99f74dfed1b4eec4a7cc1e7a88240f0a07eb57c4",
 					"line": 2,
 					"issue_type": "MissingAttribute",
@@ -194,13 +188,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account#ip_range_filter",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "The Ip Range Must Contain Ips",
 			"description_id": "fd34a2d6",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/cosmosdb/cosmosdb_account.tf",
+					"file_name": "terraform\\azurerm\\cosmosdb\\cosmosdb_account.tf",
 					"similarity_id": "6cbf2df1b576dcf37bef2a5e2a08429c289ec43fffd9502e564737db070a488e",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -218,13 +211,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#auth_settings",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure Function App authentication settings should be enabled",
 			"description_id": "7526dc36",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "6b6869010a05e82de0ee6d496abb13f9266c1a41b98783be0d8e9197357702a2",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -242,13 +234,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#ftps_state",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azure Function App should only enforce FTPS when 'ftps_state' is enabled",
 			"description_id": "2144ef13",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "0ef90bd7cacecbeac415e11ff064336542b9f9515ce82859e294b54a08e3e339",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -266,13 +257,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#min_tls_version",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Ensure Function App is using the latest version of TLS encryption",
 			"description_id": "69753abf",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "a5a15f5516b1c1878090ab325b8458c984617667a93e52e815ec59bfc71bf5fb",
 					"line": 20,
 					"issue_type": "IncorrectValue",
@@ -290,13 +280,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Backup",
 			"description": "Make sure that on PostgreSQL Geo Redundant Backups is enabled",
 			"description_id": "4646e954",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
 					"similarity_id": "b2b755ec096a491821fc11d9fbb35517fe950266c5b1e5f5523473b5a2cfb878",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -307,7 +296,7 @@
 					"actual_value": "'azurerm_postgresql_server.fails.geo_redundant_backup_enabled' is false"
 				},
 				{
-					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
 					"similarity_id": "8d0b460b2af5d1dac1e749893371129e7ee6856488545f4f0f4b850e02b0edad",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -325,13 +314,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Secret Management",
 			"description": "Make sure that for all keys the expiration date is set",
 			"description_id": "bb99ceb7",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/keyvault/key_vault_key.tf",
+					"file_name": "terraform\\azurerm\\keyvault\\key_vault_key.tf",
 					"similarity_id": "d005211b71f7a0e4889bbe18169d4376beb2e55bd113afead83275316d537b91",
 					"line": 4,
 					"issue_type": "MissingAttribute",
@@ -349,13 +337,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server#public_network_access_enabled",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "MSSQL Server public network access should be disabled",
 			"description_id": "d1ee9c09",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/mssql_server.tf",
+					"file_name": "terraform\\azurerm\\mssql\\mssql_server.tf",
 					"similarity_id": "e938468f272abc1ac9da6de150731ff9f6c6db58eaba0e04786932ea1088f5b3",
 					"line": 14,
 					"issue_type": "IncorrectValue",
@@ -373,13 +360,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Make sure that for MySQL Database Server, 'Enforce SSL connection' is enabled",
 			"description_id": "81500787",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mysql/mysql_server.tf",
+					"file_name": "terraform\\azurerm\\mysql\\mysql_server.tf",
 					"similarity_id": "4e48d04d5348ffa5ff2b49c28278c6433d7907487e87eec87be7c9abda206880",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -397,13 +383,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server#public_network_access_enabled",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "MySQL Server public access should be disabled",
 			"description_id": "e5c71632",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mysql/mysql_server.tf",
+					"file_name": "terraform\\azurerm\\mysql\\mysql_server.tf",
 					"similarity_id": "93b5fce67fff34ca5fed69fb9b52802c84ff8d25b8339f22835b47e9c4fddb8a",
 					"line": 11,
 					"issue_type": "IncorrectValue",
@@ -421,90 +406,12 @@
 			"query_url": "https://kics.io/",
 			"severity": "HIGH",
 			"platform": "Common",
-			"cloud_provider": "COMMON",
 			"category": "Secret Management",
 			"description": "Query to find passwords and secrets in infrastructure code.",
 			"description_id": "d69d8a89",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/vms/linux_virtual_machine.tf",
-					"similarity_id": "cb8cd779f77edcfba24fc038af285c133bf7800d1a49d591a93cb03c482f2fec",
-					"line": 6,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  admin_password      = \"admin\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-					"similarity_id": "d8d4850aee5b465630228649151ccee327f0e68715d76bc5ccf48a9879691bd0",
-					"line": 22,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server.tf",
-					"similarity_id": "a19088735aca8e070f73ce1356bfccb62e05454dda77ff9e79a9cda9bdfa34eb",
-					"line": 16,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
-					"similarity_id": "ceb3a6cabc6ba262ccecccd49f962af0b4693d6fef38b4ca0f6d668d31bc5c47",
-					"line": 15,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/synapse/synapse_workspace.tf",
-					"similarity_id": "608d75c98e7d5ca9efef727ea67e9533c9d524fd4b8f0314fa81a0d88174ae84",
-					"line": 10,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  sql_administrator_login_password     = \"H@Sh1CoR3!\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/vms/virtual_machine.tf",
-					"similarity_id": "a2e676ddd76badea33e56dd7ec8416eb31ecc81a4e8e7e8a7da0b621dcf010d8",
-					"line": 22,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'    admin_password = \"Password1234!\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-					"similarity_id": "f8c0f7e0800c25af5ba09fceec25dd59124f1a8f6aa650c876841d8b377c85df",
-					"line": 42,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
-				},
-				{
-					"file_name": "terraform/azurerm/compute/linux_virtual_machine.tf",
+					"file_name": "terraform\\azurerm\\compute\\linux_virtual_machine.tf",
 					"similarity_id": "207cc20338b3987ba57980045d4738d5e2318a1ad666b848e3cfbb18c284336a",
 					"line": 15,
 					"issue_type": "RedundantAttribute",
@@ -515,7 +422,7 @@
 					"actual_value": "'  admin_password                  = \"somePassword\"' contains a secret"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/mssql_server.tf",
+					"file_name": "terraform\\azurerm\\mssql\\mssql_server.tf",
 					"similarity_id": "140e4e74abf6b32e097447b6f78b4d538b55875049a5063a4458ed7531085d70",
 					"line": 12,
 					"issue_type": "RedundantAttribute",
@@ -523,10 +430,43 @@
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  administrator_login_password = \"thisIsKat11\"' contains a secret"
+					"actual_value": "'  administrator_login_password  = \"thisIsKat11\"' contains a secret"
 				},
 				{
-					"file_name": "terraform/azurerm/vms/windows_virtual_machine_scale_set.tf",
+					"file_name": "terraform\\azurerm\\vms\\virtual_machine.tf",
+					"similarity_id": "a2e676ddd76badea33e56dd7ec8416eb31ecc81a4e8e7e8a7da0b621dcf010d8",
+					"line": 22,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'    admin_password = \"Password1234!\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\vms\\linux_virtual_machine.tf",
+					"similarity_id": "cb8cd779f77edcfba24fc038af285c133bf7800d1a49d591a93cb03c482f2fec",
+					"line": 6,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  admin_password      = \"admin\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server.tf",
+					"similarity_id": "a19088735aca8e070f73ce1356bfccb62e05454dda77ff9e79a9cda9bdfa34eb",
+					"line": 16,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\vms\\windows_virtual_machine_scale_set.tf",
 					"similarity_id": "f322559de75f9f7cb267241b7aeed28c36021d56a580f77d2b06e0392cab700f",
 					"line": 9,
 					"issue_type": "RedundantAttribute",
@@ -535,6 +475,50 @@
 					"search_value": "",
 					"expected_value": "Hardcoded secret key should not appear in source",
 					"actual_value": "'  admin_password      = \"P@55w0rd1234!\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\synapse\\synapse_workspace.tf",
+					"similarity_id": "608d75c98e7d5ca9efef727ea67e9533c9d524fd4b8f0314fa81a0d88174ae84",
+					"line": 10,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  sql_administrator_login_password     = \"H@Sh1CoR3!\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
+					"similarity_id": "ceb3a6cabc6ba262ccecccd49f962af0b4693d6fef38b4ca0f6d668d31bc5c47",
+					"line": 15,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "d8d4850aee5b465630228649151ccee327f0e68715d76bc5ccf48a9879691bd0",
+					"line": 22,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "f8c0f7e0800c25af5ba09fceec25dd59124f1a8f6aa650c876841d8b377c85df",
+					"line": 42,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
 				}
 			]
 		},
@@ -544,24 +528,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server#threat_detection_policy",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Resource Management",
 			"description": "PostgreSQL Server Threat Detection Policy should be enabled",
 			"description_id": "ed803b39",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
-					"similarity_id": "ebdb3cac19fa6b4857cdeed029b81c8c194791e4fbb1028f5da45111008c765d",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_postgresql_server[fail_psql]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_postgresql_server[fail_psql].threat_detection_policy' is a defined object",
-					"actual_value": "'azurerm_postgresql_server[fail_psql].threat_detection_policy' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
 					"similarity_id": "2142a135ccbb041723e055418a594c0d56ba1d2502e309d96ac9d17aa3c72f22",
 					"line": 29,
 					"issue_type": "IncorrectValue",
@@ -570,6 +542,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_postgresql_server[fails].threat_detection_policy.enabled' is set to true",
 					"actual_value": "'azurerm_postgresql_server[fails].threat_detection_policy.enabled' is set to false"
+				},
+				{
+					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
+					"similarity_id": "ebdb3cac19fa6b4857cdeed029b81c8c194791e4fbb1028f5da45111008c765d",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_postgresql_server[fail_psql]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_postgresql_server[fail_psql].threat_detection_policy' is a defined object",
+					"actual_value": "'azurerm_postgresql_server[fail_psql].threat_detection_policy' is undefined or null"
 				}
 			]
 		},
@@ -579,13 +562,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Storage Account should not be public",
 			"description_id": "88948514",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
+					"file_name": "terraform\\azurerm\\storage\\account\\storage_account.tf",
 					"similarity_id": "446796863cf66b7726ed76d8ae16c933696d49ed346354b1456c2eb1435f34bb",
 					"line": 16,
 					"issue_type": "IncorrectValue",
@@ -603,24 +585,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Port 3389 (Remote Desktop) is exposed to the internet",
 			"description_id": "21b8be3f",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
-					"similarity_id": "99d4e9c8d8a926d3070cbbb3ea33c4ae71b994382a92ff81d03dd96224b58e70",
-					"line": 10,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_network_security_rule[fail_range].destination_port_range",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_network_security_rule.fail_range.destination_port_range' cannot be 3389",
-					"actual_value": "'azurerm_network_security_rule.fail_range.destination_port_range' might be 3389"
-				},
-				{
-					"file_name": "terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+					"file_name": "terraform\\azurerm\\network\\ports\\disable-rdp-from-internet.tf",
 					"similarity_id": "7fb699632870cd25df259c90d57d0bdc49e1bac480f2b1e12dab4b13d7db6d12",
 					"line": 53,
 					"issue_type": "IncorrectValue",
@@ -629,6 +599,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_network_security_rule.fail_rdp.destination_port_range' cannot be 3389",
 					"actual_value": "'azurerm_network_security_rule.fail_rdp.destination_port_range' might be 3389"
+				},
+				{
+					"file_name": "terraform\\azurerm\\network\\ports\\disable-rdp-from-internet.tf",
+					"similarity_id": "99d4e9c8d8a926d3070cbbb3ea33c4ae71b994382a92ff81d03dd96224b58e70",
+					"line": 10,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_network_security_rule[fail_range].destination_port_range",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_network_security_rule.fail_range.destination_port_range' cannot be 3389",
+					"actual_value": "'azurerm_network_security_rule.fail_range.destination_port_range' might be 3389"
 				}
 			]
 		},
@@ -638,13 +619,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache#patch_schedule",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Redis Cache is not configured to be updated regularly with security and operational updates",
 			"description_id": "a9726898",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/redis/redis_cache.tf",
+					"file_name": "terraform\\azurerm\\redis\\redis_cache.tf",
 					"similarity_id": "d08aa19de5d243d1100978c330fb4429ba81dcced60fc374953b6d0d5ceee30d",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -662,13 +642,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_firewall_rule",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Firewall rule allowing unrestricted access to Redis from other Azure sources",
 			"description_id": "0017c1c6",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/redis/redis_firewall_rule.tf",
+					"file_name": "terraform\\azurerm\\redis\\redis_firewall_rule.tf",
 					"similarity_id": "d634f9dcdd143c65d27dce8d0a410f346249edc4a7500d287cf20c99a8839c51",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -686,13 +665,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Role Assignment should limit guest user permissions",
 			"description_id": "a827491d",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/iam/role_assignment_not_limit_guest_users_permissions.tf",
+					"file_name": "terraform\\azurerm\\iam\\role_assignment_not_limit_guest_users_permissions.tf",
 					"similarity_id": "79ace6753f4c95c90d5fce2fba892c9cf5c8865363577ce3690e6c7c903839ed",
 					"line": 20,
 					"issue_type": "IncorrectValue",
@@ -710,24 +688,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "There is a role assignment for guest user",
 			"description_id": "fa055646",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/iam/role_assignment_of_guest_users.tf",
-					"similarity_id": "d957452b31b1711a30c543a27f8c76f30f90213f70865cd1090faf151afe95ea",
-					"line": 3,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_role_assignment[positive1].role_definition_name",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_role_assignment[positive1].role_definition_name not equal to 'Guest'",
-					"actual_value": "azurerm_role_assignment[positive1].role_definition_name equals to 'Guest'"
-				},
-				{
-					"file_name": "terraform/azurerm/iam/role_assignment_not_limit_guest_users_permissions.tf",
+					"file_name": "terraform\\azurerm\\iam\\role_assignment_not_limit_guest_users_permissions.tf",
 					"similarity_id": "20e9b3943c409e6b807ae04f4f9302b8814c92dbddd5445cfb5616c352c5423c",
 					"line": 19,
 					"issue_type": "IncorrectValue",
@@ -736,6 +702,17 @@
 					"search_value": "",
 					"expected_value": "azurerm_role_assignment[example].role_definition_name not equal to 'Guest'",
 					"actual_value": "azurerm_role_assignment[example].role_definition_name equals to 'Guest'"
+				},
+				{
+					"file_name": "terraform\\azurerm\\iam\\role_assignment_of_guest_users.tf",
+					"similarity_id": "d957452b31b1711a30c543a27f8c76f30f90213f70865cd1090faf151afe95ea",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_role_assignment[positive1].role_definition_name",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "azurerm_role_assignment[positive1].role_definition_name not equal to 'Guest'",
+					"actual_value": "azurerm_role_assignment[positive1].role_definition_name equals to 'Guest'"
 				}
 			]
 		},
@@ -745,13 +722,12 @@
 			"query_url": "https://www.terraform.io/docs/providers/azurerm/r/sql_database.html",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Resource Management",
 			"description": "Ensure that 'Threat Detection' is enabled for Azure SQL Database",
 			"description_id": "8f1137db",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_database.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_database.tf",
 					"similarity_id": "6bd912dbf61f05e19ab3735cd55b13833fe08690786d72f59905e1016bfb19cf",
 					"line": 2,
 					"issue_type": "MissingAttribute",
@@ -769,15 +745,14 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_firewall_rule",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Check if all IPs are allowed, check from start 0.0.0.0 to end 255.255.255.255.",
 			"description_id": "eb6d3eca",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_firewall_rule.tf",
-					"similarity_id": "cb8c6a74525a5b95bda6abe7096febf163e5b27ef79ec1e238128367b0b6af04",
-					"line": 3,
+					"file_name": "terraform\\azurerm\\postgreSQL\\no-public-firewall-access.tf",
+					"similarity_id": "84e118cf3a1781b031c84db4e3e55d9355277fb78dea822652496ca9e1bd296c",
+					"line": 4,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_sql_firewall_rule[fail]",
 					"search_line": 0,
@@ -786,9 +761,9 @@
 					"actual_value": "azurerm_sql_firewall_rule.start_ip_address equal to 0.0.0.0 and end_ip_address equal to 0.0.0.0 or 255.255.255.255"
 				},
 				{
-					"file_name": "terraform/azurerm/postgreSQL/no-public-firewall-access.tf",
-					"similarity_id": "84e118cf3a1781b031c84db4e3e55d9355277fb78dea822652496ca9e1bd296c",
-					"line": 4,
+					"file_name": "terraform\\azurerm\\mssql\\sql_firewall_rule.tf",
+					"similarity_id": "cb8c6a74525a5b95bda6abe7096febf163e5b27ef79ec1e238128367b0b6af04",
+					"line": 3,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_sql_firewall_rule[fail]",
 					"search_line": 0,
@@ -804,13 +779,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Port 22 (SSH) is exposed to the internet",
 			"description_id": "f98cf1dc",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/ssh-blocked-from-internet.tf",
+					"file_name": "terraform\\azurerm\\network\\ssh-blocked-from-internet.tf",
 					"similarity_id": "3bd5ced3a350bcab69689bdc2bd8840390d59ed350f9447e4f2ed3f1fe7907cd",
 					"line": 35,
 					"issue_type": "IncorrectValue",
@@ -828,13 +802,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Make sure that for PosgreSQL, the 'Enforce SSL connection' is set to 'ENABLED'",
 			"description_id": "9549423a",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
 					"similarity_id": "088e5961a9dcdd772264d8c088d7664216a736a1fcf8980d234ddc776e05d5a6",
 					"line": 7,
 					"issue_type": "IncorrectValue",
@@ -845,7 +818,7 @@
 					"actual_value": "'azurerm_postgresql_server.fail_psql.ssl_enforcement_enabled' is equal 'false'"
 				},
 				{
-					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
 					"similarity_id": "c755b9a649794241f781ae08ced8d880051a37a528c48d2149f7f0f46ed5d9fb",
 					"line": 25,
 					"issue_type": "IncorrectValue",
@@ -863,13 +836,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_secret",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Secret Management",
 			"description": "Make sure that for all secrets the expiration date is set",
 			"description_id": "172cf4e6",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/keyvault/key_vault_secret.tf",
+					"file_name": "terraform\\azurerm\\keyvault\\key_vault_secret.tf",
 					"similarity_id": "7511e3a2abc4ebe2630ce0c3c35adb14b573c34b51252cd12ed7205a60c1e7be",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -887,13 +859,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "See that Storage Accounts forces the use of HTTPS",
 			"description_id": "ab6688ca",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
+					"file_name": "terraform\\azurerm\\storage\\account\\storage_account.tf",
 					"similarity_id": "81a0156583544f21a7df6da86c30055e227e6cb6c339f57cc235d864ed9a1063",
 					"line": 15,
 					"issue_type": "IncorrectValue",
@@ -904,7 +875,7 @@
 					"actual_value": "'azurerm_storage_account.example.enable_https_traffic_only' equals 'false'"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "d49e7225b00e3857819f4dbb6ce676b1849a772272b2ad7e63decaa4d4c04d14",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -915,15 +886,15 @@
 					"actual_value": "'azurerm_storage_account.positive2.enable_https_traffic_only' does not exist"
 				},
 				{
-					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-					"similarity_id": "6582b996ecae06cff413589a12965b7435a75ac94ce2d1073d6aab50760bd748",
-					"line": 2,
+					"file_name": "terraform\\azurerm\\storage\\account\\StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "2ab6468d2f1b9e90b8a125e97b44516cf7d93a1ba8f297cda57b4c916e7684f1",
+					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_storage_account[example]",
+					"search_key": "azurerm_storage_account[example_deny]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_storage_account.example.enable_https_traffic_only' equals 'true'",
-					"actual_value": "'azurerm_storage_account.example.enable_https_traffic_only' does not exist"
+					"expected_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' equals 'true'",
+					"actual_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' does not exist"
 				}
 			]
 		},
@@ -933,13 +904,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container#container_access_type",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Anonymous, public read access to a container and its blobs are enabled in Azure Blob Storage",
 			"description_id": "a9e178f3",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/container/storage_container.tf",
+					"file_name": "terraform\\azurerm\\storage\\container\\storage_container.tf",
 					"similarity_id": "7d986df366c0974cad89e60c0b667df5fc321274f70dcd8006743403659c43df",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -957,35 +927,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#bypass",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Trusted MIcrosoft Services are not enabled for Storage Account access",
 			"description_id": "2d2af667",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
-					"similarity_id": "08af69348e2667b511bc0d1296bcf061685bef5a926935ca28d3cc5a4c94beb2",
-					"line": 23,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_storage_account[example].network_rules.bypass",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'network_rules.bypass' contains 'AzureServices'",
-					"actual_value": "'network_rules.bypass' does not contain 'AzureServices'"
-				},
-				{
-					"file_name": "terraform/azurerm/storage/network_rules/storage_account_network_rules.tf",
-					"similarity_id": "2c22f85014706d85463a11b54b40e04a65ce9cc9bf6f8d50d2fe0eeb2e4fc6d4",
-					"line": 10,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_storage_account_network_rules[test].bypass",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'bypass' contains 'AzureServices'",
-					"actual_value": "'bypass' does not contain 'AzureServices'"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "f454cb3c81a2efc253c581c98852f8e9a0aeddb676bcb6bbd86728374165e7d9",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -996,22 +943,44 @@
 					"actual_value": "'network_rules' is undefined or null"
 				},
 				{
-					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-					"similarity_id": "d964ae21ae13009f07e133484979d718f7cee4cdbc8aafed1d262e0131eca263",
-					"line": 2,
+					"file_name": "terraform\\azurerm\\storage\\account\\StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "80006b0cc4cd98f115aa4080e38b06c11c6cd89aca8865a7fa133a6748d88e76",
+					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_storage_account[example]",
+					"search_key": "azurerm_storage_account[example_deny]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'network_rules' is defined and not null",
 					"actual_value": "'network_rules' is undefined or null"
 				},
 				{
-					"file_name": "terraform/azurerm/storage/network_rules/default-action-deny.tf",
+					"file_name": "terraform\\azurerm\\storage\\network_rules\\default-action-deny.tf",
 					"similarity_id": "d923d0780e039ef173c50b02edc9ef56c8da430499aa933b138f846ac46b71cf",
 					"line": 8,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_storage_account_network_rules[fail].bypass",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'bypass' contains 'AzureServices'",
+					"actual_value": "'bypass' does not contain 'AzureServices'"
+				},
+				{
+					"file_name": "terraform\\azurerm\\storage\\account\\storage_account.tf",
+					"similarity_id": "08af69348e2667b511bc0d1296bcf061685bef5a926935ca28d3cc5a4c94beb2",
+					"line": 23,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_storage_account[example].network_rules.bypass",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'network_rules.bypass' contains 'AzureServices'",
+					"actual_value": "'network_rules.bypass' does not contain 'AzureServices'"
+				},
+				{
+					"file_name": "terraform\\azurerm\\storage\\network_rules\\storage_account_network_rules.tf",
+					"similarity_id": "2c22f85014706d85463a11b54b40e04a65ce9cc9bf6f8d50d2fe0eeb2e4fc6d4",
+					"line": 10,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_storage_account_network_rules[test].bypass",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'bypass' contains 'AzureServices'",
@@ -1025,13 +994,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#network_interface_ids",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "No Network Security Group is attached to the Virtual Machine",
 			"description_id": "9f51f6b1",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/vms/vm_not_attached_to_network.tf",
+					"file_name": "terraform\\azurerm\\vms\\vm_not_attached_to_network.tf",
 					"similarity_id": "efdd3fa56f31aafed06c6d1cc372b64ec7171b774c05fad5281882093bf332c2",
 					"line": 11,
 					"issue_type": "IncorrectValue",
@@ -1049,13 +1017,12 @@
 			"query_url": "https://www.terraform.io/docs/providers/azurerm/r/key_vault.html",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Ensure that logging for Azure KeyVault is 'Enabled'",
 			"description_id": "047ab315",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/keyvault/key_vault.tf",
+					"file_name": "terraform\\azurerm\\keyvault\\key_vault.tf",
 					"similarity_id": "f05a44e2caf53e1811e8af89205e43c959845b173e53e4fd0cae395e7b0af93c",
 					"line": 7,
 					"issue_type": "MissingAttribute",
@@ -1073,13 +1040,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#https_only",
 			"severity": "HIGH",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Web app should only accept HTTPS traffic in Azure Web App Service.",
 			"description_id": "74140c3d",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "375a44e5b55f819e5a9e797bec419d4270f7e53b4ea2baf7a6bcac1ab69bb3e6",
 					"line": 42,
 					"issue_type": "IncorrectValue",
@@ -1097,13 +1063,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#disk_encryption_set_id",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Azure Container Service (AKS) should use Disk Encryption Set ID",
 			"description_id": "4eddeb5c",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "5812e5261f7ba9f7be89d69e8b8dfa5b6279c36f4df4ba5f5c6da5c5f7c50d46",
 					"line": 16,
 					"issue_type": "MissingAttribute",
@@ -1114,7 +1079,7 @@
 					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].disk_encryption_set_id' is undefined or null"
 				},
 				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "f77ee601c8e761910694b391189049ecd9ff37893600f45d66409bf548ee971f",
 					"line": 11,
 					"issue_type": "MissingAttribute",
@@ -1132,13 +1097,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Check if the Azure Kubernetes Service doesn't have the proper network policy configuration.",
 			"description_id": "7708dadb",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "1b2c4062be5d1bcbac673d40d190d4d8cddd5af1d614e52e8f1d364422096449",
 					"line": 16,
 					"issue_type": "MissingAttribute",
@@ -1149,7 +1113,7 @@
 					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].network_profile' is undefined"
 				},
 				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "c157b7c5ab35f79073a5cd92eee663bfeb6f6b638aa49da7f39c2f04cf92f74f",
 					"line": 11,
 					"issue_type": "MissingAttribute",
@@ -1167,24 +1131,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#role_based_access_control",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure Container Service (AKS) instance should have role-based access control (RBAC) enabled",
 			"description_id": "d27166a7",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
-					"similarity_id": "4a66c8378d19b2f2e393a0060e1f2e185c11fd092286eaad8573599af5deffe0",
-					"line": 33,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled' is set to true",
-					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled' is not set to true"
-				},
-				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "0100d82b4f4a7d27add59e933f9ee4ed259d992a5a0792203d74c50e095abf00",
 					"line": 11,
 					"issue_type": "MissingAttribute",
@@ -1193,6 +1145,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_kubernetes_cluster[example].role_based_access_control' is defined and not null",
 					"actual_value": "'azurerm_kubernetes_cluster[example].role_based_access_control' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
+					"similarity_id": "4a66c8378d19b2f2e393a0060e1f2e185c11fd092286eaad8573599af5deffe0",
+					"line": 33,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled' is set to true",
+					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].role_based_access_control.enabled' is not set to true"
 				}
 			]
 		},
@@ -1202,13 +1165,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/search_service#public_network_access_enabled",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Public Network Access should be disabled for Azure Cognitive Search",
 			"description_id": "d4766039",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/search/azure_cognitive_search.tf",
+					"file_name": "terraform\\azurerm\\search\\azure_cognitive_search.tf",
 					"similarity_id": "61351c5084fb869b5e4bacdc91efb447ccf86ae23d981e6e7e2f2429f422ed97",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -1226,13 +1188,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#default_action",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Defaults",
 			"description": "Default Azure Storage Account network access should be set to Deny",
 			"description_id": "a5613650",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/network_rules/default-action-deny.tf",
+					"file_name": "terraform\\azurerm\\storage\\network_rules\\default-action-deny.tf",
 					"similarity_id": "683dc69d4005b8f48ca5eb19b4184d0930c86f71b848e114e475613eb9b34609",
 					"line": 5,
 					"issue_type": "IncorrectValue",
@@ -1250,13 +1211,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Defaults",
 			"description": "Default Network Access rule for Storage Accounts must be set to deny, which means the attribute 'default_action' must be 'Deny'",
 			"description_id": "09c295e8",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/network_rules/default-action-deny.tf",
+					"file_name": "terraform\\azurerm\\storage\\network_rules\\default-action-deny.tf",
 					"similarity_id": "3998cc053fbcbff24ab9942c753ef2086617122da89e8458ce2bd08079b72139",
 					"line": 5,
 					"issue_type": "IncorrectValue",
@@ -1274,13 +1234,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that alerts notifications are set to 'On' in the Azure Security Center Contact",
 			"description_id": "23aadb20",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/security_center/security_center_contact.tf",
+					"file_name": "terraform\\azurerm\\security_center\\security_center_contact.tf",
 					"similarity_id": "5fdc709d8572095dd2d15205cdcf3d00bc6a3502362dacd5621e6b01c6b59917",
 					"line": 11,
 					"issue_type": "IncorrectValue",
@@ -1298,24 +1257,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk#encryption_settings",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Ensure that the encryption is active on the disk",
 			"description_id": "8f6e1fa8",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/managed_disk/managed_disk.tf",
-					"similarity_id": "d4b48c8cd29cae201b7985d7911cc2a1f34ba63fbaec1d54238b45c66c8a3627",
-					"line": 15,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_managed_disk[example].encryption_settings.enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_managed_disk[example].encryption_settings.enabled is true ",
-					"actual_value": "azurerm_managed_disk[example].encryption_settings.enabled is false"
-				},
-				{
-					"file_name": "terraform/azurerm/compute/managed_disk.tf",
+					"file_name": "terraform\\azurerm\\compute\\managed_disk.tf",
 					"similarity_id": "ac4250251ee26871febae26447a263810dddc0b12b34e39a184efb43dc6b63ca",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -1324,6 +1271,17 @@
 					"search_value": "",
 					"expected_value": "azurerm_managed_disk[fail].encryption_settings.enabled is true ",
 					"actual_value": "azurerm_managed_disk[fail].encryption_settings.enabled is false"
+				},
+				{
+					"file_name": "terraform\\azurerm\\managed_disk\\managed_disk.tf",
+					"similarity_id": "d4b48c8cd29cae201b7985d7911cc2a1f34ba63fbaec1d54238b45c66c8a3627",
+					"line": 15,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_managed_disk[example].encryption_settings.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "azurerm_managed_disk[example].encryption_settings.enabled is true ",
+					"actual_value": "azurerm_managed_disk[example].encryption_settings.enabled is false"
 				}
 			]
 		},
@@ -1333,13 +1291,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_firewall_rule",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Check if any firewall rule allows too many hosts to access Redis Cache",
 			"description_id": "6ac1bc00",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/redis/redis_firewall_rule.tf",
+					"file_name": "terraform\\azurerm\\redis\\redis_firewall_rule.tf",
 					"similarity_id": "44b9f5da6693c8d06cb154676ddf91cb016d288084e0b3c30cbd2756a13f3b60",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -1357,13 +1314,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#client_cert_mode",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azure Function App should have 'client_cert_mode' set to required",
 			"description_id": "436752d7",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "fa084bbd4b8a01d319df84144a69d8506a02ed33301083e79a69cb5c6b9b6593",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -1381,13 +1337,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#identity",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azure Function App should have managed identity enabled",
 			"description_id": "37e5ef3f",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "26b2785d3c1b0654095c9164af95098073361a4c88a94878f7a7a045792160c3",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -1405,13 +1360,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for PostgreSQL Database, server parameter 'log_retention' is set to 'ON'",
 			"description_id": "e14a3a02",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/azurerm_postgresql_configuration.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\azurerm_postgresql_configuration.tf",
 					"similarity_id": "afb40b7c0ec2f1f903f96c76a53175a05987755947c848a1fd13f80e32c08442",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -1429,13 +1383,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for MSSQL Servers, that 'Auditing' is set to 'On'",
 			"description_id": "f0be3ea8",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/mssql_server.tf",
+					"file_name": "terraform\\azurerm\\mssql\\mssql_server.tf",
 					"similarity_id": "f23a82e8058ed027145855d189951e555c71fc4d6b8a7263e3e080e83f1f9977",
 					"line": 6,
 					"issue_type": "MissingAttribute",
@@ -1453,13 +1406,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mariadb_server#public_network_access_enabled",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "MariaDB Server Public Network Access should be disabled",
 			"description_id": "e1decb5e",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/maria/azurerm_mariadb_server.tf",
+					"file_name": "terraform\\azurerm\\maria\\azurerm_mariadb_server.tf",
 					"similarity_id": "1f0617d7b8a6b62fdc98c6d2a1a817d096ef607d3a5ffabd44ef4cd8eb9987b9",
 					"line": 17,
 					"issue_type": "IncorrectValue",
@@ -1477,13 +1429,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface#public_ip_address_id",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Network Interfaces must not be exposed with a public IP address",
 			"description_id": "49907665",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/network_interface.tf",
+					"file_name": "terraform\\azurerm\\network\\network_interface.tf",
 					"similarity_id": "4563df8fec70900ccc1ae52b3b14944fd389c6354c97f43094ed107b43551df2",
 					"line": 14,
 					"issue_type": "IncorrectValue",
@@ -1501,21 +1452,20 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for Postgre SQL Database Server, parameter 'log_checkpoints' is set to 'ON'",
 			"description_id": "06d14345",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/PostgreSQLServerLogCheckpointEnabled.tf",
-					"similarity_id": "8b1b6120db8704d167689a2cecebe49088b1d2bd6796e3ae250aaf15d176459f",
+					"file_name": "terraform\\azurerm\\postgreSQL\\PostgreSQLServerLogCheckpointEnabled.tf",
+					"similarity_id": "7037979d4851015053ca92868dc8b1fa4bab6a9575abec1eb125288ac15b037f",
 					"line": 8,
 					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_postgresql_configuration[example].value",
+					"search_key": "azurerm_postgresql_configuration[example_checkpoints].value",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_postgresql_configuration.example.value' should be 'ON'",
-					"actual_value": "'azurerm_postgresql_configuration.example.value' is 'OFF'"
+					"expected_value": "'azurerm_postgresql_configuration.example_checkpoints.value' should be 'ON'",
+					"actual_value": "'azurerm_postgresql_configuration.example_checkpoints.value' is 'OFF'"
 				}
 			]
 		},
@@ -1525,21 +1475,20 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for PostgreSQL Database, server parameter 'log_connections' is set to 'ON'",
 			"description_id": "743324e3",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/PostgreSQLServerLogConnectionsEnabled.tf",
-					"similarity_id": "b5f1a053b5b5f5e057026e781baab612c40dc6177b28718c3a78290611fa8f83",
+					"file_name": "terraform\\azurerm\\postgreSQL\\PostgreSQLServerLogConnectionsEnabled.tf",
+					"similarity_id": "067e7ba55225353695da3952ad082fe4db18c4d5965988d4d1d38fca19dc26a3",
 					"line": 7,
 					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_postgresql_configuration[example].value",
+					"search_key": "azurerm_postgresql_configuration[example_connections].value",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_postgresql_configuration.example.value' is 'ON'",
-					"actual_value": "'azurerm_postgresql_configuration.example.value' is 'OFF'"
+					"expected_value": "'azurerm_postgresql_configuration.example_connections.value' is 'ON'",
+					"actual_value": "'azurerm_postgresql_configuration.example_connections.value' is 'OFF'"
 				}
 			]
 		},
@@ -1549,13 +1498,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for PostgreSQL Database, server parameter 'log_disconnections' is set to 'ON'",
 			"description_id": "d183d853",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/postgresql_log_disconnections_not_set.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_log_disconnections_not_set.tf",
 					"similarity_id": "ce300eb3032800c0399589856cbf1219cdac40ba90bf7c79b57ba4fd23e7a162",
 					"line": 7,
 					"issue_type": "IncorrectValue",
@@ -1573,13 +1521,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for PostgreSQL Database, server parameter 'log_duration' is set to 'ON'",
 			"description_id": "2961eac3",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/postgre_sql_log_duration_not_set.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgre_sql_log_duration_not_set.tf",
 					"similarity_id": "865151024d9e3f9323c6bb98d72b65e815658723ecf84eb906af7f773127b868",
 					"line": 7,
 					"issue_type": "IncorrectValue",
@@ -1597,13 +1544,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Ensure that Connection Throttling is set for the PostgreSQL server",
 			"description_id": "6f6649db",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/PostgreSQLServerConnectionThrottlingEnabled.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\PostgreSQLServerConnectionThrottlingEnabled.tf",
 					"similarity_id": "c5311cafeb271f3f024b15394d5726f38091cbe2072e9f3ce06efba913f78916",
 					"line": 7,
 					"issue_type": "IncorrectValue",
@@ -1621,13 +1567,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Check if any Redis Cache resource allows non-SSL connections.",
 			"description_id": "b7160c8c",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/redis/redis_cache.tf",
+					"file_name": "terraform\\azurerm\\redis\\redis_cache.tf",
 					"similarity_id": "02dca10b010b62f3e7ab16e0c17c56483750c0a8f6167012273e56ac935380e2",
 					"line": 19,
 					"issue_type": "IncorrectValue",
@@ -1645,35 +1590,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition#actions",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Role Definition should not allow custom role creation",
 			"description_id": "a96dc1b9",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/iam/role_assignment_not_limit_guest_users_permissions.tf",
-					"similarity_id": "d414a1505717c98815e6ce269fc6b9ffa9b27ba221c5b1e14f769c7878d0603b",
-					"line": 7,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_role_definition[example].permissions.actions",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_role_definition[example].permissions.actions does not allow custom role creation",
-					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
-				},
-				{
-					"file_name": "terraform/azurerm/iam/role_definition_allows_custom_role_creation.tf",
-					"similarity_id": "72c54c32fef9e22b0e39bee383566dbcdefcc128b278f6db7eebe8799d664521",
-					"line": 7,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_role_definition[example2].permissions.actions",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "azurerm_role_definition[example2].permissions.actions does not allow custom role creation",
-					"actual_value": "azurerm_role_definition[example2].permissions.actions allows custom role creation"
-				},
-				{
-					"file_name": "terraform/azurerm/iam/role_definition.tf",
+					"file_name": "terraform\\azurerm\\iam\\role_definition.tf",
 					"similarity_id": "27bbc7a4c1522301931fc17c9dcbb86b47c7753146ab2be2555c4fd338cc2599",
 					"line": 10,
 					"issue_type": "IncorrectValue",
@@ -1684,7 +1606,7 @@
 					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
 				},
 				{
-					"file_name": "terraform/azurerm/authorization/azurerm_role_definition.tf",
+					"file_name": "terraform\\azurerm\\authorization\\azurerm_role_definition.tf",
 					"similarity_id": "7ceacb6399c86998c535d093b7a06c5a609bf92cb11eb1e4ebd93341d705c043",
 					"line": 15,
 					"issue_type": "IncorrectValue",
@@ -1693,6 +1615,28 @@
 					"search_value": "",
 					"expected_value": "azurerm_role_definition[example].permissions.actions does not allow custom role creation",
 					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
+				},
+				{
+					"file_name": "terraform\\azurerm\\iam\\role_assignment_not_limit_guest_users_permissions.tf",
+					"similarity_id": "d414a1505717c98815e6ce269fc6b9ffa9b27ba221c5b1e14f769c7878d0603b",
+					"line": 7,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_role_definition[example].permissions.actions",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "azurerm_role_definition[example].permissions.actions does not allow custom role creation",
+					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
+				},
+				{
+					"file_name": "terraform\\azurerm\\iam\\role_definition_allows_custom_role_creation.tf",
+					"similarity_id": "72c54c32fef9e22b0e39bee383566dbcdefcc128b278f6db7eebe8799d664521",
+					"line": 7,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_role_definition[example2].permissions.actions",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "azurerm_role_definition[example2].permissions.actions does not allow custom role creation",
+					"actual_value": "azurerm_role_definition[example2].permissions.actions allows custom role creation"
 				}
 			]
 		},
@@ -1702,13 +1646,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for SQL Servers, 'Auditing' is set to 'On'",
 			"description_id": "609638cc",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
 					"similarity_id": "bc40763dc862dd14c4c67848b15fe915820362dba434b19d6b284afcf43d3f88",
 					"line": 9,
 					"issue_type": "MissingAttribute",
@@ -1726,13 +1669,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_active_directory_administrator",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "Azure SQL Server must avoid using predictable Active Directory Administrator Account names, like 'Admin', which means the attribute 'login' must be set to a name that is not easy to predict",
 			"description_id": "6ed21e26",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
 					"similarity_id": "dcdad47d830addecd0e9d2fe899b3c46e179a44c3e6b0648c5f20d63de565e8b",
 					"line": 29,
 					"issue_type": "IncorrectValue",
@@ -1743,7 +1685,7 @@
 					"actual_value": "'azurerm_sql_active_directory_administrator[positive4].login' is predictable"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
 					"similarity_id": "6eeebba038c76d60d0d9ab55049993c233c62078e896030cad0c6f9fdc44b024",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -1761,13 +1703,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "Azure SQL Server's Admin account login must avoid using names like 'Admin', that are too predictable, which means the attribute 'administrator_login' must be set to a name that is not easy to predict",
 			"description_id": "d0bed58e",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "0cb323c56cf4c197fc33022c4243144e87451e74f3be439708fdf78b4e36a342",
 					"line": 41,
 					"issue_type": "IncorrectValue",
@@ -1778,7 +1719,7 @@
 					"actual_value": "'azurerm_sql_server[positive4].administrator_login' is predictable"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "6c730c53049aff4e6bff8e4b80f13422f340c462aa3ac76a0bd62cb9af74185f",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -1796,13 +1737,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Make sure that the 'Standard' pricing tiers were selected.",
 			"description_id": "6a9ab071",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/security_center/security_center_subscription_pricing.tf",
+					"file_name": "terraform\\azurerm\\security_center\\security_center_subscription_pricing.tf",
 					"similarity_id": "4d45371b09efe3f7d4b8fc825428945e7cd57428848bcf7ddd6ae83ac6d21b90",
 					"line": 14,
 					"issue_type": "IncorrectValue",
@@ -1820,13 +1760,12 @@
 			"query_url": "https://www.terraform.io/docs/providers/azure/r/virtual_network.html",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Azure Virtual Network subnet must be configured with a Network Security Group, which means the attribute 'security_group' must be defined and not empty",
 			"description_id": "e64d2982",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/security_group_is_not_configured.tf",
+					"file_name": "terraform\\azurerm\\network\\security_group_is_not_configured.tf",
 					"similarity_id": "6b70c3ca571b3738c7f159c27a680909b75d4d015e8bdc8730665ae5e9effc2f",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -1844,13 +1783,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Ensure that Activity Log Retention is set 365 days or greater",
 			"description_id": "224ff4f9",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/monitor/capture-all-regions.tf",
+					"file_name": "terraform\\azurerm\\monitor\\capture-all-regions.tf",
 					"similarity_id": "3442da339b021cd37506e3afc07d1fe3ff4eedf2f87e1343c9d3774f5cd2c8aa",
 					"line": 14,
 					"issue_type": "IncorrectValue",
@@ -1861,15 +1799,15 @@
 					"actual_value": "'azurerm_monitor_log_profile[fail].retention_policy.days' is lesser than 365 days or different than 0 (indefinitely)"
 				},
 				{
-					"file_name": "terraform/azurerm/monitor/monitor_log_profile.tf",
-					"similarity_id": "20e892c7e83b8fe0f3b50c7da37841762fb0e4eb2a73ef75381d07d106211d83",
+					"file_name": "terraform\\azurerm\\monitor\\monitor_log_profile.tf",
+					"similarity_id": "4ff7671e64d2160576941524ab08c2c539aaa2b7b49035dd5f0fe815edf686d4",
 					"line": 10,
 					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_monitor_log_profile[fail].retention_policy.days",
+					"search_key": "azurerm_monitor_log_profile[fail_profile].retention_policy.days",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_monitor_log_profile[fail].retention_policy.days' is greater than or equal to 365 days or 0 (indefinitely)",
-					"actual_value": "'azurerm_monitor_log_profile[fail].retention_policy.days' is lesser than 365 days or different than 0 (indefinitely)"
+					"expected_value": "'azurerm_monitor_log_profile[fail_profile].retention_policy.days' is greater than or equal to 365 days or 0 (indefinitely)",
+					"actual_value": "'azurerm_monitor_log_profile[fail_profile].retention_policy.days' is lesser than 365 days or different than 0 (indefinitely)"
 				}
 			]
 		},
@@ -1879,13 +1817,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_watcher_flow_log",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Flow logs enable capturing information about IP traffic flowing in and out of the network security groups. Network Security Group Flow Logs must be enabled with retention period greater than or equal to 90 days. This is important, because these logs are used to check for anomalies and give information of suspected breaches",
 			"description_id": "02e10365",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/network_watcher_flow_log.tf",
+					"file_name": "terraform\\azurerm\\network\\network_watcher_flow_log.tf",
 					"similarity_id": "6d8da9354ad3874313f83b516d7a41743464794f5b2496c3969a64902e7ba74e",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -1903,13 +1840,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure that for MSSQL Server, the Auditing Retention is greater than 90 days",
 			"description_id": "ecd42771",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/mssql_database.tf",
+					"file_name": "terraform\\azurerm\\mssql\\mssql_database.tf",
 					"similarity_id": "13baef987740d8046b93d7e45d6f650b84912c2a6cac856988e9e1826c0d1a46",
 					"line": 15,
 					"issue_type": "IncorrectValue",
@@ -1927,13 +1863,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Observability",
 			"description": "Make sure for SQL Servers that Auditing Retention is greater than 90 days",
 			"description_id": "96124822",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "2dae9fc117429ed6c68ef2c4876a320feb1432ac00c11dd63ad641448f8790a9",
 					"line": 48,
 					"issue_type": "MissingAttribute",
@@ -1944,18 +1879,7 @@
 					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_database.tf",
-					"similarity_id": "19893fdd0c92304e7e366c1aec1eac86487f6284fb66e57ef84cb62b71abe1ed",
-					"line": 12,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_sql_database[example].extended_auditing_policy.retention_in_days",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'example.extended_auditing_policy.retention_in_days' is bigger than 90",
-					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
-				},
-				{
-					"file_name": "terraform/azurerm/mssql/sql_server.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server.tf",
 					"similarity_id": "ff224aa4a1680d9858ccb05558b9b9e6c91998ebf92760b024f3419b3f5f16ec",
 					"line": 27,
 					"issue_type": "MissingAttribute",
@@ -1966,7 +1890,7 @@
 					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "24362bc0d6d2e9469678fe375867e045b0e648c3de396382441c1e51658775ae",
 					"line": 28,
 					"issue_type": "MissingAttribute",
@@ -1974,6 +1898,17 @@
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'positive3.extended_auditing_policy.retention_in_days' is bigger than 90",
+					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_database.tf",
+					"similarity_id": "19893fdd0c92304e7e366c1aec1eac86487f6284fb66e57ef84cb62b71abe1ed",
+					"line": 12,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_sql_database[example].extended_auditing_policy.retention_in_days",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'example.extended_auditing_policy.retention_in_days' is bigger than 90",
 					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
 				}
 			]
@@ -1984,24 +1919,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "Ensure Storage Account is using the latest version of TLS encryption",
 			"description_id": "a38872a7",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-					"similarity_id": "a3791163970cf5e83a648ee7427c2e36c8440fa6b9f81faa0e5cf2010543b4f5",
-					"line": 8,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_storage_account[positive2]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_storage_account[positive2].min_tls_version' is defined and not null",
-					"actual_value": "'azurerm_storage_account[positive2].min_tls_version' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
+					"file_name": "terraform\\azurerm\\storage\\account\\storage_account.tf",
 					"similarity_id": "db4b603018435d5e4f0995f7919b4656c62850c6ca960059cc54e428ef465587",
 					"line": 17,
 					"issue_type": "IncorrectValue",
@@ -2012,15 +1935,26 @@
 					"actual_value": "'azurerm_storage_account[example].min_tls_version' is not 'TLS1_2'"
 				},
 				{
-					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-					"similarity_id": "205951390b7cd7f0525159c612f3a0f6965d4c851a987856605d8e75f0f2048d",
-					"line": 2,
+					"file_name": "terraform\\azurerm\\storage\\account\\StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "ae7d1016b567982fe8db8fa259851d519fc078ddae586e1524dbf53bf54e1158",
+					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_storage_account[example]",
+					"search_key": "azurerm_storage_account[example_deny]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_storage_account[example].min_tls_version' is defined and not null",
-					"actual_value": "'azurerm_storage_account[example].min_tls_version' is undefined or null"
+					"expected_value": "'azurerm_storage_account[example_deny].min_tls_version' is defined and not null",
+					"actual_value": "'azurerm_storage_account[example_deny].min_tls_version' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "a3791163970cf5e83a648ee7427c2e36c8440fa6b9f81faa0e5cf2010543b4f5",
+					"line": 8,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_storage_account[positive2]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_storage_account[positive2].min_tls_version' is defined and not null",
+					"actual_value": "'azurerm_storage_account[positive2].min_tls_version' is undefined or null"
 				}
 			]
 		},
@@ -2030,13 +1964,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_share_file",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure Storage Share File should not allow all ACL (Access Control List) permissions - r (read), w (write), d (delete), and l (list).",
 			"description_id": "33aa1747",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/storage_share_file_allows_all_acl_permissions.tf",
+					"file_name": "terraform\\azurerm\\storage\\storage_share_file_allows_all_acl_permissions.tf",
 					"similarity_id": "b81f3bc36b23f05083e2f62f9494a107db4605a827795e8b96a18ce61bc927d7",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -2054,13 +1987,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_table#permissions",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure Storage Table should not allow all ACL (Access Control List) permissions - r (read), w (write), d (delete), and l (list).",
 			"description_id": "01751e5a",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/storage/storage_table_allows_all_acl_permissions.tf",
+					"file_name": "terraform\\azurerm\\storage\\storage_table_allows_all_acl_permissions.tf",
 					"similarity_id": "910daa06e7e86a53491a3ecc4ab32f28d3e0894c4243ed041d86fb6b9f96decc",
 					"line": 11,
 					"issue_type": "IncorrectValue",
@@ -2078,13 +2010,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_firewall_rule",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "Azure SQL Server Accessibility must be set to a minimal address range, which means the difference between the values of the 'end_ip_address' and 'start_ip_address' must be lesser than 256. Additionally, both ips must be different from '0.0.0.0'",
 			"description_id": "837de8dd",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/no-public-firewall-access.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\no-public-firewall-access.tf",
 					"similarity_id": "25fafa82259cc10a00ca2d2d95792654a4a4ec75667d4916f116a94c29cc0b9f",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -2095,7 +2026,7 @@
 					"actual_value": "'azurerm_sql_firewall_rule[fail].start_ip_address' The difference between the value of the 'end_ip_address' and of 'start_ip_address' is greater than or equal to 256"
 				},
 				{
-					"file_name": "terraform/azurerm/mssql/sql_firewall_rule.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_firewall_rule.tf",
 					"similarity_id": "f25c040b82541862200ffce2025707db24cceaa8b4559dd57b335e6de76f9c81",
 					"line": 7,
 					"issue_type": "IncorrectValue",
@@ -2113,24 +2044,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network#ddos_protection_plan",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Availability",
 			"description": "Virtual Network should have DDoS Protection Plan enabled",
 			"description_id": "c08cb91b",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/compute/virtual_machine.tf",
-					"similarity_id": "90b06495bd493c18281838be91fdc399f341757d121a24095bca3e9d80a0a90e",
-					"line": 39,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_virtual_network[example]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_virtual_network[example].ddos_protection_plan' is defined and not null",
-					"actual_value": "'azurerm_virtual_network[example].ddos_protection_plan' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/network/virtual_network_with_ddos_protection_plan_disabled.tf",
+					"file_name": "terraform\\azurerm\\network\\virtual_network_with_ddos_protection_plan_disabled.tf",
 					"similarity_id": "989455f2e2ce3e9524256fa528ff9feadfc9160a41e7e21593f16e2123fd1a56",
 					"line": 20,
 					"issue_type": "MissingAttribute",
@@ -2139,6 +2058,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_virtual_network[example_ddos].ddos_protection_plan' is defined and not null",
 					"actual_value": "'azurerm_virtual_network[example_ddos].ddos_protection_plan' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\azurerm\\compute\\virtual_machine.tf",
+					"similarity_id": "90b06495bd493c18281838be91fdc399f341757d121a24095bca3e9d80a0a90e",
+					"line": 39,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_virtual_network[example]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_virtual_network[example].ddos_protection_plan' is defined and not null",
+					"actual_value": "'azurerm_virtual_network[example].ddos_protection_plan' is undefined or null"
 				}
 			]
 		},
@@ -2148,24 +2078,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_gateway",
 			"severity": "MEDIUM",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Check if Web Application Firewall is disabled or not configured for Azure's Application Gateway.",
 			"description_id": "97c222ec",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/waf/application_gateway.tf",
-					"similarity_id": "f740a0b01070d50bdda92f688e33578a82ee662ff873125916421edc35a150d2",
-					"line": 9,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_application_gateway[positive1].waf_configuration.enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_application_gateway[positive1].waf_configuration.enabled' is true",
-					"actual_value": "'azurerm_application_gateway[positive1].waf_configuration.enabled' is false"
-				},
-				{
-					"file_name": "terraform/azurerm/application/application_gateway.tf",
+					"file_name": "terraform\\azurerm\\application\\application_gateway.tf",
 					"similarity_id": "f4f90bb537bd2ca38b74bc3cc8f9d8ab48a016f921679ba71bb91b065bb60aae",
 					"line": 4,
 					"issue_type": "MissingAttribute",
@@ -2174,6 +2092,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_application_gateway[network]' is set",
 					"actual_value": "'azurerm_application_gateway[network]' is undefined"
+				},
+				{
+					"file_name": "terraform\\azurerm\\waf\\application_gateway.tf",
+					"similarity_id": "f740a0b01070d50bdda92f688e33578a82ee662ff873125916421edc35a150d2",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_application_gateway[positive1].waf_configuration.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_application_gateway[positive1].waf_configuration.enabled' is true",
+					"actual_value": "'azurerm_application_gateway[positive1].waf_configuration.enabled' is false"
 				}
 			]
 		},
@@ -2183,24 +2112,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#private_cluster_enabled",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Azure Kubernetes Service (AKS) API should not be exposed to the internet",
 			"description_id": "3ec5eed5",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
-					"similarity_id": "080917155df2fad40b4e09086c0805bf06fa0b3ac3f3169d6331188a3215d37e",
-					"line": 11,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_kubernetes_cluster[example]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_kubernetes_cluster[example].private_cluster_enabled' is defined and set to true",
-					"actual_value": "'azurerm_kubernetes_cluster[example].private_cluster_enabled' is undefined"
-				},
-				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "48a1c471c4f76a5c1b4465e35ddd1ad121078a5d7a94bc81cf6f786f0303d8c5",
 					"line": 16,
 					"issue_type": "MissingAttribute",
@@ -2209,6 +2126,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].private_cluster_enabled' is defined and set to true",
 					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].private_cluster_enabled' is undefined"
+				},
+				{
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
+					"similarity_id": "080917155df2fad40b4e09086c0805bf06fa0b3ac3f3169d6331188a3215d37e",
+					"line": 11,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_kubernetes_cluster[example]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_kubernetes_cluster[example].private_cluster_enabled' is defined and set to true",
+					"actual_value": "'azurerm_kubernetes_cluster[example].private_cluster_enabled' is undefined"
 				}
 			]
 		},
@@ -2218,13 +2146,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#azure_policy",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "Azure Container Service (AKS) should use Azure Policies Add-On",
 			"description_id": "df6d2dcb",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "e4b2ce2910c115ee962f478f093139f8392208ac3c390a8d0017945c21e3e750",
 					"line": 27,
 					"issue_type": "MissingAttribute",
@@ -2235,7 +2162,7 @@
 					"actual_value": "'azurerm_kubernetes_cluster[example].addon_profile.azure_policy' is undefined or null"
 				},
 				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "7d9108aeea7fb87c5dbe163c872afef5ee732252f04a9c813df3d4c7219ac637",
 					"line": 39,
 					"issue_type": "IncorrectValue",
@@ -2253,13 +2180,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#http2_enabled",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "App Service should have 'http2_enabled' enabled",
 			"description_id": "dee0c164",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "b45b14636a0dfce3e21c2e0612dfd46ff4f49db31e1a6185cbf8cb50da659f4a",
 					"line": 43,
 					"issue_type": "IncorrectValue",
@@ -2277,24 +2203,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_fabric_cluster#tenant_id",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure Active Directory must be used for authentication for Service Fabric",
 			"description_id": "2c27e24e",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/service_fabric_cluster/azure_active_directory_authentication.tf",
-					"similarity_id": "28077432be0b2d931b92c57e80119095e0058018f41dc3a21b37eead08d561e0",
-					"line": 20,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_service_fabric_cluster[positive1].azure_active_directory",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_service_fabric_cluster[positive1].azure_active_directory.tenant_id' is defined and not null",
-					"actual_value": "'azurerm_service_fabric_cluster[positive1].azure_active_directory.tenant_id' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/service_fabric_cluster/service_fabric_cluster.tf",
+					"file_name": "terraform\\azurerm\\service_fabric_cluster\\service_fabric_cluster.tf",
 					"similarity_id": "1dc28d7609ed37f1348c83b0de418c6210ea634c8dcbaa2dc410821a05b5dc96",
 					"line": 4,
 					"issue_type": "MissingAttribute",
@@ -2305,15 +2219,26 @@
 					"actual_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is undefined or null"
 				},
 				{
-					"file_name": "terraform/azurerm/service_fabric_cluster/ServiceFabricClusterProtectionLevel.tf",
+					"file_name": "terraform\\azurerm\\service_fabric_cluster\\ServiceFabricClusterProtectionLevel.tf",
 					"similarity_id": "11763c150f477dbfae7fafb973e6a564c409c4b46a7cbddee4800d700c2223dc",
 					"line": 5,
 					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_service_fabric_cluster[example]",
+					"search_key": "azurerm_service_fabric_cluster[example_level]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is defined and not null",
-					"actual_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is undefined or null"
+					"expected_value": "'azurerm_service_fabric_cluster[example_level].azure_active_directory' is defined and not null",
+					"actual_value": "'azurerm_service_fabric_cluster[example_level].azure_active_directory' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\azurerm\\service_fabric_cluster\\azure_active_directory_authentication.tf",
+					"similarity_id": "28077432be0b2d931b92c57e80119095e0058018f41dc3a21b37eead08d561e0",
+					"line": 20,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_service_fabric_cluster[fail_ad].azure_active_directory",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_service_fabric_cluster[fail_ad].azure_active_directory.tenant_id' is defined and not null",
+					"actual_value": "'azurerm_service_fabric_cluster[fail_ad].azure_active_directory.tenant_id' is undefined or null"
 				}
 			]
 		},
@@ -2323,13 +2248,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/frontdoor#web_application_firewall_policy_link_id",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Azure Front Door WAF should be enabled",
 			"description_id": "a84ac10d",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/frontdoor/frontdoor.tf",
+					"file_name": "terraform\\azurerm\\frontdoor\\frontdoor.tf",
 					"similarity_id": "0d26416741489088349f812984a5b7f77541145caeff5688218c75a0692c2291",
 					"line": 41,
 					"issue_type": "MissingAttribute",
@@ -2347,24 +2271,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Check if the Kubernetes Dashboard is enabled.",
 			"description_id": "3f384e51",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
-					"similarity_id": "f27f8396a328025b6dfe592e6be5950d7fe8a975c2aadfb9ea6b11157a562c08",
-					"line": 43,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled' is false or undefined",
-					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled' is true"
-				},
-				{
-					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "08d6f9835fa0515046a439769b11f94791458b8a9b939cfdf5ae50cb95fc6998",
 					"line": 29,
 					"issue_type": "IncorrectValue",
@@ -2373,6 +2285,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_kubernetes_cluster[example].addon_profile.kube_dashboard.enabled' is false or undefined",
 					"actual_value": "'azurerm_kubernetes_cluster[example].addon_profile.kube_dashboard.enabled' is true"
+				},
+				{
+					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
+					"similarity_id": "f27f8396a328025b6dfe592e6be5950d7fe8a975c2aadfb9ea6b11157a562c08",
+					"line": 43,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled' is false or undefined",
+					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.kube_dashboard.enabled' is true"
 				}
 			]
 		},
@@ -2382,13 +2305,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#http2_enabled",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Insecure Configurations",
 			"description": "Function App should have 'http2_enabled' enabled",
 			"description_id": "7c364a67",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/functionapp/function_app.tf",
+					"file_name": "terraform\\azurerm\\functionapp\\function_app.tf",
 					"similarity_id": "fcea9f519fb10d534da0ee57d0fa0da75811dab92874f981f1275b9e496f87a1",
 					"line": 22,
 					"issue_type": "IncorrectValue",
@@ -2406,13 +2328,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_secret#content_type",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "Key Vault Secrets should have set Content Type",
 			"description_id": "4aacc07b",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/keyvault/key_vault_secret.tf",
+					"file_name": "terraform\\azurerm\\keyvault\\key_vault_secret.tf",
 					"similarity_id": "9f5f650cab591dd8bee2a695ec8227816651213c880fa48580dc403773f7fed9",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -2430,13 +2351,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mariadb_server#geo_redundant_backup_enabled",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Backup",
 			"description": "MariaDB Server Geo-redundant Backup should be enabled",
 			"description_id": "f9f97af4",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/maria/azurerm_mariadb_server.tf",
+					"file_name": "terraform\\azurerm\\maria\\azurerm_mariadb_server.tf",
 					"similarity_id": "ca6b25654d9d433cc21cb2a9b1de345894f7d0c033b7bf668fa4fc1250612a38",
 					"line": 16,
 					"issue_type": "IncorrectValue",
@@ -2454,13 +2374,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface#enable_ip_forwarding",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Networking and Firewall",
 			"description": "Network Interfaces IP Forwarding should be disabled",
 			"description_id": "890cf9a4",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/network/network_interface.tf",
+					"file_name": "terraform\\azurerm\\network\\network_interface.tf",
 					"similarity_id": "b188b957dfa97f39c7bc9610c716926c4b558d894ffe097d22d790e342681236",
 					"line": 17,
 					"issue_type": "IncorrectValue",
@@ -2478,24 +2397,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server#infrastructure_encryption_enabled",
 			"severity": "LOW",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Encryption",
 			"description": "PostgreSQL Server Infrastructure Encryption should be enabled",
 			"description_id": "b982dca0",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
-					"similarity_id": "a35b4ed9740d9314971c5e898a1b2aadb80ad084b14fed02ddcda8e1f28fe046",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_postgresql_server[fail_psql]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_postgresql_server[fail_psql].infrastructure_encryption_enabled' is defined and set to true",
-					"actual_value": "'azurerm_postgresql_server[fail_psql].infrastructure_encryption_enabled' is undefined or null"
-				},
-				{
-					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
+					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
 					"similarity_id": "21259e4cc13d629a9135bcdd0dbe143df2cc54a53675e18678dc3e0dfc553475",
 					"line": 24,
 					"issue_type": "IncorrectValue",
@@ -2504,6 +2411,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_postgresql_server[fails].infrastructure_encryption_enabled' is set to true",
 					"actual_value": "'azurerm_postgresql_server[fails].infrastructure_encryption_enabled' is set to false"
+				},
+				{
+					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
+					"similarity_id": "a35b4ed9740d9314971c5e898a1b2aadb80ad084b14fed02ddcda8e1f28fe046",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_postgresql_server[fail_psql]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_postgresql_server[fail_psql].infrastructure_encryption_enabled' is defined and set to true",
+					"actual_value": "'azurerm_postgresql_server[fail_psql].infrastructure_encryption_enabled' is undefined or null"
 				}
 			]
 		},
@@ -2513,13 +2431,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#enabled",
 			"severity": "INFO",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Access Control",
 			"description": "Azure App Service authentication settings should be enabled",
 			"description_id": "ec37a064",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/appservice/app_service.tf",
+					"file_name": "terraform\\azurerm\\appservice\\app_service.tf",
 					"similarity_id": "7f0660b1dac141872eb2615305821e3b4295ed4b202a320e51ee9cd7a934764a",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -2537,13 +2454,12 @@
 			"query_url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_security_alert_policy#email_account_admins",
 			"severity": "INFO",
 			"platform": "Terraform",
-			"cloud_provider": "AZURE",
 			"category": "Best Practices",
 			"description": "SQL Server alert email should be enabled",
 			"description_id": "4eb880dd",
 			"files": [
 				{
-					"file_name": "terraform/azurerm/mssql/sql_server_security_alert_policy.tf",
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_security_alert_policy.tf",
 					"similarity_id": "5c13c5fb31cfb1c662ec91f4a8e97f414a478439c81de0568336fb67de978614",
 					"line": 17,
 					"issue_type": "IncorrectValue",

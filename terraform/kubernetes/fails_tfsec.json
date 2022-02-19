@@ -1,0 +1,48 @@
+{
+	"results": [
+		{
+			"rule_id": "AVD-KUBE-0002",
+			"long_id": "kubernetes-network-no-public-egress",
+			"rule_description": "Public egress should not be allowed via network policies",
+			"rule_provider": "kubernetes",
+			"rule_service": "network",
+			"impact": "Exfiltration of data to the public internet",
+			"resolution": "Remove public access except where explicitly required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/kubernetes/network/no-public-egress/",
+				"https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.ingress.from.ip_block.cidr"
+			],
+			"description": "Network policy allows egress to the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "ip_block.cidr",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\kubernetes\\network\\kubernetes_network_policy.tf",
+				"start_line": 57,
+				"end_line": 57
+			}
+		},
+		{
+			"rule_id": "AVD-KUBE-0001",
+			"long_id": "kubernetes-network-no-public-ingress",
+			"rule_description": "Public ingress should not be allowed via network policies",
+			"rule_provider": "kubernetes",
+			"rule_service": "network",
+			"impact": "Exposure of infrastructure to the public internet",
+			"resolution": "Remove public access except where explicitly required",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/kubernetes/network/no-public-ingress/",
+				"https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.ingress.from.ip_block.cidr"
+			],
+			"description": "Network policy allows ingress from the public internet.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "ip_block.cidr",
+			"location": {
+				"filename": "F:\\Code\\fail\\terraform\\kubernetes\\network\\kubernetes_network_policy.tf",
+				"start_line": 36,
+				"end_line": 36
+			}
+		}
+	]
+}

@@ -1,0 +1,489 @@
+{
+	"kics_version": "1.4.9",
+	"files_scanned": 8,
+	"files_parsed": 8,
+	"files_failed_to_scan": 0,
+	"queries_total": 53,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"HIGH": 5,
+		"INFO": 1,
+		"LOW": 11,
+		"MEDIUM": 12,
+		"TRACE": 0
+	},
+	"total_counter": 29,
+	"total_bom_resources": 0,
+	"start": "2022-02-19T09:56:27.4814495Z",
+	"end": "2022-02-19T09:56:28.7659544Z",
+	"paths": [
+		".\\docker\\"
+	],
+	"queries": [
+		{
+			"query_name": "Missing User Instruction",
+			"query_id": "fd54f200-402c-4333-a5a4-36ef6709af2f",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#user",
+			"severity": "HIGH",
+			"platform": "Dockerfile",
+			"category": "Build Process",
+			"description": "A user should be specified in the dockerfile, otherwise the image will run as root",
+			"description_id": "eb49caf6",
+			"files": [
+				{
+					"file_name": "docker\\example_MaintainerExists\\failure\\Dockerfile",
+					"similarity_id": "660a31153c9a65081b92b84e87798cb6f871cc7064aac5d0b262197e31a229e6",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{ base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The 'Dockerfile' contains the 'USER' instruction",
+					"actual_value": "The 'Dockerfile' does not contain any 'USER' instruction"
+				},
+				{
+					"file_name": "docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+					"similarity_id": "8fe63acc649558e9a20617519665d5a12ceb54c0ab7f0fdacf059b4d669339f5",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{alpine}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The 'Dockerfile' contains the 'USER' instruction",
+					"actual_value": "The 'Dockerfile' does not contain any 'USER' instruction"
+				},
+				{
+					"file_name": "docker\\example_UserExists\\failure\\Dockerfile",
+					"similarity_id": "586f1edf8ca8ed253e26bb465f832179db592662db5a1ae0e5e2d3f55c1d1736",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The 'Dockerfile' contains the 'USER' instruction",
+					"actual_value": "The 'Dockerfile' does not contain any 'USER' instruction"
+				},
+				{
+					"file_name": "docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+					"similarity_id": "aa7b63f9aeb443ae5c1984c95988430fc277c1e6e9910a02a85e16bd773b0a5a",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The 'Dockerfile' contains the 'USER' instruction",
+					"actual_value": "The 'Dockerfile' does not contain any 'USER' instruction"
+				},
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "8c36c52ee59731c4b349ea9b571f299a3a66fef75200dface6d7c5b590eb4a5f",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{python:3.8-alpine}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The 'Dockerfile' contains the 'USER' instruction",
+					"actual_value": "The 'Dockerfile' does not contain any 'USER' instruction"
+				}
+			]
+		},
+		{
+			"query_name": "Image Version Not Explicit",
+			"query_id": "9efb0b2d-89c9-41a3-91ca-dcc0aec911fd",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#from",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Supply-Chain",
+			"description": "Always tag the version of an image explicitly",
+			"description_id": "4f469f06",
+			"files": [
+				{
+					"file_name": "docker\\example_RootUser\\failure\\Dockerfile",
+					"similarity_id": "04f64e575c900b5fefa83dd2d6aa65394b90a4b2f8ba840f506ec5f3c221e907",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+					"similarity_id": "4d65061a20c08c001015b01f70bfd3d39e1602bfae5ab3ed2afb1c6b3d237db1",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_AddExists\\failure\\Dockerfile",
+					"similarity_id": "859dc74a8973b6f8bef34d6e774fad812deda34ab8423cd64fca4766e3152e57",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{ base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_HealthcheckExists\\failure\\Dockerfile",
+					"similarity_id": "9f5a833caf366dd7b21d508ed4b5b13474855170d7fb50a56babf84ec04b7ab9",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_UserExists\\failure\\Dockerfile",
+					"similarity_id": "ea952d46214c779de3aa4b7e7e38723e740876af94e3de3fa6da4b54c5efbd31",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_MaintainerExists\\failure\\Dockerfile",
+					"similarity_id": "a61385e333f9a71690d429ca54a8d88975831a35d8ac9bce1e6e2691d4056643",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{ base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM base:'version'",
+					"actual_value": "FROM base'"
+				},
+				{
+					"file_name": "docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+					"similarity_id": "fa6f8943eba59febe7efc4a009e4f3f60895f0f10ab290b29672691628e38511",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{alpine}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "FROM alpine:'version'",
+					"actual_value": "FROM alpine'"
+				}
+			]
+		},
+		{
+			"query_name": "Last User Is 'root'",
+			"query_id": "67fd0c4a-68cf-46d7-8c41-bc9fba7e40ae",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#user",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Best Practices",
+			"description": "Leaving the last user as root can cause security risks. Change to another user after running the commands the need privileges",
+			"description_id": "f445bd25",
+			"files": [
+				{
+					"file_name": "docker\\example_RootUser\\failure\\Dockerfile",
+					"similarity_id": "4babf2c0a117fb0e2583913d5036bdd72b81403be45b45345a4a3f466c352d7e",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{base}}.{{USER root}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Last User isn't root",
+					"actual_value": "Last User is root"
+				}
+			]
+		},
+		{
+			"query_name": "Pip install Keeping Cached Packages",
+			"query_id": "f2f903fb-b977-461e-98d7-b3e2185c6118",
+			"query_url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Supply-Chain",
+			"description": "When installing packages with pip, the '--no-cache-dir' flag should be set to make Docker images smaller",
+			"description_id": "a6eb5f34",
+			"files": [
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "fc1b52b693bdd8a24732015d9b4b09adad2c67b02dbe33f2a2d75f737c53d0de",
+					"line": 5,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{python:3.8-alpine}}.{{pip install -U checkov}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The '--no-cache-dir' flag is set when running 'pip/pip3 install'",
+					"actual_value": "The '--no-cache-dir' flag isn't set when running 'pip/pip3 install'"
+				}
+			]
+		},
+		{
+			"query_name": "Unpinned Package Version in Apk Add",
+			"query_id": "d3499f6d-1651-41bb-a9a7-de925fea487b",
+			"query_url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Supply-Chain",
+			"description": "Package version pinning reduces the range of versions that can be installed, reducing the chances of failure due to unanticipated changes",
+			"description_id": "adb9d5d5",
+			"files": [
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "f9e96e63aebc8aaf0676b585bc574638c759cc63b381a2531014d804a9eee982",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{python:3.8-alpine}}.{{RUN apk update \u0026\u0026 apk add git}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "RUN instruction with 'apk add \u003cpackage\u003e' should use package pinning form 'apk add \u003cpackage\u003e=\u003cversion\u003e'",
+					"actual_value": "RUN instruction apk update \u0026\u0026 apk add git does not use package pinning form"
+				}
+			]
+		},
+		{
+			"query_name": "Unpinned Package Version in Pip Install",
+			"query_id": "02d9c71f-3ee8-4986-9c27-1a20d0d19bfc",
+			"query_url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Supply-Chain",
+			"description": "Package version pinning reduces the range of versions that can be installed, reducing the chances of failure due to unanticipated changes",
+			"description_id": "37db3a53",
+			"files": [
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "10fb450705bbfc3c119ae4f0d0ee00ba0de7e7d5f128b82c8b2fab70b3e4cbed",
+					"line": 5,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{python:3.8-alpine}}.{{RUN pip install -U checkov}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "RUN instruction with 'pip/pip3 install \u003cpackage\u003e' should use package pinning form 'pip/pip3 install \u003cpackage\u003e=\u003cversion\u003e'",
+					"actual_value": "RUN instruction pip install -U checkov does not use package pinning form"
+				}
+			]
+		},
+		{
+			"query_name": "Update Instruction Alone",
+			"query_id": "9bae49be-0aa3-4de5-bab2-4c3a069e40cd",
+			"query_url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run",
+			"severity": "MEDIUM",
+			"platform": "Dockerfile",
+			"category": "Build Process",
+			"description": "Instruction 'RUN \u003cpackage-manager\u003e update' should always be followed by '\u003cpackage-manager\u003e install' in the same RUN statement",
+			"description_id": "3785203d",
+			"files": [
+				{
+					"file_name": "docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+					"similarity_id": "7613275e57bbf04a720378d1530e945736dfb6fd65da80a2e5d156810eabf3ed",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{base}}.RUN={{apk update}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Instruction 'RUN \u003cpackage-manager\u003e update' is followed by 'RUN \u003cpackage-manager\u003e install' ",
+					"actual_value": "Instruction 'RUN \u003cpackage-manager\u003e update' isn't followed by 'RUN \u003cpackage-manager\u003e install in the same 'RUN' statement"
+				}
+			]
+		},
+		{
+			"query_name": "Add Instead of Copy",
+			"query_id": "9513a694-aa0d-41d8-be61-3271e056f36b",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#add",
+			"severity": "LOW",
+			"platform": "Dockerfile",
+			"category": "Build Process",
+			"description": "Should use COPY instead of ADD unless, running a tar file",
+			"description_id": "0aedd324",
+			"files": [
+				{
+					"file_name": "docker\\example_AddExists\\failure\\Dockerfile",
+					"similarity_id": "d73ce2abffd381c88647d53c8964868e537b222470c43a73281e4fe0ae54ba43",
+					"line": 4,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{ base}}.{{ADD http://example.com/package.zip /temp}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'COPY' http://example.com/package.zip",
+					"actual_value": "'ADD' http://example.com/package.zip"
+				}
+			]
+		},
+		{
+			"query_name": "Curl or Wget Instead of Add",
+			"query_id": "4b410d24-1cbe-4430-a632-62c9a931cf1c",
+			"query_url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+			"severity": "LOW",
+			"platform": "Dockerfile",
+			"category": "Best Practices",
+			"description": "Use Curl or Wget instead of Add to fetch packages from remote URLs, because using Add is strongly discouraged",
+			"description_id": "29e8216b",
+			"files": [
+				{
+					"file_name": "docker\\example_AddExists\\failure\\Dockerfile",
+					"similarity_id": "e3b91b064c3af2598f20c70b6f6176767c6ad197f28764e3b02bc370477358e9",
+					"line": 4,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{ base}}.{{ADD http://example.com/package.zip /temp}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Use 'curl' or 'wget' to download http://example.com/package.zip",
+					"actual_value": "'ADD' http://example.com/package.zip"
+				}
+			]
+		},
+		{
+			"query_name": "Healthcheck Instruction Missing",
+			"query_id": "b03a748a-542d-44f4-bb86-9199ab4fd2d5",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#healthcheck",
+			"severity": "LOW",
+			"platform": "Dockerfile",
+			"category": "Insecure Configurations",
+			"description": "Ensure that HEALTHCHECK is being used. The HEALTHCHECK instruction tells Docker how to test a container to check that it is still working",
+			"description_id": "426121ee",
+			"files": [
+				{
+					"file_name": "docker\\example_MaintainerExists\\failure\\Dockerfile",
+					"similarity_id": "2833adffb40c8ea66c3e1fdedb205663a74051223d2fd5df769ead61414568a5",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{ base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_RootUser\\failure\\Dockerfile",
+					"similarity_id": "30e712f7b820a383780eeb27537f86a3229ee5b0b97428891fae6724fd05681c",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "c3d26a296805316114e5774d09e2e76ad2a9409d0a60ee8b192fe6958856930e",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{python:3.8-alpine}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_HealthcheckExists\\failure\\Dockerfile",
+					"similarity_id": "2c3e43678a9c07ee646fe901951eef4cb5e672022bc4d1f280d0c409d231cf8e",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+					"similarity_id": "688df6c2ebff1599500835680e8be384c5af62a81e544998119cae30df3721f6",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{alpine}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_UserExists\\failure\\Dockerfile",
+					"similarity_id": "16f50289230a1035c847d78d4caff8729670a0c651b15f5cc013fdbfb2cebad3",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_AddExists\\failure\\Dockerfile",
+					"similarity_id": "f68e95bf3af13cf5f1c29d804747a93ae00140525381c94a6c39996a96ea823b",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{ base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				},
+				{
+					"file_name": "docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+					"similarity_id": "333c1b6aea8104ea1be9bc04b35a15059df7f90445b4550190cd40a58bce72d2",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "FROM={{base}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Dockerfile contains instruction 'HEALTHCHECK'",
+					"actual_value": "Dockerfile doesn't contain instruction 'HEALTHCHECK'"
+				}
+			]
+		},
+		{
+			"query_name": "MAINTAINER Instruction Being Used",
+			"query_id": "99614418-f82b-4852-a9ae-5051402b741c",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#maintainer-deprecated",
+			"severity": "LOW",
+			"platform": "Dockerfile",
+			"category": "Best Practices",
+			"description": "The MAINTAINER instruction sets the Author field of the generated images. The LABEL instruction is a much more flexible version of this and you should use it instead, as it enables setting any metadata you require, and can be viewed easily",
+			"description_id": "9d9cbf83",
+			"files": [
+				{
+					"file_name": "docker\\example_MaintainerExists\\failure\\Dockerfile",
+					"similarity_id": "1d2aa3312ebf0713ad4d61b76ad4ac20f723a8f25ec471f732f5bbe1a267d3f8",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{ base}}.MAINTAINER={{checkov}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Maintainer instruction being used in Label 'LABEL maintainer=checkov'",
+					"actual_value": "Maintainer instruction not being used in Label 'MAINTAINER checkov'"
+				}
+			]
+		},
+		{
+			"query_name": "Apk Add Using Local Cache Path",
+			"query_id": "ae9c56a6-3ed1-4ac0-9b54-31267f51151d",
+			"query_url": "https://docs.docker.com/engine/reference/builder/#run",
+			"severity": "INFO",
+			"platform": "Dockerfile",
+			"category": "Supply-Chain",
+			"description": "When installing packages, use the '--no-cache' switch to avoid the need to use '--update' and remove '/var/cache/apk/*'",
+			"description_id": "d44503b8",
+			"files": [
+				{
+					"file_name": "docker\\Dockerfile",
+					"similarity_id": "8aff257d3b8a00dfacacc1e6bb422d2fab06e81f1dc5dd9ee51e1cd855d200ca",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "FROM={{python:3.8-alpine}}.{{RUN apk update \u0026\u0026 apk add git}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'RUN' does not contain 'apk add' command without '--no-cache' switch",
+					"actual_value": "'RUN' contains 'apk add' command without '--no-cache' switch"
+				}
+			]
+		}
+	]
+}

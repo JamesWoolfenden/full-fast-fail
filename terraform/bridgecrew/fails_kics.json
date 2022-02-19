@@ -1,0 +1,49 @@
+{
+	"kics_version": "1.4.9",
+	"files_scanned": 1,
+	"files_parsed": 1,
+	"files_failed_to_scan": 0,
+	"queries_total": 851,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"HIGH": 1,
+		"INFO": 0,
+		"LOW": 0,
+		"MEDIUM": 0,
+		"TRACE": 0
+	},
+	"total_counter": 1,
+	"total_bom_resources": 0,
+	"start": "2022-02-19T11:54:39.9717729Z",
+	"end": "2022-02-19T11:54:49.5056927Z",
+	"paths": [
+		".\\terraform\\bridgecrew"
+	],
+	"queries": [
+		{
+			"query_name": "Passwords And Secrets - Generic Token",
+			"query_id": "baee238e-1921-4801-9c3f-79ae1d7b2cbc",
+			"query_url": "https://kics.io/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"category": "Secret Management",
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "terraform\\bridgecrew\\provider.tf",
+					"similarity_id": "f031e6c39366398f0bded1bae64fbbca287fb0cc7655270aea4e563157f66887",
+					"line": 2,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  token = \"80e54890-f282-4595-ab3d-45f9bd874987\"' contains a secret"
+				}
+			]
+		}
+	]
+}

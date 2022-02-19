@@ -1,0 +1,1365 @@
+{
+    "check_type": "dockerfile",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM python:3.8-alpine\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update && apk add git\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "RUN pip install -U checkov\n"
+                    ],
+                    [
+                        6,
+                        "ENTRYPOINT [\"checkov\"]\n"
+                    ]
+                ],
+                "file_path": "/Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\Dockerfile",
+                "repo_file_path": "/docker/Dockerfile",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "/Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_5",
+                "bc_check_id": "BC_DKR_4",
+                "check_name": "Ensure update instructions are not use alone in the Dockerfile",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM python:3.8-alpine\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update && apk add git\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "RUN pip install -U checkov\n"
+                    ],
+                    [
+                        6,
+                        "ENTRYPOINT [\"checkov\"]\n"
+                    ]
+                ],
+                "file_path": "/Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\Dockerfile",
+                "repo_file_path": "/docker/Dockerfile",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "/Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UpdateNotAlone",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-update-instructions-are-not-used-alone-in-the-dockerfile"
+            },
+            {
+                "check_id": "CKV_DOCKER_8",
+                "bc_check_id": "BC_DKR_8",
+                "check_name": "Ensure the last USER is not root",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 4,
+                        "endline": 4,
+                        "content": "USER  me\n",
+                        "value": "me"
+                    }
+                },
+                "code_block": [
+                    [
+                        5,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_AddExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_AddExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_AddExists/failure/Dockerfile",
+                "file_line_range": [
+                    5,
+                    5
+                ],
+                "resource": "/example_AddExists\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.RootUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-last-user-is-not-root"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 4,
+                        "endline": 4,
+                        "content": "USER  me\n",
+                        "value": "me"
+                    }
+                },
+                "code_block": [
+                    [
+                        5,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_AddExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_AddExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_AddExists/failure/Dockerfile",
+                "file_line_range": [
+                    5,
+                    5
+                ],
+                "resource": "/example_AddExists\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_8",
+                "bc_check_id": "BC_DKR_8",
+                "check_name": "Ensure the last USER is not root",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 3,
+                        "endline": 3,
+                        "content": "USER  me\n",
+                        "value": "me"
+                    }
+                },
+                "code_block": [
+                    [
+                        4,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_HealthcheckExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_HealthcheckExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_HealthcheckExists/failure/Dockerfile",
+                "file_line_range": [
+                    4,
+                    4
+                ],
+                "resource": "/example_HealthcheckExists\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.RootUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-last-user-is-not-root"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 3,
+                        "endline": 3,
+                        "content": "USER  me\n",
+                        "value": "me"
+                    }
+                },
+                "code_block": [
+                    [
+                        4,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_HealthcheckExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_HealthcheckExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_HealthcheckExists/failure/Dockerfile",
+                "file_line_range": [
+                    4,
+                    4
+                ],
+                "resource": "/example_HealthcheckExists\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 2,
+                        "endline": 2,
+                        "content": "USER root\n",
+                        "value": "root"
+                    }
+                },
+                "code_block": [
+                    [
+                        3,
+                        "USER root\n"
+                    ]
+                ],
+                "file_path": "/example_RootUser\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_RootUser\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_RootUser/failure/Dockerfile",
+                "file_line_range": [
+                    3,
+                    3
+                ],
+                "resource": "/example_RootUser\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            }
+        ],
+        "failed_checks": [
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM python:3.8-alpine\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update && apk add git\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "RUN pip install -U checkov\n"
+                    ],
+                    [
+                        6,
+                        "ENTRYPOINT [\"checkov\"]\n"
+                    ]
+                ],
+                "file_path": "/Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\Dockerfile",
+                "repo_file_path": "/docker/Dockerfile",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "/Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM python:3.8-alpine\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update && apk add git\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "RUN pip install -U checkov\n"
+                    ],
+                    [
+                        6,
+                        "ENTRYPOINT [\"checkov\"]\n"
+                    ]
+                ],
+                "file_path": "/Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\Dockerfile",
+                "repo_file_path": "/docker/Dockerfile",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "/Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_4",
+                "bc_check_id": "BC_DKR_5",
+                "check_name": "Ensure that COPY is used instead of ADD in Dockerfiles",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "ADD",
+                        "startline": 3,
+                        "endline": 3,
+                        "content": "ADD http://example.com/package.zip /temp\n",
+                        "value": "http://example.com/package.zip /temp"
+                    }
+                },
+                "code_block": [
+                    [
+                        4,
+                        "ADD http://example.com/package.zip /temp\n"
+                    ]
+                ],
+                "file_path": "/example_AddExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_AddExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_AddExists/failure/Dockerfile",
+                "file_line_range": [
+                    4,
+                    4
+                ],
+                "resource": "/example_AddExists\\failure\\Dockerfile.ADD",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.AddExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-copy-is-used-instead-of-add-in-dockerfiles"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM  base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM  base\n"
+                    ]
+                ],
+                "file_path": "/example_AddExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_AddExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_AddExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_AddExists\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM  base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "LABEL foo=\"bar baz\"\n"
+                    ],
+                    [
+                        4,
+                        "ADD http://example.com/package.zip /temp\n"
+                    ],
+                    [
+                        5,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_AddExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_AddExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_AddExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    5
+                ],
+                "resource": "/example_AddExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ]
+                ],
+                "file_path": "/example_HealthcheckExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_HealthcheckExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_HealthcheckExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_HealthcheckExists\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "LABEL foo=\"bar baz\n"
+                    ],
+                    [
+                        4,
+                        "USER  me\n"
+                    ]
+                ],
+                "file_path": "/example_HealthcheckExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_HealthcheckExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_HealthcheckExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    4
+                ],
+                "resource": "/example_HealthcheckExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_6",
+                "bc_check_id": "BC_DKR_6",
+                "check_name": "Ensure that LABEL maintainer is used instead of MAINTAINER (deprecated)",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "MAINTAINER",
+                        "startline": 2,
+                        "endline": 2,
+                        "content": "MAINTAINER checkov\n",
+                        "value": "checkov"
+                    }
+                },
+                "code_block": [
+                    [
+                        3,
+                        "MAINTAINER checkov\n"
+                    ]
+                ],
+                "file_path": "/example_MaintainerExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_MaintainerExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_MaintainerExists/failure/Dockerfile",
+                "file_line_range": [
+                    3,
+                    3
+                ],
+                "resource": "/example_MaintainerExists\\failure\\Dockerfile.MAINTAINER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.MaintainerExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-label-maintainer-is-used-instead-of-maintainer-deprecated"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM  base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM  base\n"
+                    ]
+                ],
+                "file_path": "/example_MaintainerExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_MaintainerExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_MaintainerExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_MaintainerExists\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM  base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "MAINTAINER checkov\n"
+                    ]
+                ],
+                "file_path": "/example_MaintainerExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_MaintainerExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_MaintainerExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_MaintainerExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM  base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "MAINTAINER checkov\n"
+                    ]
+                ],
+                "file_path": "/example_MaintainerExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_MaintainerExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_MaintainerExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_MaintainerExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM alpine\n",
+                        "value": "alpine"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM alpine\n"
+                    ]
+                ],
+                "file_path": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "repo_file_path": "/docker/example_ReferenceLatestTag/failure_default_version_tag/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM alpine\n"
+                    ]
+                ],
+                "file_path": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "repo_file_path": "/docker/example_ReferenceLatestTag/failure_default_version_tag/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM alpine\n"
+                    ]
+                ],
+                "file_path": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile",
+                "repo_file_path": "/docker/example_ReferenceLatestTag/failure_default_version_tag/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_ReferenceLatestTag\\failure_default_version_tag\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ]
+                ],
+                "file_path": "/example_RootUser\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_RootUser\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_RootUser/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_RootUser\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_8",
+                "bc_check_id": "BC_DKR_8",
+                "check_name": "Ensure the last USER is not root",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "USER",
+                        "startline": 2,
+                        "endline": 2,
+                        "content": "USER root\n",
+                        "value": "root"
+                    }
+                },
+                "code_block": [
+                    [
+                        3,
+                        "USER root\n"
+                    ]
+                ],
+                "file_path": "/example_RootUser\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_RootUser\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_RootUser/failure/Dockerfile",
+                "file_line_range": [
+                    3,
+                    3
+                ],
+                "resource": "/example_RootUser\\failure\\Dockerfile.USER",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.RootUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-last-user-is-not-root"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "USER root\n"
+                    ]
+                ],
+                "file_path": "/example_RootUser\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_RootUser\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_RootUser/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_RootUser\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ]
+                ],
+                "file_path": "/example_UpdateNotAlone\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UpdateNotAlone/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_UpdateNotAlone\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_5",
+                "bc_check_id": "BC_DKR_4",
+                "check_name": "Ensure update instructions are not use alone in the Dockerfile",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "RUN",
+                        "startline": 2,
+                        "endline": 2,
+                        "content": "RUN apk update\n",
+                        "value": "apk update"
+                    }
+                },
+                "code_block": [
+                    [
+                        3,
+                        "RUN apk update\n"
+                    ]
+                ],
+                "file_path": "/example_UpdateNotAlone\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UpdateNotAlone/failure/Dockerfile",
+                "file_line_range": [
+                    3,
+                    3
+                ],
+                "resource": "/example_UpdateNotAlone\\failure\\Dockerfile.RUN",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UpdateNotAlone",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-update-instructions-are-not-used-alone-in-the-dockerfile"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update\n"
+                    ]
+                ],
+                "file_path": "/example_UpdateNotAlone\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UpdateNotAlone/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_UpdateNotAlone\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "RUN apk update\n"
+                    ]
+                ],
+                "file_path": "/example_UpdateNotAlone\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UpdateNotAlone\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UpdateNotAlone/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_UpdateNotAlone\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            },
+            {
+                "check_id": "CKV_DOCKER_7",
+                "bc_check_id": "BC_DKR_7",
+                "check_name": "Ensure the base image uses a non latest version tag",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": {
+                        "instruction": "FROM",
+                        "startline": 0,
+                        "endline": 0,
+                        "content": "FROM base\n",
+                        "value": "base"
+                    }
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ]
+                ],
+                "file_path": "/example_UserExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UserExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UserExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    1
+                ],
+                "resource": "/example_UserExists\\failure\\Dockerfile.FROM",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.ReferenceLatestTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-the-base-image-uses-a-non-latest-version-tag"
+            },
+            {
+                "check_id": "CKV_DOCKER_2",
+                "bc_check_id": "BC_DKR_2",
+                "check_name": "Ensure that HEALTHCHECK instructions have been added to container images",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "LABEL foo=\"bar baz\n"
+                    ]
+                ],
+                "file_path": "/example_UserExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UserExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UserExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_UserExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.HealthcheckExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+            },
+            {
+                "check_id": "CKV_DOCKER_3",
+                "bc_check_id": "BC_DKR_3",
+                "check_name": "Ensure that a user for the container has been created",
+                "check_result": {
+                    "result": "FAILED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM base\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "LABEL foo=\"bar baz\n"
+                    ]
+                ],
+                "file_path": "/example_UserExists\\failure\\Dockerfile",
+                "file_abs_path": "F:\\Code\\fail\\docker\\example_UserExists\\failure\\Dockerfile",
+                "repo_file_path": "/docker/example_UserExists/failure/Dockerfile",
+                "file_line_range": [
+                    1,
+                    3
+                ],
+                "resource": "/example_UserExists\\failure\\Dockerfile.",
+                "evaluations": null,
+                "check_class": "checkov.dockerfile.checks.UserExists",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-user-for-the-container-has-been-created"
+            }
+        ],
+        "skipped_checks": [],
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 7,
+        "failed": 24,
+        "skipped": 0,
+        "parsing_errors": 0,
+        "resource_count": 8,
+        "checkov_version": "2.0.873"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}

@@ -1,0 +1,3326 @@
+{
+    "check_type": "serverless",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_AWS_53",
+                "bc_check_id": "BC_AWS_S3_19",
+                "check_name": "Ensure S3 bucket has block public ACLS enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/BlockPublicAcls"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3BlockPublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_19"
+            },
+            {
+                "check_id": "CKV_AWS_54",
+                "bc_check_id": "BC_AWS_S3_20",
+                "check_name": "Ensure S3 bucket has block public policy enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/BlockPublicPolicy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3BlockPublicPolicy",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_20"
+            },
+            {
+                "check_id": "CKV_AWS_19",
+                "bc_check_id": "BC_AWS_S3_14",
+                "check_name": "Ensure the S3 bucket has server-side-encryption enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/BucketEncryption/ServerSideEncryptionConfiguration/[0]/ServerSideEncryptionByDefault/SSEAlgorithm"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3Encryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest"
+            },
+            {
+                "check_id": "CKV_AWS_55",
+                "bc_check_id": "BC_AWS_S3_21",
+                "check_name": "Ensure S3 bucket has ignore public ACLs enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/IgnorePublicAcls"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3IgnorePublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_21"
+            },
+            {
+                "check_id": "CKV_AWS_20",
+                "bc_check_id": "BC_AWS_S3_1",
+                "check_name": "Ensure the S3 bucket does not allow READ permissions to everyone",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/AccessControl"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3PublicACLRead",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone"
+            },
+            {
+                "check_id": "CKV_AWS_57",
+                "bc_check_id": "BC_AWS_S3_2",
+                "check_name": "Ensure the S3 bucket does not allow WRITE permissions to everyone",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/AccessControl"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3PublicACLWrite",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone"
+            },
+            {
+                "check_id": "CKV_AWS_56",
+                "bc_check_id": "BC_AWS_S3_22",
+                "check_name": "Ensure S3 bucket has 'restrict_public_bucket' enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/RestrictPublicBuckets"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3RestrictPublicBuckets",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_22"
+            },
+            {
+                "check_id": "CKV_AWS_21",
+                "bc_check_id": "BC_AWS_S3_16",
+                "check_name": "Ensure the S3 bucket has versioning enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/VersioningConfiguration/Status"
+                    ]
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3Versioning",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_16-enable-versioning"
+            },
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AdminPolicyDocument/AdminPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        20,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        21,
+                        "    environment:\n"
+                    ],
+                    [
+                        22,
+                        "      FUNC_NAME: \"myfunc\"\n"
+                    ],
+                    [
+                        23,
+                        "      AWS_ACCESS_KEY: \"AKIAIOSFODNN7EXAMPLE\"\n"
+                    ],
+                    [
+                        24,
+                        "      AWS_SECRET_KEY: \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n"
+                    ],
+                    [
+                        25,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        26,
+                        "    tags:\n"
+                    ],
+                    [
+                        27,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        28,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        29,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        30,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        31,
+                        "        Action:\n"
+                    ],
+                    [
+                        32,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        33,
+                        "        Resource:\n"
+                    ],
+                    [
+                        34,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        35,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        36,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        37,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AWSCredentials/AWSCredentials-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    20,
+                    37
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        20,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        21,
+                        "    environment:\n"
+                    ],
+                    [
+                        22,
+                        "      FUNC_NAME: \"myfunc\"\n"
+                    ],
+                    [
+                        23,
+                        "      AWS_ACCESS_KEY: \"AKIAIOSFODNN7EXAMPLE\"\n"
+                    ],
+                    [
+                        24,
+                        "      AWS_SECRET_KEY: \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n"
+                    ],
+                    [
+                        25,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        26,
+                        "    tags:\n"
+                    ],
+                    [
+                        27,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        28,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        29,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        30,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        31,
+                        "        Action:\n"
+                    ],
+                    [
+                        32,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        33,
+                        "        Resource:\n"
+                    ],
+                    [
+                        34,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        35,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        36,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        37,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AWSCredentials/AWSCredentials-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    20,
+                    37
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            },
+            {
+                "check_id": "CKV_AWS_19",
+                "bc_check_id": "BC_AWS_S3_14",
+                "check_name": "Ensure the S3 bucket has server-side-encryption enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/BucketEncryption/ServerSideEncryptionConfiguration/[0]/ServerSideEncryptionByDefault/SSEAlgorithm"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3Encryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest"
+            },
+            {
+                "check_id": "CKV_AWS_57",
+                "bc_check_id": "BC_AWS_S3_2",
+                "check_name": "Ensure the S3 bucket does not allow WRITE permissions to everyone",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/AccessControl"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3PublicACLWrite",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone"
+            },
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        5,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        6,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        7,
+                        "    tags:\n"
+                    ],
+                    [
+                        8,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        9,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        10,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        11,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        12,
+                        "        Action:\n"
+                    ],
+                    [
+                        13,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        14,
+                        "        Resource:\n"
+                    ],
+                    [
+                        15,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        16,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        17,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        18,
+                        "    memorySize: 320\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    5,
+                    19
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        5,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        6,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        7,
+                        "    tags:\n"
+                    ],
+                    [
+                        8,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        9,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        10,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        11,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        12,
+                        "        Action:\n"
+                    ],
+                    [
+                        13,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        14,
+                        "        Resource:\n"
+                    ],
+                    [
+                        15,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        16,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        17,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        18,
+                        "    memorySize: 320\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    5,
+                    19
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        5,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        6,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        7,
+                        "    tags:\n"
+                    ],
+                    [
+                        8,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        9,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        10,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        11,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        12,
+                        "        Action:\n"
+                    ],
+                    [
+                        13,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        14,
+                        "        Resource:\n"
+                    ],
+                    [
+                        15,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        16,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        17,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        18,
+                        "    memorySize: 320\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    5,
+                    19
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            },
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_StarActionPolicyDocument/StarActionPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_StarActionPolicyDocument/StarActionPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_51",
+                "bc_check_id": "BC_AWS_GENERAL_24",
+                "check_name": "Ensure ECR Image Tags are immutable",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/ImageTagMutability"
+                    ]
+                },
+                "code_block": [
+                    [
+                        35,
+                        "    EcrRepository:\n"
+                    ],
+                    [
+                        36,
+                        "      Type: AWS::ECR::Repository\n"
+                    ],
+                    [
+                        37,
+                        "      Properties:\n"
+                    ],
+                    [
+                        38,
+                        "        RepositoryName:  test\n"
+                    ],
+                    [
+                        39,
+                        "        ImageTagMutability: IMMUTABLE\n"
+                    ],
+                    [
+                        40,
+                        "        ImageScanningConfiguration:\n"
+                    ],
+                    [
+                        41,
+                        "          scanOnPush: true\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    35,
+                    41
+                ],
+                "resource": "AWS::ECR::Repository.EcrRepository",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.ECRImmutableTags",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_general_24"
+            },
+            {
+                "check_id": "CKV_AWS_32",
+                "bc_check_id": "BC_AWS_PUBLIC_1",
+                "check_name": "Ensure ECR policy is not set to public",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "Properties/RepositoryPolicyText/Statement"
+                    ]
+                },
+                "code_block": [
+                    [
+                        35,
+                        "    EcrRepository:\n"
+                    ],
+                    [
+                        36,
+                        "      Type: AWS::ECR::Repository\n"
+                    ],
+                    [
+                        37,
+                        "      Properties:\n"
+                    ],
+                    [
+                        38,
+                        "        RepositoryName:  test\n"
+                    ],
+                    [
+                        39,
+                        "        ImageTagMutability: IMMUTABLE\n"
+                    ],
+                    [
+                        40,
+                        "        ImageScanningConfiguration:\n"
+                    ],
+                    [
+                        41,
+                        "          scanOnPush: true\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    35,
+                    41
+                ],
+                "resource": "AWS::ECR::Repository.EcrRepository",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.ECRPolicy",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/public_1-ecr-repositories-not-public"
+            },
+            {
+                "check_id": "CKV_AWS_97",
+                "bc_check_id": "BC_AWS_GENERAL_39",
+                "check_name": "Ensure Encryption in transit is enabled for EFS volumes in ECS Task definitions",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        42,
+                        "    FargateTask:\n"
+                    ],
+                    [
+                        43,
+                        "      Family: test\n"
+                    ],
+                    [
+                        44,
+                        "      Type: AWS::ECS::TaskDefinition\n"
+                    ],
+                    [
+                        45,
+                        "      Properties:\n"
+                    ],
+                    [
+                        46,
+                        "        RequiresCompatibilities:\n"
+                    ],
+                    [
+                        47,
+                        "          - FARGATE\n"
+                    ],
+                    [
+                        48,
+                        "        Memory: 12288  # 12GB\n"
+                    ],
+                    [
+                        49,
+                        "        Cpu: 2048  # 2vCPV\n"
+                    ],
+                    [
+                        50,
+                        "        NetworkMode: awsvpc\n"
+                    ],
+                    [
+                        51,
+                        "        ExecutionRoleArn: arn:aws:iam::1234:role/ecsTaskExecutionRole\n"
+                    ],
+                    [
+                        52,
+                        "        TaskRoleArn: arn:aws:iam::1234:role/ecsTaskExecutionRole\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    42,
+                    52
+                ],
+                "resource": "AWS::ECS::TaskDefinition.FargateTask",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.ECSTaskDefinitionEFSVolumeEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_general_39"
+            },
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        29,
+                        "  func1:\n"
+                    ],
+                    [
+                        30,
+                        "    description: A function.\n"
+                    ],
+                    [
+                        31,
+                        "    handler: handler.handler\n"
+                    ],
+                    [
+                        32,
+                        "\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    29,
+                    32
+                ],
+                "resource": "func1",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            }
+        ],
+        "failed_checks": [
+            {
+                "check_id": "CKV_AWS_1",
+                "bc_check_id": null,
+                "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AdminPolicyDocument/AdminPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AdminPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/iam_23"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AdminPolicyDocument\\AdminPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AdminPolicyDocument/AdminPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            },
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": null,
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        20,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        21,
+                        "    environment:\n"
+                    ],
+                    [
+                        22,
+                        "      FUNC_NAME: \"myfunc\"\n"
+                    ],
+                    [
+                        23,
+                        "      AWS_ACCESS_KEY: \"AKIAIOSFODNN7EXAMPLE\"\n"
+                    ],
+                    [
+                        24,
+                        "      AWS_SECRET_KEY: \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n"
+                    ],
+                    [
+                        25,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        26,
+                        "    tags:\n"
+                    ],
+                    [
+                        27,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        28,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        29,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        30,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        31,
+                        "        Action:\n"
+                    ],
+                    [
+                        32,
+                        "          - \"lambda:InvokeFunction\"\n"
+                    ],
+                    [
+                        33,
+                        "        Resource:\n"
+                    ],
+                    [
+                        34,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        35,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        36,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        37,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_AWSCredentials/AWSCredentials-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    20,
+                    37
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.AWSCredentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_secrets_5"
+            },
+            {
+                "check_id": "CKV_AWS_18",
+                "bc_check_id": "BC_AWS_S3_13",
+                "check_name": "Ensure the S3 bucket has access logging enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/LoggingConfiguration"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3AccessLogs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_13-enable-logging"
+            },
+            {
+                "check_id": "CKV_AWS_53",
+                "bc_check_id": "BC_AWS_S3_19",
+                "check_name": "Ensure S3 bucket has block public ACLS enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/BlockPublicAcls"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3BlockPublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_19"
+            },
+            {
+                "check_id": "CKV_AWS_54",
+                "bc_check_id": "BC_AWS_S3_20",
+                "check_name": "Ensure S3 bucket has block public policy enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/BlockPublicPolicy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3BlockPublicPolicy",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_20"
+            },
+            {
+                "check_id": "CKV_AWS_55",
+                "bc_check_id": "BC_AWS_S3_21",
+                "check_name": "Ensure S3 bucket has ignore public ACLs enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/IgnorePublicAcls"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3IgnorePublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_21"
+            },
+            {
+                "check_id": "CKV_AWS_20",
+                "bc_check_id": "BC_AWS_S3_1",
+                "check_name": "Ensure the S3 bucket does not allow READ permissions to everyone",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/AccessControl"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3PublicACLRead",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone"
+            },
+            {
+                "check_id": "CKV_AWS_56",
+                "bc_check_id": "BC_AWS_S3_22",
+                "check_name": "Ensure S3 bucket has 'restrict_public_bucket' enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/PublicAccessBlockConfiguration/RestrictPublicBuckets"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3RestrictPublicBuckets",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_s3_22"
+            },
+            {
+                "check_id": "CKV_AWS_21",
+                "bc_check_id": "BC_AWS_S3_16",
+                "check_name": "Ensure the S3 bucket has versioning enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/VersioningConfiguration/Status"
+                    ]
+                },
+                "code_block": [
+                    [
+                        22,
+                        "    S3BucketPublicRead:\n"
+                    ],
+                    [
+                        23,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        24,
+                        "      Properties:\n"
+                    ],
+                    [
+                        25,
+                        "        AccessControl: PublicRead\n"
+                    ],
+                    [
+                        26,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        27,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        28,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        29,
+                        "                SSEAlgorithm: AES256"
+                    ]
+                ],
+                "file_path": "/example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_S3PublicACLRead\\S3PublicACLRead-FAILED\\serverless.yml",
+                "repo_file_path": "/serverless/example_S3PublicACLRead/S3PublicACLRead-FAILED/serverless.yml",
+                "file_line_range": [
+                    22,
+                    29
+                ],
+                "resource": "AWS::S3::Bucket.S3BucketPublicRead",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3Versioning",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_16-enable-versioning"
+            },
+            {
+                "check_id": "CKV_AWS_49",
+                "bc_check_id": null,
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        18,
+                        "  myFunc:\n"
+                    ],
+                    [
+                        19,
+                        "    name: myFunc\n"
+                    ],
+                    [
+                        20,
+                        "    tags:\n"
+                    ],
+                    [
+                        21,
+                        "      RESOURCE: lambda\n"
+                    ],
+                    [
+                        22,
+                        "      PUBLIC: false\n"
+                    ],
+                    [
+                        23,
+                        "    iamRoleStatements:\n"
+                    ],
+                    [
+                        24,
+                        "      - Effect: Allow\n"
+                    ],
+                    [
+                        25,
+                        "        Action:\n"
+                    ],
+                    [
+                        26,
+                        "          - \"*\"\n"
+                    ],
+                    [
+                        27,
+                        "        Resource:\n"
+                    ],
+                    [
+                        28,
+                        "          - \"arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:invokedLambda\"\n"
+                    ],
+                    [
+                        29,
+                        "    handler: Handler.handle\n"
+                    ],
+                    [
+                        30,
+                        "    timeout: 600\n"
+                    ],
+                    [
+                        31,
+                        "    memorySize: 320"
+                    ]
+                ],
+                "file_path": "/example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\example_StarActionPolicyDocument\\StarActionPolicyDocument-FAILED-func_level\\serverless.yml",
+                "repo_file_path": "/serverless/example_StarActionPolicyDocument/StarActionPolicyDocument-FAILED-func_level/serverless.yml",
+                "file_line_range": [
+                    18,
+                    31
+                ],
+                "resource": "myFunc",
+                "evaluations": {},
+                "check_class": "checkov.serverless.checks.function.aws.StarActionPolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/bc_aws_iam_43"
+            },
+            {
+                "check_id": "CKV_AWS_163",
+                "bc_check_id": "BC_AWS_GENERAL_8",
+                "check_name": "Ensure ECR image scanning on push is enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/ImageScanningConfiguration/ScanOnPush"
+                    ]
+                },
+                "code_block": [
+                    [
+                        35,
+                        "    EcrRepository:\n"
+                    ],
+                    [
+                        36,
+                        "      Type: AWS::ECR::Repository\n"
+                    ],
+                    [
+                        37,
+                        "      Properties:\n"
+                    ],
+                    [
+                        38,
+                        "        RepositoryName:  test\n"
+                    ],
+                    [
+                        39,
+                        "        ImageTagMutability: IMMUTABLE\n"
+                    ],
+                    [
+                        40,
+                        "        ImageScanningConfiguration:\n"
+                    ],
+                    [
+                        41,
+                        "          scanOnPush: true\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    35,
+                    41
+                ],
+                "resource": "AWS::ECR::Repository.EcrRepository",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.ECRImageScanning",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/general_8"
+            },
+            {
+                "check_id": "CKV_AWS_136",
+                "bc_check_id": "BC_AWS_GENERAL_53",
+                "check_name": "Ensure that ECR repositories are encrypted using KMS",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "Properties/EncryptionConfiguration/EncryptionType"
+                    ]
+                },
+                "code_block": [
+                    [
+                        35,
+                        "    EcrRepository:\n"
+                    ],
+                    [
+                        36,
+                        "      Type: AWS::ECR::Repository\n"
+                    ],
+                    [
+                        37,
+                        "      Properties:\n"
+                    ],
+                    [
+                        38,
+                        "        RepositoryName:  test\n"
+                    ],
+                    [
+                        39,
+                        "        ImageTagMutability: IMMUTABLE\n"
+                    ],
+                    [
+                        40,
+                        "        ImageScanningConfiguration:\n"
+                    ],
+                    [
+                        41,
+                        "          scanOnPush: true\n"
+                    ]
+                ],
+                "file_path": "/parsefail\\serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\parsefail\\serverless.yml",
+                "repo_file_path": "/serverless/parsefail/serverless.yml",
+                "file_line_range": [
+                    35,
+                    41
+                ],
+                "resource": "AWS::ECR::Repository.EcrRepository",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.ECRRepositoryEncrypted",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/ensure-that-ecr-repositories-are-encrypted"
+            }
+        ],
+        "skipped_checks": [
+            {
+                "check_id": "CKV_AWS_18",
+                "bc_check_id": "BC_AWS_S3_13",
+                "check_name": "Ensure the S3 bucket has access logging enabled",
+                "check_result": {
+                    "result": "SKIPPED",
+                    "suppress_comment": " not log\\n')"
+                },
+                "code_block": [
+                    [
+                        36,
+                        "    # bridgecrew:skip=BC_AWS_S3_13: not log\n"
+                    ],
+                    [
+                        37,
+                        "      Type: AWS::S3::Bucket\n"
+                    ],
+                    [
+                        38,
+                        "      Properties:\n"
+                    ],
+                    [
+                        39,
+                        "        BucketName: ${self:service}-${self:provider.region}-${opt:stage, 'dev'}\n"
+                    ],
+                    [
+                        40,
+                        "        BucketEncryption:\n"
+                    ],
+                    [
+                        41,
+                        "          ServerSideEncryptionConfiguration:\n"
+                    ],
+                    [
+                        42,
+                        "            - ServerSideEncryptionByDefault:\n"
+                    ],
+                    [
+                        43,
+                        "                SSEAlgorithm: AES256\n"
+                    ],
+                    [
+                        44,
+                        "        PublicAccessBlockConfiguration:\n"
+                    ],
+                    [
+                        45,
+                        "          BlockPublicAcls: true\n"
+                    ],
+                    [
+                        46,
+                        "          BlockPublicPolicy: true\n"
+                    ],
+                    [
+                        47,
+                        "          IgnorePublicAcls: true\n"
+                    ],
+                    [
+                        48,
+                        "          RestrictPublicBuckets: true\n"
+                    ],
+                    [
+                        49,
+                        "        VersioningConfiguration:\n"
+                    ],
+                    [
+                        50,
+                        "          Status: Enabled\n"
+                    ],
+                    [
+                        51,
+                        "        LifecycleConfiguration:\n"
+                    ],
+                    [
+                        52,
+                        "          Rules:\n"
+                    ],
+                    [
+                        53,
+                        "            - ExpirationInDays: 7\n"
+                    ],
+                    [
+                        54,
+                        "              Id: Expire uploads\n"
+                    ],
+                    [
+                        55,
+                        "              Status: Enabled\n"
+                    ]
+                ],
+                "file_path": "/serverless.yml",
+                "file_abs_path": "F:\\Code\\fail\\serverless\\serverless.yml",
+                "repo_file_path": "/serverless/serverless.yml",
+                "file_line_range": [
+                    36,
+                    55
+                ],
+                "resource": "AWS::S3::Bucket.Bucket",
+                "evaluations": {},
+                "check_class": "checkov.cloudformation.checks.resource.aws.S3AccessLogs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": "https://docs.bridgecrew.io/docs/s3_13-enable-logging"
+            }
+        ],
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 27,
+        "failed": 13,
+        "skipped": 1,
+        "parsing_errors": 0,
+        "resource_count": 4,
+        "checkov_version": "2.0.873"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}

@@ -18,7 +18,7 @@ write-host -f red "Scanning $path"
 # run the tools
 $location="$path\fails.json"
 Write-Debug $location
-Remove-Item -force "$location" -error-action SilentlyContinue
+Remove-Item -force "$location" -ErrorAction SilentlyContinue
 
 checkov -o json -d $path > "$location"
 $checkov = (get-content "$location")|ConvertFrom-Json
@@ -27,7 +27,10 @@ kics scan -s -p $path -o $path --output-name "fails_kics.json"
 $kics_count=(Get-Content "$path\fails_kics.json")|ConvertFrom-Json
 $kics_total=$kics_count.total_counter
 
-$tfsec = (tfsec $path -f json ) | ConvertFrom-Json
+tfsec $path -f json --out "$path\fails_tfsec.json"
+$tfsec = (Get-Content "$path\fails_tfsec.json") | ConvertFrom-Json
+
+
 $tfsec_count = $tfsec.results.Length
 
 foreach($i in $checkov.summary.failed) {
@@ -58,7 +61,7 @@ if ($path -eq ".") {
 
 Write-Output "# Summary" | Out-File $path\"summary.md"
 Write-Output "`n" | Out-File $path\"summary.md" -Append -NoNewline
-Write-Output "- Found Terraform $total"  | Out-File $path\"summary.md" -Append
+Write-Output "- Found Checkov $total"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found TFSec $tfsec_count"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found Kics $kics_total" | Out-File $path\"summary.md" -Append
 Write-Output "- Resource count $resources" | Out-File $path\"summary.md" -Append

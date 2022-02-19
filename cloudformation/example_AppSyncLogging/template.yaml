@@ -1,0 +1,7 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  Default:
+    Type: "AWS::AppSync::GraphQLApi"
+    Properties:
+      Name: "example"
+      AuthenticationType: "API_KEY"

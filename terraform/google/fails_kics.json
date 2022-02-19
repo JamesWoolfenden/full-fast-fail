@@ -1,0 +1,1436 @@
+{
+	"kics_version": "1.4.9",
+	"files_scanned": 57,
+	"files_parsed": 57,
+	"files_failed_to_scan": 0,
+	"queries_total": 851,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"HIGH": 50,
+		"INFO": 0,
+		"LOW": 4,
+		"MEDIUM": 24,
+		"TRACE": 0
+	},
+	"total_counter": 78,
+	"total_bom_resources": 0,
+	"start": "2022-02-19T11:58:46.7027178Z",
+	"end": "2022-02-19T11:58:59.2705978Z",
+	"paths": [
+		".\\terraform\\google"
+	],
+	"queries": [
+		{
+			"query_name": "BigQuery Dataset Is Public",
+			"query_id": "e576ce44-dd03-4022-a8c0-3906acca2ab4",
+			"query_url": "https://www.terraform.io/docs/providers/google/r/bigquery_dataset.html",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "BigQuery dataset is anonymously or publicly accessible",
+			"description_id": "cb5081a0",
+			"files": [
+				{
+					"file_name": "terraform\\google\\bigquery\\bigquery_dataset.tf",
+					"similarity_id": "a31661399212116a8d4e30c863edbb5f37a2a8abb7f5865e6e486e4fd1b3112a",
+					"line": 20,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_bigquery_dataset[fail].access.special_group",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'access.special_group' is not equal to 'allAuthenticatedUsers'",
+					"actual_value": "'access.special_group' is equal to 'allAuthenticatedUsers'"
+				}
+			]
+		},
+		{
+			"query_name": "COS Node Image Not Used",
+			"query_id": "8a893e46-e267-485a-8690-51f39951de58",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#node_config",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "A node image, that is not Container-Optimized OS (COS), is used for Kubernetes Engine Clusters Node image",
+			"description_id": "4bdfef01",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"similarity_id": "3127bbb1e0c48671b1932e6e5f2fe5ebbf84e4b184efcf84b9dd1eb8e991a845",
+					"line": 35,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_node_pool[fail_pool].node_config.image_type",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'node_config.image_type' is 'COS'",
+					"actual_value": "'node_config.image_type' is not 'COS'"
+				}
+			]
+		},
+		{
+			"query_name": "Client Certificate Disabled",
+			"query_id": "73fb21a1-b19a-45b1-b648-b47b1678681e",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Clusters must be created with Client Certificate enabled, which means 'master_auth' must have 'client_certificate_config' with the attribute 'issue_client_certificate' equal to true",
+			"description_id": "94728b0c",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "8d13fd577b11a6cab4348a50a76a57823e358afe41d040be4d9d4ab36bdd0269",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "73bb35c179b664e67274966e4df37dea11a9733715752b48b98e02f53ccbc228",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "c8cf950ce25e9ab4e72a65b773d4e63495e5866f5a0ee92411c654c087a59bce",
+					"line": 52,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail].master_auth",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'client_certificate_config' in 'master_auth' is defined",
+					"actual_value": "Attribute 'client_certificate_config' in 'master_auth' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Cloud Storage Bucket Is Publicly Accessible",
+			"query_id": "c010082c-76e0-4b91-91d9-6e8439e455dd",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Cloud Storage Bucket is anonymously or publicly accessible",
+			"description_id": "7a54f7e2",
+			"files": [
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket_iam_member.tf",
+					"similarity_id": "126e57ac1f0de7b9273254dc998e97b7ac1118692686acb10e03e4d1680b6b84",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_storage_bucket_iam_member[member].member",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'member' not equal to 'allUsers' nor 'allAuthenticatedUsers'",
+					"actual_value": "'member' equal to 'allUsers'"
+				}
+			]
+		},
+		{
+			"query_name": "Cloud Storage Bucket Logging Not Enabled",
+			"query_id": "d6cabc3a-d57e-48c2-b341-bf3dd4f4a120",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#log_bucket",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "Cloud storage bucket with logging not enabled",
+			"description_id": "9e9984aa",
+			"files": [
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"similarity_id": "6d07be6632b9b008161c3d64f226d966a094df98ebb42b4182f08619d35eb3d0",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_storage_bucket[static_site]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_storage_bucket.logging' is set",
+					"actual_value": "'google_storage_bucket.logging' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Cloud Storage Bucket Versioning Disabled",
+			"query_id": "e7e961ac-d17e-4413-84bc-8a1fbe242944",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#enabled",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "Object Versioning Not Enabled on Cloud Storage Bucket",
+			"description_id": "9fda4554",
+			"files": [
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"similarity_id": "3455dac78db7083ea87ec60ac7b0c10a32979efd879554bc41f5714c811ab0ba",
+					"line": 19,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_storage_bucket[static_site].versioning.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'versioning.enabled' is true",
+					"actual_value": "'versioning.enabled' is false"
+				},
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"similarity_id": "eb9cc7cb7739d178fc8fc5794ad68c8655bf24b72077e7af9b03efc52ac2535d",
+					"line": 33,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_storage_bucket[fail_self].versioning.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'versioning.enabled' is true",
+					"actual_value": "'versioning.enabled' is false"
+				}
+			]
+		},
+		{
+			"query_name": "Cluster Labels Disabled",
+			"query_id": "65c1bc7a-4835-4ac4-a2b6-13d310b0648d",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Clusters must be configured with labels, which means the attribute 'resource_labels' must be defined",
+			"description_id": "947385a5",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "15e6f1b540310201406cfe2af3d9882e3704b0d4dce13a4cdf41d9706cad0ab4",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'resource_labels' is defined",
+					"actual_value": "Attribute 'resource_labels' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "86bdbb4e0f35c1db88c87c8c0a888252c72c8d08955d1fbfd75f5237c11a6033",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'resource_labels' is defined",
+					"actual_value": "Attribute 'resource_labels' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "35816862665556b514e42f2cbaa9ee8d839161f537c7c6821d35f79ead9ee44a",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'resource_labels' is defined",
+					"actual_value": "Attribute 'resource_labels' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Cluster Master Authentication Disabled",
+			"query_id": "1baba08e-3c8a-4be7-95eb-dced5833de21",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Engine Clusters must have Master Authentication set to enabled, which means the attribute 'master_auth' must have the subattributes 'username' and 'password' defined and not empty",
+			"description_id": "70e5d429",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "65fe7edb8661b23043afae96d3b0fad798b9362b4f2945adaf8aedbdc0cb45c0",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "535e2fd8ed97ff06e9a2980eb621a7fa60dbdbac2377d9202ec7bb023db457b4",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "GKE Basic Authentication Enabled",
+			"query_id": "70cdf849-b7d9-4569-b87d-5d82ffd44719",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "GCP - Google Kubernetes Engine (GKE) Basic Authentication must be disabled, which means the username and password provided in the master_auth block must be empty",
+			"description_id": "c59b567e",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "fcd6617a15b61ddffa7933eabbebe4cd2be1f895435e04c88ee8f0b9e390c1a7",
+					"line": 52,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail].master_auth",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Both attribute 'master_auth.username' and 'master_auth.password' are defined and empty",
+					"actual_value": "Attribute 'username' is not empty or attribute 'master_auth' is not empty"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "e5c262d36c7ea3cf85e981bb44302a3cc5ec51d02d7c98266a16386a150d4659",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "f4fae8627c88e18f57d6213e5e72ba96e6adaca418e4578fd1b2fa07f64581db",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "GKE Legacy Authorization Enabled",
+			"query_id": "5baa92d2-d8ee-4c75-88a4-52d9d8bb8067",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Engine Clusters must have Legacy Authorization set to disabled, which means the attribute 'enable_legacy_abac' must not be true",
+			"description_id": "a2e814bc",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "a0b3de895e583f346ffd2a4d085f3dabd62057d383467f55258608de641fb5a1",
+					"line": 28,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail_public].enable_legacy_abac",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'enable_legacy_abac' is false",
+					"actual_value": "Attribute 'enable_legacy_abac' is true"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "65c7b76ba088e4de3c31b5ccaf83286506006c37cee88950d340ad8eb6cec685",
+					"line": 44,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail].enable_legacy_abac",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'enable_legacy_abac' is false",
+					"actual_value": "Attribute 'enable_legacy_abac' is true"
+				}
+			]
+		},
+		{
+			"query_name": "IAM Audit Not Properly Configured",
+			"query_id": "89fe890f-b480-460c-8b6b-7d8b1468adb4",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_audit_config",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "Audit Logging Configuration is defective",
+			"description_id": "dd31f3ec",
+			"files": [
+				{
+					"file_name": "terraform\\google\\iam\\iam_audit\\iam_audit_not_properly_configured.tf",
+					"similarity_id": "2a3eb2d4c39cff9fd994ed75c6e97c0baeab2097af8651ce2570ebfa5bd5d69d",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_audit_config[fail].service",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'service' must be 'allServices'",
+					"actual_value": "'service' is 'some_specific_service'"
+				},
+				{
+					"file_name": "terraform\\google\\iam\\iam_audit\\iam_audit_not_properly_configured.tf",
+					"similarity_id": "8d305298564bb19ca269b7eb5128f43a754ab13d0c565cb53e257921311c4696",
+					"line": 12,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_audit_config[fail].audit_log_config.exempted_members",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'exempted_members' is empty",
+					"actual_value": "'exempted_members' is not empty"
+				}
+			]
+		},
+		{
+			"query_name": "IP Aliasing Disabled",
+			"query_id": "c606ba1d-d736-43eb-ac24-e16108f3a9e0",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Clusters must be created with Alias IP ranges enabled, which means the attribut 'ip_allocation_policy' must be defined and, if defined, the attribute 'networking_mode' must be VPC_NATIVE ",
+			"description_id": "e7d9862a",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "e7f1254f4ca1c5e3e46312cdb3d370fd7c0eb954fe7d14b21059a45a90130065",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attributes 'ip_allocation_policy' and 'networking_mode' are defined",
+					"actual_value": "Attributes 'ip_allocation_policy' and 'networking_mode' are undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "dc914e92c2757606b0aab2edb173f0ccc02eb14c631b72d0bce39d2f6bbb7280",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attributes 'ip_allocation_policy' and 'networking_mode' are defined",
+					"actual_value": "Attributes 'ip_allocation_policy' and 'networking_mode' are undefined"
+				}
+			]
+		},
+		{
+			"query_name": "KMS Crypto Key is Publicly Accessible",
+			"query_id": "16cc87d1-dd47-4f46-b3ce-4dfcac8fd2f5",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_kms_crypto_key_iam#google_kms_crypto_key_iam_policy",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Encryption",
+			"description": "KMS Crypto Key should not be publicly accessible. In other words, the KMS Crypto Key policy should not set 'allUsers' or 'allAuthenticatedUsers' in the attribute 'member'/'members'",
+			"description_id": "b1146d1f",
+			"files": [
+				{
+					"file_name": "terraform\\google\\kms\\kms_crypto_key_publicly_accessible.tf",
+					"similarity_id": "e70676de5550c81ef9b1c3ba2d808f19c30641e7d6e4615d7a07f589a9b17b89",
+					"line": 25,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_kms_crypto_key_iam_policy[positive1].policy_data",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "KMS crypto key is not publicly accessible",
+					"actual_value": "KMS crypto key is publicly accessible"
+				}
+			]
+		},
+		{
+			"query_name": "Network Policy Disabled",
+			"query_id": "11e7550e-c4b6-472e-adff-c698f157cdd7",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Engine Clusters must have Network Policy enabled, meaning that the attribute 'network_policy.enabled' must be true and the attribute 'addons_config.network_policy_config.disabled' must be false ",
+			"description_id": "afcf7c4b",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "c81e7ccaba68d2cf6190c3e59fba603a1287de1910d89fb2d11277efe083cd9f",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'network_policy' is defined and Attribute 'addons_config' is defined",
+					"actual_value": "Attribute 'network_policy' is undefined or Attribute 'addons_config' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "ae359753fc3d168ffea0b102cbc0ff7726bb3af5b444e2bb217abe17fcc7c203",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'network_policy' is defined and Attribute 'addons_config' is defined",
+					"actual_value": "Attribute 'network_policy' is undefined or Attribute 'addons_config' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "6ca0a493c99eaf4dd8cf4a6805e5fcaffe50200dee5842d2ba40b386875f6ca2",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'network_policy' is defined and Attribute 'addons_config' is defined",
+					"actual_value": "Attribute 'network_policy' is undefined or Attribute 'addons_config' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Node Auto Upgrade Disabled",
+			"query_id": "b139213e-7d24-49c2-8025-c18faa21ecaa",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_upgrade",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Resource Management",
+			"description": "Node 'auto_upgrade' should be enabled for Kubernetes Clusters",
+			"description_id": "46e4c29f",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"similarity_id": "dee5507ad6f9538b981321138c9f37f5071427cec48f0bce2b4c1c099edb058b",
+					"line": 39,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_node_pool[fail_pool].management.auto_upgrade",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "management.auto_upgrade is true",
+					"actual_value": "management.auto_upgrade is false"
+				}
+			]
+		},
+		{
+			"query_name": "OSLogin Disabled",
+			"query_id": "32ecd6eb-0711-421f-9627-1a28d9eff217",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata#metadata",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Verifies that the OSLogin is enabled",
+			"description_id": "3ed07bfa",
+			"files": [
+				{
+					"file_name": "terraform\\google\\project\\google_compute_project_metadata.tf",
+					"similarity_id": "760cacf950fe588dabcfd69517f4e7effea25c8fbfeeb59b6a76f5687290490d",
+					"line": 5,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_compute_project_metadata[default].metadata",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_compute_project_metadata[default].metadata['enable-oslogin'] is true",
+					"actual_value": "google_compute_project_metadata[default].metadata['enable-oslogin'] is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Passwords And Secrets - Generic Password",
+			"query_id": "487f4be7-3fd9-4506-a07a-eae252180c08",
+			"query_url": "https://kics.io/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"category": "Secret Management",
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "f9f5ac5dbff99787e243392fbd3a689af519fd0cd19bc5bb379af7fad5c03905",
+					"line": 54,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'    password = \"james\"' contains a secret"
+				}
+			]
+		},
+		{
+			"query_name": "Pod Security Policy Disabled",
+			"query_id": "9192e0f9-eca5-4056-9282-ae2a736a4088",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Clusters must have Pod Security Policy controller enabled, which means there must be a 'pod_security_policy_config' with the 'enabled' attribute equal to true",
+			"description_id": "546c4012",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "7553ce7b91718a5ea0072d338fd1675f90a0470859bfd6a3df1cfbf8a71b480c",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'pod_security_policy_config' is defined",
+					"actual_value": "Attribute 'pod_security_policy_config' is undefined"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "405a67868cb8d47950b79b7fa90de123fe73bca995fe97dc15cab0108b37821d",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'pod_security_policy_config' is defined",
+					"actual_value": "Attribute 'pod_security_policy_config' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Private Cluster Disabled",
+			"query_id": "6ccb85d7-0420-4907-9380-50313f80946b",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Clusters must be created with Private Clusters enabled, meaning the 'private_cluster_config' must be defined and the attributes 'enable_private_nodes' and 'enable_private_endpoint' must be true",
+			"description_id": "e9bbb09e",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "a561c067266aa6ee8159e7fdb8b0a8319355cc99b745882dae6e127be20d3278",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
+					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "9b05b9cb704ed149419c13afae4923ff5dcf72d6865cfd74d380023b4d25fd87",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
+					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "176483012a1595c26826a183cbd5e90d0fd617903bce63721d04a00ce5b81907",
+					"line": 21,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
+					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
+				}
+			]
+		},
+		{
+			"query_name": "SQL DB Instance Backup Disabled",
+			"query_id": "cf3c7631-cd1e-42f3-8801-a561214a6e79",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Backup",
+			"description": "Checks if backup configuration is enabled for all Cloud SQL Database instances",
+			"description_id": "ab1d4131",
+			"files": [
+				{
+					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
+					"similarity_id": "f896ee1486d22ea1db2d9ebdca31e4562dfa0717c23edc11e4e8fd2d88783382",
+					"line": 20,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_sql_database_instance[fail].settings",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "settings.backup_configuration is defined and not null",
+					"actual_value": "settings.backup_configuration is undefined or null"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
+					"similarity_id": "95452f1d57bb13ff305da888bd0d883eba0b884d7dae60ca44dd6d2a4c1ecb9e",
+					"line": 25,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_auth].settings.backup_configuration.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "settings.backup_configuration.enabled is true",
+					"actual_value": "settings.backup_configuration.enabled is false"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"similarity_id": "5e9cef2aa9db14d3288ca86a441bf96b5264979971a73d8f98c2ef0be30b6db8",
+					"line": 47,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_all].settings.backup_configuration.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "settings.backup_configuration.enabled is true",
+					"actual_value": "settings.backup_configuration.enabled is false"
+				}
+			]
+		},
+		{
+			"query_name": "SQL DB Instance Is Publicly Accessible",
+			"query_id": "b187edca-b81e-4fdc-aff4-aab57db45edb",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Check if any Cloud SQL instances are publicly accessible.",
+			"description_id": "9beef444",
+			"files": [
+				{
+					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
+					"similarity_id": "6a1231cd7e2fab19b6d07d237a6326d04fcd580afea8b4e0a559e9da32a550fc",
+					"line": 61,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_auth].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'authorized_network' address is trusted",
+					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
+					"similarity_id": "420f5515dceb97b5349919ec5f0ec066420f7cb2c5123a456ac398f4b5f4597e",
+					"line": 30,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'authorized_network' address is trusted",
+					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"similarity_id": "00828faab2153a6af17956d71b6995e23884097085a08720f3fe0b46bde6df93",
+					"line": 74,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_all].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'authorized_network' address is trusted",
+					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
+				}
+			]
+		},
+		{
+			"query_name": "SQL DB Instance With SSL Disabled",
+			"query_id": "02474449-71aa-40a1-87ae-e14497747b00",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#require_ssl",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Encryption",
+			"description": "Cloud SQL Database Instance with SSL disabled for incoming connections",
+			"description_id": "8983549e",
+			"files": [
+				{
+					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
+					"similarity_id": "5ab6a17d51c1b2a5675e4ee866391528bd6cf305d41a07ac449d01f27c9901f9",
+					"line": 22,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail].settings.ip_configuration.require_ssl",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'settings.ip_configuration.require_ssl' is true",
+					"actual_value": "'settings.ip_configuration.require_ssl' is false"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"similarity_id": "babbfb986c7c72ed0c6b8c53477306747199c910dabfb453b61d2c662379add8",
+					"line": 34,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_all].settings.ip_configuration.require_ssl",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'settings.ip_configuration.require_ssl' is true",
+					"actual_value": "'settings.ip_configuration.require_ssl' is false"
+				},
+				{
+					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
+					"similarity_id": "dbcb909659c0394b8686f48b3bf7e8f4b07cdf78d6f8b0c5c78e5efbd4fc9485",
+					"line": 48,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_auth].settings.ip_configuration.require_ssl",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'settings.ip_configuration.require_ssl' is true",
+					"actual_value": "'settings.ip_configuration.require_ssl' is false"
+				}
+			]
+		},
+		{
+			"query_name": "Stackdriver Logging Disabled",
+			"query_id": "4c7ebcb2-eae2-461e-bc83-456ee2d4f694",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "Kubernetes Engine Clusters must have Stackdriver Logging enabled, which means the attribute 'logging_service' must be defined and different from 'none'",
+			"description_id": "b292106d",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "37ef982a4e70cb3453d72aedd149856db69e280d366458c2f5851bac40381f2f",
+					"line": 21,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'logging_service' is not 'none'",
+					"actual_value": "Attribute 'logging_service' is 'none'"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "d7eb87bdff64e0346bf0b7540d83160dbbc7bc8bd2bee9bd90d5a1361e180830",
+					"line": 36,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'logging_service' is not 'none'",
+					"actual_value": "Attribute 'logging_service' is 'none'"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "3ab56a28265628cbda83024444d13154a22533b38a62a5089c9e82861800644e",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'logging_service' is defined",
+					"actual_value": "Attribute 'logging_service' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Stackdriver Monitoring Disabled",
+			"query_id": "30e8dfd2-3591-4d19-8d11-79e93106c93d",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster",
+			"severity": "HIGH",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "Kubernetes Engine Clusters must have Stackdriver Monitoring enabled, which means the attribute 'monitoring_service' must be defined and different than 'none'",
+			"description_id": "97635f79",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "6d92a6e9cacbdd2660222e482f4b0bba873717e6ec80e9f6774e60036a59511e",
+					"line": 21,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'monitoring_service' is not 'none'",
+					"actual_value": "Attribute 'monitoring_service' is 'none'"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "e2a8d5e2ad4bb64ef155d052aba34a8140edfe9446043892910f75570fc83f7f",
+					"line": 36,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'monitoring_service' is not 'none'",
+					"actual_value": "Attribute 'monitoring_service' is 'none'"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"similarity_id": "1b9f2b14e8c82878c929e8131ca49f4790014e4f969c6ffa3d61c2459289fcbd",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'monitoring_service' is defined",
+					"actual_value": "Attribute 'monitoring_service' is undefined"
+				}
+			]
+		},
+		{
+			"query_name": "Cloud DNS without DNSSEC",
+			"query_id": "5ef61c88-bbb4-4725-b1df-55d23c9676bb",
+			"query_url": "https://www.terraform.io/docs/providers/google/d/dns_managed_zone.html",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Cloud DNS without DNSSEC",
+			"description_id": "5598ed06",
+			"files": [
+				{
+					"file_name": "terraform\\google\\dns\\dns_managed_zone.tf",
+					"similarity_id": "c2ac714e9625b50e54f17a7c4381d58dee61060adcd0e021cc3f99922e0067c5",
+					"line": 12,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_dns_managed_zone[fail].dnssec_config.state",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'dnssec_config.state' is equal to 'on'",
+					"actual_value": "'dnssec_config.state' is not equal to 'on'"
+				}
+			]
+		},
+		{
+			"query_name": "Cloud Storage Anonymous or Publicly Accessible",
+			"query_id": "a6cd52a1-3056-4910-96a5-894de9f3f3b3",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_binding",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Cloud Storage Buckets must not be anonymously or publicly accessible, which means the attribute 'members' must not possess 'allUsers' or 'allAuthenticatedUsers'",
+			"description_id": "fd990360",
+			"files": [
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket_iam_binding.tf",
+					"similarity_id": "2856a73a4a1cffbb84d34bd1a2a590300ffcda9c80237e1618d88bc9995cc3b7",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_storage_bucket_iam_binding[binding].members",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_storage_bucket_iam_binding[binding].members' does not have 'allAuthenticatedUsers'",
+					"actual_value": "'google_storage_bucket_iam_binding[binding].members' has 'allAuthenticatedUsers'"
+				}
+			]
+		},
+		{
+			"query_name": "GKE Using Default Service Account",
+			"query_id": "1c8eef02-17b1-4a3e-b01d-dcc3292d2c38",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_config",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Kubernetes Engine Clusters should not be configured to use the default service account",
+			"description_id": "efe7e7b0",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"similarity_id": "f5c8b39e7cae2f74e0ab87efb6dbf63c1f0d18df3fd0e9313e09da3f60f3fe0c",
+					"line": 22,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail_public].node_config",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'service_account' is not default",
+					"actual_value": "'service_account' is default"
+				},
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"similarity_id": "d641f939a3efbc404e6ba09491188a03e2e54d075029ddafc9f679ee744360da",
+					"line": 38,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail].node_config",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'service_account' is not default",
+					"actual_value": "'service_account' is default"
+				}
+			]
+		},
+		{
+			"query_name": "Google Compute Network Using Default Firewall Rule",
+			"query_id": "40abce54-95b1-478c-8e5f-ea0bf0bb0e33",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#name",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Networking and Firewall",
+			"description": "Google Compute Network should not use default firewall rule",
+			"description_id": "68898cf7",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+					"similarity_id": "6fc374c20843628276595d24c765b50a3aa8936d8749ee662bd7a5e0be8ea79b",
+					"line": 20,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_network[positive1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_network[positive1]' is not using a default firewall rule",
+					"actual_value": "'google_compute_network[positive1]' is using a default firewall rule"
+				}
+			]
+		},
+		{
+			"query_name": "Google Compute Network Using Firewall Rule that Allows All Ports",
+			"query_id": "22ef1d26-80f8-4a6c-8c15-f35aab3cac78",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Networking and Firewall",
+			"description": "Google Compute Network should not use a firewall rule that allows all ports",
+			"description_id": "20fce4e9",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+					"similarity_id": "00a95d048c4087d675db45824b6b03269f82750202f68b073d419fa8904a3ff6",
+					"line": 20,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_network[positive1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_network[positive1]' is not using a firewall rule that allows access to all ports",
+					"actual_value": "'google_compute_network[positive1]' is using a firewall rule that allows access to all ports"
+				}
+			]
+		},
+		{
+			"query_name": "Google Compute SSL Policy Weak Cipher In Use",
+			"query_id": "14a457f0-473d-4d1d-9e37-6d99b355b336",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_policy",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Encryption",
+			"description": "This query confirms if Google Compute SSL Policy Weak Chyper Suits is Enabled, to do so we need to check if TLS is TLS_1_2, because other version have Weak Chypers",
+			"description_id": "27c7da5e",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\security\\compute_ssl_policy.tf",
+					"similarity_id": "36fa1aa82bb60d1362c76befc5f9b9d7bc733fc34321d3315b892610e742d833",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_ssl_policy[modern_profile].min_tls_version",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_compute_ssl_policy[modern_profile].min_tls_version is TLS_1_2",
+					"actual_value": "google_compute_ssl_policy[modern_profile].min_tls_version is not TLS_1_2"
+				}
+			]
+		},
+		{
+			"query_name": "Google Compute Subnetwork Logging Disabled",
+			"query_id": "40430747-442d-450a-a34f-dc57149f4609",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Observability",
+			"description": "This query checks if logs are enabled for a Google Compute Subnetwork resource.",
+			"description_id": "689ef05b",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\subnetwork\\compute_subnetwork_ipv6.tf",
+					"similarity_id": "073acb9be6805aec999dec130f4ada0cfd27035ef18c4e374d599411b86e6670",
+					"line": 8,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_compute_subnetwork[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_subnetwork[fail].log_config' is defined and not null",
+					"actual_value": "'google_compute_subnetwork[fail].log_config' is undefined or null"
+				}
+			]
+		},
+		{
+			"query_name": "Google Container Node Pool Auto Repair Disabled",
+			"query_id": "acfdbec6-4a17-471f-b412-169d77553332",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Verifies if Google Container Node Pool Auto Repair is Enabled",
+			"description_id": "39487293",
+			"files": [
+				{
+					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"similarity_id": "ba6c66d901539c0004d1866fbbdb85135401777b8e03eff6a30e8e631bd940b5",
+					"line": 38,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_node_pool[fail_pool].management.auto_repair",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_container_node_pool[fail_pool].management.auto_repair is true",
+					"actual_value": "google_container_node_pool[fail_pool].management.auto_repair is false"
+				}
+			]
+		},
+		{
+			"query_name": "Google Project Auto Create Network Disabled",
+			"query_id": "59571246-3f62-4965-a96f-c7d97e269351",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Verifies if the Google Project Auto Create Network is Disabled",
+			"description_id": "9bcdbe82",
+			"files": [
+				{
+					"file_name": "terraform\\google\\project\\project.tf",
+					"similarity_id": "cd704f2a70bd3de02345a7c101f3b5e0dca8c5061d5c747d651c5cd0aca65877",
+					"line": 13,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project[fail].auto_create_network",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project[fail].auto_create_network is false",
+					"actual_value": "google_project[fail].auto_create_network is true"
+				}
+			]
+		},
+		{
+			"query_name": "Google Project IAM Binding Service Account has Token Creator or Account User Role",
+			"query_id": "617ef6ff-711e-4bd7-94ae-e965911b1b40",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_binding",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Verifies if Google Project IAM Binding Service Account doesn't have an Account User or Token Creator Role associated",
+			"description_id": "2b311b42",
+			"files": [
+				{
+					"file_name": "terraform\\google\\iam\\iam_binding\\project_iam_binding.tf",
+					"similarity_id": "8456dc1f1a34be75ae84cacab88478d4680004a7b5e5fa3e9d9946619f6902db",
+					"line": 10,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_binding[project_123].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_binding[project_123].role is not Service Account User",
+					"actual_value": "google_project_iam_binding[project_123].role is Service Account User"
+				}
+			]
+		},
+		{
+			"query_name": "Google Project IAM Member Service Account has Token Creator or Account User Role",
+			"query_id": "c68b4e6d-4e01-4ca1-b256-1e18e875785c",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_member",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Access Control",
+			"description": "Verifies if Google Poject IAM Member Service Account doesn't have a Account User or Token Creator associated",
+			"description_id": "beb4558c",
+			"files": [
+				{
+					"file_name": "terraform\\google\\iam\\iam_member\\no-privileged-service-accounts.tf",
+					"similarity_id": "459cd86c9f94a896a80cc8bbbdf57a1f244f9e31fbc898587d4e346693f18c12",
+					"line": 12,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_member[project].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_member[project].role is Service Account User",
+					"actual_value": "google_project_iam_member[project].role is not Service Account User"
+				},
+				{
+					"file_name": "terraform\\google\\project\\google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+					"similarity_id": "977ef165ac86e3a8d63ea0102e102916b1b7a0072e2386c4370eaa8bb7356912",
+					"line": 5,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_member[positive1].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_member[positive1].role is Service Account Token Creator",
+					"actual_value": "google_project_iam_member[positive1].role is not Service Account Token Creator"
+				}
+			]
+		},
+		{
+			"query_name": "Google Storage Bucket Level Access Disabled",
+			"query_id": "bb0db090-5509-4853-a827-75ced0b3caa0",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Google Storage Bucket Level Access should be enabled",
+			"description_id": "6a48f2c6",
+			"files": [
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"similarity_id": "9d4faf46d077d4a183ecc6192a0e83fffa27016187d20e8b9d69181d8fd23ca6",
+					"line": 23,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_storage_bucket[fail_self]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_storage_bucket[fail_self].uniform_bucket_level_access is defined and not null",
+					"actual_value": "google_storage_bucket[fail_self].uniform_bucket_level_access is undefined or null"
+				},
+				{
+					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"similarity_id": "69c3f9051d4ed25158d9ff726aba5cb19ea6db0767eb2900b36721301d128d17",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_storage_bucket[static_site]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_storage_bucket[static_site].uniform_bucket_level_access is defined and not null",
+					"actual_value": "google_storage_bucket[static_site].uniform_bucket_level_access is undefined or null"
+				}
+			]
+		},
+		{
+			"query_name": "High Google KMS Crypto Key Rotation Period",
+			"query_id": "d8c57c4e-bf6f-4e32-a2bf-8643532de77b",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Encryption",
+			"description": "Make sure Encryption keys change after 90 days",
+			"description_id": "d43302d0",
+			"files": [
+				{
+					"file_name": "terraform\\google\\kms\\google_kms_crypto_key.tf",
+					"similarity_id": "2d22e64ceb0cc8518302b6fcb07b07ba7aa01e50b3976b3e6e9b77bdb605cfdf",
+					"line": 15,
+					"issue_type": "IncorrectValue",
+					"search_key": "resource.google_kms_crypto_key[fails].rotation_period",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_kms_crypto_key.rotation_period' is less or equal to 7776000",
+					"actual_value": "'google_kms_crypto_key.rotation_period' is higher than 7776000"
+				}
+			]
+		},
+		{
+			"query_name": "OSLogin Is Disabled For VM Instance",
+			"query_id": "d0b4d550-c001-46c3-bbdb-d5d75d33f05f",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Check if any VM instance disables OSLogin",
+			"description_id": "a0cc649c",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"similarity_id": "b56bf74ab75d9cd0274f89666311f397b4dff04513e696b111491267e6586e7b",
+					"line": 50,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_instance[default].metadata.enable-oslogin",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_compute_instance[default].metadata.enable-oslogin is true or undefined",
+					"actual_value": "google_compute_instance[default].metadata.enable-oslogin is false"
+				}
+			]
+		},
+		{
+			"query_name": "Project-wide SSH Keys Are Enabled In VM Instances",
+			"query_id": "3e4d5ce6-3280-4027-8010-c26eeea1ec01",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Check if SSH keys are enabled project-wide in VM instances",
+			"description_id": "4b9307cd",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"similarity_id": "896d0fd5f3eb8cac4e99eb0076a2661cb8c47835d0a117b66a59793d296a2dc1",
+					"line": 48,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_instance[default].metadata.block-project-ssh-keys",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_compute_instance[default].metadata.block-project-ssh-keys is true",
+					"actual_value": "google_compute_instance[default].metadata.block-project-ssh-keys is false"
+				}
+			]
+		},
+		{
+			"query_name": "RDP Access Is Not Restricted",
+			"query_id": "678fd659-96f2-454a-a2a0-c2571f83a4a3",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Networking and Firewall",
+			"description": "Check if Google Firewall ingress allows RDP access (port 3389)",
+			"description_id": "f8156d3b",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\firewall\\compute_firewall.tf",
+					"similarity_id": "3142069d1db964e79183dec3f74885baf6933d10fbcd79fe3131799418b71d86",
+					"line": 19,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_firewall[allow_all].allow.ports",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_firewall[allow_all].allow.ports' does not include RDP port 3389",
+					"actual_value": "'google_compute_firewall[allow_all].allow.ports' includes RDP port 3389"
+				},
+				{
+					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+					"similarity_id": "96fa51fd0245630ca4b0428ab78af651084d444a8e585c0c9c86eb45b4bb635d",
+					"line": 14,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_firewall[fail].allow.ports",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_firewall[fail].allow.ports' does not include RDP port 3389",
+					"actual_value": "'google_compute_firewall[fail].allow.ports' includes RDP port 3389"
+				}
+			]
+		},
+		{
+			"query_name": "SSH Access Is Not Restricted",
+			"query_id": "c4dcdcdf-10dd-4bf4-b4a0-8f6239e6aaa0",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Networking and Firewall",
+			"description": "Check if Google Firewall allows SSH access (port 22) from the Internet (public CIDR block)",
+			"description_id": "c0e4fb6f",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\firewall\\compute_firewall.tf",
+					"similarity_id": "75138d12e831932de888cc9e329cdee54321ae63b8e964ae077921fcfbcc7f24",
+					"line": 19,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_firewall[allow_all].allow.ports=0-65535",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_firewall[allow_all].allow.ports' does not include SSH port 22",
+					"actual_value": "'google_compute_firewall[allow_all].allow.ports' includes SSH port 22"
+				}
+			]
+		},
+		{
+			"query_name": "Serial Ports Are Enabled For VM Instances",
+			"query_id": "97fa667a-d05b-4f16-9071-58b939f34751",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Check if VM instance enables serial ports",
+			"description_id": "2967cde6",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"similarity_id": "9fa7aa348f836783306890fe93d86689a598a01c9453b0455040c8e2fb597e9c",
+					"line": 49,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_instance[default].metadata.serial-port-enable",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_compute_instance[default].metadata.serial-port-enable is false or undefined",
+					"actual_value": "google_compute_instance[default].metadata.serial-port-enable is true"
+				}
+			]
+		},
+		{
+			"query_name": "Service Account with Improper Privileges",
+			"query_id": "cefdad16-0dd5-4ac5-8ed2-a37502c78672",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/iam_policy#role",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Resource Management",
+			"description": "Service account should not have improper privileges like admin, editor, owner, or write roles",
+			"description_id": "1b2dbbea",
+			"files": [
+				{
+					"file_name": "terraform\\google\\project\\project_iam_binding.tf",
+					"similarity_id": "ede816e15b59070b5f5debcdb1c2b2a5851897e35036d3e6e6c402f6045ac789",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_binding[fail_service].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_binding[fail_service].role does not have admin, editor, owner, or write privileges for service account member",
+					"actual_value": "google_project_iam_binding[fail_service].role has admin, editor, owner, or write privilege for service account member"
+				}
+			]
+		},
+		{
+			"query_name": "Using Default Service Account",
+			"query_id": "3cb4af0b-056d-4fb1-8b95-fdc4593625ff",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance",
+			"severity": "MEDIUM",
+			"platform": "Terraform",
+			"category": "Insecure Configurations",
+			"description": "Instances must not be configured to use the Default Service Account, that has full access to all Cloud APIs, which means the attribute 'service_account' and its sub attribute 'email' must be defined. Additionally, 'email' must not be empty and must also not be a default Google Compute Engine service account.",
+			"description_id": "5c3e219f",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"similarity_id": "edf841e1d0aa92db58858579240067be998c168e776a3a93555279041513d836",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_compute_instance[default].service_account",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_instance[default].service_account.email' is defined and not null",
+					"actual_value": "'google_compute_instance[default].service_account.email' is undefined or null"
+				}
+			]
+		},
+		{
+			"query_name": "Google Compute Subnetwork with Private Google Access Disabled",
+			"query_id": "ee7b93c1-b3f8-4a3b-9588-146d481814f5",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#private_ip_google_access",
+			"severity": "LOW",
+			"platform": "Terraform",
+			"category": "Networking and Firewall",
+			"description": "Google Compute Subnetwork should have 'private_ip_google_access' set to true",
+			"description_id": "87e8a4f7",
+			"files": [
+				{
+					"file_name": "terraform\\google\\compute\\subnetwork\\compute_subnetwork_ipv6.tf",
+					"similarity_id": "e2a9325ac13d86d50394e3dd86e673aff138728ad8e0b17d376e724ff0d71b79",
+					"line": 19,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_compute_subnetwork[fail].private_ip_google_access",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'google_compute_subnetwork[fail].private_ip_google_access' is set to true",
+					"actual_value": "'google_compute_subnetwork[fail].private_ip_google_access' is set to false"
+				}
+			]
+		},
+		{
+			"query_name": "User with IAM Role",
+			"query_id": "704fcc44-a58f-4af5-82e2-93f2a58ef918",
+			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/iam_policy#role",
+			"severity": "LOW",
+			"platform": "Terraform",
+			"category": "Best Practices",
+			"description": "As a best practice, it is better to assign an IAM Role to a group than to a user",
+			"description_id": "256939e9",
+			"files": [
+				{
+					"file_name": "terraform\\google\\project\\RoleServiceAccountUser.tf",
+					"similarity_id": "a269207feea62d6d7624d59c3885cb00eef889f3b173a7643894ee4da701a373",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_member[project].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_member[project].role is not set",
+					"actual_value": "google_project_iam_member[project].role is set"
+				},
+				{
+					"file_name": "terraform\\google\\project\\project_iam_member.tf",
+					"similarity_id": "e58d0c931a8b22469acb3d21dd9e6e8e122a5c6df28692fe2c3ce21e0c6bd6e8",
+					"line": 10,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_member[fail].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_member[fail].role is not set",
+					"actual_value": "google_project_iam_member[fail].role is set"
+				},
+				{
+					"file_name": "terraform\\google\\kms\\kms_crypto_key_publicly_accessible.tf",
+					"similarity_id": "09e53fe71f07ee9624d1947dc8fba311b6deca8ed9a92b86a42e75cd3e2a1e8f",
+					"line": 18,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_iam_policy[fail_access].binding.role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_iam_policy[fail_access].binding.role is not set",
+					"actual_value": "google_iam_policy[fail_access].binding.role is set"
+				}
+			]
+		}
+	]
+}

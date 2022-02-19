@@ -25,8 +25,8 @@
                             "}\n"
                         ]
                     ],
-                    "file_path": "/fw/provider.openstack.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/fw/provider.openstack.tf",
+                    "file_path": "/fw\\provider.openstack.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\fw\\provider.openstack.tf",
                     "repo_file_path": "/terraform/openstack/fw/provider.openstack.tf",
                     "file_line_range": [
                         1,
@@ -108,8 +108,8 @@
                             "}\n"
                         ]
                     ],
-                    "file_path": "/compute/compute_instance_v2.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/compute/compute_instance_v2.tf",
+                    "file_path": "/compute\\compute_instance_v2.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\compute\\compute_instance_v2.tf",
                     "repo_file_path": "/terraform/openstack/compute/compute_instance_v2.tf",
                     "file_line_range": [
                         6,
@@ -177,8 +177,8 @@
                             "}\n"
                         ]
                     ],
-                    "file_path": "/fw/fw_rule_v1.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/fw/fw_rule_v1.tf",
+                    "file_path": "/fw\\fw_rule_v1.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\fw\\fw_rule_v1.tf",
                     "repo_file_path": "/terraform/openstack/fw/fw_rule_v1.tf",
                     "file_line_range": [
                         8,
@@ -229,7 +229,7 @@
                         ]
                     ],
                     "file_path": "/provider.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/provider.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\provider.tf",
                     "repo_file_path": "/terraform/openstack/provider.tf",
                     "file_line_range": [
                         1,
@@ -420,8 +420,8 @@
                             "}\n"
                         ]
                     ],
-                    "file_path": "/security_group/compute_secgroup_v2.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/security_group/compute_secgroup_v2.tf",
+                    "file_path": "/security_group\\compute_secgroup_v2.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\security_group\\compute_secgroup_v2.tf",
                     "repo_file_path": "/terraform/openstack/security_group/compute_secgroup_v2.tf",
                     "file_line_range": [
                         5,
@@ -612,8 +612,8 @@
                             "}\n"
                         ]
                     ],
-                    "file_path": "/security_group/compute_secgroup_v2.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/security_group/compute_secgroup_v2.tf",
+                    "file_path": "/security_group\\compute_secgroup_v2.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\security_group\\compute_secgroup_v2.tf",
                     "repo_file_path": "/terraform/openstack/security_group/compute_secgroup_v2.tf",
                     "file_line_range": [
                         5,
@@ -643,7 +643,7 @@
             "skipped": 0,
             "parsing_errors": 0,
             "resource_count": 3,
-            "checkov_version": "2.0.826"
+            "checkov_version": "2.0.873"
         },
         "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
     },
@@ -666,7 +666,7 @@
                         ]
                     ],
                     "file_path": "/provider.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/openstack/provider.tf",
+                    "file_abs_path": "F:\\Code\\fail\\terraform\\openstack\\provider.tf",
                     "repo_file_path": "/terraform/openstack/provider.tf",
                     "file_line_range": [
                         4,
@@ -696,7 +696,7 @@
             "skipped": 0,
             "parsing_errors": 0,
             "resource_count": 1,
-            "checkov_version": "2.0.826"
+            "checkov_version": "2.0.873"
         },
         "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
     }

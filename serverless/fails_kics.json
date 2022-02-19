@@ -1,0 +1,95 @@
+{
+	"kics_version": "1.4.9",
+	"files_scanned": 6,
+	"files_parsed": 6,
+	"files_failed_to_scan": 0,
+	"queries_total": 753,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"HIGH": 3,
+		"INFO": 0,
+		"LOW": 0,
+		"MEDIUM": 0,
+		"TRACE": 0
+	},
+	"total_counter": 3,
+	"total_bom_resources": 0,
+	"start": "2022-02-19T09:56:59.1201027Z",
+	"end": "2022-02-19T09:57:05.8431502Z",
+	"paths": [
+		".\\serverless\\"
+	],
+	"queries": [
+		{
+			"query_name": "Passwords And Secrets - AWS Access Key",
+			"query_id": "76c0bcde-903d-456e-ac13-e58c34987852",
+			"query_url": "https://kics.io/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"category": "Secret Management",
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+					"similarity_id": "f6200dc21df70d5a4a098361978223cc48d84ab0b025aa15e75d901c88c1f753",
+					"line": 23,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'      AWS_ACCESS_KEY: \"AKIAIOSFODNN7EXAMPLE\"' contains a secret"
+				}
+			]
+		},
+		{
+			"query_name": "Passwords And Secrets - AWS Secret Key",
+			"query_id": "83ab47ff-381d-48cd-bac5-fb32222f54af",
+			"query_url": "https://kics.io/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"category": "Secret Management",
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+					"similarity_id": "4b397a0acc2552340c329dec4ad3d6f36cc267be19782584986359f20f878ada",
+					"line": 24,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'      AWS_SECRET_KEY: \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"' contains a secret"
+				}
+			]
+		},
+		{
+			"query_name": "Passwords And Secrets - Generic Secret",
+			"query_id": "3e2d3b2f-c22a-4df1-9cc6-a7a0aebb0c99",
+			"query_url": "https://kics.io/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"category": "Secret Management",
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "serverless\\example_AWSCredentials\\AWSCredentials-FAILED-func_level\\serverless.yml",
+					"similarity_id": "d6da2bed0bbaaa1efbc0e5094e763a4bebd5b9ff3e755d61ebd9a60f1464a196",
+					"line": 24,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'      AWS_SECRET_KEY: \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"' contains a secret"
+				}
+			]
+		}
+	]
+}
