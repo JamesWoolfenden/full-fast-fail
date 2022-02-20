@@ -1,6 +1,6 @@
 param (
     [string]$folder = "terraform",
-    [int]$expected = 954)
+    [int]$expected = 3964)
 
 if (!(test-path -Path $folder)) {
     Write-Error "path $folder not found"
