@@ -18,7 +18,7 @@ if [ -f "$file" ]; then
 fi
 
 #define expectations
-expected=954
+expected=955
 
 # run the tools
 checkov -o json -d $path >"$path/$file"
@@ -37,9 +37,14 @@ done
 printf "${RED}"
 
 figlet -w 200 -f small "Results"
-
-echo "Expected: $expected and found: $total"
+echo "Found Checkov $total"
 echo "Resource count: $resources"
+echo "Expected: $expected and found: $total"
+
+figlet Versions
+
+echo $(terraform version)
+echo "Checkov $(checkov -v)"
 
 printf "${STOP}"
 # shellcheck disable=SC2086

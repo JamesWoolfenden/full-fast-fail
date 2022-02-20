@@ -1,5 +1,5 @@
 # fails
-# todo
+# todo network_mode' is equal to 'awsvpc'
 resource "aws_ecs_task_definition" "positive1" {
   family       = "service"
   network_mode = "none"

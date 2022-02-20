@@ -1,9 +1,9 @@
 # Summary
 
-- Found Terraform 4522
+- Found Checkov 3966
 - Found TFSec 6
-- Found Kics 4845
-- Resource count 1282
+- Found Kics 4657
+- Resource count 1225
 
 ## Versions
 

@@ -3,7 +3,7 @@
 
 Fed up with getting it all right all the time? Isn't it tiresome, yes very, so here's the opposite. Trying to get absolutely nothing right.
 
-Currenlty compares Checkoc, Tfsec and KICS.
+Currently compares Checkoc, Tfsec and KICS.
 The counts are automated and sometimes highlight faults in the runners if they crash.
 
 ## Ensure that were finding what we should be
@@ -21,22 +21,6 @@ Run checker.sh
   \____|_| |_|\___|\___|_|\_\___|_|
 
 Error: expected 954 but found 955
-```
-
-## Fail
-
-```Error expected 14 but found 13```
-
-```data
- checkov -o json -d . >results.json
- checkov -o json -d . | jq '.[]| select(.check_type=="secrets")'
- checkov -o json -d . | jq '.[]| select(.check_type=="terraform")| .summary.failed'
- checkov -o json -d . | jq '.[]| .summary.failed'
-
- cat results.json | jq '.[]| select(.check_type=="secrets")'
- terraform=$(cat results.json | jq '.[]| select(.check_type=="terraform")| .summary.failed')
- secrets=$(cat results.json | jq '.[]| select(.check_type=="secrets")| .summary.failed')
- total=$(($secrets+$terraform))
 ```
 
 ## testing
@@ -86,7 +70,9 @@ Versions
 - Tfsec You are running a locally built version of tfsec.
 - Kics Keeping Infrastructure as Code Secure 1.4.9
 ```
-This currently shows that Tfsec is currently crashing on some tf code. 
+
+This currently shows that Tfsec is currently crashing on some tf code. So im building the lastest TFsec to see if that works better.
+
 Check out the cumulative totals in each folder: <https://github.com/JamesWoolfenden/full-fast-fail/blob/main/summary.md>
 
 Or if you only interested in Terraform <https://github.com/JamesWoolfenden/full-fast-fail/blob/main/terraform/summary.md>

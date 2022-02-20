@@ -5,6 +5,7 @@
 # CKV2_AWS_29: "Ensure public API gateway are protected by WAF"
 # todo endpoint is not private
 # todo set create before destroy to avoid service outages
+# todo Enable Content Encoding through the attribute 'minimum_compression_size'. This value should be greater than -1 and smaller than 10485760"
 
 # kics
 # todo API Gateway Without Content Encoding

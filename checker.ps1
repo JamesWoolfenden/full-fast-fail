@@ -37,7 +37,7 @@ if ( $total -ne $expected ) {
 }
 
 figlet Results
-write-host "Found Terraform $total"
+write-host "Found Checkov $total"
 write-host "Resource Count: $count"
 
 write-host "Expected: $expected and found: $total"

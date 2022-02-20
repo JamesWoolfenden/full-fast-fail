@@ -5,6 +5,7 @@
 # CKV_AWS_23: "Ensure every security groups rule has a description"
 # CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
 # CKV_AWS_114: "Ensure that EMR clusters with Kerberos have Kerberos Realm set"
+# todo Elastic MapReduce Cluster (EMR) should be launched in a Virtual Private Cloud (VPC)", subnet_ids set
 
 resource "aws_emr_cluster" "test" {
   name          = "emr-test-arn"
