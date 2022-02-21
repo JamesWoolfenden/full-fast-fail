@@ -3,7 +3,7 @@
 
 Fed up with getting it all right all the time? Isn't it tiresome, yes very, so here's the opposite. Trying to get absolutely nothing right.
 
-Currently compares Checkoc, Tfsec and KICS.
+Currently compares Checkov, Tfsec and KICS.
 The counts are automated and sometimes highlight faults in the runners if they crash.
 
 ## Ensure that were finding what we should be
