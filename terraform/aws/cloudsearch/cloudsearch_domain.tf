@@ -1,6 +1,6 @@
 # fails
-# todo enforce https
-# policy =Policy-Min-TLS-1-2-2019-07
+# CKV_AWS_220 Enforce https
+# CKV_AWS_218 TLS policy =Policy-Min-TLS-1-2-2019-07
 resource "aws_cloudsearch_domain" "example" {
   name = "example-domain"
 
@@ -27,7 +27,11 @@ resource "aws_cloudsearch_domain" "example" {
     sort   = true
   }
   endpoint_options {
-    enforce_https       = false
-    tls_security_policy = "Policy-Min-TLS-1-0-2019-07"
+    # enforce_https       = false
+    # tls_security_policy = "Policy-Min-TLS-1-0-2019-07"
   }
+}
+
+provider "aws" {
+  region = "us-east-1"
 }

@@ -12,7 +12,7 @@ resource "aws_api_gateway_method_settings" "fail" {
 
   settings {
     caching_enabled      = true
-    metrics_enabled      = true
+    metrics_enabled      = false
     logging_level        = "INFO"
     cache_data_encrypted = false
     data_trace_enabled   = false

@@ -1,10 +1,13 @@
 # fail
 # todo deployment has access logs (from stage settings)
-#todo use aws_api_gateway_stage resource rather than attribute stage_name
-#todo set create_before_destroy to avoid outages
+# todo use aws_api_gateway_stage resource rather than attribute stage_name
+# check/CKV_AWS_217 set create_before_destroy to avoid outages
 resource "aws_api_gateway_deployment" "fail" {
   rest_api_id = "some rest api id"
   stage_name  = "some name"
+  # lifecycle {
+  #   create_before_destroy=true
+  # }
   tags {
     project = "ProjectName"
   }

@@ -16,10 +16,10 @@
 	},
 	"total_counter": 131,
 	"total_bom_resources": 0,
-	"start": "2022-02-18T20:29:30.6360169Z",
-	"end": "2022-02-18T20:29:58.9314624Z",
+	"start": "2022-02-18T14:29:56.025957Z",
+	"end": "2022-02-18T14:30:09.058736Z",
 	"paths": [
-		".\\terraform\\azurerm\\"
+		"./terraform/azurerm"
 	],
 	"queries": [
 		{
@@ -285,17 +285,7 @@
 			"description_id": "4646e954",
 			"files": [
 				{
-					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
-					"similarity_id": "b2b755ec096a491821fc11d9fbb35517fe950266c5b1e5f5523473b5a2cfb878",
-					"line": 21,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_postgresql_server[fails].geo_redundant_backup_enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_postgresql_server.fails.geo_redundant_backup_enabled' is true",
-					"actual_value": "'azurerm_postgresql_server.fails.geo_redundant_backup_enabled' is false"
-				},
-				{
+					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
 					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
 					"similarity_id": "8d0b460b2af5d1dac1e749893371129e7ee6856488545f4f0f4b850e02b0edad",
 					"line": 3,
@@ -305,6 +295,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_postgresql_server.fail_psql.geo_redundant_backup_enabled' is set",
 					"actual_value": "'azurerm_postgresql_server.fail_psql.geo_redundant_backup_enabled' is undefined"
+				},
+				{
+					"file_name": "terraform/azurerm/postgreSQL/postgresql_server.tf",
+					"similarity_id": "b2b755ec096a491821fc11d9fbb35517fe950266c5b1e5f5523473b5a2cfb878",
+					"line": 21,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_postgresql_server[fails].geo_redundant_backup_enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_postgresql_server.fails.geo_redundant_backup_enabled' is true",
+					"actual_value": "'azurerm_postgresql_server.fails.geo_redundant_backup_enabled' is false"
 				}
 			]
 		},
@@ -411,15 +412,24 @@
 			"description_id": "d69d8a89",
 			"files": [
 				{
-					"file_name": "terraform\\azurerm\\compute\\linux_virtual_machine.tf",
-					"similarity_id": "207cc20338b3987ba57980045d4738d5e2318a1ad666b848e3cfbb18c284336a",
+					"file_name": "terraform/azurerm/vms/linux_virtual_machine.tf",
+					"similarity_id": "cb8cd779f77edcfba24fc038af285c133bf7800d1a49d591a93cb03c482f2fec",
+					"line": 6,
+					"actual_value": "'  admin_password      = \"admin\"' contains a secret"
+					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "a19088735aca8e070f73ce1356bfccb62e05454dda77ff9e79a9cda9bdfa34eb",
+					"line": 16,
+					"actual_value": "'  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"' contains a secret"
+					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "f8c0f7e0800c25af5ba09fceec25dd59124f1a8f6aa650c876841d8b377c85df",
+					"file_name": "terraform/azurerm/compute/linux_virtual_machine.tf",
 					"line": 15,
 					"issue_type": "RedundantAttribute",
 					"search_key": "",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  admin_password                  = \"somePassword\"' contains a secret"
+					"actual_value": "'  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"' contains a secret"
 				},
 				{
 					"file_name": "terraform\\azurerm\\mssql\\mssql_server.tf",
@@ -466,26 +476,44 @@
 					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\azurerm\\vms\\windows_virtual_machine_scale_set.tf",
-					"similarity_id": "f322559de75f9f7cb267241b7aeed28c36021d56a580f77d2b06e0392cab700f",
-					"line": 9,
+					"file_name": "terraform/azurerm/vms/windows_virtual_machine_scale_set.tf",
+					"similarity_id": "f8c0f7e0800c25af5ba09fceec25dd59124f1a8f6aa650c876841d8b377c85df",
+					"line": 42,
 					"issue_type": "RedundantAttribute",
 					"search_key": "",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  admin_password      = \"P@55w0rd1234!\"' contains a secret"
+					"actual_value": "'  administrator_login_password = \"thisIsDog11\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\azurerm\\synapse\\synapse_workspace.tf",
-					"similarity_id": "608d75c98e7d5ca9efef727ea67e9533c9d524fd4b8f0314fa81a0d88174ae84",
-					"line": 10,
+					"file_name": "terraform/azurerm/vms/linux_virtual_machine.tf",
+					"similarity_id": "cb8cd779f77edcfba24fc038af285c133bf7800d1a49d591a93cb03c482f2fec",
+					"line": 6,
 					"issue_type": "RedundantAttribute",
 					"search_key": "",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  sql_administrator_login_password     = \"H@Sh1CoR3!\"' contains a secret"
+					"actual_value": "'  admin_password      = \"admin\"' contains a secret"
+				},
+				{
+					"file_name": "terraform/azurerm/vms/virtual_machine.tf",
+					"similarity_id": "a2e676ddd76badea33e56dd7ec8416eb31ecc81a4e8e7e8a7da0b621dcf010d8",
+					"line": 22,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'    admin_password = \"Password1234!\"' contains a secret"
+				},
+				{
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
 				},
 				{
 					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
@@ -499,7 +527,6 @@
 					"actual_value": "'  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "d8d4850aee5b465630228649151ccee327f0e68715d76bc5ccf48a9879691bd0",
 					"line": 22,
 					"issue_type": "RedundantAttribute",
@@ -591,14 +618,19 @@
 			"files": [
 				{
 					"file_name": "terraform\\azurerm\\network\\ports\\disable-rdp-from-internet.tf",
-					"similarity_id": "7fb699632870cd25df259c90d57d0bdc49e1bac480f2b1e12dab4b13d7db6d12",
-					"line": 53,
+					"similarity_id": "99d4e9c8d8a926d3070cbbb3ea33c4ae71b994382a92ff81d03dd96224b58e70",
+					"line": 10,
+					"search_key": "azurerm_network_security_rule[fail_range].destination_port_range",
+					"expected_value": "'azurerm_network_security_rule.fail_range.destination_port_range' cannot be 3389",
+					"actual_value": "'azurerm_network_security_rule.fail_range.destination_port_range' might be 3389"
+					"similarity_id": "99d4e9c8d8a926d3070cbbb3ea33c4ae71b994382a92ff81d03dd96224b58e70",
+					"line": 10,
 					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_network_security_rule[fail_rdp].destination_port_range",
+					"search_key": "azurerm_network_security_rule[fail_range].destination_port_range",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_network_security_rule.fail_rdp.destination_port_range' cannot be 3389",
-					"actual_value": "'azurerm_network_security_rule.fail_rdp.destination_port_range' might be 3389"
+					"expected_value": "'azurerm_network_security_rule.fail_range.destination_port_range' cannot be 3389",
+					"actual_value": "'azurerm_network_security_rule.fail_range.destination_port_range' might be 3389"
 				},
 				{
 					"file_name": "terraform\\azurerm\\network\\ports\\disable-rdp-from-internet.tf",
@@ -704,7 +736,6 @@
 					"actual_value": "azurerm_role_assignment[example].role_definition_name equals to 'Guest'"
 				},
 				{
-					"file_name": "terraform\\azurerm\\iam\\role_assignment_of_guest_users.tf",
 					"similarity_id": "d957452b31b1711a30c543a27f8c76f30f90213f70865cd1090faf151afe95ea",
 					"line": 3,
 					"issue_type": "IncorrectValue",
@@ -807,17 +838,7 @@
 			"description_id": "9549423a",
 			"files": [
 				{
-					"file_name": "terraform\\azurerm\\postgreSQL\\secure-tls-policy.tf",
-					"similarity_id": "088e5961a9dcdd772264d8c088d7664216a736a1fcf8980d234ddc776e05d5a6",
-					"line": 7,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_postgresql_server[fail_psql].ssl_enforcement_enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_postgresql_server.fail_psql.ssl_enforcement_enabled' is equal 'true'",
-					"actual_value": "'azurerm_postgresql_server.fail_psql.ssl_enforcement_enabled' is equal 'false'"
-				},
-				{
+					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
 					"file_name": "terraform\\azurerm\\postgreSQL\\postgresql_server.tf",
 					"similarity_id": "c755b9a649794241f781ae08ced8d880051a37a528c48d2149f7f0f46ed5d9fb",
 					"line": 25,
@@ -827,6 +848,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_postgresql_server.fails.ssl_enforcement_enabled' is equal 'true'",
 					"actual_value": "'azurerm_postgresql_server.fails.ssl_enforcement_enabled' is equal 'false'"
+				},
+				{
+					"file_name": "terraform/azurerm/postgreSQL/secure-tls-policy.tf",
+					"similarity_id": "088e5961a9dcdd772264d8c088d7664216a736a1fcf8980d234ddc776e05d5a6",
+					"line": 7,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_postgresql_server[fail_psql].ssl_enforcement_enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_postgresql_server.fail_psql.ssl_enforcement_enabled' is equal 'true'",
+					"actual_value": "'azurerm_postgresql_server.fail_psql.ssl_enforcement_enabled' is equal 'false'"
 				}
 			]
 		},
@@ -875,6 +907,17 @@
 					"actual_value": "'azurerm_storage_account.example.enable_https_traffic_only' equals 'false'"
 				},
 				{
+					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "2ab6468d2f1b9e90b8a125e97b44516cf7d93a1ba8f297cda57b4c916e7684f1",
+					"line": 8,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_storage_account[example_deny]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' equals 'true'",
+					"actual_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' does not exist"
+				},
+				{
 					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "d49e7225b00e3857819f4dbb6ce676b1849a772272b2ad7e63decaa4d4c04d14",
 					"line": 8,
@@ -884,17 +927,12 @@
 					"search_value": "",
 					"expected_value": "'azurerm_storage_account.positive2.enable_https_traffic_only' equals 'true'",
 					"actual_value": "'azurerm_storage_account.positive2.enable_https_traffic_only' does not exist"
-				},
-				{
-					"file_name": "terraform\\azurerm\\storage\\account\\StorageAccountDefaultNetworkAccessDeny.tf",
-					"similarity_id": "2ab6468d2f1b9e90b8a125e97b44516cf7d93a1ba8f297cda57b4c916e7684f1",
-					"line": 8,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_storage_account[example_deny]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' equals 'true'",
-					"actual_value": "'azurerm_storage_account.example_deny.enable_https_traffic_only' does not exist"
+					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "6582b996ecae06cff413589a12965b7435a75ac94ce2d1073d6aab50760bd748",
+					"line": 2,
+					"search_key": "azurerm_storage_account[example]",
+					"expected_value": "'azurerm_storage_account.example.enable_https_traffic_only' equals 'true'",
+					"actual_value": "'azurerm_storage_account.example.enable_https_traffic_only' does not exist"
 				}
 			]
 		},
@@ -932,6 +970,10 @@
 			"description_id": "2d2af667",
 			"files": [
 				{
+					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
+					"similarity_id": "08af69348e2667b511bc0d1296bcf061685bef5a926935ca28d3cc5a4c94beb2",
+					"line": 23,
+					"search_key": "azurerm_storage_account[example].network_rules.bypass",
 					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "f454cb3c81a2efc253c581c98852f8e9a0aeddb676bcb6bbd86728374165e7d9",
 					"line": 8,
@@ -954,11 +996,11 @@
 					"actual_value": "'network_rules' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\azurerm\\storage\\network_rules\\default-action-deny.tf",
-					"similarity_id": "d923d0780e039ef173c50b02edc9ef56c8da430499aa933b138f846ac46b71cf",
-					"line": 8,
+					"file_name": "terraform/azurerm/storage/network_rules/default-action-deny.tf",
+					"similarity_id": "2c22f85014706d85463a11b54b40e04a65ce9cc9bf6f8d50d2fe0eeb2e4fc6d4",
+					"line": 10,
 					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_storage_account_network_rules[fail].bypass",
+					"search_key": "azurerm_storage_account_network_rules[test].bypass",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'bypass' contains 'AzureServices'",
@@ -985,6 +1027,17 @@
 					"search_value": "",
 					"expected_value": "'bypass' contains 'AzureServices'",
 					"actual_value": "'bypass' does not contain 'AzureServices'"
+				},
+				{
+					"file_name": "terraform/azurerm/storage/account/storage_account.tf",
+					"similarity_id": "08af69348e2667b511bc0d1296bcf061685bef5a926935ca28d3cc5a4c94beb2",
+					"line": 23,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_storage_account[example].network_rules.bypass",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'network_rules.bypass' contains 'AzureServices'",
+					"actual_value": "'network_rules.bypass' does not contain 'AzureServices'"
 				}
 			]
 		},
@@ -1147,7 +1200,6 @@
 					"actual_value": "'azurerm_kubernetes_cluster[example].role_based_access_control' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "4a66c8378d19b2f2e393a0060e1f2e185c11fd092286eaad8573599af5deffe0",
 					"line": 33,
 					"issue_type": "IncorrectValue",
@@ -1595,6 +1647,17 @@
 			"description_id": "a96dc1b9",
 			"files": [
 				{
+				},
+				{
+					"file_name": "terraform/azurerm/authorization/azurerm_role_definition.tf",
+					"similarity_id": "7ceacb6399c86998c535d093b7a06c5a609bf92cb11eb1e4ebd93341d705c043",
+					"line": 15,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_role_definition[example].permissions.actions",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "azurerm_role_definition[example].permissions.actions does not allow custom role creation",
+					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
 					"file_name": "terraform\\azurerm\\iam\\role_definition.tf",
 					"similarity_id": "27bbc7a4c1522301931fc17c9dcbb86b47c7753146ab2be2555c4fd338cc2599",
 					"line": 10,
@@ -1606,9 +1669,9 @@
 					"actual_value": "azurerm_role_definition[example].permissions.actions allows custom role creation"
 				},
 				{
-					"file_name": "terraform\\azurerm\\authorization\\azurerm_role_definition.tf",
-					"similarity_id": "7ceacb6399c86998c535d093b7a06c5a609bf92cb11eb1e4ebd93341d705c043",
-					"line": 15,
+					"file_name": "terraform/azurerm/authorization/azurerm_role_definition.tf",
+					"similarity_id": "d414a1505717c98815e6ce269fc6b9ffa9b27ba221c5b1e14f769c7878d0603b",
+					"line": 7,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_role_definition[example].permissions.actions",
 					"search_line": 0,
@@ -1675,17 +1738,6 @@
 			"files": [
 				{
 					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
-					"similarity_id": "dcdad47d830addecd0e9d2fe899b3c46e179a44c3e6b0648c5f20d63de565e8b",
-					"line": 29,
-					"issue_type": "IncorrectValue",
-					"search_key": "azurerm_sql_active_directory_administrator[positive4].login",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_sql_active_directory_administrator[positive4].login' is not predictable'",
-					"actual_value": "'azurerm_sql_active_directory_administrator[positive4].login' is predictable"
-				},
-				{
-					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
 					"similarity_id": "6eeebba038c76d60d0d9ab55049993c233c62078e896030cad0c6f9fdc44b024",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -1694,6 +1746,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_sql_active_directory_administrator[positive3].login' is not empty'",
 					"actual_value": "'azurerm_sql_active_directory_administrator[positive3].login' is empty"
+				},
+				{
+					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_active_directory_admin_account_name.tf",
+					"similarity_id": "dcdad47d830addecd0e9d2fe899b3c46e179a44c3e6b0648c5f20d63de565e8b",
+					"line": 29,
+					"issue_type": "IncorrectValue",
+					"search_key": "azurerm_sql_active_directory_administrator[positive4].login",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_sql_active_directory_administrator[positive4].login' is not predictable'",
+					"actual_value": "'azurerm_sql_active_directory_administrator[positive4].login' is predictable"
 				}
 			]
 		},
@@ -1869,6 +1932,17 @@
 			"files": [
 				{
 					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
+					"similarity_id": "24362bc0d6d2e9469678fe375867e045b0e648c3de396382441c1e51658775ae",
+					"line": 28,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_sql_server[positive3].extended_auditing_policy.retention_in_days",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'positive3.extended_auditing_policy.retention_in_days' is bigger than 90",
+					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
+				},
+				{
+					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
 					"similarity_id": "2dae9fc117429ed6c68ef2c4876a320feb1432ac00c11dd63ad641448f8790a9",
 					"line": 48,
 					"issue_type": "MissingAttribute",
@@ -1887,17 +1961,7 @@
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'example.extended_auditing_policy.retention_in_days' is bigger than 90",
-					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
-				},
-				{
-					"file_name": "terraform\\azurerm\\mssql\\sql_server_predictable_admin_account_name.tf",
-					"similarity_id": "24362bc0d6d2e9469678fe375867e045b0e648c3de396382441c1e51658775ae",
-					"line": 28,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_sql_server[positive3].extended_auditing_policy.retention_in_days",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'positive3.extended_auditing_policy.retention_in_days' is bigger than 90",
+					"file_name": "terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
 					"actual_value": "'extended_auditing_policy.retention_in_days' is 6"
 				},
 				{
@@ -1923,6 +1987,17 @@
 			"description": "Ensure Storage Account is using the latest version of TLS encryption",
 			"description_id": "a38872a7",
 			"files": [
+				{
+					"file_name": "terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+					"similarity_id": "ae7d1016b567982fe8db8fa259851d519fc078ddae586e1524dbf53bf54e1158",
+					"line": 8,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_storage_account[example_deny]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_storage_account[example_deny].min_tls_version' is defined and not null",
+					"actual_value": "'azurerm_storage_account[example_deny].min_tls_version' is undefined or null"
+				},
 				{
 					"file_name": "terraform\\azurerm\\storage\\account\\storage_account.tf",
 					"similarity_id": "db4b603018435d5e4f0995f7919b4656c62850c6ca960059cc54e428ef465587",
@@ -2015,9 +2090,9 @@
 			"description_id": "837de8dd",
 			"files": [
 				{
-					"file_name": "terraform\\azurerm\\postgreSQL\\no-public-firewall-access.tf",
-					"similarity_id": "25fafa82259cc10a00ca2d2d95792654a4a4ec75667d4916f116a94c29cc0b9f",
-					"line": 8,
+					"file_name": "terraform/azurerm/postgreSQL/no-public-firewall-access.tf",
+					"similarity_id": "f25c040b82541862200ffce2025707db24cceaa8b4559dd57b335e6de76f9c81",
+					"line": 7,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_sql_firewall_rule[fail].start_ip_address",
 					"search_line": 0,
@@ -2026,9 +2101,9 @@
 					"actual_value": "'azurerm_sql_firewall_rule[fail].start_ip_address' The difference between the value of the 'end_ip_address' and of 'start_ip_address' is greater than or equal to 256"
 				},
 				{
-					"file_name": "terraform\\azurerm\\mssql\\sql_firewall_rule.tf",
-					"similarity_id": "f25c040b82541862200ffce2025707db24cceaa8b4559dd57b335e6de76f9c81",
-					"line": 7,
+					"file_name": "terraform/azurerm/mssql/sql_firewall_rule.tf",
+					"similarity_id": "25fafa82259cc10a00ca2d2d95792654a4a4ec75667d4916f116a94c29cc0b9f",
+					"line": 8,
 					"issue_type": "IncorrectValue",
 					"search_key": "azurerm_sql_firewall_rule[fail].start_ip_address",
 					"search_line": 0,
@@ -2060,7 +2135,6 @@
 					"actual_value": "'azurerm_virtual_network[example_ddos].ddos_protection_plan' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\azurerm\\compute\\virtual_machine.tf",
 					"similarity_id": "90b06495bd493c18281838be91fdc399f341757d121a24095bca3e9d80a0a90e",
 					"line": 39,
 					"issue_type": "MissingAttribute",
@@ -2128,7 +2202,6 @@
 					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].private_cluster_enabled' is undefined"
 				},
 				{
-					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 					"similarity_id": "080917155df2fad40b4e09086c0805bf06fa0b3ac3f3169d6331188a3215d37e",
 					"line": 11,
 					"issue_type": "MissingAttribute",
@@ -2151,17 +2224,7 @@
 			"description_id": "df6d2dcb",
 			"files": [
 				{
-					"file_name": "terraform\\azurerm\\aks\\kubernetes_cluster.tf",
-					"similarity_id": "e4b2ce2910c115ee962f478f093139f8392208ac3c390a8d0017945c21e3e750",
-					"line": 27,
-					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_kubernetes_cluster[example].addon_profile",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'azurerm_kubernetes_cluster[example].addon_profile.azure_policy' is defined and set to true",
-					"actual_value": "'azurerm_kubernetes_cluster[example].addon_profile.azure_policy' is undefined or null"
-				},
-				{
+					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
 					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "7d9108aeea7fb87c5dbe163c872afef5ee732252f04a9c813df3d4c7219ac637",
 					"line": 39,
@@ -2171,6 +2234,17 @@
 					"search_value": "",
 					"expected_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.azure_policy.enabled' is set to true",
 					"actual_value": "'azurerm_kubernetes_cluster[fail_cluster].addon_profile.azure_policy.enabled' is set to false"
+				},
+				{
+					"file_name": "terraform/azurerm/aks/kubernetes_cluster.tf",
+					"similarity_id": "e4b2ce2910c115ee962f478f093139f8392208ac3c390a8d0017945c21e3e750",
+					"line": 27,
+					"issue_type": "MissingAttribute",
+					"search_key": "azurerm_kubernetes_cluster[example].addon_profile",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'azurerm_kubernetes_cluster[example].addon_profile.azure_policy' is defined and set to true",
+					"actual_value": "'azurerm_kubernetes_cluster[example].addon_profile.azure_policy' is undefined or null"
 				}
 			]
 		},
@@ -2208,6 +2282,12 @@
 			"description_id": "2c27e24e",
 			"files": [
 				{
+					"file_name": "terraform/azurerm/service_fabric_cluster/azure_active_directory_authentication.tf",
+					"similarity_id": "28077432be0b2d931b92c57e80119095e0058018f41dc3a21b37eead08d561e0",
+					"line": 20,
+					"search_key": "azurerm_service_fabric_cluster[positive1].azure_active_directory",
+					"expected_value": "'azurerm_service_fabric_cluster[positive1].azure_active_directory.tenant_id' is defined and not null",
+					"actual_value": "'azurerm_service_fabric_cluster[positive1].azure_active_directory.tenant_id' is undefined or null"
 					"file_name": "terraform\\azurerm\\service_fabric_cluster\\service_fabric_cluster.tf",
 					"similarity_id": "1dc28d7609ed37f1348c83b0de418c6210ea634c8dcbaa2dc410821a05b5dc96",
 					"line": 4,
@@ -2219,15 +2299,15 @@
 					"actual_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\azurerm\\service_fabric_cluster\\ServiceFabricClusterProtectionLevel.tf",
-					"similarity_id": "11763c150f477dbfae7fafb973e6a564c409c4b46a7cbddee4800d700c2223dc",
-					"line": 5,
+					"file_name": "terraform/azurerm/service_fabric_cluster/ServiceFabricClusterProtectionLevel.tf",
+					"similarity_id": "28077432be0b2d931b92c57e80119095e0058018f41dc3a21b37eead08d561e0",
+					"line": 20,
 					"issue_type": "MissingAttribute",
-					"search_key": "azurerm_service_fabric_cluster[example_level]",
+					"search_key": "azurerm_service_fabric_cluster[example]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'azurerm_service_fabric_cluster[example_level].azure_active_directory' is defined and not null",
-					"actual_value": "'azurerm_service_fabric_cluster[example_level].azure_active_directory' is undefined or null"
+					"expected_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is defined and not null",
+					"actual_value": "'azurerm_service_fabric_cluster[example].azure_active_directory' is undefined or null"
 				},
 				{
 					"file_name": "terraform\\azurerm\\service_fabric_cluster\\azure_active_directory_authentication.tf",
@@ -2287,7 +2367,6 @@
 					"actual_value": "'azurerm_kubernetes_cluster[example].addon_profile.kube_dashboard.enabled' is true"
 				},
 				{
-					"file_name": "terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",
 					"similarity_id": "f27f8396a328025b6dfe592e6be5950d7fe8a975c2aadfb9ea6b11157a562c08",
 					"line": 43,
 					"issue_type": "IncorrectValue",

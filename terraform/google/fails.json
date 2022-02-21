@@ -182,7 +182,121 @@
                         {
                             "type": "resource",
                             "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                            "module_connection": false
+                        }
+                    ]
+                },
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_77",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow on ftp port",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        3,
+                        "resource \"google_compute_firewall\" \"fail\" {\n"
+                    ],
+                    [
+                        4,
+                        "  name    = \"default\"\n"
+                    ],
+                    [
+                        5,
+                        "  network = google_compute_network.positive1.name\n"
+                    ],
+                    [
+                        6,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/google_compute_network_using_default_firewall_rule.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_default_firewall_rule.tf",
                             "path": "F:\\Code\\fail\\terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "file_line_range": [
+                    3,
+                    6
+                ],
+                "resource": "google_compute_firewall.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress20",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "breadcrumbs": {
+                    "network": [
+                        {
+                            "type": "resource",
+                            "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                            "module_connection": false
+                        }
+                    ]
+                },
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_3",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow unrestricted rdp access",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        3,
+                        "resource \"google_compute_firewall\" \"fail\" {\n"
+                    ],
+                    [
+                        4,
+                        "  name    = \"default\"\n"
+                    ],
+                    [
+                        5,
+                        "  network = google_compute_network.positive1.name\n"
+                    ],
+                    [
+                        6,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/google_compute_network_using_default_firewall_rule.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_default_firewall_rule.tf",
+                "repo_file_path": "/terraform/google/compute/firewall/google_compute_network_using_default_firewall_rule.tf",
+                "file_line_range": [
+                    3,
+                    6
+                ],
+                "resource": "google_compute_firewall.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress3389",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "breadcrumbs": {
+                    "network": [
+                        {
+                            "type": "resource",
+                            "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
                             "module_connection": false
                         }
                     ]
@@ -559,7 +673,213 @@
                         {
                             "type": "resource",
                             "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                            "module_connection": false
+                        }
+                    ]
+                },
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_77",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow on ftp port",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "allow"
+                    ]
+                },
+                "code_block": [
+                    [
+                        4,
+                        "resource \"google_compute_firewall\" \"fail\" {\n"
+                    ],
+                    [
+                        5,
+                        "  name    = \"test-firewall\"\n"
+                    ],
+                    [
+                        6,
+                        "  network = google_compute_network.positive1.name\n"
+                    ],
+                    [
+                        7,
+                        "\n"
+                    ],
+                    [
+                        8,
+                        "  allow {\n"
+                    ],
+                    [
+                        9,
+                        "    protocol = \"icmp\"\n"
+                    ],
+                    [
+                        10,
+                        "  }\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  allow {\n"
+                    ],
+                    [
+                        13,
+                        "    protocol = \"tcp\"\n"
+                    ],
+                    [
+                        14,
+                        "    ports    = [\"0-65535\"]\n"
+                    ],
+                    [
+                        15,
+                        "  }\n"
+                    ],
+                    [
+                        16,
+                        "\n"
+                    ],
+                    [
+                        17,
+                        "  source_tags = [\"web\"]\n"
+                    ],
+                    [
+                        18,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
                             "path": "F:\\Code\\fail\\terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "file_line_range": [
+                    4,
+                    18
+                ],
+                "resource": "google_compute_firewall.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress20",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "breadcrumbs": {
+                    "network": [
+                        {
+                            "type": "resource",
+                            "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                            "module_connection": false
+                        }
+                    ]
+                },
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_3",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow unrestricted rdp access",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "allow"
+                    ]
+                },
+                "code_block": [
+                    [
+                        4,
+                        "resource \"google_compute_firewall\" \"fail\" {\n"
+                    ],
+                    [
+                        5,
+                        "  name    = \"test-firewall\"\n"
+                    ],
+                    [
+                        6,
+                        "  network = google_compute_network.positive1.name\n"
+                    ],
+                    [
+                        7,
+                        "\n"
+                    ],
+                    [
+                        8,
+                        "  allow {\n"
+                    ],
+                    [
+                        9,
+                        "    protocol = \"icmp\"\n"
+                    ],
+                    [
+                        10,
+                        "  }\n"
+                    ],
+                    [
+                        11,
+                        "\n"
+                    ],
+                    [
+                        12,
+                        "  allow {\n"
+                    ],
+                    [
+                        13,
+                        "    protocol = \"tcp\"\n"
+                    ],
+                    [
+                        14,
+                        "    ports    = [\"0-65535\"]\n"
+                    ],
+                    [
+                        15,
+                        "  }\n"
+                    ],
+                    [
+                        16,
+                        "\n"
+                    ],
+                    [
+                        17,
+                        "  source_tags = [\"web\"]\n"
+                    ],
+                    [
+                        18,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "repo_file_path": "/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
+                "file_line_range": [
+                    4,
+                    18
+                ],
+                "resource": "google_compute_firewall.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress3389",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "breadcrumbs": {
+                    "network": [
+                        {
+                            "type": "resource",
+                            "name": "google_compute_network.positive1",
+                            "path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
                             "module_connection": false
                         }
                     ]
@@ -1312,7 +1632,102 @@
             },
             {
                 "check_id": "CKV_GCP_23",
+                "bc_check_id": null,
+                "check_name": "Ensure GKE Control Plane is not public",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEPublicControlPlane",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
                 "bc_check_id": "BC_GCP_KUBERNETES_15",
+                "bc_check_id": null,
                 "check_name": "Ensure Kubernetes Cluster is created with Alias IP ranges enabled",
                 "check_result": {
                     "result": "PASSED",
@@ -1502,7 +1917,104 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_23",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Cluster is created with Alias IP ranges enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "ip_allocation_policy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_kubernetes_1"
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEAliasIpEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_7",
@@ -2193,7 +2705,60 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_41",
+                "bc_check_id": null,
+                "check_name": "Ensure that IAM users are not assigned the Service Account User or Service Account Token Creator roles at project level",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "role"
+                    ]
+                },
+                "code_block": [
+                    [
+                        4,
+                        "resource \"google_project_iam_member\" \"project_123\" {\n"
+                    ],
+                    [
+                        5,
+                        "  project = \"project-123\"\n"
+                    ],
+                    [
+                        6,
+                        "  role    = \"roles/whatever\"\n"
+                    ],
+                    [
+                        7,
+                        "  member  = \"123-compute@developer.gserviceaccount.com\"\n"
+                    ],
+                    [
+                        8,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/iam/iam_member/no-project-level-default-service-account-assignment.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_member/no-project-level-default-service-account-assignment.tf",
+                "repo_file_path": "/terraform/google/iam/iam_member/no-project-level-default-service-account-assignment.tf",
+                "file_line_range": [
+                    4,
+                    8
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_iam_7"
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleRoleServiceAccountUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_42",
@@ -2323,6 +2888,18 @@
                     ],
                     [
                         6,
+                        "  key_ring        = google_kms_key_ring.positive1.id\n"
+                    ],
+                    [
+                        10,
+                        "  rotation_period = \"100000s\"\n"
+                    ],
+                    [
+                        11,
+                        "  lifecycle {\n"
+                    ],
+                    [
+                        12,
                         "  role    = \"roles/whatever\"\n"
                     ],
                     [
@@ -2766,7 +3343,60 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_41",
+                "bc_check_id": null,
+                "check_name": "Ensure that IAM users are not assigned the Service Account User or Service Account Token Creator roles at project level",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "role"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"google_project_iam_member\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "  project = \"your-project-id\"\n"
+                    ],
+                    [
+                        10,
+                        "  role    = \"roles/owner\"\n"
+                    ],
+                    [
+                        11,
+                        "  member  = \"user:test@example-project.iam.gserviceaccount.com\"\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/project/project_iam_member.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_member.tf",
+                "repo_file_path": "/terraform/google/project/project_iam_member.tf",
+                "file_line_range": [
+                    8,
+                    12
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_iam_3"
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleRoleServiceAccountUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_46",
@@ -3262,6 +3892,8 @@
                         }
                     },
                     "evaluated_keys": [
+                        "member",
+                        "members",
                         "resource_type",
                         "password",
                         "name"
@@ -3527,6 +4159,69 @@
                 "guideline": "https://docs.bridgecrew.io/docs/ensure-that-a-mysql-database-instance-does-not-allow-anyone-to-connect-with-administrative-privileges"
             },
             {
+                "check_id": "CKV2_GCP_8",
+                "bc_check_id": null,
+                "check_name": "Ensure that Cloud KMS Key Rings are not anonymously or publicly accessible",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "google_kms_key_ring": {
+                            "positive1": {
+                                "location": [
+                                    "global"
+                                ],
+                                "name": [
+                                    "keyring-example"
+                                ]
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "member",
+                        "members",
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        3,
+                        "resource \"google_kms_key_ring\" \"positive1\" {\n"
+                    ],
+                    [
+                        4,
+                        "  name     = \"keyring-example\"\n"
+                    ],
+                    [
+                        5,
+                        "  location = \"global\"\n"
+                    ],
+                    [
+                        6,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/kms/kms_crypto_key_publicly_accessible.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/kms/kms_crypto_key_publicly_accessible.tf",
+                "repo_file_path": "/terraform/google/kms/kms_crypto_key_publicly_accessible.tf",
+                "file_line_range": [
+                    3,
+                    6
+                ],
+                "resource": "google_kms_key_ring.positive1",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
                 "check_id": "CKV2_GCP_7",
                 "bc_check_id": "BC_GCP_IAM_11",
                 "check_name": "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges",
@@ -3653,6 +4348,7 @@
                         }
                     },
                     "evaluated_keys": [
+                        "name",
                         "resource_type",
                         "password",
                         "name"
@@ -3915,10 +4611,41 @@
                                 ],
                                 "name": [
                                     "keyring-example"
+                                ],
+                                "project": [
+                                    "gcp-bridgecrew-deployment"
+                                ],
+                                "region": [
+                                    "us-central1"
+                                ],
+                                "settings": [
+                                    {
+                                        "activation_policy": [
+                                            "ALWAYS"
+                                        ],
+                                        "availability_type": [
+                                            "ZONAL"
+                                        ],
+                                        "backup_configuration": [
+                                            {
+                                                "enabled": [
+                                                    false
                                 ]
                             }
+                                        ],
+                                        "database_flags": [
                         }
+                                                "name": [
+                                                    "log_checkpoints"
+                                                ],
+                                                "value": [
+                                                    "off"
+                                                ]
                     },
+                                            {
+                                                "name": [
+                                                    "log_connections"
+                                                ],
                     "evaluated_keys": [
                         "resource_type",
                         "members",
@@ -3930,23 +4657,43 @@
                         3,
                         "resource \"google_kms_key_ring\" \"positive1\" {\n"
                     ],
+                                                "value": [
+                                                    "off"
                     [
                         4,
                         "  name     = \"keyring-example\"\n"
+                                                "name": [
+                                                    "log_min_messages"
                     ],
+                                                "value": [
+                                                    "debug6"
                     [
                         5,
+                                            {
+                                                "name": [
                         "  location = \"global\"\n"
                     ],
+                                                "value": [
+                                                    "off"
                     [
                         6,
+                                            {
+                                                "name": [
+                                                    "log_temp_files"
+                                                ],
+                                                "value": [
                         "}\n"
                     ]
+                                            },
+                                            {
+                                                "name": [
+                                                    "log_min_duration_statement"
                 ],
                 "file_path": "/kms\\kms_crypto_key_publicly_accessible.tf",
                 "file_abs_path": "F:\\Code\\fail\\terraform\\google\\kms\\kms_crypto_key_publicly_accessible.tf",
                 "repo_file_path": "/terraform/google/kms/kms_crypto_key_publicly_accessible.tf",
                 "file_line_range": [
+                                                    "99"
                     3,
                     6
                 ],
@@ -3960,9 +4707,15 @@
                 "resource_address": null,
                 "severity": null,
                 "description": null,
+                                            {
                 "short_description": null,
                 "vulnerability_details": null,
+                                                        "name": [
                 "guideline": null
+                                                        ],
+                                                        "value": [
+                                                            "108.12.12.0/24"
+                                                        ]
             },
             {
                 "check_id": "CKV2_GCP_8",
@@ -3973,16 +4726,33 @@
                     "entity": {
                         "google_kms_key_ring": {
                             "keyring": {
+                                                        ],
                                 "location": [
+                                                            "0.0.0.0/0"
+                                                        ]
+                                                    }
+                                                ],
+                                                "ipv4_enabled": [
+                                                    true
+                                                ],
+                                                "require_ssl": [
                                     "global"
+                                                ]
+                                            }
                                 ],
+                                        "pricing_plan": [
+                                            "PER_USE"
+                                        ],
                                 "name": [
                                     "keyring-example"
+                                        ]
+                                    }
                                 ]
                             }
                         }
                     },
                     "evaluated_keys": [
+                        "name",
                         "resource_type",
                         "members",
                         "member"
@@ -3994,15 +4764,235 @@
                         "resource \"google_kms_key_ring\" \"keyring\" {\n"
                     ],
                     [
+                        27,
+                        "  database_version = \"POSTGRES_12\"\n"
+                    ],
+                    [
                         8,
                         "  name     = \"keyring-example\"\n"
                     ],
                     [
                         9,
+                        "  project          = \"gcp-bridgecrew-deployment\"\n"
+                    ],
+                    [
+                        30,
+                        "  region           = \"us-central1\"\n"
+                    ],
+                    [
+                        31,
+                        "\n"
+                    ],
+                    [
+                        32,
+                        "  settings {\n"
+                    ],
+                    [
+                        33,
+                        "    ip_configuration {\n"
+                    ],
+                    [
+                        34,
+                        "      require_ssl  = false\n"
+                    ],
+                    [
+                        35,
+                        "      ipv4_enabled = true\n"
+                    ],
+                    [
+                        36,
+                        "      authorized_networks {\n"
+                    ],
+                    [
+                        37,
+                        "        value = \"108.12.12.0/24\"\n"
+                    ],
+                    [
+                        38,
+                        "        name  = \"internal\"\n"
+                    ],
+                    [
+                        39,
+                        "      }\n"
+                    ],
+                    [
+                        40,
+                        "\n"
+                    ],
+                    [
+                        41,
+                        "      authorized_networks {\n"
+                    ],
+                    [
+                        42,
+                        "        value = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        43,
+                        "        name  = \"internet\"\n"
+                    ],
+                    [
+                        44,
+                        "      }\n"
+                    ],
+                    [
+                        45,
+                        "    }\n"
+                    ],
+                    [
+                        46,
+                        "    backup_configuration {\n"
+                    ],
+                    [
+                        47,
+                        "      enabled = false\n"
+                    ],
+                    [
+                        48,
+                        "    }\n"
+                    ],
+                    [
+                        49,
+                        "    activation_policy = \"ALWAYS\"\n"
+                    ],
+                    [
+                        50,
+                        "    availability_type = \"ZONAL\"\n"
+                    ],
+                    [
+                        51,
+                        "\n"
+                    ],
+                    [
+                        52,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        53,
+                        "      name  = \"log_checkpoints\"\n"
+                    ],
+                    [
+                        54,
+                        "      value = \"off\"\n"
+                    ],
+                    [
+                        55,
+                        "    }\n"
+                    ],
+                    [
+                        56,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        57,
+                        "      name  = \"log_connections\"\n"
+                    ],
+                    [
+                        58,
+                        "      value = \"off\"\n"
+                    ],
+                    [
+                        59,
+                        "    }\n"
+                    ],
+                    [
+                        60,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        61,
+                        "      name  = \"log_disconnections\"\n"
+                    ],
+                    [
+                        62,
+                        "      value = \"off\"\n"
+                    ],
+                    [
+                        63,
+                        "    }\n"
+                    ],
+                    [
+                        64,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        65,
+                        "      name  = \"log_min_messages\"\n"
+                    ],
+                    [
+                        66,
+                        "      value = \"debug6\"\n"
+                    ],
+                    [
+                        67,
+                        "    }\n"
+                    ],
+                    [
+                        68,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        69,
                         "  location = \"global\"\n"
                     ],
                     [
                         10,
+                        "      value = \"off\"\n"
+                    ],
+                    [
+                        71,
+                        "    }\n"
+                    ],
+                    [
+                        72,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        73,
+                        "      name  = \"log_temp_files\"\n"
+                    ],
+                    [
+                        74,
+                        "      value = \"10\"\n"
+                    ],
+                    [
+                        75,
+                        "    }\n"
+                    ],
+                    [
+                        76,
+                        "    database_flags {\n"
+                    ],
+                    [
+                        77,
+                        "      name  = \"log_min_duration_statement\"\n"
+                    ],
+                    [
+                        78,
+                        "      value = \"99\"\n"
+                    ],
+                    [
+                        79,
+                        "    }\n"
+                    ],
+                    [
+                        80,
+                        "    pricing_plan = \"PER_USE\"\n"
+                    ],
+                    [
+                        81,
+                        "\n"
+                    ],
+                    [
+                        82,
+                        "    tier = \"db-custom-1-3840\"\n"
+                    ],
+                    [
+                        83,
+                        "  }\n"
+                    ],
+                    [
+                        84,
                         "}\n"
                     ]
                 ],
@@ -4893,6 +5883,178 @@
                 "resource": "google_compute_firewall.allow_all",
                 "evaluations": null,
                 "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress21",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_77",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow on ftp port",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "allow/[0]/ports",
+                        "source_ranges"
+                    ]
+                },
+                "code_block": [
+                    [
+                        12,
+                        "resource \"google_compute_firewall\" \"allow_all\" {\n"
+                    ],
+                    [
+                        13,
+                        "  name               = \"terragoat-${var.environment}-firewall\"\n"
+                    ],
+                    [
+                        14,
+                        "  network            = google_compute_network.vpc.id\n"
+                    ],
+                    [
+                        15,
+                        "  destination_ranges = [\"0.0.0.0/0\"]\n"
+                    ],
+                    [
+                        16,
+                        "  source_ranges      = [\"0.0.0.0/0\"]\n"
+                    ],
+                    [
+                        17,
+                        "  allow {\n"
+                    ],
+                    [
+                        18,
+                        "    protocol = \"tcp\"\n"
+                    ],
+                    [
+                        19,
+                        "    ports    = [\"0-65535\"]\n"
+                    ],
+                    [
+                        20,
+                        "  }\n"
+                    ],
+                    [
+                        21,
+                        "  # log_config {\n"
+                    ],
+                    [
+                        22,
+                        "  #   metadata=\"EXCLUDE_ALL_METADATA\"\n"
+                    ],
+                    [
+                        23,
+                        "  # }\n"
+                    ],
+                    [
+                        24,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/compute_firewall.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/compute_firewall.tf",
+                "repo_file_path": "/terraform/google/compute/firewall/compute_firewall.tf",
+                "file_line_range": [
+                    12,
+                    24
+                ],
+                "resource": "google_compute_firewall.allow_all",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress20",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_3",
+                "bc_check_id": null,
+                "check_name": "Ensure Google compute firewall ingress does not allow unrestricted rdp access",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "allow/[0]/ports",
+                        "source_ranges"
+                    ]
+                },
+                "code_block": [
+                    [
+                        12,
+                        "resource \"google_compute_firewall\" \"allow_all\" {\n"
+                    ],
+                    [
+                        13,
+                        "  name               = \"terragoat-${var.environment}-firewall\"\n"
+                    ],
+                    [
+                        14,
+                        "  network            = google_compute_network.vpc.id\n"
+                    ],
+                    [
+                        15,
+                        "  destination_ranges = [\"0.0.0.0/0\"]\n"
+                    ],
+                    [
+                        16,
+                        "  source_ranges      = [\"0.0.0.0/0\"]\n"
+                    ],
+                    [
+                        17,
+                        "  allow {\n"
+                    ],
+                    [
+                        18,
+                        "    protocol = \"tcp\"\n"
+                    ],
+                    [
+                        19,
+                        "    ports    = [\"0-65535\"]\n"
+                    ],
+                    [
+                        20,
+                        "  }\n"
+                    ],
+                    [
+                        21,
+                        "  # log_config {\n"
+                    ],
+                    [
+                        22,
+                        "  #   metadata=\"EXCLUDE_ALL_METADATA\"\n"
+                    ],
+                    [
+                        23,
+                        "  # }\n"
+                    ],
+                    [
+                        24,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/firewall/compute_firewall.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/firewall/compute_firewall.tf",
+                "repo_file_path": "/terraform/google/compute/firewall/compute_firewall.tf",
+                "file_line_range": [
+                    12,
+                    24
+                ],
+                "resource": "google_compute_firewall.allow_all",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleComputeFirewallUnrestrictedIngress3389",
                 "fixed_definition": null,
                 "entity_tags": null,
                 "caller_file_path": null,
@@ -5943,6 +7105,7 @@
                     "result": "FAILED",
                     "evaluated_keys": [
                         "metadata/[0]/enable-oslogin"
+                        "name"
                     ]
                 },
                 "code_block": [
@@ -6846,7 +8009,185 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_74",
+                "bc_check_id": null,
+                "check_name": "Ensure that private_ip_google_access is enabled for Subnet",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "private_ip_google_access"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"google_compute_subnetwork\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "  name             = \"log-test-subnetwork\"\n"
+                    ],
+                    [
+                        10,
+                        "  ip_cidr_range    = \"10.2.0.0/16\"\n"
+                    ],
+                    [
+                        11,
+                        "  stack_type       = \"IPV4_IPV6\"\n"
+                    ],
+                    [
+                        12,
+                        "  ipv6_access_type = \"EXTERNAL\"\n"
+                    ],
+                    [
+                        13,
+                        "  region           = \"us-central1\"\n"
+                    ],
+                    [
+                        14,
+                        "  network          = google_compute_network.custom-test.id\n"
+                    ],
+                    [
+                        15,
+                        "  # purpose=\"INTERNAL_HTTPS_LOAD_BALANCER\" if set ignored\n"
+                    ],
+                    [
+                        16,
+                        "  # log_config {\n"
+                    ],
+                    [
+                        17,
+                        "  #   metadata=\"EXCLUDE_ALL_METADATA\"\n"
+                    ],
+                    [
+                        18,
+                        "  # }\n"
+                    ],
+                    [
+                        19,
+                        "  private_ip_google_access   = false\n"
+                    ],
+                    [
+                        20,
+                        "  private_ipv6_google_access = false\n"
+                    ],
+                    [
+                        21,
+                        "}\n"
+                    ]
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_networking_3"
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
+                "repo_file_path": "/terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
+                "file_line_range": [
+                    8,
+                    21
+                ],
+                "resource": "google_compute_subnetwork.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleSubnetworkPrivateGoogleEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_26",
+                "bc_check_id": null,
+                "check_name": "Ensure that VPC Flow Logs is enabled for every subnet in a VPC Network",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "log_config"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"google_compute_subnetwork\" \"fail\" {\n"
+                    ],
+                    [
+                        9,
+                        "  name             = \"log-test-subnetwork\"\n"
+                    ],
+                    [
+                        10,
+                        "  ip_cidr_range    = \"10.2.0.0/16\"\n"
+                    ],
+                    [
+                        11,
+                        "  stack_type       = \"IPV4_IPV6\"\n"
+                    ],
+                    [
+                        12,
+                        "  ipv6_access_type = \"EXTERNAL\"\n"
+                    ],
+                    [
+                        13,
+                        "  region           = \"us-central1\"\n"
+                    ],
+                    [
+                        14,
+                        "  network          = google_compute_network.custom-test.id\n"
+                    ],
+                    [
+                        15,
+                        "  # purpose=\"INTERNAL_HTTPS_LOAD_BALANCER\" if set ignored\n"
+                    ],
+                    [
+                        16,
+                        "  # log_config {\n"
+                    ],
+                    [
+                        17,
+                        "  #   metadata=\"EXCLUDE_ALL_METADATA\"\n"
+                    ],
+                    [
+                        18,
+                        "  # }\n"
+                    ],
+                    [
+                        19,
+                        "  private_ip_google_access   = false\n"
+                    ],
+                    [
+                        20,
+                        "  private_ipv6_google_access = false\n"
+                    ],
+                    [
+                        21,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/compute/subnetwork/compute_subnetwork_ipv6.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
+                "repo_file_path": "/terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
+                "file_line_range": [
+                    8,
+                    21
+                ],
+                "resource": "google_compute_subnetwork.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleSubnetworkLoggingEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_76",
@@ -8863,6 +10204,7 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "master_auth/[0]/username",
                         "master_authorized_networks_config"
                     ]
                 },
@@ -9008,6 +10350,8 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": []
+                        "node_config/[0]/shielded_instance_config/[0]/enable_secure_boot"
+                    ]
                 },
                 "code_block": [
                     [
@@ -10546,7 +11890,201 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_70",
+                "bc_check_id": null,
+                "check_name": "Ensure the GKE Release Channel is set",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "release_channel/[0]/channel"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_kubernetes_8"
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEReleaseChannel",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_25",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Cluster is created with Private cluster enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "private_cluster_config"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/container_cluster_public.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEPrivateClusterConfig",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_1",
@@ -10643,7 +12181,201 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_23",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Cluster is created with Alias IP ranges enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "ip_allocation_policy"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_kubernetes_1"
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEAliasIpEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_21",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Clusters are configured with Labels",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "resource_labels"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/container_cluster_public.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEHasLabels",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_7",
@@ -10934,7 +12666,202 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_19",
+                "bc_check_id": null,
+                "check_name": "Ensure GKE basic auth is disabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "master_auth/[0]/username",
+                        "master_auth/[0]/password"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/container_cluster_public.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/enable-vpc-flow-logs-and-intranode-visibility"
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEBasicAuth",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_68",
+                "bc_check_id": null,
+                "check_name": "Ensure Secure Boot for Shielded GKE Nodes is Enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "node_config/[0]/shielded_instance_config/[0]/enable_secure_boot"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/container_cluster_public.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKESecureBootforShieldedNodes",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_72",
@@ -11322,7 +13249,104 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_66",
+                "bc_check_id": null,
+                "check_name": "Ensure use of Binary Authorization",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "enable_binary_authorization"
+                    ]
+                },
+                "code_block": [
+                    [
+                        21,
+                        "resource \"google_container_cluster\" \"fail_public\" {\n"
+                    ],
+                    [
+                        22,
+                        "  node_config {\n"
+                    ],
+                    [
+                        23,
+                        "    shielded_instance_config {\n"
+                    ],
+                    [
+                        24,
+                        "      enable_integrity_monitoring = false\n"
+                    ],
+                    [
+                        25,
+                        "    }\n"
+                    ],
+                    [
+                        26,
+                        "  }\n"
+                    ],
+                    [
+                        27,
+                        "\n"
+                    ],
+                    [
+                        28,
+                        "  enable_legacy_abac = true\n"
+                    ],
+                    [
+                        29,
+                        "  logging_service    = \"none\"\n"
+                    ],
+                    [
+                        30,
+                        "  monitoring_service = \"none\"\n"
+                    ],
+                    [
+                        31,
+                        "  master_authorized_networks_config {\n"
+                    ],
+                    [
+                        32,
+                        "    cidr_blocks {\n"
+                    ],
+                    [
+                        33,
+                        "      cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        34,
+                        "    }\n"
+                    ],
+                    [
+                        35,
+                        "  }\n"
+                    ],
+                    [
+                        36,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/container_cluster_public.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/ensure-legacy-compute-engine-instance-metadata-apis-are-disabled"
+                "repo_file_path": "/terraform/google/container_cluster/container_cluster_public.tf",
+                "file_line_range": [
+                    21,
+                    36
+                ],
+                "resource": "google_container_cluster.fail_public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEBinaryAuthorization",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_69",
@@ -11625,6 +13649,30 @@
                 },
                 "code_block": [
                     [
+                        15,
+                        "resource \"google_container_node_pool\" \"fail_pool\" {\n"
+                    ],
+                    [
+                        16,
+                        "  name       = \"my-node-pool\"\n"
+                    ],
+                    [
+                        17,
+                        "  cluster    = google_container_cluster.primary.id\n"
+                    ],
+                    [
+                        18,
+                        "  node_count = 1\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ],
+                    [
+                        20,
+                        "  node_config {\n"
+                    ],
+                    [
                         21,
                         "resource \"google_container_cluster\" \"fail_public\" {\n"
                     ],
@@ -11682,10 +13730,30 @@
                     ],
                     [
                         35,
+                        "    image_type = \"UBUNTU_CONTAINERD\"\n"
+                    ],
+                    [
+                        36,
                         "  }\n"
                     ],
                     [
                         36,
+                        "  management {\n"
+                    ],
+                    [
+                        38,
+                        "    auto_repair  = false\n"
+                    ],
+                    [
+                        39,
+                        "    auto_upgrade = false\n"
+                    ],
+                    [
+                        40,
+                        "  }\n"
+                    ],
+                    [
+                        41,
                         "}\n"
                     ]
                 ],
@@ -11722,6 +13790,30 @@
                 },
                 "code_block": [
                     [
+                        15,
+                        "resource \"google_container_node_pool\" \"fail_pool\" {\n"
+                    ],
+                    [
+                        16,
+                        "  name       = \"my-node-pool\"\n"
+                    ],
+                    [
+                        17,
+                        "  cluster    = google_container_cluster.primary.id\n"
+                    ],
+                    [
+                        18,
+                        "  node_count = 1\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ],
+                    [
+                        20,
+                        "  node_config {\n"
+                    ],
+                    [
                         21,
                         "resource \"google_container_cluster\" \"fail_public\" {\n"
                     ],
@@ -11779,10 +13871,30 @@
                     ],
                     [
                         35,
+                        "    image_type = \"UBUNTU_CONTAINERD\"\n"
+                    ],
+                    [
+                        36,
                         "  }\n"
                     ],
                     [
                         36,
+                        "  management {\n"
+                    ],
+                    [
+                        38,
+                        "    auto_repair  = false\n"
+                    ],
+                    [
+                        39,
+                        "    auto_upgrade = false\n"
+                    ],
+                    [
+                        40,
+                        "  }\n"
+                    ],
+                    [
+                        41,
                         "}\n"
                     ]
                 ],
@@ -12110,6 +14222,30 @@
                 },
                 "code_block": [
                     [
+                        15,
+                        "resource \"google_container_node_pool\" \"fail_pool\" {\n"
+                    ],
+                    [
+                        16,
+                        "  name       = \"my-node-pool\"\n"
+                    ],
+                    [
+                        17,
+                        "  cluster    = google_container_cluster.primary.id\n"
+                    ],
+                    [
+                        18,
+                        "  node_count = 1\n"
+                    ],
+                    [
+                        19,
+                        "\n"
+                    ],
+                    [
+                        20,
+                        "  node_config {\n"
+                    ],
+                    [
                         21,
                         "resource \"google_container_cluster\" \"fail_public\" {\n"
                     ],
@@ -12167,10 +14303,30 @@
                     ],
                     [
                         35,
+                        "    image_type = \"UBUNTU_CONTAINERD\"\n"
+                    ],
+                    [
+                        36,
                         "  }\n"
                     ],
                     [
                         36,
+                        "  management {\n"
+                    ],
+                    [
+                        38,
+                        "    auto_repair  = false\n"
+                    ],
+                    [
+                        39,
+                        "    auto_upgrade = false\n"
+                    ],
+                    [
+                        40,
+                        "  }\n"
+                    ],
+                    [
+                        41,
                         "}\n"
                     ]
                 ],
@@ -12343,6 +14499,8 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": []
+                        "management/[0]/auto_repair/[0]"
+                    ]
                 },
                 "code_block": [
                     [
@@ -13232,7 +15390,395 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_70",
+                "bc_check_id": null,
+                "check_name": "Ensure the GKE Release Channel is set",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "release_channel/[0]/channel"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/ensure-use-of-binary-authorization"
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEReleaseChannel",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_25",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Cluster is created with Private cluster enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "private_cluster_config"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEPrivateClusterConfig",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_20",
+                "bc_check_id": null,
+                "check_name": "Ensure master authorized networks is set to enabled in GKE clusters",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "master_authorized_networks_config"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEMasterAuthorizedNetworksEnabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_21",
+                "bc_check_id": null,
+                "check_name": "Ensure Kubernetes Clusters are configured with Labels",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "resource_labels"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEHasLabels",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_13",
@@ -13329,7 +15875,202 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_67",
+                "bc_check_id": null,
+                "check_name": "Ensure legacy Compute Engine instance metadata APIs are Disabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "min_master_version"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_kubernetes_8"
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKELegacyInstanceMetadataDisabled",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_19",
+                "bc_check_id": null,
+                "check_name": "Ensure GKE basic auth is disabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "master_auth/[0]/username",
+                        "master_auth/[0]/password"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"google_container_cluster\" \"fail1\" {\n"
+                    ],
+                    [
+                        11,
+                        "  name               = var.name\n"
+                    ],
+                    [
+                        12,
+                        "  location           = var.location\n"
+                    ],
+                    [
+                        13,
+                        "  initial_node_count = 1\n"
+                    ],
+                    [
+                        14,
+                        "  project            = data.google_project.project.name\n"
+                    ],
+                    [
+                        15,
+                        "\n"
+                    ],
+                    [
+                        16,
+                        "  network    = var.network\n"
+                    ],
+                    [
+                        17,
+                        "  subnetwork = var.subnetwork\n"
+                    ],
+                    [
+                        18,
+                        "\n"
+                    ],
+                    [
+                        19,
+                        "  ip_allocation_policy {\n"
+                    ],
+                    [
+                        20,
+                        "    cluster_ipv4_cidr_block       = var.ip_allocation_policy[\"cluster_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        21,
+                        "    cluster_secondary_range_name  = var.ip_allocation_policy[\"cluster_secondary_range_name\"]\n"
+                    ],
+                    [
+                        22,
+                        "    services_ipv4_cidr_block      = var.ip_allocation_policy[\"services_ipv4_cidr_block\"]\n"
+                    ],
+                    [
+                        23,
+                        "    services_secondary_range_name = var.ip_allocation_policy[\"services_secondary_range_name\"]\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/container_cluster/legacy.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
+                "repo_file_path": "/terraform/google/container_cluster/legacy.tf",
+                "file_line_range": [
+                    10,
+                    25
+                ],
+                "resource": "google_container_cluster.fail1",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GKEBasicAuth",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_71",
@@ -15029,7 +17770,76 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_48",
+                "bc_check_id": null,
+                "check_name": "Ensure Default Service account is not used at a folder level",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "members"
+                    ]
+                },
+                "code_block": [
+                    [
+                        9,
+                        "resource \"google_folder_iam_binding\" \"fail\" {\n"
+                    ],
+                    [
+                        10,
+                        "  folder = \"folders/1234567\"\n"
+                    ],
+                    [
+                        11,
+                        "  role   = \"roles/editor\"\n"
+                    ],
+                    [
+                        12,
+                        "\n"
+                    ],
+                    [
+                        13,
+                        "  members = [\n"
+                    ],
+                    [
+                        14,
+                        "    \"user:jane@example.com\",\n"
+                    ],
+                    [
+                        15,
+                        "    \"serviceAccount:test-compute@appspot.gserviceaccount.com\",\n"
+                    ],
+                    [
+                        16,
+                        "  ]\n"
+                    ],
+                    [
+                        17,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/iam/iam_binding/folder_iam_binding.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/folder_iam_binding.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_networking_5"
+                "file_line_range": [
+                    9,
+                    17
+                ],
+                "resource": "google_folder_iam_binding.fail",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleFolderMemberDefaultServiceAccount",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_44",
@@ -15265,7 +18075,60 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_47",
+                "bc_check_id": null,
+                "check_name": "Ensure default service account is not used at an organization level",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "members"
+                    ]
+                },
+                "code_block": [
+                    [
+                        9,
+                        "resource \"google_organization_iam_binding\" \"organization_123\" {\n"
+                    ],
+                    [
+                        10,
+                        "  org_id  = \"org-123\"\n"
+                    ],
+                    [
+                        11,
+                        "  role    = \"roles/iam.serviceAccountUser\"\n"
+                    ],
+                    [
+                        12,
+                        "  members = [\"serviceAccount:test-compute@appspot.gserviceaccount.com\", ]\n"
+                    ],
+                    [
+                        13,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/iam/iam_binding/organization_iam_bindin.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_binding/organization_iam_bindin.tf",
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_iam_3"
+                "file_line_range": [
+                    9,
+                    13
+                ],
+                "resource": "google_organization_iam_binding.organization_123",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleOrgMemberDefaultServiceAccount",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_45",
@@ -15583,7 +18446,60 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_47",
+                "bc_check_id": null,
+                "check_name": "Ensure default service account is not used at an organization level",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "member"
+                    ]
+                },
+                "code_block": [
+                    [
+                        8,
+                        "resource \"google_organization_iam_member\" \"org_123\" {\n"
+                    ],
+                    [
+                        9,
+                        "  org_id = \"organization-123\"\n"
+                    ],
+                    [
+                        10,
+                        "  role   = \"roles/editor\"\n"
+                    ],
+                    [
+                        11,
+                        "  member = \"123-compute@developer.gserviceaccount.com\"\n"
+                    ],
+                    [
+                        12,
+                        "}\n"
+                    ]
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_iam_9"
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/iam/iam_member/no-org-level-default-service-account-assignment.tf",
+                "repo_file_path": "/terraform/google/iam/iam_member/no-org-level-default-service-account-assignment.tf",
+                "file_line_range": [
+                    8,
+                    12
+                ],
+                "resource": "google_organization_iam_member.org_123",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleOrgMemberDefaultServiceAccount",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_45",
@@ -15848,7 +18764,76 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_43",
+                "bc_check_id": null,
+                "check_name": "Ensure KMS encryption keys are rotated within a period of 90 days",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "rotation_period"
+                    ]
+                },
+                "code_block": [
+                    [
+                        12,
+                        "resource \"google_kms_crypto_key\" \"fails\" {\n"
+                    ],
+                    [
+                        13,
+                        "  name            = \"crypto-key-example\"\n"
+                    ],
+                    [
+                        14,
+                        "  key_ring        = google_kms_key_ring.keyring.id\n"
+                    ],
+                    [
+                        15,
+                        "  rotation_period = \"15552000s\"\n"
+                    ],
+                    [
+                        16,
+                        "\n"
+                    ],
+                    [
+                        17,
+                        "  lifecycle {\n"
+                    ],
+                    [
+                        18,
+                        "    prevent_destroy = false\n"
+                    ],
+                    [
+                        19,
+                        "  }\n"
+                    ],
+                    [
+                        20,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/kms/google_kms_crypto_key.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/kms/google_kms_crypto_key.tf",
+                "repo_file_path": "/terraform/google/kms/google_kms_crypto_key.tf",
+                "file_line_range": [
+                    12,
+                    20
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_iam_7"
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleKMSRotationPeriod",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_82",
@@ -16283,7 +19268,60 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_41",
+                "bc_check_id": null,
+                "check_name": "Ensure that IAM users are not assigned the Service Account User or Service Account Token Creator roles at project level",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "role"
+                    ]
+                },
+                "code_block": [
+                    [
+                        3,
+                        "resource \"google_project_iam_member\" \"positive1\" {\n"
+                    ],
+                    [
+                        4,
+                        "  project = \"your-project-id\"\n"
+                    ],
+                    [
+                        5,
+                        "  role    = \"roles/iam.serviceAccountTokenCreator\"\n"
+                    ],
+                    [
+                        6,
+                        "  member  = \"serviceAccount:my-other-app@appspot.gserviceacccount.com\"\n"
+                    ],
+                    [
+                        7,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+                "repo_file_path": "/terraform/google/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+                "file_line_range": [
+                    3,
+                    7
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_networking_9"
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleRoleServiceAccountUser",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_49",
@@ -17252,6 +20290,7 @@
                     "result": "FAILED",
                     "evaluated_keys": [
                         "settings/[0]/backup_configuration/[0]/enabled"
+                        "settings/[0]/ip_configuration/authorized_networks/[0]/[1]/value"
                     ]
                 },
                 "code_block": [
@@ -17420,6 +20459,7 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/SQLSERVER",
                         "settings/[0]/ip_configuration/authorized_networks/[0]/value",
                         "settings/[0]/ip_configuration/authorized_networks/[0]/[1]/value"
                     ]
@@ -17590,7 +20630,9 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/MYSQL",
                         "settings/[0]/ip_configuration/[0]/require_ssl/[0]"
+                        "settings/[0]/database_flags/[1]/value"
                     ]
                 },
                 "code_block": [
@@ -17930,6 +20972,8 @@
                     "result": "FAILED",
                     "evaluated_keys": [
                         "database_version"
+                        "settings/[0]/database_flags/[1]/name",
+                        "settings/[0]/database_flags/[1]/value"
                     ]
                 },
                 "code_block": [
@@ -20095,7 +23139,9 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/POSTGRES",
                         "settings/[0]/backup_configuration/[0]/enabled"
+                        "settings/[0]/database_flags/[3]/value"
                     ]
                 },
                 "code_block": [
@@ -20364,6 +23410,7 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/POSTGRES",
                         "settings/[0]/ip_configuration/authorized_networks/[0]/value",
                         "settings/[0]/ip_configuration/authorized_networks/[0]/[1]/value"
                     ]
@@ -20634,7 +23681,9 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/POSTGRES",
                         "settings/[0]/ip_configuration/[0]/require_ssl/[0]"
+                        "settings/[0]/database_flags/[4]/value"
                     ]
                 },
                 "code_block": [
@@ -21426,7 +24475,9 @@
                 "check_result": {
                     "result": "FAILED",
                     "evaluated_keys": [
+                        "database_version/[0]/SQLSERVER",
                         "settings/[0]/backup_configuration/[0]/enabled"
+                        "settings/[0]/database_flags/[0]/value"
                     ]
                 },
                 "code_block": [
@@ -23026,7 +26077,92 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV_GCP_29",
+                "bc_check_id": null,
+                "check_name": "Ensure that Cloud Storage buckets have uniform bucket-level access enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "uniform_bucket_level_access"
+                    ]
+                },
+                "code_block": [
+                    [
+                        9,
+                        "resource \"google_storage_bucket\" \"static_site\" {\n"
+                    ],
+                    [
+                        10,
+                        "  name          = \"image-store.com\"\n"
+                    ],
+                    [
+                        11,
+                        "  location      = \"EU\"\n"
+                    ],
+                    [
+                        12,
+                        "  force_destroy = true\n"
+                    ],
+                    [
+                        13,
+                        "  # logging {\n"
+                    ],
+                    [
+                        14,
+                        "  #   log_bucket = \"image-store.com\"\n"
+                    ],
+                    [
+                        15,
+                        "  # }\n"
+                    ],
+                    [
+                        16,
+                        "\n"
+                    ],
+                    [
+                        17,
+                        "\n"
+                    ],
+                    [
+                        18,
+                        "  versioning = {\n"
+                    ],
+                    [
+                        19,
+                        "    enabled = false\n"
+                    ],
+                    [
+                        20,
+                        "  }\n"
+                    ],
+                    [
+                        21,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/storage/storage_bucket.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket.tf",
+                "repo_file_path": "/terraform/google/storage/storage_bucket.tf",
+                "file_line_range": [
+                    9,
+                    21
+                ],
                 "guideline": "https://docs.bridgecrew.io/docs/bc_gcp_logging_2"
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.gcp.GoogleStorageBucketUniformAccess",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             },
             {
                 "check_id": "CKV_GCP_78",
@@ -23377,6 +26513,7 @@
                     "result": "FAILED",
                     "evaluated_keys": [
                         "uniform_bucket_level_access"
+                        "name"
                     ]
                 },
                 "code_block": [
@@ -23786,6 +26923,83 @@
                 "guideline": null
             },
             {
+                "check_id": "CKV2_GCP_2",
+                "bc_check_id": null,
+                "check_name": "Ensure legacy networks do not exist for a project",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "google_project": {
+                            "fail": {
+                                "auto_create_network": [
+                                    true
+                                ],
+                                "name": [
+                                    "My Project"
+                                ],
+                                "org_id": [
+                                    "1234567"
+                                ],
+                                "project_id": [
+                                    "your-project-id"
+                                ]
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "auto_create_subnetworks",
+                        "project_id"
+                    ]
+                },
+                "code_block": [
+                    [
+                        9,
+                        "resource \"google_project\" \"fail\" {\n"
+                    ],
+                    [
+                        10,
+                        "  name                = \"My Project\"\n"
+                    ],
+                    [
+                        11,
+                        "  project_id          = \"your-project-id\"\n"
+                    ],
+                    [
+                        12,
+                        "  org_id              = \"1234567\"\n"
+                    ],
+                    [
+                        13,
+                        "  auto_create_network = true\n"
+                    ],
+                    [
+                        14,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/project/project.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/project/project.tf",
+                "repo_file_path": "/terraform/google/project/project.tf",
+                "file_line_range": [
+                    9,
+                    14
+                ],
+                "resource": "google_project.fail",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
+            },
+            {
                 "check_id": "CKV2_GCP_7",
                 "bc_check_id": "BC_GCP_IAM_11",
                 "check_name": "Ensure that a MySQL database instance does not allow anyone to connect with administrative privileges",
@@ -23869,6 +27083,7 @@
                         }
                     },
                     "evaluated_keys": [
+                        "name",
                         "resource_type",
                         "password",
                         "name"
@@ -24278,7 +27493,84 @@
                 "description": null,
                 "short_description": null,
                 "vulnerability_details": null,
+                "guideline": null
+            },
+            {
+                "check_id": "CKV2_GCP_5",
+                "bc_check_id": null,
                 "guideline": "https://docs.bridgecrew.io/docs/ensure-that-cloud-kms-cryptokeys-are-not-anonymously-or-publicly-accessible"
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "google_project": {
+                            "fail": {
+                                "auto_create_network": [
+                                    true
+                                ],
+                                "name": [
+                                    "My Project"
+                                ],
+                                "org_id": [
+                                    "1234567"
+                                ],
+                                "project_id": [
+                                    "your-project-id"
+                                ]
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "service",
+                        "audit_log_config/*/exempted_members",
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        9,
+                        "resource \"google_project\" \"fail\" {\n"
+                    ],
+                    [
+                        10,
+                        "  name                = \"My Project\"\n"
+                    ],
+                    [
+                        11,
+                        "  project_id          = \"your-project-id\"\n"
+                    ],
+                    [
+                        12,
+                        "  org_id              = \"1234567\"\n"
+                    ],
+                    [
+                        13,
+                        "  auto_create_network = true\n"
+                    ],
+                    [
+                        14,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/project/project.tf",
+                "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/google/project/project.tf",
+                "repo_file_path": "/terraform/google/project/project.tf",
+                "file_line_range": [
+                    9,
+                    14
+                ],
+                "resource": "google_project.fail",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "guideline": null
             }
         ],
         "skipped_checks": [],

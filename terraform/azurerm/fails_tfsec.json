@@ -1,6 +1,182 @@
 {
 	"results": [
 		{
+			"rule_id": "AVD-AZU-0043",
+			"long_id": "azure-container-configured-network-policy",
+			"rule_description": "Ensure AKS cluster has Network Policy configured",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "No network policy is protecting the AKS cluster",
+			"resolution": "Configure a network policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/configured-network-policy/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#network_policy"
+			],
+			"description": "Kubernetes cluster does not have a network policy set.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.example",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/kubernetes_cluster.tf",
+				"start_line": 11,
+				"end_line": 38
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0043",
+			"long_id": "azure-container-configured-network-policy",
+			"rule_description": "Ensure AKS cluster has Network Policy configured",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "No network policy is protecting the AKS cluster",
+			"resolution": "Configure a network policy",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/configured-network-policy/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#network_policy"
+			],
+			"description": "Kubernetes cluster does not have a network policy set.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.fail_cluster",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+				"start_line": 16,
+				"end_line": 47
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0041",
+			"long_id": "azure-container-limit-authorized-ips",
+			"rule_description": "Ensure AKS has an API Server Authorized IP Ranges enabled",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "Any IP can interact with the API server",
+			"resolution": "Limit the access to the API server to a limited IP range",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/limit-authorized-ips/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#api_server_authorized_ip_ranges"
+			],
+			"description": "Cluster does not limit API access to specific IP addresses.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.example",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/kubernetes_cluster.tf",
+				"start_line": 11,
+				"end_line": 38
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0041",
+			"long_id": "azure-container-limit-authorized-ips",
+			"rule_description": "Ensure AKS has an API Server Authorized IP Ranges enabled",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "Any IP can interact with the API server",
+			"resolution": "Limit the access to the API server to a limited IP range",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/limit-authorized-ips/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#api_server_authorized_ip_ranges"
+			],
+			"description": "Cluster does not limit API access to specific IP addresses.",
+			"severity": "CRITICAL",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.fail_cluster",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+				"start_line": 16,
+				"end_line": 47
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0040",
+			"long_id": "azure-container-logging",
+			"rule_description": "Ensure AKS logging to Azure Monitoring is Configured",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "Logging provides valuable information about access and usage",
+			"resolution": "Enable logging for AKS",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/logging/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent"
+			],
+			"description": "Cluster does not have logging enabled via OMS Agent.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.example",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/kubernetes_cluster.tf",
+				"start_line": 11,
+				"end_line": 38
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0040",
+			"long_id": "azure-container-logging",
+			"rule_description": "Ensure AKS logging to Azure Monitoring is Configured",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "Logging provides valuable information about access and usage",
+			"resolution": "Enable logging for AKS",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/logging/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent"
+			],
+			"description": "Cluster does not have logging enabled via OMS Agent.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.fail_cluster",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+				"start_line": 16,
+				"end_line": 47
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0042",
+			"long_id": "azure-container-use-rbac-permissions",
+			"rule_description": "Ensure RBAC is enabled on AKS clusters",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "No role based access control is in place for the AKS cluster",
+			"resolution": "Enable RBAC",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/use-rbac-permissions/",
+				"https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#role_based_access_control"
+			],
+			"description": "Cluster has RBAC disabled",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.example",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/kubernetes_cluster.tf",
+				"start_line": 11,
+				"end_line": 38
+			}
+		},
+		{
+			"rule_id": "AVD-AZU-0042",
+			"long_id": "azure-container-use-rbac-permissions",
+			"rule_description": "Ensure RBAC is enabled on AKS clusters",
+			"rule_provider": "azure",
+			"rule_service": "container",
+			"impact": "No role based access control is in place for the AKS cluster",
+			"resolution": "Enable RBAC",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/container/use-rbac-permissions/",
+				"https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#role_based_access_control"
+			],
+			"description": "Cluster has RBAC disabled",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "azurerm_kubernetes_cluster.fail_cluster",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/aks/azurerm_kubernetes_cluster.tf",
+				"start_line": 33,
+				"end_line": 33
+			}
+		},
+		{
 			"rule_id": "AVD-AZU-0002",
 			"long_id": "azure-appservice-account-identity-registered",
 			"rule_description": "Web App has registration with AD enabled",
@@ -429,7 +605,7 @@
 			"rule_provider": "azure",
 			"rule_service": "container",
 			"impact": "Logging provides valuable information about access and usage",
-			"resolution": "Enable logging for AKS",
+			"resource": "azurerm_monitor_log_profile.fail",
 			"links": [
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/azure/container/logging/",
 				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent"
@@ -450,16 +626,15 @@
 			"rule_description": "Ensure RBAC is enabled on AKS clusters",
 			"rule_provider": "azure",
 			"rule_service": "container",
-			"impact": "No role based access control is in place for the AKS cluster",
-			"resolution": "Enable RBAC",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/azure/container/use-rbac-permissions/",
-				"https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#role_based_access_control"
-			],
+			"rule_description": "Ensure log profile captures all activities",
+			"rule_service": "monitor",
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/monitor/capture-all-activities/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#categories"
+			"resource": "azurerm_monitor_log_profile.fail",
 			"description": "Cluster has RBAC disabled",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "azurerm_kubernetes_cluster.example",
+			"resource": "azurerm_monitor_log_profile.fail",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\azurerm\\aks\\kubernetes_cluster.tf",
 				"start_line": 11,
@@ -472,15 +647,43 @@
 			"rule_description": "Ensure RBAC is enabled on AKS clusters",
 			"rule_provider": "azure",
 			"rule_service": "container",
+			"description": "Log profile does not require the 'Delete' category.",
+			"resource": "azurerm_monitor_log_profile.fail",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/monitor/capture-all-regions.tf",
+				"start_line": 2,
+				"end_line": 16
 			"impact": "No role based access control is in place for the AKS cluster",
 			"resolution": "Enable RBAC",
 			"links": [
 				"https://aquasecurity.github.io/tfsec/v1.0.11/checks/azure/container/use-rbac-permissions/",
 				"https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#role_based_access_control"
 			],
+			"rule_id": "AVD-AZU-0033",
+			"long_id": "azure-monitor-capture-all-activities",
+			"rule_description": "Ensure log profile captures all activities",
+			"rule_provider": "azure",
+			"rule_service": "monitor",
+			"impact": "Log profile must capture all activity to be able to ensure that all relevant information possible is available for an investigation",
+			"resolution": "Configure log profile to capture all activities",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/v1.2.1/checks/azure/monitor/capture-all-activities/",
+				"https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#categories"
+			],
+			"description": "Log profile does not require the 'Delete' category.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "azurerm_monitor_log_profile.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/azurerm/monitor/capture-all-regions.tf",
+				"start_line": 2,
+				"end_line": 16
+			}
+		},
+		{
 			"description": "Cluster has RBAC disabled",
 			"severity": "HIGH",
 			"status": 0,
+			"resource": "azurerm_monitor_log_profile.fail",
 			"resource": "role_based_access_control.enabled",
 			"location": {
 				"filename": "F:\\Code\\fail\\terraform\\azurerm\\aks\\azurerm_kubernetes_cluster.tf",

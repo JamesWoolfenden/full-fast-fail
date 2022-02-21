@@ -1,0 +1,3765 @@
+                    "bc_check_id": "BC_AZR_IAM_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_iam_1"
+                    "bc_check_id": "BC_AZR_GENERAL_66",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machines-use-managed-disks"
+                    "bc_check_id": "BC_AZR_SECRETS_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-an-expiration-date-on-all-secrets"
+                    "bc_check_id": "BC_AZR_NETWORKING_35",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-network-interfaces-disable-ip-forwarding"
+                    "bc_check_id": "BC_AZR_IAM_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/do-not-create-custom-subscription-owner-roles"
+                    "bc_check_id": "BC_AZR_NETWORKING_18",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-disallow-public-access"
+                    "bc_check_id": "BC_AZR_STORAGE_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-storage-accounts-adhere-to-the-naming-rules"
+                    "bc_check_id": "BC_AZR_NETWORKING_19",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-account-enables-secure-transfer"
+                    "bc_check_id": "BC_AZR_NETWORKING_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access"
+                    "bc_check_id": "BC_AZR_GENERAL_77",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-mysql-is-using-the-latest-version-of-tls-encryption"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            3,
+                            "resource \"azurerm_network_security_rule\" \"fail_range\" {\n"
+                        ],
+                        [
+                            4,
+                            "  name                        = \"example\"\n"
+                        ],
+                        [
+                            5,
+                            "  priority                    = 110\n"
+                        ],
+                        [
+                            6,
+                            "  direction                   = \"Inbound\"\n"
+                        ],
+                        [
+                            7,
+                            "  access                      = \"Allow\"\n"
+                        ],
+                        [
+                            8,
+                            "  protocol                    = \"tcp\"\n"
+                        ],
+                        [
+                            9,
+                            "  source_port_range           = \"*\"\n"
+                        ],
+                        [
+                            10,
+                            "  destination_port_range      = \"2000-4430\"\n"
+                        ],
+                        [
+                            11,
+                            "  source_address_prefix       = \"internet\"\n"
+                        ],
+                        [
+                            12,
+                            "  destination_address_prefix  = \"*\"\n"
+                        ],
+                        [
+                            13,
+                            "  resource_group_name         = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            14,
+                            "  network_security_group_name = azurerm_network_security_group.example_rdp.name\n"
+                        ],
+                        [
+                            15,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        3,
+                        15
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_range",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "network_security_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_network_security_group.example_rdp",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_10",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that SSH access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            17,
+                            "resource \"azurerm_network_security_rule\" \"fail_source_range\" {\n"
+                        ],
+                        [
+                            18,
+                            "  name                        = \"example\"\n"
+                        ],
+                        [
+                            19,
+                            "  priority                    = 101\n"
+                        ],
+                        [
+                            20,
+                            "  direction                   = \"Inbound\"\n"
+                        ],
+                        [
+                            21,
+                            "  access                      = \"ALLOW\"\n"
+                        ],
+                        [
+                            22,
+                            "  protocol                    = \"tcp\"\n"
+                        ],
+                        [
+                            23,
+                            "  source_port_range           = \"22\"\n"
+                        ],
+                        [
+                            24,
+                            "  destination_port_range      = \"*\"\n"
+                        ],
+                        [
+                            25,
+                            "  source_address_prefix       = \"internet\"\n"
+                        ],
+                        [
+                            26,
+                            "  destination_address_prefix  = \"*\"\n"
+                        ],
+                        [
+                            27,
+                            "  resource_group_name         = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            28,
+                            "  network_security_group_name = azurerm_network_security_group.example_rdp.name\n"
+                        ],
+                        [
+                            29,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/network/ports/disable-rdp-from-internet.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        17,
+                        29
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_source_range",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleSSHAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "network_security_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_network_security_group.example_rdp",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            17,
+                            "resource \"azurerm_network_security_rule\" \"fail_source_range\" {\n"
+                        ],
+                        [
+                            18,
+                            "  name                        = \"example\"\n"
+                        ],
+                        [
+                            19,
+                            "  priority                    = 101\n"
+                        ],
+                        [
+                            20,
+                            "  direction                   = \"Inbound\"\n"
+                        ],
+                        [
+                            21,
+                            "  access                      = \"ALLOW\"\n"
+                        ],
+                        [
+                            22,
+                            "  protocol                    = \"tcp\"\n"
+                        ],
+                        [
+                            23,
+                            "  source_port_range           = \"22\"\n"
+                        ],
+                        [
+                            24,
+                            "  destination_port_range      = \"*\"\n"
+                        ],
+                        [
+                            25,
+                            "  source_address_prefix       = \"internet\"\n"
+                        ],
+                        [
+                            26,
+                            "  destination_address_prefix  = \"*\"\n"
+                        ],
+                        [
+                            27,
+                            "  resource_group_name         = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            28,
+                            "  network_security_group_name = azurerm_network_security_group.example_rdp.name\n"
+                        ],
+                        [
+                            29,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/network/ports/disable-rdp-from-internet.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        17,
+                        29
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_source_range",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "network_security_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_network_security_group.example_rdp",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                },
+                {
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            45,
+                            "resource \"azurerm_network_security_rule\" \"fail_rdp\" {\n"
+                        ],
+                        [
+                            46,
+                            "  resource_group_name         = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            47,
+                            "  network_security_group_name = azurerm_network_security_group.example_rdp.name\n"
+                        ],
+                        [
+                            48,
+                            "  name                        = \"fail_security_rule\"\n"
+                        ],
+                        [
+                            49,
+                            "  direction                   = \"INBOUND\"\n"
+                        ],
+                        [
+                            50,
+                            "  access                      = \"Allow\"\n"
+                        ],
+                        [
+                            51,
+                            "  protocol                    = \"tcp\"\n"
+                        ],
+                        [
+                            52,
+                            "  source_port_range           = \"*\"\n"
+                        ],
+                        [
+                            53,
+                            "  destination_port_range      = \"3389\"\n"
+                        ],
+                        [
+                            54,
+                            "  source_address_prefix       = \"*\"\n"
+                        ],
+                        [
+                            55,
+                            "  destination_address_prefix  = \"*\"\n"
+                        ],
+                        [
+                            56,
+                            "  priority                    = 120\n"
+                        ],
+                        [
+                            57,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        45,
+                        57
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_rdp",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "network_security_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_network_security_group.example_rdp",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": [
+                            "security_rule"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            60,
+                            "resource \"azurerm_network_security_group\" \"example_rdp\" {\n"
+                        ],
+                        [
+                            61,
+                            "  name                = \"tf-appsecuritygroup\"\n"
+                        ],
+                        [
+                            62,
+                            "  location            = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            63,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            64,
+                            "\n"
+                        ],
+                        [
+                            65,
+                            "  security_rule {\n"
+                        ],
+                        [
+                            66,
+                            "    access                     = \"Allow\"\n"
+                        ],
+                        [
+                            67,
+                            "    direction                  = \"Inbound\"\n"
+                        ],
+                        [
+                            68,
+                            "    name                       = \"rdp\"\n"
+                        ],
+                        [
+                            69,
+                            "    priority                   = 100\n"
+                        ],
+                        [
+                            70,
+                            "    source_port_range          = \"0-65535\"\n"
+                        ],
+                        [
+                            71,
+                            "    destination_port_range     = \"3389\"\n"
+                        ],
+                        [
+                            72,
+                            "    source_address_prefix      = \"*\"\n"
+                        ],
+                        [
+                            73,
+                            "    destination_address_prefix = \"*\"\n"
+                        ],
+                        [
+                            74,
+                            "    protocol                   = \"tcp\"\n"
+                        ],
+                        [
+                            75,
+                            "  }\n"
+                        ],
+                        [
+                            76,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        60,
+                        76
+                    ],
+                    "resource": "azurerm_network_security_group.example_rdp",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": [
+                            "security_rule"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            78,
+                            "resource \"azurerm_network_security_group\" \"example_rdp_range\" {\n"
+                        ],
+                        [
+                            79,
+                            "  name                = \"tf-appsecuritygroup\"\n"
+                        ],
+                        [
+                            80,
+                            "  location            = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            81,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            82,
+                            "\n"
+                        ],
+                        [
+                            83,
+                            "  security_rule {\n"
+                        ],
+                        [
+                            84,
+                            "    access                     = \"Allow\"\n"
+                        ],
+                        [
+                            85,
+                            "    direction                  = \"Inbound\"\n"
+                        ],
+                        [
+                            86,
+                            "    name                       = \"rdp\"\n"
+                        ],
+                        [
+                            87,
+                            "    priority                   = 100\n"
+                        ],
+                        [
+                            88,
+                            "    source_port_range          = \"0-65535\"\n"
+                        ],
+                        [
+                            89,
+                            "    destination_port_range     = \"100-4000\"\n"
+                        ],
+                        [
+                            90,
+                            "    source_address_prefix      = \"*\"\n"
+                        ],
+                        [
+                            91,
+                            "    destination_address_prefix = \"*\"\n"
+                        ],
+                        [
+                            92,
+                            "    protocol                   = \"tcp\"\n"
+                        ],
+                        [
+                            93,
+                            "  }\n"
+                        ],
+                        [
+                            94,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        78,
+                        94
+                    ],
+                    "resource": "azurerm_network_security_group.example_rdp_range",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_9",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that RDP access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": [
+                            "security_rule"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            96,
+                            "resource \"azurerm_network_security_group\" \"example_rdp_ranges\" {\n"
+                        ],
+                        [
+                            97,
+                            "  name                = \"tf-appsecuritygroup\"\n"
+                        ],
+                        [
+                            98,
+                            "  location            = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            99,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            100,
+                            "\n"
+                        ],
+                        [
+                            101,
+                            "  security_rule {\n"
+                        ],
+                        [
+                            102,
+                            "    access                     = \"Allow\"\n"
+                        ],
+                        [
+                            103,
+                            "    direction                  = \"Inbound\"\n"
+                        ],
+                        [
+                            104,
+                            "    name                       = \"rdp\"\n"
+                        ],
+                        [
+                            105,
+                            "    priority                   = 100\n"
+                        ],
+                        [
+                            106,
+                            "    source_port_range          = \"0-65535\"\n"
+                        ],
+                        [
+                            107,
+                            "    destination_port_range     = \"100-4000\"\n"
+                        ],
+                        [
+                            108,
+                            "    source_address_prefix      = \"*\"\n"
+                        ],
+                        [
+                            109,
+                            "    destination_address_prefix = \"*\"\n"
+                        ],
+                        [
+                            110,
+                            "    protocol                   = \"tcp\"\n"
+                        ],
+                        [
+                            111,
+                            "  }\n"
+                        ],
+                        [
+                            112,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "repo_file_path": "/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                    "file_line_range": [
+                        96,
+                        112
+                    ],
+                    "resource": "azurerm_network_security_group.example_rdp_ranges",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleRDPAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ports/disable-rdp-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_10",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that SSH access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            3,
+                            "resource \"azurerm_network_security_rule\" \"fail_ssh\" {\n"
+                        ],
+                        [
+                            4,
+                            "  name                       = \"fail_security_rule\"\n"
+                        ],
+                        [
+                            5,
+                            "  direction                  = \"Inbound\"\n"
+                        ],
+                        [
+                            6,
+                            "  access                     = \"Allow\"\n"
+                        ],
+                        [
+                            7,
+                            "  protocol                   = \"TCP\"\n"
+                        ],
+                        [
+                            8,
+                            "  source_port_range          = \"*\"\n"
+                        ],
+                        [
+                            9,
+                            "  destination_port_range     = [\"22\"]\n"
+                        ],
+                        [
+                            10,
+                            "  source_address_prefix      = \"*\"\n"
+                        ],
+                        [
+                            11,
+                            "  destination_address_prefix = \"*\"\n"
+                        ],
+                        [
+                            12,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/network/ssh-blocked-from-internet.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "repo_file_path": "/terraform/azurerm/network/ssh-blocked-from-internet.tf",
+                    "file_line_range": [
+                        3,
+                        12
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_ssh",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleSSHAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_10",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that SSH access is restricted from the internet",
+                    "check_result": {
+                        "result": "PASSED",
+                        "evaluated_keys": []
+                    },
+                    "code_block": [
+                        [
+                            28,
+                            "resource \"azurerm_network_security_rule\" \"fail_ssh2\" {\n"
+                        ],
+                        [
+                            29,
+                            "  name                        = \"example\"\n"
+                        ],
+                        [
+                            30,
+                            "  priority                    = 100\n"
+                        ],
+                        [
+                            31,
+                            "  direction                   = \"Inbound\"\n"
+                        ],
+                        [
+                            32,
+                            "  access                      = \"Allow\"\n"
+                        ],
+                        [
+                            33,
+                            "  protocol                    = \"TCP\"\n"
+                        ],
+                        [
+                            34,
+                            "  source_port_range           = \"*\"\n"
+                        ],
+                        [
+                            35,
+                            "  destination_port_range      = \"22\"\n"
+                        ],
+                        [
+                            36,
+                            "  source_address_prefix       = \"*\"\n"
+                        ],
+                        [
+                            37,
+                            "  destination_address_prefix  = \"*\"\n"
+                        ],
+                        [
+                            38,
+                            "  resource_group_name         = azurerm_resource_group.fail_ssh.name\n"
+                        ],
+                        [
+                            39,
+                            "  network_security_group_name = azurerm_network_security_group.fail_ssh.name\n"
+                        ],
+                        [
+                            40,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/network/ssh-blocked-from-internet.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "repo_file_path": "/terraform/azurerm/network/ssh-blocked-from-internet.tf",
+                    "file_line_range": [
+                        28,
+                        40
+                    ],
+                    "resource": "azurerm_network_security_rule.fail_ssh2",
+                    "evaluations": null,
+                    "check_class": "checkov.terraform.checks.resource.azure.NSGRuleSSHAccessRestricted",
+                    "fixed_definition": null,
+                    "entity_tags": null,
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "network_security_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_network_security_group.fail_ssh",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/ssh-blocked-from-internet.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_NETWORKING_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_3"
+                    "bc_check_id": "BC_AZR_NETWORKING_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_GENERAL_49",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-security-contact-emails-is-set"
+                    "bc_check_id": "BC_AZR_GENERAL_46",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-servers"
+                    "bc_check_id": "BC_AZR_GENERAL_50",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-app-service"
+                    "bc_check_id": "BC_AZR_GENERAL_53",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-azure-sql-database-servers"
+                    "bc_check_id": "BC_AZR_GENERAL_62",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-kubernetes"
+                    "bc_check_id": "BC_AZR_GENERAL_56",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-sql-servers-on-machines"
+                    "bc_check_id": "BC_AZR_GENERAL_63",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-container-registries"
+                    "bc_check_id": "BC_AZR_GENERAL_64",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-key-vault"
+                    "bc_check_id": "BC_AZR_NETWORKING_18",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-disallow-public-access"
+                    "bc_check_id": "BC_AZR_STORAGE_3",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-storage-accounts-adhere-to-the-naming-rules"
+                    "bc_check_id": "BC_AZR_NETWORKING_19",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-account-enables-secure-transfer"
+                    "bc_check_id": "BC_AZR_NETWORKING_16",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_15",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny"
+                    "bc_check_id": "BC_AZR_NETWORKING_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_15",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny"
+                    "bc_check_id": "BC_AZR_NETWORKING_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_1"
+                    "bc_check_id": "BC_AZR_SECRETS_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-an-expiration-date-on-all-secrets"
+                    "bc_check_id": "BC_AZR_NETWORKING_47",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-application-gateway-waf-prevents-message-lookup-in-log4j2"
+                    "bc_check_id": "BC_AZR_GENERAL_74",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-active-directory-admin-is-configured"
+                    "bc_check_id": "BC_AZR_NETWORKING_27",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-synapse-workspaces-have-no-ip-firewall-rules-attached"
+                    "bc_check_id": "BC_AZR_GENERAL_34",
+                                        "uksouth"
+                                        "fail"
+                                            "admin_password": [
+                                                "Password1234!"
+                                            ],
+                                                "DAVE"
+                                                "HAL"
+                                                "export DATABASE_PASSWORD=\"SomeSortOfPassword\""
+                                        "secretsstash"
+                                    "storage_os_disk": [
+                                            "create_option": [
+                                                "UbuntuServer"
+                                            ],
+                                                "empty"
+                                                "Canonical"
+                                            "sku": [
+                                                "16.04-LTS"
+                                            ],
+                                            "name": [
+                                                "toxic"
+                                        ""
+                            "disk_encryption_set_id",
+                            "resource_type",
+                            "encryption_settings"
+                            12,
+                            8,
+                            "  name                  = \"${var.prefix}-vm\"\n"
+                        ],
+                        [
+                            9,
+                            "  location              = azurerm_resource_group.main.location\n"
+                        ],
+                        [
+                            10,
+                            "  resource_group_name   = azurerm_resource_group.main.name\n"
+                        ],
+                        [
+                            11,
+                            "  network_interface_ids = [azurerm_network_interface.main.id]\n"
+                        ],
+                        [
+                            12,
+                            "  vm_size               = \"Standard_DS1_v2\"\n"
+                        ],
+                        [
+                            "  name                  = \"fail\"\n"
+                            "  location              = \"uksouth\"\n"
+                            "  network_interface_ids = [\"azurerm_network_interface.main.id\"]\n"
+                            "  vm_size               = \"\"\n"
+                            "  resource_group_name   = azurerm_resource_group.example.name\n"
+                            "\n"
+                            "  os_profile_linux_config {\n"
+                            "    disable_password_authentication = false\n"
+                            "\n"
+                            "  }\n"
+                            "\n"
+                            "  os_profile {\n"
+                            "    computer_name  = \"HAL\"\n"
+                            "    admin_username = \"DAVE\"\n"
+                            "    custom_data    = <<EOF\n"
+                            "export DATABASE_PASSWORD=\\\"SomeSortOfPassword\\\"\n"
+                            "EOF\n"
+                            "  }\n"
+                    "file_path": "/compute/virtual_machine.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/compute/virtual_machine.tf",
+                    "repo_file_path": "/terraform/azurerm/compute/virtual_machine.tf",
+                        12,
+                        35
+                                "module_connection": false
+                    "bc_check_id": "BC_AZR_GENERAL_34",
+                            "disk_encryption_set_id",
+                            "resource_type",
+                            "encryption_settings"
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-unattached-disks-are-encrypted"
+                    "check_id": "CKV_AZURE_119",
+                    "bc_check_id": "BC_AZR_NETWORKING_36",
+                    "check_name": "Ensure that Network Interfaces don't use public IPs",
+                            "azurerm_network_interface": {
+                                "positive3": {
+                                    "administrator_login": [
+                                "main": {
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "ip_configuration": [
+                                                "testconfiguration1"
+                                                6
+                                            "private_ip_address_allocation": [
+                                                "Dynamic"
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "subnet_id": [
+                                                "azurerm_subnet.internal.id"
+                                        "uksouth"
+                                        "nic"
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                        "secretsstash"
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                            "state",
+                            53,
+                            "resource \"azurerm_network_interface\" \"main\" {\n"
+                            54,
+                            "  name                = \"nic\"\n"
+                        ],
+                            57,
+                            "\n"
+                            58,
+                            "  ip_configuration {\n"
+                            59,
+                            "    name                          = \"testconfiguration1\"\n"
+                        ],
+                            "    private_ip_address_allocation = \"Dynamic\"\n"
+                            62,
+                            "  }\n"
+                    ],
+                    "fixed_definition": null,
+                            5,
+                            "resource \"azurerm_network_interface\" \"fail\" {\n"
+                            6,
+                            "  name                = \"example-nic\"\n"
+                            7,
+                            "  location            = azurerm_resource_group.example.location\n"
+                            8,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                            9,
+                            "\n"
+                            10,
+                        [
+                            12,
+                            "    subnet_id                     = azurerm_subnet.example.id\n"
+                            13,
+                            "    private_ip_address_allocation = \"Dynamic\"\n"
+                        ],
+                        ],
+                    "file_path": "/network/network_interface.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/network_interface.tf",
+                    "repo_file_path": "/terraform/azurerm/network/network_interface.tf",
+                        5,
+                        18
+                    "resource": "azurerm_network_interface.fail",
+                    "entity_tags": {},
+                        "environment": "production"
+                    },
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-network-interfaces-dont-use-public-ips"
+                    "bc_check_id": "BC_AZR_GENERAL_69",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-sql-servers-enables-data-security-policy"
+                    "bc_check_id": "BC_AZR_GENERAL_69",
+                    "file_line_range": [
+                    "bc_check_id": "BC_AZR_GENERAL_69",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_119",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Network Interfaces don't use public IPs",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_network_interface": {
+                                "fail": {
+                                    "enable_ip_forwarding": [
+                                        true
+                                    ],
+                                    "ip_configuration": [
+                                        {
+                                            "name": [
+                                                "internal"
+                                            ],
+                                            "private_ip_address_allocation": [
+                                                "Dynamic"
+                                            ],
+                                            "public_ip_address_id": [
+                                                "IP"
+                                            ],
+                                            "subnet_id": [
+                                                "azurerm_subnet.example.id"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "example-nic"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            5,
+                            "resource \"azurerm_network_interface\" \"fail\" {\n"
+                        ],
+                        [
+                            6,
+                            "  name                = \"example-nic\"\n"
+                        ],
+                        [
+                            7,
+                            "  location            = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            8,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            9,
+                            "\n"
+                        ],
+                        [
+                            10,
+                            "  ip_configuration {\n"
+                        ],
+                        [
+                            11,
+                            "    name                          = \"internal\"\n"
+                        ],
+                        [
+                            12,
+                            "    subnet_id                     = azurerm_subnet.example.id\n"
+                        ],
+                        [
+                            13,
+                            "    private_ip_address_allocation = \"Dynamic\"\n"
+                        ],
+                        [
+                            14,
+                            "    public_ip_address_id          = \"IP\"\n"
+                        ],
+                        [
+                            15,
+                            "  }\n"
+                        ],
+                        [
+                            16,
+                            "\n"
+                        ],
+                        [
+                            17,
+                            "  enable_ip_forwarding = true\n"
+                        ],
+                        [
+                            18,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/network/network_interface.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/network/network_interface.tf",
+                    "repo_file_path": "/terraform/azurerm/network/network_interface.tf",
+                    "file_line_range": [
+                        5,
+                        18
+                    ],
+                    "resource": "azurerm_network_interface.fail",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_119",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Network Interfaces don't use public IPs",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_network_interface": {
+                                "main": {
+                                    "ip_configuration": [
+                                        {
+                                            "name": [
+                                                "testconfiguration1"
+                                            ],
+                                            "private_ip_address_allocation": [
+                                                "Dynamic"
+                                            ],
+                                            "subnet_id": [
+                                                "azurerm_subnet.internal.id"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "uksouth"
+                                    ],
+                                    "name": [
+                                        "nic"
+                                    ],
+                                    "resource_group_name": [
+                                        "secretsstash"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            53,
+                            "resource \"azurerm_network_interface\" \"main\" {\n"
+                        ],
+                        [
+                            54,
+                            "  name                = \"nic\"\n"
+                        ],
+                        [
+                            55,
+                            "  location            = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            56,
+                            "  resource_group_name = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            57,
+                            "\n"
+                        ],
+                        [
+                            58,
+                            "  ip_configuration {\n"
+                        ],
+                        [
+                            59,
+                            "    name                          = \"testconfiguration1\"\n"
+                        ],
+                        [
+                            60,
+                            "    subnet_id                     = azurerm_subnet.internal.id\n"
+                        ],
+                        [
+                            61,
+                            "    private_ip_address_allocation = \"Dynamic\"\n"
+                        ],
+                        [
+                            62,
+                            "  }\n"
+                        ],
+                        [
+                            63,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/compute/virtual_machine.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-sql-servers-enables-data-security-policy"
+                    "repo_file_path": "/terraform/azurerm/compute/virtual_machine.tf",
+                    "file_line_range": [
+                        53,
+                        63
+                    ],
+                    "resource": "azurerm_network_interface.main",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/compute/linux_virtual_machine.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/compute/linux_virtual_machine.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                    "check_id": "CKV2_AZURE_2",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive3": {
+                                    "administrator_login": [
+                                        ""
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "server_id",
+                            "extended_auditing_policy",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            16,
+                            "resource \"azurerm_sql_server\" \"positive3\" {\n"
+                        ],
+                        [
+                            17,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            18,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            19,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            20,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            21,
+                            "  administrator_login          = \"\"\n"
+                        ],
+                        [
+                            22,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            23,
+                            "\n"
+                        ],
+                        [
+                            24,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            25,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            26,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            27,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            28,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            29,
+                            "  }\n"
+                        ],
+                        [
+                            30,
+                            "\n"
+                        ],
+                        [
+                            31,
+                            "  tags = {\n"
+                        ],
+                        [
+                            32,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            33,
+                            "  }\n"
+                        ],
+                        [
+                            34,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_line_range": [
+                        16,
+                        34
+                    ],
+                    "resource": "azurerm_sql_server.positive3",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "bc_check_id": "BC_AZR_GENERAL_70",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account",
+                            "state",
+                            "extended_auditing_policy",
+                    "file_line_range": [
+                    "check_id": "CKV2_AZURE_6",
+                    "bc_check_id": "BC_AZR_GENERAL_79",
+                    "check_name": "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled",
+                            "end_ip_address",
+                            "extended_auditing_policy",
+                            "resource_type",
+                    "file_line_range": [
+                    "check_id": "CKV_AZURE_23",
+                    "bc_check_id": "BC_AZR_LOGGING_2",
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                            "extended_auditing_policy",
+                            "resource_type",
+                    "file_line_range": [
+                    "check_id": "CKV_AZURE_23",
+                    "bc_check_id": "BC_AZR_LOGGING_2",
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                            "extended_auditing_policy",
+                            "start_ip_address",
+                            "resource_type",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_6",
+                    "bc_check_id": null,
+                    "check_name": "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive2": {
+                                    "administrator_login": [
+                                        "4dm1n157r470r"
+                                    ],
+                                    "administrator_login_password": [
+                                        "4-v3ry-53cr37-p455w0rd"
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mysqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "end_ip_address",
+                            "start_ip_address",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            9,
+                            "resource \"azurerm_sql_server\" \"positive2\" {\n"
+                        ],
+                        [
+                            10,
+                            "  name                         = \"mysqlserver\"\n"
+                        ],
+                        [
+                            11,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            12,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            13,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            14,
+                            "  administrator_login          = \"4dm1n157r470r\"\n"
+                        ],
+                        [
+                            15,
+                            "  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"\n"
+                        ],
+                        [
+                            16,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "file_line_range": [
+                        9,
+                        16
+                    ],
+                    "resource": "azurerm_sql_server.positive2",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_6",
+                    "bc_check_id": null,
+                    "check_name": "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive4": {
+                                    "administrator_login": [
+                                        "Admin"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "end_ip_address",
+                            "start_ip_address",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            36,
+                            "resource \"azurerm_sql_server\" \"positive4\" {\n"
+                        ],
+                        [
+                            37,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            38,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            39,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            40,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            41,
+                            "  administrator_login          = \"Admin\"\n"
+                        ],
+                        [
+                            42,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            43,
+                            "\n"
+                        ],
+                        [
+                            44,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            45,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            46,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            47,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            48,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            49,
+                            "  }\n"
+                        ],
+                        [
+                            50,
+                            "\n"
+                        ],
+                        [
+                            51,
+                            "  tags = {\n"
+                        ],
+                        [
+                            52,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            53,
+                            "  }\n"
+                        ],
+                        [
+                            54,
+                            "}\n"
+                        ]
+                    ],
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_logging_2"
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_line_range": [
+                        36,
+                        54
+                    ],
+                    "resource": "azurerm_sql_server.positive4",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_KUBERNETES_5",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_5"
+                    "bc_check_id": "BC_AZR_KUBERNETES_6",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-enables-private-clusters"
+                    "bc_check_id": "BC_AZR_KUBERNETES_8",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-uses-disk-encryption-set"
+                    "bc_check_id": "BC_AZR_KUBERNETES_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_4"
+                    "bc_check_id": "BC_AZR_KUBERNETES_7",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-uses-azure-policies-add-on"
+                    "bc_check_id": "BC_AZR_KUBERNETES_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_3"
+                    "bc_check_id": "BC_AZR_KUBERNETES_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_1"
+                    "bc_check_id": "BC_AZR_KUBERNETES_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_2"
+                    "bc_check_id": "BC_AZR_KUBERNETES_5",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_5"
+                    "bc_check_id": "BC_AZR_KUBERNETES_6",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-enables-private-clusters"
+                    "bc_check_id": "BC_AZR_KUBERNETES_8",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-uses-disk-encryption-set"
+                    "bc_check_id": "BC_AZR_KUBERNETES_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_4"
+                    "bc_check_id": "BC_AZR_KUBERNETES_7",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-aks-uses-azure-policies-add-on"
+                    "bc_check_id": "BC_AZR_KUBERNETES_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_3"
+                    "bc_check_id": "BC_AZR_KUBERNETES_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_1"
+                    "bc_check_id": "BC_AZR_KUBERNETES_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_kubernetes_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_31",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-api-management-services-uses-virtual-networks"
+                    "bc_check_id": "BC_AZR_NETWORKING_37",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-application-gateway-enables-waf"
+                    "bc_check_id": "BC_AZR_GENERAL_54",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-managed-identity-provider-is-enabled-for-app-services"
+                    "bc_check_id": "BC_AZR_GENERAL_48",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-cors-disallows-every-resource-to-access-app-services"
+                    "bc_check_id": "BC_AZR_GENERAL_59",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"
+                    "bc_check_id": "BC_AZR_LOGGING_8",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-app-service-enables-http-logging"
+                    "bc_check_id": "BC_AZR_GENERAL_57",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"
+                    "bc_check_id": "BC_AZR_GENERAL_55",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-remote-debugging-is-not-enabled-for-app-services"
+                    "bc_check_id": "BC_AZR_LOGGING_9",
+                    "guideline": "https://docs.bridgecrew.io/docs/tbdensure-that-app-service-enables-detailed-error-messages"
+                    "bc_check_id": "BC_AZR_GENERAL_58",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"
+                    "bc_check_id": "BC_AZR_NETWORKING_6",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_6"
+                    "bc_check_id": "BC_AZR_NETWORKING_7",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_7"
+                    "bc_check_id": "BC_AZR_NETWORKING_5",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_5"
+                    "bc_check_id": "BC_AZR_GENERAL_65",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-app-services-use-azure-files"
+                    "bc_check_id": "BC_AZR_GENERAL_15",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-ftp-deployments-are-disabled"
+                    "bc_check_id": "BC_AZR_GENERAL_60",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"
+                    "bc_check_id": "BC_AZR_NETWORKING_8",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_8"
+                    "bc_check_id": "BC_AZR_LOGGING_10",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-app-service-enables-failed-request-tracing"
+                    "bc_check_id": "BC_AZR_GENERAL_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_2"
+                    "bc_check_id": "BC_AZR_IAM_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/do-not-create-custom-subscription-owner-roles"
+                    "bc_check_id": "BC_AZR_GENERAL_25",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-automation-account-variables-are-encrypted"
+                    "bc_check_id": "BC_AZR_GENERAL_28",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-batch-account-uses-key-vault-to-encrypt-data"
+                    "bc_check_id": "BC_AZR_GENERAL_14",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_14"
+                    "bc_check_id": "BC_AZR_NETWORKING_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_1"
+                    "bc_check_id": "BC_AZR_GENERAL_29",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-managed-disks-use-a-specific-set-of-disk-encryption-sets-for-the-customer-managed-key-encryption"
+                    "bc_check_id": "BC_AZR_GENERAL_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_1"
+                    "bc_check_id": "BC_AZR_NETWORKING_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_1"
+                    "bc_check_id": "BC_AZR_NETWORKING_25",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-container-container-group-is-deployed-into-virtual-network"
+                    "bc_check_id": "BC_AZR_NETWORKING_26",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-cosmos-db-accounts-have-restricted-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_28",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-cosmos-db-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_STORAGE_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_storage_4"
+                    "bc_check_id": "BC_AZR_GENERAL_21",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-cosmos-db-accounts-have-customer-managed-keys-to-encrypt-data-at-rest"
+                    "bc_check_id": "BC_AZR_NETWORKING_29",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-factory-public-network-access-is-disabled"
+                    "bc_check_id": "BC_AZR_GENERAL_39",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-factory-uses-git-repository-for-source-control"
+                    "bc_check_id": "BC_AZR_GENERAL_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-data-lake-store-accounts-enables-encryption"
+                    "bc_check_id": "BC_AZR_NETWORKING_30",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-event-grid-domain-public-network-access-is-disabled"
+                    "bc_check_id": "BC_AZR_NETWORKING_38",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-front-door-enables-waf"
+                    "bc_check_id": "BC_AZR_GENERAL_47",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-function-apps-enables-authentication"
+                    "bc_check_id": "BC_AZR_GENERAL_52",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-http-version-is-the-latest-if-used-to-run-the-function-app"
+                    "bc_check_id": "BC_AZR_GENERAL_51",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-cors-disallows-every-resource-to-access-function-apps"
+                    "bc_check_id": "BC_AZR_NETWORKING_21",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-function-apps-is-only-accessible-over-https"
+                    "bc_check_id": "BC_AZR_IAM_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/do-not-create-custom-subscription-owner-roles"
+                    "bc_check_id": "BC_AZR_IAM_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/do-not-create-custom-subscription-owner-roles"
+                    "bc_check_id": "BC_AZR_NETWORKING_32",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-iot-hub-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_GENERAL_11",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-the-key-vault-is-recoverable"
+                    "bc_check_id": "BC_AZR_GENERAL_41",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-key-vault-enables-soft-delete"
+                    "bc_check_id": "BC_AZR_GENERAL_40",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-key-vault-enables-purge-protection"
+                    "bc_check_id": "BC_AZR_NETWORKING_33",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-key-vault-allows-firewall-rules-settings"
+                    "bc_check_id": "BC_AZR_GENERAL_10",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-an-expiration-date-on-all-keys"
+                    "bc_check_id": "BC_AZR_GENERAL_17",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-key-vault-key-is-backed-by-hsm"
+                    "bc_check_id": "BC_AZR_SECRETS_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-an-expiration-date-on-all-secrets"
+                    "bc_check_id": "BC_AZR_GENERAL_42",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-key-vault-secrets-have-content_type-set"
+                    "bc_check_id": "BC_AZR_GENERAL_26",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-explorer-uses-disk-encryption"
+                    "bc_check_id": "BC_AZR_GENERAL_27",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-explorer-uses-double-encryption"
+                            "}"
+                            "}"
+                    "bc_check_id": "BC_AZR_GENERAL_29",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-managed-disks-use-a-specific-set-of-disk-encryption-sets-for-the-customer-managed-key-encryption"
+                    "bc_check_id": "BC_AZR_GENERAL_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_1"
+                    "bc_check_id": "BC_AZR_PUBLIC_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_public_1"
+                    "bc_check_id": "BC_AZR_GENERAL_18",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-mariadb-server-enables-geo-redundant-backups"
+                    "bc_check_id": "BC_AZR_NETWORKING_17",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_17"
+                    "bc_check_id": "BC_AZR_LOGGING_6",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-audit-profile-captures-all-activities"
+                    "bc_check_id": "BC_AZR_LOGGING_5",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-activity-log-retention-to-365-days-or-greater"
+                    "bc_check_id": "BC_AZR_LOGGING_6",
+                            "resource \"azurerm_monitor_log_profile\" \"fail\" {\n"
+                    "resource": "azurerm_monitor_log_profile.fail",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-audit-profile-captures-all-activities"
+                    "bc_check_id": "BC_AZR_LOGGING_5",
+                            "resource \"azurerm_monitor_log_profile\" \"fail\" {\n"
+                    "resource": "azurerm_monitor_log_profile.fail",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-activity-log-retention-to-365-days-or-greater"
+                    "bc_check_id": "BC_AZR_NETWORKING_34",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-sql-server-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_GENERAL_76",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-mssql-is-using-the-latest-version-of-tls-encryption"
+                    "bc_check_id": "BC_AZR_NETWORKING_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_4"
+                    "bc_check_id": "BC_AZR_LOGGING_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-requests-on-storage-logging-for-queue-service"
+                    "bc_check_id": "BC_AZR_NETWORKING_15",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny"
+                    "bc_check_id": "BC_AZR_STORAGE_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_storage_2"
+                    "bc_check_id": "BC_AZR_STORAGE_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-secure-transfer-required-is-enabled"
+                    "bc_check_id": "BC_AZR_GENERAL_6",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_6"
+                    "bc_check_id": "BC_AZR_GENERAL_7",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_7"
+                    "bc_check_id": "BC_AZR_GENERAL_8",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_8"
+                    "bc_check_id": "BC_AZR_GENERAL_30",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-infrastructure-encryption-1"
+                    "bc_check_id": "BC_AZR_GENERAL_44",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-my-sql-server-enables-threat-detection-policy"
+                    "bc_check_id": "BC_AZR_NETWORKING_9",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_9"
+                    "bc_check_id": "BC_AZR_GENERAL_19",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-my-sql-server-enables-geo-redundant-backups"
+                    "bc_check_id": "BC_AZR_NETWORKING_45",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-public-network-access-enabled-is-set-to-false-for-mysql-servers"
+                    "bc_check_id": "BC_AZR_NETWORKING_35",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-network-interfaces-disable-ip-forwarding"
+                    "bc_check_id": "BC_AZR_NETWORKING_22",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-udp-services-are-restricted-from-the-internet"
+                    "bc_check_id": "BC_AZR_LOGGING_1",
+                    "file_line_range": [
+                    "bc_check_id": "BC_AZR_NETWORKING_13",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_13"
+                    "bc_check_id": "BC_AZR_NETWORKING_11",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_11"
+                    "bc_check_id": "BC_AZR_NETWORKING_12",
+                            "resource \"azurerm_postgresql_configuration\" \"example\" {\n"
+                    "resource": "azurerm_postgresql_configuration.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_12"
+                    "bc_check_id": "BC_AZR_NETWORKING_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_4"
+                    "bc_check_id": "BC_AZR_NETWORKING_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_4"
+                    "bc_check_id": "BC_AZR_NETWORKING_20",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_GENERAL_45",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-threat-detection-policy"
+                    "bc_check_id": "BC_AZR_GENERAL_24",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-infrastructure-encryption"
+                    "bc_check_id": "BC_AZR_NETWORKING_10",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_10"
+                    "bc_check_id": "BC_AZR_GENERAL_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-geo-redundant-backups"
+                    "bc_check_id": "BC_AZR_NETWORKING_20",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_GENERAL_45",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-threat-detection-policy"
+                    "bc_check_id": "BC_AZR_GENERAL_24",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-infrastructure-encryption"
+                    "bc_check_id": "BC_AZR_NETWORKING_10",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_10"
+                    "bc_check_id": "BC_AZR_GENERAL_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-postgresql-server-enables-geo-redundant-backups"
+                    "bc_check_id": "BC_AZR_NETWORKING_24",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-only-ssl-are-enabled-for-cache-for-redis"
+                    "bc_check_id": "BC_AZR_NETWORKING_23",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-cache-for-redis-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_41",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-cognitive-search-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_GENERAL_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_3"
+                    "bc_check_id": "BC_AZR_GENERAL_5",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_5"
+                    "bc_check_id": "BC_AZR_GENERAL_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_4"
+                    "bc_check_id": "BC_AZR_GENERAL_61",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-defender-is-set-to-on-for-storage"
+                    "bc_check_id": "BC_AZR_GENERAL_9",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-standard-pricing-tier-is-selected"
+                    "bc_check_id": "BC_AZR_GENERAL_80",
+                            "resource \"azurerm_service_fabric_cluster\" \"example\" {\n"
+                    "resource": "azurerm_service_fabric_cluster.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-service-fabric-uses-available-three-levels-of-protection-available"
+                    "bc_check_id": "BC_AZR_GENERAL_78",
+                            "resource \"azurerm_service_fabric_cluster\" \"example\" {\n"
+                    "resource": "azurerm_service_fabric_cluster.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-active-directory-is-used-for-service-fabric-authentication"
+                    "bc_check_id": "BC_AZR_GENERAL_80",
+                            "resource \"azurerm_service_fabric_cluster\" \"positive1\" {\n"
+                    "resource": "azurerm_service_fabric_cluster.positive1",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-service-fabric-uses-available-three-levels-of-protection-available"
+                    "bc_check_id": "BC_AZR_GENERAL_78",
+                            "resource \"azurerm_service_fabric_cluster\" \"positive1\" {\n"
+                    "resource": "azurerm_service_fabric_cluster.positive1",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-active-directory-is-used-for-service-fabric-authentication"
+                    "bc_check_id": "BC_AZR_GENERAL_80",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-service-fabric-uses-available-three-levels-of-protection-available"
+                    "bc_check_id": "BC_AZR_GENERAL_78",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-active-directory-is-used-for-service-fabric-authentication"
+                    "bc_check_id": "BC_AZR_LOGGING_4",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-requests-on-storage-logging-for-queue-service"
+                    "bc_check_id": "BC_AZR_NETWORKING_15",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny"
+                    "bc_check_id": "BC_AZR_STORAGE_2",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_storage_2"
+                    "bc_check_id": "BC_AZR_STORAGE_1",
+                            2,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                        2,
+                        8
+                    "resource": "azurerm_storage_account.example",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-secure-transfer-required-is-enabled"
+                    "bc_check_id": "BC_AZR_LOGGING_4",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-requests-on-storage-logging-for-queue-service"
+                    "bc_check_id": "BC_AZR_NETWORKING_18",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-disallow-public-access"
+                    "bc_check_id": "BC_AZR_STORAGE_3",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-storage-accounts-adhere-to-the-naming-rules"
+                    "bc_check_id": "BC_AZR_NETWORKING_19",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-account-enables-secure-transfer"
+                    "bc_check_id": "BC_AZR_STORAGE_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_storage_2"
+                    "bc_check_id": "BC_AZR_NETWORKING_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access"
+                    "bc_check_id": "BC_AZR_STORAGE_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-secure-transfer-required-is-enabled"
+                    "bc_check_id": "BC_AZR_NETWORKING_14",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-public-access-level-to-private-for-blob-containers"
+                    "bc_check_id": "BC_AZR_NETWORKING_15",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-default-network-access-rule-for-storage-accounts-to-deny"
+                    "bc_check_id": "BC_AZR_NETWORKING_16",
+                    "guideline": "https://docs.bridgecrew.io/docs/enable-trusted-microsoft-services-for-storage-account-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_42",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-file-sync-disables-public-network-access"
+                    "bc_check_id": "BC_AZR_NETWORKING_43",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-synapse-workspaces-enables-managed-virtual-networks"
+                    "bc_check_id": "BC_AZR_GENERAL_66",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machines-use-managed-disks"
+                    "bc_check_id": "BC_AZR_GENERAL_14",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_14"
+                    "bc_check_id": "BC_AZR_GENERAL_31",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machine-scale-sets-have-encryption-at-host-enabled"
+                    "bc_check_id": "BC_AZR_GENERAL_13",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_general_13"
+                    "bc_check_id": "BC_AZR_SECRETS_2",
+                    "guideline": "https://docs.bridgecrew.io/docs/set-an-expiration-date-on-all-secrets"
+                    "bc_check_id": "BC_AZR_NETWORKING_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_1"
+                    "bc_check_id": "BC_AZR_GENERAL_67",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-automatic-os-image-patching-is-enabled-for-virtual-machine-scale-sets"
+                    "bc_check_id": "BC_AZR_NETWORKING_1",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_networking_1"
+                    "bc_check_id": "BC_AZR_GENERAL_31",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machine-scale-sets-have-encryption-at-host-enabled"
+                    "bc_check_id": "BC_AZR_NETWORKING_39",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-application-gateway-uses-waf-in-detection-or-prevention-modes"
+                    "bc_check_id": "BC_AZR_NETWORKING_37",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_7",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Azure Active Directory Admin is configured",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive3": {
+                                    "administrator_login": [
+                                        ""
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            16,
+                            "resource \"azurerm_sql_server\" \"positive3\" {\n"
+                        ],
+                        [
+                            17,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            18,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            19,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            20,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            21,
+                            "  administrator_login          = \"\"\n"
+                        ],
+                        [
+                            22,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            23,
+                            "\n"
+                        ],
+                        [
+                            24,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            25,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            26,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            27,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            28,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            29,
+                            "  }\n"
+                        ],
+                        [
+                            30,
+                            "\n"
+                        ],
+                        [
+                            31,
+                            "  tags = {\n"
+                        ],
+                        [
+                            32,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            33,
+                            "  }\n"
+                        ],
+                        [
+                            34,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-application-gateway-enables-waf"
+                    "file_line_range": [
+                        16,
+                        34
+                    ],
+                    "resource": "azurerm_sql_server.positive3",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_GENERAL_74",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-active-directory-admin-is-configured"
+                    "bc_check_id": "BC_AZR_GENERAL_74",
+                    "file_line_range": [
+                    "code_block": [
+                            "auto_upgrade_minor_version",
+                            "publisher",
+                            "resource_type",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_10",
+                    "bc_check_id": null,
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-microsoft-antimalware-is-configured-to-automatically-updates-for-virtual-machines"
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_virtual_machine": {
+                                "positive1": {
+                                    "location": [
+                                        "azurerm_resource_group.main.location"
+                                    ],
+                                    "name": [
+                                        "var.prefix-vm"
+                                    ],
+                                    "network_interface_ids": [
+                                        []
+                                    ],
+                                    "os_profile_linux_config": [
+                                        {
+                                            "disable_password_authentication": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.main.name"
+                                    ],
+                                    "vm_size": [
+                                        "Standard_DS1_v2"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "auto_upgrade_minor_version",
+                            "publisher",
+                            "type",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            7,
+                            "resource \"azurerm_virtual_machine\" \"positive1\" {\n"
+                        ],
+                        [
+                            8,
+                            "  name                  = \"${var.prefix}-vm\"\n"
+                        ],
+                        [
+                            9,
+                            "  location              = azurerm_resource_group.main.location\n"
+                        ],
+                        [
+                            10,
+                            "  resource_group_name   = azurerm_resource_group.main.name\n"
+                        ],
+                        [
+                            11,
+                            "  network_interface_ids = []\n"
+                        ],
+                        [
+                            12,
+                            "  vm_size               = \"Standard_DS1_v2\"\n"
+                        ],
+                        [
+                            13,
+                            "\n"
+                        ],
+                        [
+                            14,
+                            "  os_profile_linux_config {\n"
+                        ],
+                        [
+                            15,
+                            "    disable_password_authentication = false\n"
+                        ],
+                        [
+                            16,
+                            "  }\n"
+                        ],
+                        [
+                            17,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/vms/vm_not_attached_to_network.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                    "repo_file_path": "/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                    "file_line_range": [
+                        7,
+                        17
+                    ],
+                    "resource": "azurerm_virtual_machine.positive1",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_GENERAL_36",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-mysql-server-enables-customer-managed-key-for-encryption"
+                    "bc_check_id": "BC_AZR_GENERAL_32",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key"
+                    "bc_check_id": "BC_AZR_GENERAL_32",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_1",
+                    "bc_check_id": null,
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key"
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_storage_account": {
+                                "example_deny": {
+                                    "account_replication_type": [
+                                        "GRS"
+                                    ],
+                                    "account_tier": [
+                                        "Standard"
+                                    ],
+                                    "location": [
+                                        "data.azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "example"
+                                    ],
+                                    "resource_group_name": [
+                                        "data.azurerm_resource_group.example.name"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            8,
+                            "resource \"azurerm_storage_account\" \"example_deny\" {\n"
+                        ],
+                        [
+                            9,
+                            "  name                     = \"example\"\n"
+                        ],
+                        [
+                            10,
+                            "  resource_group_name      = data.azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            11,
+                            "  location                 = data.azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            12,
+                            "  account_tier             = \"Standard\"\n"
+                        ],
+                        [
+                            13,
+                            "  account_replication_type = \"GRS\"\n"
+                        ],
+                        [
+                            14,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "repo_file_path": "/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "file_line_range": [
+                        8,
+                        14
+                    ],
+                    "resource": "azurerm_storage_account.example_deny",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_GENERAL_38",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-use-customer-managed-key-for-encryption"
+                    "bc_check_id": "BC_AZR_GENERAL_38",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-storage-accounts-use-customer-managed-key-for-encryption"
+                    "check_id": "CKV2_AZURE_12",
+                    "bc_check_id": "BC_AZR_GENERAL_20",
+                    "check_name": "Ensure that virtual machines are backed up using Azure Backup",
+                            "azurerm_virtual_machine": {
+                                "example_deny": {
+                                    "account_replication_type": [
+                                        "GRS"
+                                    ],
+                                "positive1": {
+                                        "Standard"
+                                    ],
+                                        "azurerm_resource_group.main.location"
+                                        "var.prefix-vm"
+                                        "azurerm_resource_group.main.name"
+                            "networking",
+                            "  name                  = \"${var.prefix}-vm\"\n"
+                            "  location              = azurerm_resource_group.main.location\n"
+                            "  resource_group_name   = azurerm_resource_group.main.name\n"
+                            "  network_interface_ids = []\n"
+                            "  vm_size               = \"Standard_DS1_v2\"\n"
+                            "\n"
+                    "file_path": "/vms/vm_not_attached_to_network.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                    "repo_file_path": "/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                        7,
+                        17
+                    "resource": "azurerm_virtual_machine.positive1",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machines-are-backed-up-using-azure-backup"
+                    "bc_check_id": "BC_AZR_GENERAL_20",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_12",
+                    "bc_check_id": null,
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-virtual-machines-are-backed-up-using-azure-backup"
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_virtual_machine": {
+                                "positive1": {
+                                    "location": [
+                                        "azurerm_resource_group.main.location"
+                                    ],
+                                    "name": [
+                                        "var.prefix-vm"
+                                    ],
+                                    "network_interface_ids": [
+                                        []
+                                    ],
+                                    "os_profile_linux_config": [
+                                        {
+                                            "disable_password_authentication": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.main.name"
+                                    ],
+                                    "vm_size": [
+                                        "Standard_DS1_v2"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "networking",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            7,
+                            "resource \"azurerm_virtual_machine\" \"positive1\" {\n"
+                        ],
+                        [
+                            8,
+                            "  name                  = \"${var.prefix}-vm\"\n"
+                        ],
+                        [
+                            9,
+                            "  location              = azurerm_resource_group.main.location\n"
+                        ],
+                        [
+                            10,
+                            "  resource_group_name   = azurerm_resource_group.main.name\n"
+                        ],
+                        [
+                            11,
+                            "  network_interface_ids = []\n"
+                        ],
+                        [
+                            12,
+                            "  vm_size               = \"Standard_DS1_v2\"\n"
+                        ],
+                        [
+                            13,
+                            "\n"
+                        ],
+                        [
+                            14,
+                            "  os_profile_linux_config {\n"
+                        ],
+                        [
+                            15,
+                            "    disable_password_authentication = false\n"
+                        ],
+                        [
+                            16,
+                            "  }\n"
+                        ],
+                        [
+                            17,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/vms/vm_not_attached_to_network.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                    "repo_file_path": "/terraform/azurerm/vms/vm_not_attached_to_network.tf",
+                    "file_line_range": [
+                        7,
+                        17
+                    ],
+                    "resource": "azurerm_virtual_machine.positive1",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_GENERAL_75",
+                            "storage_os_disk/managed_disk_type"
+                            "resource_type"
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-virtual-machines-are-utilizing-managed-disks"
+                    "bc_check_id": "BC_AZR_GENERAL_75",
+                            "storage_os_disk/managed_disk_type"
+                            "resource_type"
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-virtual-machines-are-utilizing-managed-disks"
+                    "bc_check_id": "BC_AZR_GENERAL_75",
+                            "storage_os_disk/managed_disk_type"
+                            "resource_type"
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-virtual-machines-are-utilizing-managed-disks"
+                    "bc_check_id": "BC_AZR_GENERAL_33",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-explorer-encryption-at-rest-uses-a-customer-managed-key"
+                    "bc_check_id": "BC_AZR_LOGGING_12",
+                            "criteria/resource_id",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"
+                    "bc_check_id": "BC_AZR_LOGGING_12",
+                            "criteria/resource_id",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_8",
+                    "bc_check_id": null,
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_storage_account": {
+                                "example_deny": {
+                                    "account_replication_type": [
+                                        "GRS"
+                                    ],
+                                    "account_tier": [
+                                        "Standard"
+                                    ],
+                                    "location": [
+                                        "data.azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "example"
+                                    ],
+                                    "resource_group_name": [
+                                        "data.azurerm_resource_group.example.name"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "enabled",
+                            "criteria/resource_id",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            8,
+                            "resource \"azurerm_storage_account\" \"example_deny\" {\n"
+                        ],
+                        [
+                            9,
+                            "  name                     = \"example\"\n"
+                        ],
+                        [
+                            10,
+                            "  resource_group_name      = data.azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            11,
+                            "  location                 = data.azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            12,
+                            "  account_tier             = \"Standard\"\n"
+                        ],
+                        [
+                            13,
+                            "  account_replication_type = \"GRS\"\n"
+                        ],
+                        [
+                            14,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "repo_file_path": "/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "file_line_range": [
+                        8,
+                        14
+                    ],
+                    "resource": "azurerm_storage_account.example_deny",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "bc_check_id": "BC_AZR_GENERAL_35",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-azure-data-factories-are-encrypted-with-a-customer-managed-key"
+                    "bc_check_id": "BC_AZR_LOGGING_7",
+                            "table_names"
+                            "resource_type"
+                    "file_line_range": [
+                    "bc_check_id": "BC_AZR_LOGGING_3",
+                            "azurerm_sql_server": {
+                                        "mradministrator"
+                                        "thisIsDog11"
+                                    "extended_auditing_policy": [
+                                            "retention_in_days": [
+                                                true
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                            "retention_in_days",
+                            "resource_type",
+                            36,
+                            "resource \"azurerm_sql_server\" \"positive4\" {\n"
+                            37,
+                            38,
+                            39,
+                            40,
+                            41,
+                            "  administrator_login          = \"Admin\"\n"
+                            42,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                            43,
+                            "\n"
+                            44,
+                            "  extended_auditing_policy {\n"
+                            45,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                            46,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                            47,
+                            "    storage_account_access_key_is_secondary = true\n"
+                            48,
+                            "    retention_in_days                       = 6\n"
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            54,
+                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                        36,
+                        54
+                    "resource": "azurerm_sql_server.positive4",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_logging_3"
+                    "bc_check_id": "BC_AZR_LOGGING_3",
+                            "retention_in_days",
+                            "resource_type",
+                    "guideline": "https://docs.bridgecrew.io/docs/bc_azr_logging_3"
+                    "bc_check_id": "BC_AZR_LOGGING_3",
+                            "state",
+                            "extended_auditing_policy/retention_in_days",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-vulnerability-assessment-va-is-enabled-on-a-sql-server-by-setting-a-storage-account"
+                    "check_id": "CKV2_AZURE_2",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "example": {
+                                    "administrator_login": [
+                                        "mradministrator"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "infrastructure_encryption_enabled": [
+                                        false
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "minimum_tls_version": [
+                                        "1.1"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "public_network_access_enabled": [
+                                        true
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "threat_detection_policy": [
+                                        {
+                                            "enabled": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "retention_in_days",
+                            "extended_auditing_policy/retention_in_days",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            10,
+                            "resource \"azurerm_sql_server\" \"example\" {\n"
+                        ],
+                        [
+                            11,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            12,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            13,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            14,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            15,
+                            "  administrator_login          = \"mradministrator\"\n"
+                        ],
+                        [
+                            16,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            17,
+                            "  minimum_tls_version          = \"1.1\"\n"
+                        ],
+                        [
+                            18,
+                            "  threat_detection_policy {\n"
+                        ],
+                        [
+                            19,
+                            "    enabled = false\n"
+                        ],
+                        [
+                            20,
+                            "  }\n"
+                        ],
+                        [
+                            21,
+                            "\n"
+                        ],
+                        [
+                            22,
+                            "  public_network_access_enabled = true\n"
+                        ],
+                        [
+                            23,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            24,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            25,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            26,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            27,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            28,
+                            "  }\n"
+                        ],
+                        [
+                            29,
+                            "  infrastructure_encryption_enabled = false\n"
+                        ],
+                        [
+                            30,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server.tf",
+                    "file_line_range": [
+                        10,
+                        30
+                    ],
+                    "resource": "azurerm_sql_server.example",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "bc_check_id": "BC_AZR_GENERAL_70",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account",
+                            "state",
+                            "extended_auditing_policy/retention_in_days",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_23",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_mssql_server": {
+                                "example": {
+                                    "administrator_login": [
+                                        "missadministrator"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsKat11"
+                                    ],
+                                    "azuread_administrator": [
+                                        {
+                                            "login_username": [
+                                                "AzureAD Admin"
+                                            ],
+                                            "object_id": [
+                                                "00000000-0000-0000-0000-000000000000"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "minimum_tls_version": [
+                                        "1.1"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "public_network_access_enabled": [
+                                        true
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "server_id",
+                            "extended_auditing_policy",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            6,
+                            "resource \"azurerm_mssql_server\" \"example\" {\n"
+                        ],
+                        [
+                            7,
+                            "  name                          = \"mssqlserver\"\n"
+                        ],
+                        [
+                            8,
+                            "  resource_group_name           = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            9,
+                            "  location                      = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            10,
+                            "  version                       = \"12.0\"\n"
+                        ],
+                        [
+                            11,
+                            "  administrator_login           = \"missadministrator\"\n"
+                        ],
+                        [
+                            12,
+                            "  administrator_login_password  = \"thisIsKat11\"\n"
+                        ],
+                        [
+                            13,
+                            "  minimum_tls_version           = \"1.1\"\n"
+                        ],
+                        [
+                            14,
+                            "  public_network_access_enabled = true\n"
+                        ],
+                        [
+                            15,
+                            "\n"
+                        ],
+                        [
+                            16,
+                            "  azuread_administrator {\n"
+                        ],
+                        [
+                            17,
+                            "    login_username = \"AzureAD Admin\"\n"
+                        ],
+                        [
+                            18,
+                            "    object_id      = \"00000000-0000-0000-0000-000000000000\"\n"
+                        ],
+                        [
+                            19,
+                            "  }\n"
+                        ],
+                        [
+                            20,
+                            "\n"
+                        ],
+                        [
+                            21,
+                            "  tags = {\n"
+                        ],
+                        [
+                            22,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            23,
+                            "  }\n"
+                        ],
+                        [
+                            24,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/mssql_server.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_server.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/mssql_server.tf",
+                    "file_line_range": [
+                        6,
+                        24
+                    ],
+                    "resource": "azurerm_mssql_server.example",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_23",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive2": {
+                                    "administrator_login": [
+                                        "4dm1n157r470r"
+                                    ],
+                                    "administrator_login_password": [
+                                        "4-v3ry-53cr37-p455w0rd"
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mysqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "server_id",
+                            "extended_auditing_policy",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            9,
+                            "resource \"azurerm_sql_server\" \"positive2\" {\n"
+                        ],
+                        [
+                            10,
+                            "  name                         = \"mysqlserver\"\n"
+                        ],
+                        [
+                            11,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            12,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            13,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            14,
+                            "  administrator_login          = \"4dm1n157r470r\"\n"
+                        ],
+                        [
+                            15,
+                            "  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"\n"
+                        ],
+                        [
+                            16,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-vulnerability-assessment-va-is-enabled-on-a-sql-server-by-setting-a-storage-account"
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "file_line_range": [
+                        9,
+                        16
+                    ],
+                    "resource": "azurerm_sql_server.positive2",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "check_id": "CKV2_AZURE_21",
+                    "bc_check_id": null,
+                    "check_name": "Ensure Storage logging is enabled for Blob service for read requests",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_storage_container": {
+                                "fail": {
+                                    "container_access_type": [
+                                        "blob"
+                                    ],
+                                    "name": [
+                                        "terraform-container-storage"
+                                    ],
+                                    "storage_account_name": [
+                                        "any"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "blob_container_names",
+                            "container_access_type",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            4,
+                            "resource \"azurerm_storage_container\" \"fail\" {\n"
+                        ],
+                        [
+                            5,
+                            "  name                  = \"terraform-container-storage\"\n"
+                        ],
+                        [
+                            6,
+                            "  container_access_type = \"blob\"\n"
+                        ],
+                        [
+                            7,
+                            "  storage_account_name  = \"any\"\n"
+                        ],
+                        [
+                            8,
+                            "\n"
+                        ],
+                        [
+                            9,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/storage/container/storage_container.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/container/storage_container.tf",
+                    "repo_file_path": "/terraform/azurerm/storage/container/storage_container.tf",
+                    "file_line_range": [
+                        4,
+                        9
+                    ],
+                    "resource": "azurerm_storage_container.fail",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "bc_check_id": "BC_AZR_GENERAL_70",
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_2",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive2": {
+                                    "administrator_login": [
+                                        "4dm1n157r470r"
+                                    ],
+                                    "administrator_login_password": [
+                                        "4-v3ry-53cr37-p455w0rd"
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mysqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "state",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            9,
+                            "resource \"azurerm_sql_server\" \"positive2\" {\n"
+                        ],
+                        [
+                            10,
+                            "  name                         = \"mysqlserver\"\n"
+                        ],
+                        [
+                            11,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            12,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            13,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            14,
+                            "  administrator_login          = \"4dm1n157r470r\"\n"
+                        ],
+                        [
+                            15,
+                            "  administrator_login_password = \"4-v3ry-53cr37-p455w0rd\"\n"
+                        ],
+                        [
+                            16,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "guideline": "https://docs.bridgecrew.io/docs/ensure-that-vulnerability-assessment-va-is-enabled-on-a-sql-server-by-setting-a-storage-account"
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_active_directory_admin_account_name.tf",
+                    "file_line_range": [
+                        9,
+                        16
+                    ],
+                    "resource": "azurerm_sql_server.positive2",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                    "check_id": "CKV2_AZURE_2",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive4": {
+                                    "administrator_login": [
+                                        "Admin"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "state",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            36,
+                            "resource \"azurerm_sql_server\" \"positive4\" {\n"
+                        ],
+                        [
+                            37,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            38,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            39,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            40,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            41,
+                            "  administrator_login          = \"Admin\"\n"
+                        ],
+                        [
+                            42,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            43,
+                            "\n"
+                        ],
+                        [
+                            44,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            45,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            46,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            47,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            48,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            49,
+                            "  }\n"
+                        ],
+                        [
+                            50,
+                            "\n"
+                        ],
+                        [
+                            51,
+                            "  tags = {\n"
+                        ],
+                        [
+                            52,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            53,
+                            "  }\n"
+                        ],
+                        [
+                            54,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_line_range": [
+                        36,
+                        54
+                    ],
+                    "resource": "azurerm_sql_server.positive4",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "bc_check_id": "BC_AZR_GENERAL_79",
+                            "start_ip_address"
+                            "resource_type"
+                    "file_line_range": [
+            "passed": 93,
+            "failed": 204,
+            "checkov_version": "2.0.868"
+                    "bc_check_id": "BC_GIT_6",
+                    "vulnerability_details": null,
+                    "bc_check_id": "BC_GIT_6",
+                    "vulnerability_details": null,
+                    "bc_check_id": "BC_GIT_6",
+                    "vulnerability_details": null,
+                    "bc_check_id": "BC_GIT_6",
+                    "vulnerability_details": null,
+            "checkov_version": "2.0.868"

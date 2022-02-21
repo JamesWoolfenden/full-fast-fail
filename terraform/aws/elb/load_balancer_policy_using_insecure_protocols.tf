@@ -19,7 +19,7 @@ resource "aws_elb" "wu_tang" {
   }
 }
 
-resource "aws_load_balancer_policy" "fail" {
+resource "aws_load_balancer_policy" "fail2" {
   load_balancer_name = aws_elb.wu-tang.name
   policy_name        = "wu-tang-ssl"
   policy_type_name   = "SSLNegotiationPolicyType"

@@ -1,6 +1,6 @@
 # fails
 # todo policy is to permissive
-
+# todo copy of CKV2_AWS_36 but for secrets
 provider "aws" {
   region = "us-east-1"
 }

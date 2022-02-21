@@ -9,8 +9,8 @@ resource "google_data_fusion_instance" "fail" {
   description                   = "My Data Fusion instance"
   region                        = "us-central1"
   type                          = "BASIC"
-  enable_stackdriver_logging    = true
-  enable_stackdriver_monitoring = true
+  enable_stackdriver_logging    = false
+  enable_stackdriver_monitoring = false
   labels = {
     example_key = "example_value"
   }

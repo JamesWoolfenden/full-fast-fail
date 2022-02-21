@@ -3,7 +3,7 @@
 # CKV_AZURE_148
 # Ensure that only SSL are enabled for Cache for RedisCheckov CKV_AZURE_91
 # todo patch_schedule' is defined
-#  ip range is not private
+#  todo ip range is not private
 
 resource "azurerm_redis_cache" "fail" {
   name                = "timeout-redis"

@@ -4,6 +4,9 @@
 # Ensure that virtual machines are backed up using Azure BackupCheckov CKV2_AZURE_12
 # Ensure Virtual Machines are utilizing Managed DisksCheckov CKV2_AZURE_9
 # Ensure that no sensitive credentials are exposed in VM custom_dataCheckov CKV_AZURE_45
+
+#legacy resource
+
 resource "azurerm_virtual_machine" "fail" {
   name                  = "${var.prefix}-vm"
   location              = azurerm_resource_group.main.location

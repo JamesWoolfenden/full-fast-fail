@@ -1,6 +1,5 @@
 # fails
 # Ensure there is no open access to back-end resources through APICheckov CKV_AWS_59
-# todo api_key_required = true
 # kics
 # API Gateway With Open Access, Severity: MEDIUM, Results: 1
 # Description: API Gateway Method should restrict the authorization type, except for the HTTP OPTIONS method.

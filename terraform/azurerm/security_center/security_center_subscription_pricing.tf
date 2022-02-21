@@ -9,7 +9,7 @@
 # CKV_AZURE_87: "Ensure that Azure Defender is set to On for Key Vault"
 # CKV_AZURE_19: "Ensure that standard pricing tier is selected"
 
-# todo these defencer checks are rubbish
+# todo these defender checks are rubbish
 resource "azurerm_security_center_subscription_pricing" "fail_pricing" {
   tier          = "Free"
   resource_type = "StorageAccounts"

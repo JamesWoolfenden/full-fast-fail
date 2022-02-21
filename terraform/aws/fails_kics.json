@@ -1,23 +1,23 @@
 {
 	"kics_version": "1.4.9",
-	"files_scanned": 234,
-	"files_parsed": 234,
+	"files_scanned": 236,
+	"files_parsed": 236,
 	"files_failed_to_scan": 0,
 	"queries_total": 851,
 	"queries_failed_to_execute": 0,
 	"queries_failed_to_compute_similarity_id": 0,
 	"scan_id": "console",
 	"severity_counters": {
-		"HIGH": 198,
+		"HIGH": 208,
 		"INFO": 42,
-		"LOW": 79,
-		"MEDIUM": 226,
+		"LOW": 85,
+		"MEDIUM": 234,
 		"TRACE": 0
 	},
-	"total_counter": 545,
+	"total_counter": 571,
 	"total_bom_resources": 0,
-	"start": "2022-02-19T11:47:32.9011176Z",
-	"end": "2022-02-19T11:47:52.9274462Z",
+	"start": "2022-02-18T15:19:31.001062Z",
+	"end": "2022-02-18T15:19:50.266403Z",
 	"paths": [
 		".\\terraform\\aws"
 	],
@@ -207,6 +207,17 @@
 					"actual_value": "The attribute(s) 'policy.Statement.Condition' or/and 'policy.Statement.Condition.BoolIfExists' or/and 'policy.Statement.Condition.BoolIfExists.aws:MultiFactorAuthPresent' is/are undefined or null"
 				},
 				{
+					"file_name": "terraform/aws/iam/iam_authentication_without_mfa.tf",
+					"similarity_id": "58f175f4697c326c94b596f0c8c86237f4b7c8f78c82ae4574cf0c19f17c8279",
+					"line": 25,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_user_policy[mfa].policy",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'policy.Statement.Principal.AWS' contains ':mfa/' or 'policy.Statement.Condition.BoolIfExists.aws:MultiFactorAuthPresent' is set to true",
+					"actual_value": "'policy.Statement.Principal.AWS' doesn't contain ':mfa/' or 'policy.Statement.Condition.BoolIfExists.aws:MultiFactorAuthPresent' is set to false"
+				},
+				{
 					"file_name": "terraform\\aws\\iam\\iam_authentication_without_mfa.tf",
 					"similarity_id": "58f175f4697c326c94b596f0c8c86237f4b7c8f78c82ae4574cf0c19f17c8279",
 					"line": 25,
@@ -240,7 +251,6 @@
 					"actual_value": "The attribute(s) 'policy.Statement.Condition' or/and 'policy.Statement.Condition.BoolIfExists' or/and 'policy.Statement.Condition.BoolIfExists.aws:MultiFactorAuthPresent' is/are undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam.tf",
 					"similarity_id": "6e81c75235412a0c0290d7461aa1152e30bca6f83e6908584838976a73faf663",
 					"line": 14,
 					"issue_type": "MissingAttribute",
@@ -286,7 +296,7 @@
 			"description_id": "71dab2d1",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\batch\\batch_job_definition.tf",
+					"file_name": "terraform/aws/batch/batch_job_definition_with_privileged_container_properties.tf",
 					"similarity_id": "66fff36e48afc1889548f49d8acc507537d573f8fc14cd63825b5a42b8f3db74",
 					"line": 14,
 					"issue_type": "IncorrectValue",
@@ -335,17 +345,12 @@
 			"cis_description_text": "AWS Key Management Service (KMS) allows customers to rotate the backing key which is key material stored within the KMS which is tied to the key ID of the Customer Created customer master key (CMK). It is the backing key that is used to perform cryptographic operations such as encryption and decryption. Automated key rotation currently retains all prior backing keys so that decryption of encrypted data can take place transparently. It is recommended that CMK key rotation be enabled.\nRotating encryption keys helps reduce the potential impact of a compromised key as data encrypted with a new key cannot be accessed with a previous key that may have been exposed.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\kms\\kms.tf",
-					"similarity_id": "7c929c4e54dbcd4c74c4aae9177b215f81995e70b3075e2613ec97eadf6746db",
-					"line": 7,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_kms_key[fail_0]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_kms_key[fail_0].enable_key_rotation is set to true",
-					"actual_value": "aws_kms_key[fail_0].enable_key_rotation is undefined"
-				},
-				{
+					"file_name": "terraform/aws/mq/mq_broker_encryption_disabled.tf",
+					"similarity_id": "cd40f01c83246a20d450679855afd1a8fc235d98fbf93ab01f2b7e3b797b1deb",
+					"line": 35,
+					"search_key": "aws_kms_key[example]",
+					"expected_value": "aws_kms_key[example].enable_key_rotation is set to true",
+					"actual_value": "aws_kms_key[example].enable_key_rotation is undefined"
 					"file_name": "terraform\\aws\\kms\\kms_key_with_vulnerable_policy.tf",
 					"similarity_id": "a388e76ecea171b09a1219a998c8baac0a4b39213a4757733a577a1703d3c83d",
 					"line": 3,
@@ -358,6 +363,17 @@
 				},
 				{
 					"file_name": "terraform\\aws\\mq\\mq_broker_encryption_disabled.tf",
+					"similarity_id": "cd40f01c83246a20d450679855afd1a8fc235d98fbf93ab01f2b7e3b797b1deb",
+					"line": 35,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_kms_key[example]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_kms_key[example].enable_key_rotation is set to true",
+					"actual_value": "aws_kms_key[example].enable_key_rotation is undefined"
+				},
+				{
+					"file_name": "terraform/aws/mq/mq_broker_encryption_disabled.tf",
 					"similarity_id": "cd40f01c83246a20d450679855afd1a8fc235d98fbf93ab01f2b7e3b797b1deb",
 					"line": 35,
 					"issue_type": "MissingAttribute",
@@ -392,7 +408,7 @@
 				},
 				{
 					"file_name": "terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
-					"similarity_id": "5d4c68b79a41a23ae3f7ee9baa8b3bee0220ad032b5ab1c9ad6355e065fd881c",
+					"similarity_id": "57323433c3c2d5a7f1e6cd0c4945192bb24768ab322065ce7600f033d7da7880",
 					"line": 5,
 					"issue_type": "MissingAttribute",
 					"search_key": "resource.aws_cloudfront_distribution[fail_defaultcert]",
@@ -538,22 +554,22 @@
 			"description_id": "c145a47f",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\db_instance\\db_instance.tf",
-					"similarity_id": "3cd2a04e172572c0cff92e7686b041fa019cb961df804f4b69d7e81ad0290ff6",
-					"line": 35,
+					"file_name": "terraform/aws/db_instance/db_instance.tf",
+					"similarity_id": "32e130143443150e1cbaf50cbfad7b50abda2b85c6e64f52d6c67ea60c88e137",
+					"line": 17,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_db_instance[default].publicly_accessible",
+					"search_key": "aws_db_instance[fail].publicly_accessible",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'publicly_accessible' is set to false or undefined",
 					"actual_value": "'publicly_accessible' is set to true"
 				},
 				{
-					"file_name": "terraform\\aws\\rds\\db_instance.tf",
-					"similarity_id": "32e130143443150e1cbaf50cbfad7b50abda2b85c6e64f52d6c67ea60c88e137",
-					"line": 17,
+					"file_name": "terraform/aws/rds/db_instance.tf",
+					"similarity_id": "3cd2a04e172572c0cff92e7686b041fa019cb961df804f4b69d7e81ad0290ff6",
+					"line": 35,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_db_instance[fail].publicly_accessible",
+					"search_key": "aws_db_instance[default].publicly_accessible",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'publicly_accessible' is set to false or undefined",
@@ -686,11 +702,21 @@
 			"description_id": "c6f1d1f4",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
-					"similarity_id": "83dd049069ffd6430ac63cf4d6d010c07c4ea97663e761363b073515f890299d",
-					"line": 90,
+					"file_name": "terraform/aws/instance/ec2_instance_using_default_security_group.tf",
+					"similarity_id": "9507d276c8a3b31771d4804395f3f636b47c8d06248d182a9d6f8498929f3d2c",
+					"line": 1,
+					"search_key": "aws_instance.positive1",
+					"file_name": "terraform/aws/instance/ec2_instance_monitoring_disabled.tf",
+					"similarity_id": "f83388d5b4d73caa3bb437d2a0d4bfef2e47c830c500608ae0a5d1f6eb625bbf",
+					"line": 17,
+					"search_key": "aws_instance.monitoring_positive1",
+					"file_name": "terraform/aws/instance/instance_with_no_vpc.tf",
+					"similarity_id": "707c66ff7889ba59e3c0d856ec11a9f941ba8561dfbbd078485c4e25364920f7",
+					"file_name": "terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
+					"similarity_id": "707c66ff7889ba59e3c0d856ec11a9f941ba8561dfbbd078485c4e25364920f7",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance.test_ec2_instance",
+					"search_key": "aws_instance.positive1",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'associate_public_ip_address' is defined and not null",
@@ -752,11 +778,11 @@
 					"actual_value": "'associate_public_ip_address' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
-					"similarity_id": "83ae9d65003df63f62ef3b63208d393608354735705d44610fbc227471718d7a",
-					"line": 91,
+					"file_name": "terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+					"similarity_id": "83dd049069ffd6430ac63cf4d6d010c07c4ea97663e761363b073515f890299d",
+					"line": 90,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance.test",
+					"search_key": "aws_instance.test_ec2_instance",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'associate_public_ip_address' is defined and not null",
@@ -855,6 +881,17 @@
 					"actual_value": "aws_efs_file_system[sharedstore].encrypted' is false"
 				},
 				{
+					"file_name": "terraform/aws/efs/efs.tf",
+					"similarity_id": "da0246843bd0800c05c267e606bc2051d7c348c634550d3f3cdf89d92d41c618",
+					"line": 17,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_efs_file_system[sharedstore].encrypted",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_efs_file_system[sharedstore].encrypted' is true",
+					"actual_value": "aws_efs_file_system[sharedstore].encrypted' is false"
+				},
+				{
 					"file_name": "terraform\\aws\\backup_vault\\backup_selection.tf",
 					"similarity_id": "3fec848e73db98dcbed7f65c6b63790235b182edce0bf5744e355254373da096",
 					"line": 43,
@@ -923,17 +960,12 @@
 			"description_id": "c5dfddad",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\efs\\efs_with_vulnerable_policy.tf",
-					"similarity_id": "e86259d9349c7976a9f191e68b9ba823538b33306c4bb60fcc01ef1c87d91911",
-					"line": 8,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_efs_file_system[not_secure]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_efs_file_system[not_secure].kms_key_id' is defined'",
-					"actual_value": "aws_efs_file_system[not_secure].kms_key_id' is undefined"
-				},
-				{
+					"file_name": "terraform/aws/ecs/ecs_task_definition.tf",
+					"similarity_id": "6d8e07fb327dd55d417ca0e6c7770667f0a6bcfa9850a0a0643781299557babe",
+					"line": 39,
+					"search_key": "aws_efs_file_system[fs]",
+					"expected_value": "aws_efs_file_system[fs].kms_key_id' is defined'",
+					"actual_value": "aws_efs_file_system[fs].kms_key_id' is undefined"
 					"file_name": "terraform\\aws\\backup_vault\\backup_selection.tf",
 					"similarity_id": "5a6833179495d9755c7fd99f3dacaad7dfed197ba713a9c33f91840d3e926b96",
 					"line": 43,
@@ -946,6 +978,17 @@
 				},
 				{
 					"file_name": "terraform\\aws\\ecs\\ecs_task_definition.tf",
+					"similarity_id": "6d8e07fb327dd55d417ca0e6c7770667f0a6bcfa9850a0a0643781299557babe",
+					"line": 39,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_efs_file_system[fs]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_efs_file_system[fs].kms_key_id' is defined'",
+					"actual_value": "aws_efs_file_system[fs].kms_key_id' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/ecs/ecs_task_definition.tf",
 					"similarity_id": "6d8e07fb327dd55d417ca0e6c7770667f0a6bcfa9850a0a0643781299557babe",
 					"line": 39,
 					"issue_type": "MissingAttribute",
@@ -1061,28 +1104,18 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\glue\\glue_data_catalog_encryption_settings.tf",
-					"similarity_id": "2e3b6fa70ae921ad0b3dd6dee467ca8ae7b5d971a5b8551fce90ed1416665bcb",
-					"line": 7,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_glue_data_catalog_encryption_settings[test].data_catalog_encryption_settings.connection_password_encryption",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_kms_key_id' is defined and not null",
-					"actual_value": "'aws_kms_key_id' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\glue\\glue_data_catalog_encryption_settings.tf",
-					"similarity_id": "71fe5f4cf6713f1a1ee849fd1f1221b6c8428bab1cac9225ed9e9d7f0d448ae5",
-					"line": 8,
+					"similarity_id": "49f7bea36a65e7b10ea0ec0d05a66f359d7a85d3f76761cd806f09f373916237",
+					"line": 10,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_glue_data_catalog_encryption_settings[test].data_catalog_encryption_settings.connection_password_encryption.return_connection_password_encrypted",
+					"search_key": "aws_glue_data_catalog_encryption_settings[test].data_catalog_encryption_settings.encryption_at_rest",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'return_connection_password_encrypted' is set to true",
-					"actual_value": "'return_connection_password_encrypted' is not set to true"
+					"expected_value": "'sse_aws_kms_key_id' is defined and not null",
+					"actual_value": "'sse_aws_kms_key_id' is undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\glue\\glue_data_catalog_encryption_settings.tf",
+					"file_name": "terraform/aws/glue/glue_data_catalog_encryption_settings.tf",
 					"similarity_id": "49f7bea36a65e7b10ea0ec0d05a66f359d7a85d3f76761cd806f09f373916237",
 					"line": 10,
 					"issue_type": "MissingAttribute",
@@ -1093,15 +1126,8 @@
 					"actual_value": "'sse_aws_kms_key_id' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\glue\\glue_data_catalog_encryption_settings.tf",
-					"similarity_id": "ee7abec4da4a2697c2a4ea178952aa8ebf2e7681e8bb671a57c024781824491f",
-					"line": 11,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_glue_data_catalog_encryption_settings[test].data_catalog_encryption_settings.encryption_at_rest.catalog_encryption_mode",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'catalog_encryption_mode' is set to 'SSE-KMS'",
-					"actual_value": "'catalog_encryption_mode' is not set to 'SSE-KMS'"
 				}
 			]
 		},
@@ -1116,6 +1142,17 @@
 			"description_id": "839261d5",
 			"files": [
 				{
+					"file_name": "terraform/aws/glue/glue_security_configuration.tf",
+					"similarity_id": "452cd1c18ab03ef242e1ae303832fce5f91b072f4d902dd51f792b294aa0137a",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption has 'kms_key_arn' defined and not null",
+					"actual_value": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption has 'kms_key_arn' undefined or null"
+				},
+				{
 					"file_name": "terraform\\aws\\glue\\glue_security_configuration.tf",
 					"similarity_id": "82fdc8e4036d3eabdda9cf3164166a9314495c48af4ebbe189ad6352dd7dabba",
 					"line": 13,
@@ -1128,14 +1165,6 @@
 				},
 				{
 					"file_name": "terraform\\aws\\glue\\glue_security_configuration.tf",
-					"similarity_id": "452cd1c18ab03ef242e1ae303832fce5f91b072f4d902dd51f792b294aa0137a",
-					"line": 9,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption has 'kms_key_arn' defined and not null",
-					"actual_value": "aws_glue_security_configuration[test].encryption_configuration.cloudwatch_encryption has 'kms_key_arn' undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\glue\\glue_security_configuration.tf",
@@ -1163,22 +1192,22 @@
 			"cis_description_text": "The security group ingress rules provide filtering of ingress network traffic to AWS resources. It is recommended that no security group ingress rule allows unrestricted ingress access to remote server HTTP port 80.\nPublic access to remote server ports, such as 80, increases the resource attack surface and unnecessarily raises the risk of resource compromise.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
-					"similarity_id": "fc80a6fe6a96ff941cbf06b722549ed5127699e89ddf6dd50e8b53a1a5d7243c",
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "effccc161028639eb652ac79fb6cf8a6c87a5f642027941e597629004dc86c54",
 					"line": 1,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[positive1]",
+					"search_key": "aws_security_group[fail_openport]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_security_group.ingress doesn't open the HTTP port (80)",
 					"actual_value": "aws_security_group.ingress opens the HTTP port (80)"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\security_http_port_open.tf",
-					"similarity_id": "effccc161028639eb652ac79fb6cf8a6c87a5f642027941e597629004dc86c54",
+					"file_name": "terraform/aws/security_groups/security_http_port_open.tf",
+					"similarity_id": "fc80a6fe6a96ff941cbf06b722549ed5127699e89ddf6dd50e8b53a1a5d7243c",
 					"line": 1,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_openport]",
+					"search_key": "aws_security_group[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_security_group.ingress doesn't open the HTTP port (80)",
@@ -1197,22 +1226,22 @@
 			"description_id": "12b1c8aa",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\rds\\rds_using_default_port.tf",
-					"similarity_id": "2887c9770438c4e5854ff75426c361f59b899de07da6aa14922887e901d37946",
-					"line": 1,
+					"file_name": "terraform/aws/rds/rds_using_default_port.tf",
+					"similarity_id": "94ef17459e84e12e26847fb3a65abfc3645070bfca5b671ca299a6a0b1b175c3",
+					"line": 15,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_db_instance[positive1]",
+					"search_key": "aws_db_instance[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'iam_database_authentication_enabled' is set to true",
 					"actual_value": "'iam_database_authentication_enabled' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\rds\\db_instance.tf",
-					"similarity_id": "94ef17459e84e12e26847fb3a65abfc3645070bfca5b671ca299a6a0b1b175c3",
-					"line": 15,
+					"file_name": "terraform/aws/rds/db_instance.tf",
+					"similarity_id": "2887c9770438c4e5854ff75426c361f59b899de07da6aa14922887e901d37946",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_db_instance[fail]",
+					"search_key": "aws_db_instance[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'iam_database_authentication_enabled' is set to true",
@@ -1243,17 +1272,17 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\iam\\iam_admin.tf",
-					"similarity_id": "5980b87549c17b77510c889b6d0338047e93d940c867e5f38c9e73e8fb51873d",
-					"line": 58,
+					"file_name": "terraform/aws/iam/policy/iam_policies_with_full_privileges.tf",
+					"similarity_id": "614db28412c9bb3505b0fabfbfd671caeb4e84ebfb577ef5579cc71b1f40e559",
+					"line": 5,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_policy[fail3].policy",
+					"search_key": "aws_iam_role_policy[positive1].policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'policy.Statement.Action' doesn't contain '*'",
 					"actual_value": "'policy.Statement.Action' contains '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam_admin.tf",
 					"similarity_id": "542fb0ede0c0205b115b4f04e9cc97040f315f4a6d6ed4358229bff67152d5b9",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -1264,11 +1293,12 @@
 					"actual_value": "'policy.Statement.Action' contains '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policies_with_full_privileges.tf",
-					"similarity_id": "614db28412c9bb3505b0fabfbfd671caeb4e84ebfb577ef5579cc71b1f40e559",
-					"line": 5,
+					"file_name": "terraform\\aws\\iam\\iam_admin.tf",
+					"similarity_id": "5980b87549c17b77510c889b6d0338047e93d940c867e5f38c9e73e8fb51873d",
+					"line": 58,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_role_policy[positive1].policy",
+					"search_key": "aws_iam_policy[fail3].policy",
+					"file_name": "terraform/aws/iam/policy/iam_policies_with_full_privileges.tf",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'policy.Statement.Action' doesn't contain '*'",
@@ -1545,6 +1575,17 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\iam\\iam_no_password_policy_enabled.tf",
+					"similarity_id": "c3a80a51925d347f79ac188e5869a048a23ad52ecd522ea87657d3803271a9bb",
+					"line": 30,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_user_login_profile[positive7].password_reset_required",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'password_reset_required' is true",
+					"actual_value": "Attribute 'password_reset_required' is false"
+				},
+				{
+					"file_name": "terraform/aws/iam/iam_no_password_policy_enabled.tf",
 					"similarity_id": "6a95f6c57766153e5340a300676767094e0a942c288301b8e32aed818a40c87a",
 					"line": 31,
 					"issue_type": "IncorrectValue",
@@ -1555,7 +1596,7 @@
 					"actual_value": "Attribute 'password_length' is smaller than 14"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam_no_password_policy_enabled.tf",
+					"file_name": "terraform/aws/iam/iam_no_password_policy_enabled.tf",
 					"similarity_id": "c2cb084481dee804c8e12c0d6d24a2f01b0d3fe16243186365632b579d91303e",
 					"line": 16,
 					"issue_type": "IncorrectValue",
@@ -1567,6 +1608,7 @@
 				},
 				{
 					"file_name": "terraform\\aws\\iam\\iam_no_password_policy_enabled.tf",
+					"file_name": "terraform/aws/iam/iam_no_password_policy_enabled.tf",
 					"similarity_id": "834b2448311da35369797fda7a33323f1917787136f1ca0a91e8dde3021761d2",
 					"line": 5,
 					"issue_type": "IncorrectValue",
@@ -1589,14 +1631,6 @@
 				},
 				{
 					"file_name": "terraform\\aws\\iam\\iam_no_password_policy_enabled.tf",
-					"similarity_id": "c3a80a51925d347f79ac188e5869a048a23ad52ecd522ea87657d3803271a9bb",
-					"line": 30,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_user_login_profile[positive7].password_reset_required",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'password_reset_required' is true",
-					"actual_value": "Attribute 'password_reset_required' is false"
 				}
 			]
 		},
@@ -1633,7 +1667,10 @@
 					"actual_value": "'      AWS_ACCESS_KEY_ID     = \"AKIAIOSFODNN7EXAMPLE\",' contains a secret"
 				},
 				{
-					"file_name": "terraform\\aws\\provider\\provider.tf",
+					"file_name": "terraform/aws/provider/provider.tf",
+				},
+				{
+					"file_name": "terraform/aws/provider/provider.tf",
 					"similarity_id": "1707677afb94be15540e9e7c0a25128711b2e9098fefd27824e9aa4d317e5166",
 					"line": 10,
 					"issue_type": "RedundantAttribute",
@@ -1679,17 +1716,7 @@
 			"description_id": "d69d8a89",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\redshift\\redshift_cluster.tf",
-					"similarity_id": "18c97062c2c6851c79c4c79813c5918cd21fb54e744dd6745e5eb2556ad4a6ba",
-					"line": 21,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  master_password                     = \"Mustbe8characters\"' contains a secret"
-				},
-				{
+					"file_name": "terraform/aws/redshift/redshift_cluster.tf",
 					"file_name": "terraform\\aws\\opsworks\\opsworks_rds_db_instance.tf",
 					"similarity_id": "01892086f7f626261285121b39ccfa1b5d0bc19c418b105a007c09048c35af03",
 					"line": 9,
@@ -1701,7 +1728,18 @@
 					"actual_value": "'  db_password         = \"somePass\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\aws\\mq\\mq_broker_encryption_disabled.tf",
+					"file_name": "terraform/aws/mq/mq_broker_encryption_disabled.tf",
+					"similarity_id": "a90596c1f8eae222028a3d32ca313251d153247bb5a4b5e20f30b0e84cca6965",
+					"line": 9,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  password                            = \"foobarbaz\"' contains a secret"
+				},
+				{
+					"file_name": "terraform/aws/rds/rds_automatic_minor_upgrades_disabled.tf",
 					"similarity_id": "7327a2fc88004674dfb68bb257e45c56ff308d37bf4667e59b5271b130514c67",
 					"line": 25,
 					"issue_type": "RedundantAttribute",
@@ -1712,7 +1750,23 @@
 					"actual_value": "'    password = \"MindTheGapps\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\aws\\emr\\emr_cluster.tf",
+					"file_name": "terraform/aws/opsworks/opsworks_rds_db_instance.tf",
+					"similarity_id": "a90596c1f8eae222028a3d32ca313251d153247bb5a4b5e20f30b0e84cca6965",
+					"actual_value": "'  password                            = \"foobarbaz\"' contains a secret"
+				},
+				{
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
+					"similarity_id": "f563e75176452e3e6f1ab262081e08793af5e1e11907054c99be769d1fbcfdef",
+					"line": 5,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  master_password     = \"Mustbe8characters\"' contains a secret"
+				},
+				{
+					"file_name": "terraform/aws/emr/emr_cluster.tf",
 					"similarity_id": "d29b227058d24efc4e15fe25536a7ccc7c31531e27d5a0958145740c56f385be",
 					"line": 18,
 					"issue_type": "RedundantAttribute",
@@ -1723,6 +1777,18 @@
 					"actual_value": "'    kdc_admin_password = \"somePassword\"' contains a secret"
 				},
 				{
+					"file_name": "terraform/aws/redshift/redshift_cluster.tf",
+					"similarity_id": "18c97062c2c6851c79c4c79813c5918cd21fb54e744dd6745e5eb2556ad4a6ba",
+					"line": 21,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "'  master_password                     = \"Mustbe8characters\"' contains a secret"
+					"similarity_id": "826d0bd48c91df1da5f56e7532d9eb9a60825cbb4305285aa74ef447e8aec881",
+					"line": 11,
+					"file_name": "terraform/aws/emr/emr_cluster.tf",
 					"file_name": "terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
 					"similarity_id": "a90596c1f8eae222028a3d32ca313251d153247bb5a4b5e20f30b0e84cca6965",
 					"line": 9,
@@ -1745,19 +1811,9 @@
 					"actual_value": "'  password                            = \"foobarbaz\"' contains a secret"
 				},
 				{
-					"file_name": "terraform\\aws\\redshift\\redshift_using_default_port.tf",
-					"similarity_id": "f563e75176452e3e6f1ab262081e08793af5e1e11907054c99be769d1fbcfdef",
-					"line": 5,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  master_password     = \"Mustbe8characters\"' contains a secret"
-				},
-				{
-					"file_name": "terraform\\aws\\rds\\rds_cluster.tf",
-					"similarity_id": "23588226978d20847d8c5de1fddfd536176095baac023c467a05de58b39d157a",
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
+					"file_name": "terraform/aws/opsworks/opsworks_rds_db_instance.tf",
+					"similarity_id": "01892086f7f626261285121b39ccfa1b5d0bc19c418b105a007c09048c35af03",
 					"line": 22,
 					"issue_type": "RedundantAttribute",
 					"search_key": "",
@@ -1769,13 +1825,8 @@
 				{
 					"file_name": "terraform\\aws\\rds\\rds_using_default_port.tf",
 					"similarity_id": "6d9e70e735445490a32f4e6f3c4b117f05dd0e28f65522f2ed92716995b7d7c3",
-					"line": 8,
-					"issue_type": "RedundantAttribute",
-					"search_key": "",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Hardcoded secret key should not appear in source",
-					"actual_value": "'  password             = \"foobarbaz\"' contains a secret"
+					"line": 9,
+					"actual_value": "'  db_password         = \"somePass\"' contains a secret"
 				}
 			]
 		},
@@ -1990,15 +2041,15 @@
 					"actual_value": "'acl' is equal 'public-read-write'"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
-					"similarity_id": "ab6926a818736a580deb6110b84061dab36ce4b971ecafa334cf179b144819f7",
-					"line": 3,
+					"file_name": "terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
+					"similarity_id": "d721b5d905c227bedddfc79b5fc29949dc358060ce9344516322ca3ca77cdb90",
+					"line": 12,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_s3_bucket[positive1].acl=public-read",
+					"search_key": "aws_s3_bucket[fail].acl=public-read-write",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'acl' is equal 'private'",
-					"actual_value": "'acl' is equal 'public-read'"
+					"actual_value": "'acl' is equal 'public-read-write'"
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
@@ -2006,6 +2057,17 @@
 					"line": 4,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_s3_bucket[fail_static].acl=public-read",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'acl' is equal 'private'",
+					"actual_value": "'acl' is equal 'public-read'"
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
+					"similarity_id": "ab6926a818736a580deb6110b84061dab36ce4b971ecafa334cf179b144819f7",
+					"line": 3,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_s3_bucket[positive1].acl=public-read",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'acl' is equal 'private'",
@@ -2035,6 +2097,17 @@
 			"description_id": "4f884b47",
 			"files": [
 				{
+					"file_name": "terraform/aws/s3/s3_bucket_access_to_any_principal.tf",
+					"similarity_id": "1c53e7f8825088b3c600169ac8b28b15145e6fe6b40605abfdcb8ea059c500e0",
+					"line": 4,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_s3_bucket_policy[positive1].policy",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_s3_bucket_policy[positive1].policy.Principal is not equal to, nor does it contain '*'",
+					"actual_value": "aws_s3_bucket_policy[positive1].policy.Principal is equal to or contains '*'"
+				},
+				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_allows_all_actions_from_all_principals.tf",
 					"similarity_id": "19fe6e3af1a2722b21e9b36aab2678de5c460b7d070fa93c2b2939fbf57db1fd",
 					"line": 4,
@@ -2044,17 +2117,7 @@
 					"search_value": "",
 					"expected_value": "aws_s3_bucket_policy[fail_all].policy.Principal is not equal to, nor does it contain '*'",
 					"actual_value": "aws_s3_bucket_policy[fail_all].policy.Principal is equal to or contains '*'"
-				},
-				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_access_to_any_principal.tf",
-					"similarity_id": "1c53e7f8825088b3c600169ac8b28b15145e6fe6b40605abfdcb8ea059c500e0",
-					"line": 4,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_s3_bucket_policy[positive1].policy",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_s3_bucket_policy[positive1].policy.Principal is not equal to, nor does it contain '*'",
-					"actual_value": "aws_s3_bucket_policy[positive1].policy.Principal is equal to or contains '*'"
+					"file_name": "terraform/aws/s3/s3_bucket_access_to_any_principal.tf",
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
@@ -2174,6 +2237,10 @@
 			"description_id": "b386c506",
 			"files": [
 				{
+					"file_name": "terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
+					"similarity_id": "13f6fd25113ac713a2124c178a2669bbf96965e536212d7d9f0e9b506fb9541d",
+					"line": 6,
+					"search_key": "aws_s3_bucket[positive1]",
 					"file_name": "terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
 					"similarity_id": "95877599259e2832f40ae25a6e36d3fbfb582856afacd20f59d425e317fbe487",
 					"line": 1,
@@ -2185,11 +2252,11 @@
 					"actual_value": "'server_side_encryption_configuration' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
-					"similarity_id": "49e4a6b360413ec3d012a6dfa2c468779840f06843f4ebf94ce4b97621ce11c3",
-					"line": 5,
+					"file_name": "terraform/aws/s3/s3_bucket_public_acl_overridden_by_public_access_block.tf",
+					"similarity_id": "f2b48c71525786a31ef41cc666b29ad8c5e1271389a236365f00a9bb11836a8f",
+					"line": 11,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[public_bucket]",
+					"search_key": "aws_s3_bucket[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'server_side_encryption_configuration' is defined and not null",
@@ -2207,8 +2274,8 @@
 					"actual_value": "'server_side_encryption_configuration' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
-					"similarity_id": "4efd3f756979f075b60b4c3b5a845daad25f52f4cda5ea9592a1e679fab99c6e",
+					"file_name": "terraform/aws/s3/s3_bucket_with_all_permissions.tf",
+					"similarity_id": "95877599259e2832f40ae25a6e36d3fbfb582856afacd20f59d425e317fbe487",
 					"line": 2,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_s3_bucket[fail_static]",
@@ -2220,7 +2287,7 @@
 				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
 					"similarity_id": "73eb0912ddeb96960bf09f0ff43cbe6398edfce0c3858339f29bfedecffd84ff",
-					"line": 1,
+					"line": 5,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_s3_bucket[b]",
 					"search_line": 0,
@@ -2233,7 +2300,7 @@
 					"similarity_id": "3dc3f0c84fe9be1f9f0d1728feae1badfdb249d876cf1b24f48a6cba6dddce75",
 					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[fail_mfa]",
+					"search_key": "aws_s3_bucket[fail_permissions]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'server_side_encryption_configuration' is defined and not null",
@@ -2289,7 +2356,10 @@
 			"cis_description_text": "Once MFA Delete is enabled on your sensitive and classified S3 bucket it requires the user to have two forms of authentication.\nAdding MFA delete to an S3 bucket, requires additional authentication when you change the version state of your bucket or you delete and object version adding another layer of security in the event your security credentials are compromised or unauthorized access is granted.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+					"file_name": "terraform/aws/s3/s3_static_website_host_enabled.tf",
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_static_website_host_enabled.tf",
 					"similarity_id": "00d5fec7d7a4c192eb43353c79b27ddfe5cbb8e25267e8fc06ec8423f7da9cbd",
 					"line": 2,
 					"issue_type": "MissingAttribute",
@@ -2298,8 +2368,6 @@
 					"search_value": "",
 					"expected_value": "aws_s3_bucket[fail_static].versioning is defined and not null",
 					"actual_value": "aws_s3_bucket[fail_static].versioning is undefined or null"
-				},
-				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
 					"similarity_id": "57895e1e4293f07c2fe98fad1f355899950e9bdc28d14c47c0fa2550bc2f6daa",
 					"line": 1,
@@ -2377,7 +2445,17 @@
 					"actual_value": "aws_s3_bucket[public_bucket].versioning is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3.tf",
+					"file_name": "terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
+					"similarity_id": "48ac8fd7f565fba4eaeb6d5ea2500f47b25799bea57e24c07dfa43d858abf590",
+					"line": 11,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_s3_bucket[positive1].versioning.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'enabled' is set to true",
+					"actual_value": "'enabled' is set to false"
+				},
+				{
 					"similarity_id": "a78ed527c4394d8de8942340dcf87e83f09d4ffbe33f445688d00fe96b86973d",
 					"line": 17,
 					"issue_type": "IncorrectValue",
@@ -2386,6 +2464,17 @@
 					"search_value": "",
 					"expected_value": "'mfa_delete' is set to true",
 					"actual_value": "'mfa_delete' is set to false"
+				},
+				{
+					"file_name": "terraform/aws/s3/s3.tf",
+					"similarity_id": "ed7ce4b33162d5fb8fa4ba8548bb922f49e3bbdc7ccf5b8ce147e762f5cda364",
+					"line": 16,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_s3_bucket[fail].versioning.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'enabled' is set to true",
+					"actual_value": "'enabled' is set to false"
 				}
 			]
 		},
@@ -2503,31 +2592,11 @@
 			"description_id": "e478b54b",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\sqs\\sqs_queue.tf",
-					"similarity_id": "a23f04a12ae66444fbcbf4f1ad310132fb32c5c99799e825580643008d97e8a4",
-					"line": 8,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_sqs_queue[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_sqs_queue.kms_master_key_id is defined and not null",
-					"actual_value": "aws_sqs_queue.kms_master_key_id is undefined or null"
-				},
-				{
+					"file_name": "terraform/aws/sqs/sqs_queue.tf",
 					"file_name": "terraform\\aws\\sqs\\sqs_queue_exposed.tf",
 					"similarity_id": "edc61c38ec354e6bfb664b36af6318261a311357d602a18cf63cc8b031b8ffb6",
 					"line": 4,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_sqs_queue[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_sqs_queue.kms_master_key_id is defined and not null",
-					"actual_value": "aws_sqs_queue.kms_master_key_id is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\iam\\iam_aws_passord_policy_with_unchangeable_passwords.tf",
-					"similarity_id": "fac22c36b43125d59465a5ce557335f28dee41b2f6dc2d24a2dedbc8060c34de",
-					"line": 1,
+					"file_name": "terraform/aws/iam/iam_aws_passord_policy_with_unchangeable_passwords.tf",
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_sqs_queue[positive1]",
 					"search_line": 0,
@@ -2541,6 +2610,28 @@
 					"line": 108,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_sqs_queue[test_queue]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_sqs_queue.kms_master_key_id is defined and not null",
+					"actual_value": "aws_sqs_queue.kms_master_key_id is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/sqs/sqs_queue.tf",
+					"similarity_id": "a23f04a12ae66444fbcbf4f1ad310132fb32c5c99799e825580643008d97e8a4",
+					"line": 8,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_sqs_queue[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_sqs_queue.kms_master_key_id is defined and not null",
+					"actual_value": "aws_sqs_queue.kms_master_key_id is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/iam/iam_aws_passord_policy_with_unchangeable_passwords.tf",
+					"similarity_id": "fac22c36b43125d59465a5ce557335f28dee41b2f6dc2d24a2dedbc8060c34de",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_sqs_queue[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_sqs_queue.kms_master_key_id is defined and not null",
@@ -2605,7 +2696,143 @@
 			"description_id": "5be78364",
 			"files": [
 				{
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "b627ad9ac9cadd73611a7695ed5f6ff6791c0cd19762549785cea23a55214d63",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_2383].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2383",
+					"expected_value": "SQL Server Analysis (TCP:2383) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2383) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "c1bf1bee7dc992b5ebdbfd6cab37230157e49f3fc4950d593cb8857c454e1a96",
+					"search_key": "aws_security_group[positive1].ingress",
+					"search_value": "UDP,2375",
+					"expected_value": "Docker (UDP:2375) should not be allowed",
+					"actual_value": "Docker (UDP:2375) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/security_http_port_open.tf",
+					"similarity_id": "921fe10bb774036c7562bde49742ccb15366b6131c5d3bbb97f4bb301da95bac",
+					"line": 5,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_openport].ingress",
+					"search_line": 0,
+					"search_value": "TCP,135",
+					"expected_value": "MSSQL Debugger (TCP:135) should not be allowed",
+					"actual_value": "HTTP (TCP:80) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "a42be1ee363a0ea501dbaa547fce85240c6a9c3123359600b89728dd8948b3e4",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_sensitive].ingress",
+					"search_line": 0,
+					"search_value": "UDP,2383",
+					"expected_value": "SQL Server Analysis (UDP:2383) should not be allowed",
+					"actual_value": "MSSQL Debugger (TCP:135) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "383b72bf5a2a60717bb2db25c08ffded61f87020e13f576a68389d99f633e750",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_sensitive].ingress",
+					"search_line": 0,
+					"search_value": "UDP,2484",
+					"expected_value": "Oracle DB SSL (UDP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (UDP:2484) is allowed"
 					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_entire_network.tf",
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "d40b24c90b2783e8245d590f781dea26b7231f69de00e7cd64bf40fa5d095f7d",
+					"search_key": "aws_security_group[fail_2383].ingress",
+					"similarity_id": "a42be1ee363a0ea501dbaa547fce85240c6a9c3123359600b89728dd8948b3e4",
+					"search_value": "UDP,2383",
+					"expected_value": "SQL Server Analysis (UDP:2383) should not be allowed",
+					"actual_value": "SQL Server Analysis (UDP:2383) is allowed"
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "49cc60125121a9f16045217f59e84f30bb7e1eb8d6fe08738661f4d3bf3ad113",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_2383].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2375",
+					"expected_value": "Docker (TCP:2375) should not be allowed",
+					"actual_value": "Docker (TCP:2375) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "f40f714495157e57b63e6dab517efa557991b9d85c51236c2095a951bd81afe7",
+					"search_key": "aws_security_group[positive1].ingress",
+					"search_value": "TCP,443",
+					"expected_value": "HTTPS (TCP:443) should not be allowed",
+					"actual_value": "HTTPS (TCP:443) is allowed"
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "d881fd52f253ce84a722e012c45ea5fe97b0ffb3716992cd39b9375e8c8c1e95",
+					"search_key": "aws_security_group[fail_2383].ingress",
+					"search_value": "TCP,2382",
+					"expected_value": "SQL Server Analysis (TCP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
+					"similarity_id": "fc115827120d95cb1262e060bb01c9191d5a20402dac4353861de2de3d00abeb",
+					"search_line": 0,
+					"search_value": "UDP,2382",
+					"expected_value": "SQL Server Analysis (UDP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (UDP:2382) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "d4c3ae3cae156fc82a4a71e8cb3ebf8b54ae37c68589abc13f05bd0b776f25a9",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[positive1].ingress",
+					"search_line": 0,
+					"search_value": "TCP,138",
+					"expected_value": "NetBIOS Datagram Service (TCP:138) should not be allowed",
+					"actual_value": "NetBIOS Datagram Service (TCP:138) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "499b7c53df9d17a50be08b540094c96b6bcc171b50af51b3c35476e92b7153a9",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[positive1].ingress",
+					"search_line": 0,
+					"search_value": "TCP,389",
+					"expected_value": "LDAP (TCP:389) should not be allowed",
+					"actual_value": "LDAP (TCP:389) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "e49cacc17abbdbce6d9fb5a155a23c707ad247833d54c9d8c1ea06375a513878",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_sensitive].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2484",
+					"expected_value": "Oracle DB SSL (TCP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2484) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "d881fd52f253ce84a722e012c45ea5fe97b0ffb3716992cd39b9375e8c8c1e95",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_2383].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2382",
+					"expected_value": "SQL Server Analysis (TCP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "d40b24c90b2783e8245d590f781dea26b7231f69de00e7cd64bf40fa5d095f7d",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_2383].ingress",
 					"similarity_id": "43d709a0e342fa8e244cd04ed6174b867a6d8b408e14e601efa4897ccb96a02c",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -2616,7 +2843,12 @@
 					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_entire_network.tf",
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "e49cacc17abbdbce6d9fb5a155a23c707ad247833d54c9d8c1ea06375a513878",
+					"search_key": "aws_security_group[fail_sensitive].ingress",
+					"search_value": "TCP,2484",
+					"expected_value": "Oracle DB SSL (TCP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2484) is allowed"
 					"similarity_id": "20e5589919159f505850383e6e5aef21b5344da985ee241c63fad7abf186e1c4",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -2627,17 +2859,9 @@
 					"actual_value": "Docker (TCP:2375) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_entire_network.tf",
-					"similarity_id": "b02e2d30fae88e73d596a942cc3bfd34cd59cb744a64a8deaf70ffb2b983039e",
-					"line": 6,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_sensitive].ingress",
-					"search_line": 0,
-					"search_value": "UDP,2382",
-					"expected_value": "SQL Server Analysis (UDP:2382) should not be allowed",
-					"actual_value": "SQL Server Analysis (UDP:2382) is allowed"
-				},
-				{
+					"similarity_id": "d4c3ae3cae156fc82a4a71e8cb3ebf8b54ae37c68589abc13f05bd0b776f25a9",
+					"search_value": "TCP,138",
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
 					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
 					"similarity_id": "9e2ec0eba25e75dfe1cc12980c23e8a17982796e2d3950d27704879ed5b09445",
 					"line": 6,
@@ -2748,17 +2972,9 @@
 					"actual_value": "HTTPS (TCP:443) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\security_http_port_open.tf",
-					"similarity_id": "921fe10bb774036c7562bde49742ccb15366b6131c5d3bbb97f4bb301da95bac",
-					"line": 5,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_openport].ingress",
-					"search_line": 0,
-					"search_value": "TCP,80",
-					"expected_value": "HTTP (TCP:80) should not be allowed",
-					"actual_value": "HTTP (TCP:80) is allowed"
-				},
-				{
+					"file_name": "terraform/aws/security_groups/security_http_port_open.tf",
+					"expected_value": "HTTPS (TCP:443) should not be allowed",
+					"actual_value": "HTTPS (TCP:443) is allowed"
 					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
 					"similarity_id": "33a001664f1afd26f0351232b41455729989a00fdda6db3e59ca0c15b330aba3",
 					"line": 6,
@@ -2869,17 +3085,7 @@
 					"actual_value": "SQL Server Analysis (TCP:2383) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
-					"similarity_id": "49cc60125121a9f16045217f59e84f30bb7e1eb8d6fe08738661f4d3bf3ad113",
-					"line": 6,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_2383].ingress",
-					"search_line": 0,
-					"search_value": "TCP,2375",
-					"expected_value": "Docker (TCP:2375) should not be allowed",
-					"actual_value": "Docker (TCP:2375) is allowed"
-				},
-				{
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
 					"file_name": "terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
 					"similarity_id": "d40b24c90b2783e8245d590f781dea26b7231f69de00e7cd64bf40fa5d095f7d",
 					"line": 6,
@@ -2891,15 +3097,12 @@
 					"actual_value": "Docker (TCP:2376) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
-					"similarity_id": "c1bf1bee7dc992b5ebdbfd6cab37230157e49f3fc4950d593cb8857c454e1a96",
-					"line": 6,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[positive1].ingress",
-					"search_line": 0,
-					"search_value": "TCP,135",
-					"expected_value": "MSSQL Debugger (TCP:135) should not be allowed",
-					"actual_value": "MSSQL Debugger (TCP:135) is allowed"
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "71bc153eb82b29f770bfa8c068061ea9315e4723a1961885fcd4d561f8b617e2",
+					"search_key": "aws_security_group[fail_sensitive].ingress",
+					"search_value": "TCP,2383",
+					"expected_value": "SQL Server Analysis (TCP:2383) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2383) is allowed"
 				}
 			]
 		},
@@ -2914,6 +3117,12 @@
 			"description_id": "e55e747f",
 			"files": [
 				{
+					"file_name": "terraform/aws/security_groups/security_http_port_open.tf",
+					"similarity_id": "5301258ab8f25b27238e5fed0d95aef011b8709744c448674f812c0a49496ddb",
+					"line": 10,
+					"search_key": "aws_security_group[fail_openport].ingress.cidr_blocks",
+					"expected_value": "aws_security_group[fail_openport].ingress.from_port is known",
+					"actual_value": "aws_security_group[fail_openport].ingress.from_port is unknown and is exposed to the entire Internet"
 					"file_name": "terraform\\aws\\security_groups\\security_group.tf",
 					"similarity_id": "901cae0a712392796580957738e83744f2eb4d8bdfcf96a407732ec510b320fe",
 					"line": 19,
@@ -2925,17 +3134,7 @@
 					"actual_value": "aws_security_group[bad_example].ingress.from_port is unknown and is exposed to the entire Internet"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_entire_network.tf",
-					"similarity_id": "da70c84dea49ae1519ce75414524456458e95e9628bd62f7deae829ae4e8e548",
-					"line": 11,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_sensitive].ingress.cidr_blocks",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_security_group[fail_sensitive].ingress.from_port is known",
-					"actual_value": "aws_security_group[fail_sensitive].ingress.from_port is unknown and is exposed to the entire Internet"
-				},
-				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
 					"file_name": "terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
 					"similarity_id": "0bff0de25432a525f86c2a77b03923321afc9ffadc38f6670786a3ee358aada9",
 					"line": 11,
@@ -2947,7 +3146,17 @@
 					"actual_value": "aws_security_group[fail_2383].ingress.from_port is unknown and is exposed to the entire Internet"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
+					"file_name": "terraform/aws/security_groups/security_http_port_open.tf",
+					"similarity_id": "5301258ab8f25b27238e5fed0d95aef011b8709744c448674f812c0a49496ddb",
+					"line": 10,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_openport].ingress.cidr_blocks",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_security_group[fail_openport].ingress.from_port is known",
+					"actual_value": "aws_security_group[fail_openport].ingress.from_port is unknown and is exposed to the entire Internet"
+				},
+				{
 					"similarity_id": "cd861c138cfb618a316d33f83d5349d60d961e484f73d5228e754af5431209d6",
 					"line": 11,
 					"issue_type": "IncorrectValue",
@@ -2983,6 +3192,20 @@
 			"cis_description_text": "Security groups should restrict ingress only to well-known and allowed origins: IP addresses or ranges. Unrestricted access may expose security groups associated resources to the Internet, allowing, for example, access to remote server open ports.\nPublic access to remote servers increases the resource attack surface and unnecessarily raises the risk of resource compromise.",
 			"files": [
 				{
+					"file_name": "terraform/aws/security_groups/security_group.tf",
+					"similarity_id": "2fca2ede5d3cadc47664b2a977aa987ed9bc721d5340c22f1ff0bd65f4d45117",
+					"line": 19,
+					"search_key": "aws_security_group[bad_example]",
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
+					"similarity_id": "93a1f5d3f63beb642c96161623c57bc0a30b977d2e6a3597b3db593e21ca159e",
+					"line": 11,
+					"search_key": "aws_security_group[fail_sensitive].ingress.cidr_blocks",
+					"expected_value": "One of 'ingress.cidr_blocks' not equal '0.0.0.0/0'",
+					"actual_value": "One of 'ingress.cidr_blocks' equal '0.0.0.0/0'"
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "556aea8342ed80332280bacf9730c51b18377b5a25839c6630744b527d63ef3c",
+					"line": 11,
+					"search_key": "aws_security_group[fail_2383].ingress.cidr_blocks",
 					"file_name": "terraform\\aws\\security_groups\\security_http_port_open.tf",
 					"similarity_id": "1c07638221012fa41df439cb8eb025fda4c9d444aa420acc23debb6e2333af5e",
 					"line": 10,
@@ -3038,15 +3261,26 @@
 					"actual_value": "One of 'ingress.cidr_blocks' equal '0.0.0.0/0'"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\unrestricted_security_group_ingress.tf",
-					"similarity_id": "2a0d33de4fbc5eac0dac6060968e5678bef5246af14ce6c008148c3b9f936371",
-					"line": 6,
+					"file_name": "terraform/aws/security_groups/unrestricted_security_group_ingress.tf",
+					"similarity_id": "11eccbdbfb64ae0ae524789ce61ed00548234703e30ff589034a1c64013a5af3",
+					"line": 19,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group_rule[positive1].cidr_blocks",
+					"search_key": "aws_security_group[bad_example]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "One of 'rule.cidr_blocks' not equal '0.0.0.0/0'",
-					"actual_value": "One of 'rule.cidr_blocks' is equal '0.0.0.0/0'"
+					"expected_value": "One of 'ingress.cidr_blocks' not equal '0.0.0.0/0'",
+					"actual_value": "One of 'ingress.cidr_blocks' equal '0.0.0.0/0'"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
+					"similarity_id": "556aea8342ed80332280bacf9730c51b18377b5a25839c6630744b527d63ef3c",
+					"line": 11,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_2383].ingress.cidr_blocks",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "One of 'ingress.cidr_blocks' not equal '0.0.0.0/0'",
+					"actual_value": "One of 'ingress.cidr_blocks' equal '0.0.0.0/0'"
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
@@ -3083,7 +3317,6 @@
 					"actual_value": "aws_default_security_group[{{default}}] has 'egress' defined"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\vpc_default_security_group_accepts_all_traffic.tf",
 					"similarity_id": "d6ef35fa8b7f1d49aee58cc1b0896a8f6c7a6490b8d2a82c8ceb3ec3ffe5a92a",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -3129,6 +3362,11 @@
 			"description_id": "3547cd5a",
 			"files": [
 				{
+					"similarity_id": "9648ff3c816dacabb507f67d06bbc9f75903ac9edb0d813ef9f3804eba25c248",
+					"line": 43,
+					"search_key": "resource.aws_cloudfront_distribution[fail].default_cache_behavior.viewer_protocol_policy",
+					"expected_value": "resource.aws_cloudfront_distribution[fail].default_cache_behavior.viewer_protocol_policy is 'https-only' or 'redirect-to-https'",
+					"actual_value": "resource.aws_cloudfront_distribution[fail].default_cache_behavior.viewer_protocol_policy isn't 'https-only' or 'redirect-to-https'"
 					"file_name": "terraform\\aws\\cloudfront\\cloudfront.tf",
 					"similarity_id": "ca047c2a4ef5ce4fa35662806d1d4b51bd9e15dc551cc34be417ba6b7b2cc7a4",
 					"line": 43,
@@ -3222,17 +3460,7 @@
 			"cis_description_text": "AWS Application Load Balancer (ALB) is a service that distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones, serving as the single point of contact for clients. It is recommended that ALB be integrated with the WAF (Web Application Firewall), serving as an additional layer of security to the back-end targets.\nIntegrating ALB with the WAF helps protect back-end web applications and APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\lb\\lb.tf",
-					"similarity_id": "59e632abdecf54e49b1438464bbc0313d262e6a74fdd4197247209b1ba38c4bc",
-					"line": 14,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_alb[disabled]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_alb[disabled]' is not 'internal' and has a 'aws_wafregional_web_acl_association' associated",
-					"actual_value": "'aws_alb[disabled]' is not 'internal' and does not have a 'aws_wafregional_web_acl_association' associated"
-				},
-				{
+					"file_name": "terraform/aws/lb/lb.tf",
 					"file_name": "terraform\\aws\\elb\\alb.tf",
 					"similarity_id": "af781ce0427ba56c461a8b44d00a731f3921b1c25357ef07c4923e1cccc90f06",
 					"line": 12,
@@ -3245,6 +3473,17 @@
 				},
 				{
 					"file_name": "terraform\\aws\\lb\\lb.tf",
+					"similarity_id": "59e632abdecf54e49b1438464bbc0313d262e6a74fdd4197247209b1ba38c4bc",
+					"line": 14,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_alb[disabled]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_alb[disabled]' is not 'internal' and has a 'aws_wafregional_web_acl_association' associated",
+					"actual_value": "'aws_alb[disabled]' is not 'internal' and does not have a 'aws_wafregional_web_acl_association' associated"
+				},
+				{
+					"file_name": "terraform/aws/lb/lb.tf",
 					"similarity_id": "6f8681ffff46206874e3ee05636e56cbef5af40cc8b1a97183f0f5fa3afe03a7",
 					"line": 23,
 					"issue_type": "MissingAttribute",
@@ -3255,7 +3494,6 @@
 					"actual_value": "'aws_lb[default]' is not 'internal' and does not have a 'aws_wafregional_web_acl_association' associated"
 				},
 				{
-					"file_name": "terraform\\aws\\lb\\redirect.tf",
 					"similarity_id": "a79fd199884cfb41f0b6201c24471f67024412572a60f2f6d90fbb4ca7e39456",
 					"line": 9,
 					"issue_type": "MissingAttribute",
@@ -3278,17 +3516,7 @@
 			"description_id": "7560e4d2",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elb\\alb.tf",
-					"similarity_id": "9f58f9384babdca070a84b31ff4af84e45ae0ddd5b576b1e1abbbc7288fd779a",
-					"line": 23,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_alb[{{fail}}].drop_invalid_header_fields",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_alb[{{fail}}].drop_invalid_header_fields is set to true",
-					"actual_value": "aws_alb[{{fail}}].drop_invalid_header_fields is set to false"
-				},
-				{
+					"file_name": "terraform/aws/elb/alb.tf",
 					"file_name": "terraform\\aws\\lb\\lb.tf",
 					"similarity_id": "da1a43300d7ef9f98ce808f9aa5844efc8f0cb3ca7939ea4f3dd6bc4d92fbebb",
 					"line": 14,
@@ -3311,15 +3539,8 @@
 					"actual_value": "aws_lb[{{test}}].drop_invalid_header_fields is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\lb\\redirect.tf",
-					"similarity_id": "7eec01a4a4a9a0c1e14c834627bd9c327ea6d636db14cb5a75b352212337fef8",
-					"line": 9,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_lb[{{lb_bad_1}}]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_lb[{{lb_bad_1}}].drop_invalid_header_fields is set to true",
-					"actual_value": "aws_lb[{{lb_bad_1}}].drop_invalid_header_fields is missing"
 				}
 			]
 		},
@@ -3379,7 +3600,6 @@
 					"actual_value": "resource.aws_api_gateway_method[fail_open].api_key_required is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-rest-api-policy\\rest_api_with_vulnerable_policy.tf",
 					"similarity_id": "0c4d319cf2c9ae065e9949e59bf17253581e409634098051e9a57df330c4363b",
 					"line": 43,
 					"issue_type": "MissingAttribute",
@@ -3402,11 +3622,11 @@
 			"description_id": "48b9d186",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-rest-api-policy\\rest_api_with_vulnerable_policy.tf",
-					"similarity_id": "284d48491e7a7e93a3ef2f6445332c9fa35cece5d5a539ddfb0d002310d74cb3",
-					"line": 65,
+					"file_name": "terraform/aws/api-gateway/api-gateway-rest-api-policy/rest_api_with_vulnerable_policy.tf",
+					"similarity_id": "a2721d4c463678f7da2e3ce32d5fdc9d10f0734d829ab7fdcd95a38e992b372f",
+					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_api_gateway_stage[api_gw_stage]",
+					"search_key": "aws_api_gateway_stage[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'aws_cloudwatch_log_group' is set",
@@ -3424,11 +3644,11 @@
 					"actual_value": "'aws_cloudwatch_log_group' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
-					"similarity_id": "a2721d4c463678f7da2e3ce32d5fdc9d10f0734d829ab7fdcd95a38e992b372f",
-					"line": 8,
+					"file_name": "terraform/aws/api-gateway/api-gateway-stage/api_gateway_stage.tf",
+					"similarity_id": "284d48491e7a7e93a3ef2f6445332c9fa35cece5d5a539ddfb0d002310d74cb3",
+					"line": 65,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_api_gateway_stage[fail]",
+					"search_key": "aws_api_gateway_stage[api_gw_stage]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'aws_cloudwatch_log_group' is set",
@@ -3504,17 +3724,10 @@
 			"description_id": "6d4941dc",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-rest-api-policy\\rest_api_with_vulnerable_policy.tf",
-					"similarity_id": "11d0d1a817e0cda8279ee4a5b8570f1dd9dff9f0d03af605ad610d5e95502f32",
-					"line": 65,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_api_gateway_stage[api_gw_stage]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'client_certificate_id' is set",
-					"actual_value": "Attribute 'client_certificate_id' is undefined"
-				},
-				{
+					"file_name": "terraform/aws/api-gateway/api-gateway-deployment/api_gateway_deployment_without_access_log_setting.tf",
+					"similarity_id": "5690f25e68b2b4f488c2e7e946384f7a0551d933eeba38b8008d19b65da56295",
+					"line": 13,
+					"search_key": "aws_api_gateway_stage[fail]",
 					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
 					"similarity_id": "2d0ebc31951965a8036b3633c89461c4f5a869b9ff3796ddad50a2bf59fd59a2",
 					"line": 8,
@@ -3527,6 +3740,17 @@
 				},
 				{
 					"file_name": "terraform\\aws\\api-gateway\\api-gateway-deployment\\api_gateway_deployment_without_access_log_setting.tf",
+					"similarity_id": "5690f25e68b2b4f488c2e7e946384f7a0551d933eeba38b8008d19b65da56295",
+					"line": 13,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_api_gateway_stage[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'client_certificate_id' is set",
+					"actual_value": "Attribute 'client_certificate_id' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/api-gateway/api-gateway-deployment/api_gateway_deployment_without_access_log_setting.tf",
 					"similarity_id": "5690f25e68b2b4f488c2e7e946384f7a0551d933eeba38b8008d19b65da56295",
 					"line": 13,
 					"issue_type": "MissingAttribute",
@@ -3571,7 +3795,6 @@
 					"actual_value": "'aws_api_gateway_stage[api_gw_stage].xray_tracing_enabled' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
 					"similarity_id": "9a7d89b7e87a29bb25d00d5cfe2baf13b4417f8cba99e7ea8c23422352c11343",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -3594,9 +3817,9 @@
 			"description_id": "bfefa118",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
-					"similarity_id": "ffd7d69357ce0c2259de192a15d78d9e69257d6d3265b8fc21b90f0e39d98cab",
-					"line": 8,
+					"file_name": "terraform/aws/api-gateway/api-gateway-deployment/api_gateway_deployment_without_access_log_setting.tf",
+					"similarity_id": "7d8a50f4d31829fbb4aae532c2097d428580221bf20cf03d05980d3e99ed5b11",
+					"line": 13,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_api_gateway_stage[fail]",
 					"search_line": 0,
@@ -3605,9 +3828,10 @@
 					"actual_value": "API Gateway Stage is not associated with a Web Application Firewall"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-deployment\\api_gateway_deployment_without_access_log_setting.tf",
-					"similarity_id": "7d8a50f4d31829fbb4aae532c2097d428580221bf20cf03d05980d3e99ed5b11",
-					"line": 13,
+					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
+					"similarity_id": "ffd7d69357ce0c2259de192a15d78d9e69257d6d3265b8fc21b90f0e39d98cab",
+					"line": 8,
+					"file_name": "terraform/aws/api-gateway/api-gateway-deployment/api_gateway_deployment_without_access_log_setting.tf",
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_api_gateway_stage[fail]",
 					"search_line": 0,
@@ -3707,22 +3931,22 @@
 					"actual_value": "'access_log_settings' is not defined"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-stage\\api_gateway_stage.tf",
-					"similarity_id": "21b004bc35dbd165714b67a4a25d23fb8aa58f38e4dbf531bf61f4a2db12c462",
-					"line": 8,
+					"file_name": "terraform/aws/api-gateway/api-gateway-stage/api_gateway_stage.tf",
+					"similarity_id": "8d57a8e6e1238692ad392babb6f70edb15d33ea161bec6bf3964dbf28cd84177",
+					"line": 65,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_api_gateway_stage[fail]",
+					"search_key": "aws_api_gateway_stage[api_gw_stage]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'access_log_settings' is defined",
 					"actual_value": "'access_log_settings' is not defined"
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-rest-api-policy\\rest_api_with_vulnerable_policy.tf",
-					"similarity_id": "8d57a8e6e1238692ad392babb6f70edb15d33ea161bec6bf3964dbf28cd84177",
-					"line": 65,
+					"file_name": "terraform/aws/api-gateway/api-gateway-rest-api-policy/rest_api_with_vulnerable_policy.tf",
+					"similarity_id": "21b004bc35dbd165714b67a4a25d23fb8aa58f38e4dbf531bf61f4a2db12c462",
+					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_api_gateway_stage[api_gw_stage]",
+					"search_key": "aws_api_gateway_stage[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'access_log_settings' is defined",
@@ -3741,7 +3965,6 @@
 			"description_id": "268307dd",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\autoscaling\\autoscaling_without_lb.tf",
 					"similarity_id": "3a60dea6bab3e316820ff08a56e65581d632c643b503deebaf0cfa7e243c4d65",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -3820,7 +4043,6 @@
 					"actual_value": "aws_api_gateway_domain_name[example].certificate_body has expired"
 				},
 				{
-					"file_name": "terraform\\aws\\cert\\certhasexpired.tf",
 					"similarity_id": "ef3d600c80cc7ea2accd7a612706482075887fef14789ec75b49b795293f3b16",
 					"line": 3,
 					"issue_type": "IncorrectValue",
@@ -3854,7 +4076,6 @@
 					"actual_value": "aws_api_gateway_domain_name[example].certificate_body does not use a RSA key with a length equal to or higher than 256 bytes"
 				},
 				{
-					"file_name": "terraform\\aws\\cert\\certhasexpired.tf",
 					"similarity_id": "e836f1fcdd4978e8aaa76134b3e69e5d21af658de141ef045039c0c0508d4b15",
 					"line": 3,
 					"issue_type": "IncorrectValue",
@@ -3910,8 +4131,8 @@
 					"search_key": "aws_cloudtrail[fail]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_cloudtrail[fail].cloud_watch_logs_role_arn is defined and not null",
-					"actual_value": "aws_cloudtrail[fail].cloud_watch_logs_role_arn is undefined or null"
+					"expected_value": "aws_cloudtrail[fail].cloud_watch_logs_group_arn is defined and not null",
+					"actual_value": "aws_cloudtrail[fail].cloud_watch_logs_group_arn is undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\cloudtrail\\cloudtrail.tf",
@@ -3921,8 +4142,8 @@
 					"search_key": "aws_cloudtrail[fail]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_cloudtrail[fail].cloud_watch_logs_group_arn is defined and not null",
-					"actual_value": "aws_cloudtrail[fail].cloud_watch_logs_group_arn is undefined or null"
+					"expected_value": "aws_cloudtrail[fail].cloud_watch_logs_role_arn is defined and not null",
+					"actual_value": "aws_cloudtrail[fail].cloud_watch_logs_role_arn is undefined or null"
 				}
 			]
 		},
@@ -3960,6 +4181,17 @@
 			"description_id": "b4a8c275",
 			"files": [
 				{
+					"similarity_id": "da2c5f9272828c684137382a8b33bdd8f1fc6eae37cbee1071a81c74d5ab40aa",
+					"line": 14,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_route53_query_log[log_group_mismatch].cloudwatch_log_group_arn",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_route53_query_log' log group refers to the query log",
+					"actual_value": "'aws_route53_query_log' log group does not match with the log name"
+				},
+				{
+					"file_name": "terraform/aws/route53/cloudwatch_logging_disabled.tf",
 					"file_name": "terraform\\aws\\shield\\todo.tf",
 					"similarity_id": "8779ceae3be60c95e65df935b9eee3892e47dcf88cc924ab6bc49e446638926d",
 					"line": 10,
@@ -3969,9 +4201,7 @@
 					"search_value": "",
 					"expected_value": "'aws_route53_query_log' is set for respective 'aws_route53_zone'",
 					"actual_value": "'aws_route53_query_log' is undefined"
-				},
-				{
-					"file_name": "terraform\\aws\\route53\\cloudwatch_logging_disabled.tf",
+					"file_name": "terraform/aws/route53/cloudwatch_logging_disabled.tf",
 					"similarity_id": "5f40579b2a9bc2ee862cf5630be37ea85695d729599e8c45d781bc3adab1bc08",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -3983,14 +4213,6 @@
 				},
 				{
 					"file_name": "terraform\\aws\\route53\\cloudwatch_logging_disabled.tf",
-					"similarity_id": "da2c5f9272828c684137382a8b33bdd8f1fc6eae37cbee1071a81c74d5ab40aa",
-					"line": 14,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_route53_query_log[log_group_mismatch].cloudwatch_log_group_arn",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_route53_query_log' log group refers to the query log",
-					"actual_value": "'aws_route53_query_log' log group does not match with the log name"
 				}
 			]
 		},
@@ -4074,7 +4296,6 @@
 			"description_id": "9cf96455",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
 					"similarity_id": "51fb0d80bbf80594eeee9a743aafc0877a060731037a59a9a69ec1311eaf300c",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -4142,11 +4363,11 @@
 					"actual_value": "'assume_role_policy' does not require external ID or MFA"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam_cross_account_iam_assume_role_policy_without_external_id_or_mfa.tf",
-					"similarity_id": "8e5198140b2a8292853bbb6204f225875ada41da206243cf3d7d8f22a3a63bd7",
-					"line": 4,
+					"file_name": "terraform/aws/iam/iam_cross_account_iam_assume_role_policy_without_external_id_or_mfa.tf",
+					"similarity_id": "14b9e16150e77ef15a558f719c9e46dc6f3d951764d4913a6e68d4bc9ef4c6f8",
+					"line": 5,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_role[positive1].assume_role_policy",
+					"search_key": "aws_iam_role[fail].assume_role_policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'assume_role_policy' requires external ID or MFA",
@@ -4158,6 +4379,10 @@
 					"line": 23,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_iam_role[fail2].assume_role_policy",
+					"file_name": "terraform/aws/iam/role/IAMRoleAllowAssumeFromAccount.tf",
+					"similarity_id": "14b9e16150e77ef15a558f719c9e46dc6f3d951764d4913a6e68d4bc9ef4c6f8",
+					"line": 5,
+					"search_key": "aws_iam_role[fail].assume_role_policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'assume_role_policy' requires external ID or MFA",
@@ -4199,22 +4424,22 @@
 			"description_id": "a4233398",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_table.tf",
-					"similarity_id": "65a47153bcd77eb814d690ef0163a3888e345b3c74440987b749ab0ba7ba6a84",
-					"line": 10,
+					"file_name": "terraform/aws/dynamodb/dynamodb_table.tf",
+					"similarity_id": "92dbc806e4503295893968aa18c1b7f9dfac4f346d83d53678b68b0b767bb9f9",
+					"line": 99,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_dynamodb_table[{{default}}]",
+					"search_key": "aws_dynamodb_table[{{basic_dynamodb_table}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_dynamodb_table.server_side_encryption.enabled is set to true",
 					"actual_value": "aws_dynamodb_table.server_side_encryption is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
-					"similarity_id": "92dbc806e4503295893968aa18c1b7f9dfac4f346d83d53678b68b0b767bb9f9",
-					"line": 99,
+					"file_name": "terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+					"similarity_id": "65a47153bcd77eb814d690ef0163a3888e345b3c74440987b749ab0ba7ba6a84",
+					"line": 10,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_dynamodb_table[{{basic_dynamodb_table}}]",
+					"search_key": "aws_dynamodb_table[{{default}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_dynamodb_table.server_side_encryption.enabled is set to true",
@@ -4259,17 +4484,7 @@
 			"description_id": "1cc5d4e2",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\ecr\\ecr_repository_without_policy.tf",
-					"similarity_id": "95cf81a70c4cc73a9f7a50fdd3cbc6f02c9040ba984fa62ebc03a540bbd93a65",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_ecr_repository.foo",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_ecr_repository.foo.image_tag_mutability is defined and not null",
-					"actual_value": "aws_ecr_repository.foo.image_tag_mutability is undefined or null"
-				},
-				{
+					"file_name": "terraform/aws/ecr/ecr_repository_without_policy.tf",
 					"file_name": "terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
 					"similarity_id": "7fadae477ed96e493e4680b1940d2a30c38a684b2ec475fe8b4abf0affecec02",
 					"line": 4,
@@ -4290,6 +4505,17 @@
 					"search_value": "",
 					"expected_value": "aws_ecr_repository.name.image_tag_mutability is 'IMMUTABLE'",
 					"actual_value": "aws_ecr_repository.name.image_tag_mutability is 'MUTABLE'"
+				},
+				{
+					"file_name": "terraform/aws/ecr/ecr_repository_without_policy.tf",
+					"similarity_id": "95cf81a70c4cc73a9f7a50fdd3cbc6f02c9040ba984fa62ebc03a540bbd93a65",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_ecr_repository.foo",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_ecr_repository.foo.image_tag_mutability is defined and not null",
+					"actual_value": "aws_ecr_repository.foo.image_tag_mutability is undefined or null"
 				}
 			]
 		},
@@ -4338,17 +4564,10 @@
 			"description_id": "e96d149c",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
-					"similarity_id": "c8db0942bc7a076734ab88671e20b5811348e413efac8d1ae7c246ceab9d4fad",
-					"line": 4,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_ecr_repository[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "The attribute 'encryption_configuration' is defined and not null",
-					"actual_value": "The attribute 'encryption_configuration' is undefined or null"
-				},
-				{
+					"file_name": "terraform/aws/ecr/ecr_repository_without_policy.tf",
+					"similarity_id": "ece98ba6a507b9217531ecfd362a9708ecf68f9195a044f9d0713d40b282fb28",
+					"line": 3,
+					"search_key": "aws_ecr_repository[foo]",
 					"file_name": "terraform\\aws\\ecr\\ecr_repository.tf",
 					"similarity_id": "75075dba30a75147e50d5e80409e52fb79287345c4e38c6429f82490d301c740",
 					"line": 10,
@@ -4361,6 +4580,17 @@
 				},
 				{
 					"file_name": "terraform\\aws\\ecr\\ecr_repository_without_policy.tf",
+					"similarity_id": "ece98ba6a507b9217531ecfd362a9708ecf68f9195a044f9d0713d40b282fb28",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_ecr_repository[foo]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The attribute 'encryption_configuration' is defined and not null",
+					"actual_value": "The attribute 'encryption_configuration' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/ecr/ecr_repository_without_policy.tf",
 					"similarity_id": "ece98ba6a507b9217531ecfd362a9708ecf68f9195a044f9d0713d40b282fb28",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -4440,7 +4670,7 @@
 			"description_id": "1bbfe45b",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticache\\elasticache_without_vpc.tf",
+					"file_name": "terraform/aws/elasticache/elasticache_nodes_not_created_across_multi_az.tf",
 					"similarity_id": "33865103ba21eff57a3f8a1212be46aa98357ae3bcd9759d2263ec5bc804e4d1",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -4451,7 +4681,7 @@
 					"actual_value": "'az_mode' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\elasticache\\elasticache_nodes_not_created_across_multi_az.tf",
+					"file_name": "terraform/aws/elasticache/elasticache_without_vpc.tf",
 					"similarity_id": "586fdb37f40a79b681999b49e7f8c6a759171b47aa5cdea6748f06719f8186c6",
 					"line": 3,
 					"issue_type": "MissingAttribute",
@@ -4474,22 +4704,22 @@
 			"description_id": "0ebd9005",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticache\\elasticache_cluster.tf",
-					"similarity_id": "8c2ce79f49428b82188de2c6185720b715dc37683ea97dc2ce8427e6593683d3",
-					"line": 7,
+					"file_name": "terraform/aws/elasticache/elasticache_cluster.tf",
+					"similarity_id": "ba7221e605b701debc694f318e59ded10af21fb90ca858392976228600e9a094",
+					"line": 3,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_elasticache_cluster[fail_redis]",
+					"search_key": "aws_elasticache_cluster[fails]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'snapshot_retention_limit' is higher than 0",
 					"actual_value": "'snapshot_retention_limit' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\elasticache\\redis_not_compliant.tf",
-					"similarity_id": "ba7221e605b701debc694f318e59ded10af21fb90ca858392976228600e9a094",
-					"line": 3,
+					"file_name": "terraform/aws/elasticache/redis_not_compliant.tf",
+					"similarity_id": "8c2ce79f49428b82188de2c6185720b715dc37683ea97dc2ce8427e6593683d3",
+					"line": 7,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_elasticache_cluster[fails]",
+					"search_key": "aws_elasticache_cluster[fail_redis]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'snapshot_retention_limit' is higher than 0",
@@ -4542,17 +4772,7 @@
 			"description_id": "40f92e86",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticache\\elasticache_replication_group.tf",
-					"similarity_id": "6bc936b7a0f7b1330ebd004bac7f34e08748952b2f79313f03ae4a4a2fbc258d",
-					"line": 21,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_elasticache_replication_group[fail].transit_encryption_enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "The attribute 'transit_encryption_enabled' is set to true",
-					"actual_value": "The attribute 'transit_encryption_enabled' is not set to true"
-				},
-				{
+					"file_name": "terraform/aws/elasticache/elasticache_replication_group.tf",
 					"file_name": "terraform\\aws\\elasticsearch\\elasticache_replication_group.tf",
 					"similarity_id": "f2ee8c64dfcbf4deb081b78672e4d955b36d195ae2e6642fe9fd16a5428a5321",
 					"line": 10,
@@ -4562,6 +4782,17 @@
 					"search_value": "",
 					"expected_value": "The attribute 'transit_encryption_enabled' is set to true",
 					"actual_value": "The attribute 'transit_encryption_enabled' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/elasticache/elasticache_replication_group.tf",
+					"similarity_id": "6bc936b7a0f7b1330ebd004bac7f34e08748952b2f79313f03ae4a4a2fbc258d",
+					"line": 21,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_elasticache_replication_group[fail].transit_encryption_enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The attribute 'transit_encryption_enabled' is set to true",
+					"actual_value": "The attribute 'transit_encryption_enabled' is not set to true"
 				}
 			]
 		},
@@ -4599,22 +4830,14 @@
 			"description_id": "c402717e",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
-					"similarity_id": "ac78c241edc9cdb97a665b0ce18fa3c1efe6bcce95e40155a56e80ad715cacfb",
-					"line": 29,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_elasticsearch_domain[node_to_node_encryption_disabled].encrypt_at_rest.enabled",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'encrypt_at_rest.enabled' is true",
-					"actual_value": "'encrypt_at_rest.enabled' is false"
-				},
-				{
-					"file_name": "terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
-					"similarity_id": "e88339e9987455639bb503d97a6d72fd9dabef26b422da8d382a9161231e7b22",
+					"file_name": "terraform/aws/elasticsearch/elastisearch_domain.tf",
+					"similarity_id": "f73a7be4422a3009b725e7cc5bd9ecceb99814fdcdd749c5c140cfdaef542589",
+					"search_key": "aws_elasticsearch_domain[positive1]",
+					"file_name": "terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
+					"similarity_id": "f73a7be4422a3009b725e7cc5bd9ecceb99814fdcdd749c5c140cfdaef542589",
 					"line": 3,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_elasticsearch_domain[no_iam]",
+					"search_key": "aws_elasticsearch_domain[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'encrypt_at_rest' is set and enabled",
@@ -4641,6 +4864,17 @@
 					"search_value": "",
 					"expected_value": "'encrypt_at_rest' is set and enabled",
 					"actual_value": "'encrypt_at_rest' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/elasticsearch/elastisearch_domain.tf",
+					"similarity_id": "ac78c241edc9cdb97a665b0ce18fa3c1efe6bcce95e40155a56e80ad715cacfb",
+					"line": 29,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_elasticsearch_domain[node_to_node_encryption_disabled].encrypt_at_rest.enabled",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'encrypt_at_rest.enabled' is true",
+					"actual_value": "'encrypt_at_rest.enabled' is false"
 				}
 			]
 		},
@@ -4655,17 +4889,9 @@
 			"description_id": "e3dc1b2d",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
-					"similarity_id": "b704ef79b85e0f050ea561a5140915a8cf9b86a4fa08c3ca68b98038e031aadd",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_elasticsearch_domain[{{no_iam}}]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "The attribute 'node_to_node_encryption' is set to true",
-					"actual_value": "The attribute 'node_to_node_encryption' is undefined"
-				},
-				{
+					"file_name": "terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
+					"similarity_id": "7524642e80b56300c60f409c4dac461aa6d16a6acea2f63fc32902fead8bc06f",
+					"search_key": "aws_elasticsearch_domain[{{positive1}}]",
 					"file_name": "terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
 					"similarity_id": "b62dfbc1adedc53d34f1a93e3ee764288e78bbd3752730a7c74e2b5fdd2d1b69",
 					"line": 33,
@@ -4677,18 +4903,29 @@
 					"actual_value": "The attribute 'node_to_node_encryption' is not set to true"
 				},
 				{
-					"file_name": "terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
-					"similarity_id": "7524642e80b56300c60f409c4dac461aa6d16a6acea2f63fc32902fead8bc06f",
+					"file_name": "terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
+					"similarity_id": "3392e3119f4f50db5fe285a73e643f8f1bf97f307d43a1062ddbf86f996dc684",
 					"line": 3,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_elasticsearch_domain[{{positive1}}]",
+					"search_key": "aws_elasticsearch_domain[{{es_not_secure_policy}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "The attribute 'node_to_node_encryption' is set to true",
 					"actual_value": "The attribute 'node_to_node_encryption' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+					"file_name": "terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
+					"similarity_id": "b704ef79b85e0f050ea561a5140915a8cf9b86a4fa08c3ca68b98038e031aadd",
+					"line": 5,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_elasticsearch_domain[{{no_iam}}]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "The attribute 'node_to_node_encryption' is set to true",
+					"actual_value": "The attribute 'node_to_node_encryption' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 					"similarity_id": "3392e3119f4f50db5fe285a73e643f8f1bf97f307d43a1062ddbf86f996dc684",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -4776,6 +5013,17 @@
 					"search_value": "",
 					"expected_value": "'log_publishing_options' is defined and not null",
 					"actual_value": "'log_publishing_options' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/elasticsearch/elastisearch_domain.tf",
+					"similarity_id": "9f2a48c7ef3a45c1b68558b78ee99e6bc3c3c0c74982956471fea8bc53c7c721",
+					"line": 17,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_elasticsearch_domain[node_to_node_encryption_disabled]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Elasticsearch Domain has a policy associated",
+					"actual_value": "Elasticsearch Domain does not have a policy associated"
 				}
 			]
 		},
@@ -4885,18 +5133,7 @@
 			"cis_description_text": "AWS console defaults to no check boxes selected when creating a new IAM user. When cerating the IAM User credentials you have to determine what type of access they require. Programmatic access: The IAM user might need to make API calls, use the AWS CLI, or use the Tools for Windows PowerShell. In that case, create an access key (access key ID and a secret access key) for that user. AWS Management Console access: If the user needs to access the AWS Management Console, create a password for the user.\nRequiring the additional steps be taken by the user for programmatic access after their profile has been created will give a stronger indication of intent that access keys are [a] necessary for their work and [b] once the access key is established on an account that the keys may be in use somewhere in the organization. Note : Even if it is known the user will need access keys, require them to create the keys themselves or put in a support ticket to have them created as a separate step from user creation.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policies_attached_to_user.tf",
-					"similarity_id": "37ce00bc413d151ffae8458a751720517a0ccce333d304231091fc72ecc352ed",
-					"line": 13,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_access_key[positive1_2].user",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_iam_access_key[positive1_2].user' is 'root' for an active access key",
-					"actual_value": "'aws_iam_access_key[positive1_2].user' is '${aws_iam_user.user.name}' for an active access key"
-				},
-				{
-					"file_name": "terraform\\aws\\iam\\iam_access_key_is_exposed.tf",
+					"file_name": "terraform/aws/iam/iam_access_key_is_exposed.tf",
 					"similarity_id": "5dd91550b7566f9797b0869b2beb032f7c4074906dd0032b50ab1a2dfe28bdaf",
 					"line": 2,
 					"issue_type": "IncorrectValue",
@@ -4907,15 +5144,14 @@
 					"actual_value": "'aws_iam_access_key[positive1].user' is 'some-user' for an active access key"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam_authentication_without_mfa.tf",
-					"similarity_id": "8686e3a801d9ab1e7b5653ae9bf7cf6b2d8a3b18ea36f0889e3e38fbda9f08bf",
-					"line": 17,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_access_key[mfa].user",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_iam_access_key[mfa].user' is 'root' for an active access key",
-					"actual_value": "'aws_iam_access_key[mfa].user' is '${aws_iam_user.mfa.name}' for an active access key"
+					"file_name": "terraform/aws/iam/policy/iam_policies_attached_to_user.tf",
+					"file_name": "terraform/aws/iam/iam_access_key_is_exposed.tf",
+					"similarity_id": "c236320d5fbe7da7eefa756b3a1bc62b8026ec89a8c8982c9a86a44516017a84",
+					"line": 8,
+					"search_key": "aws_iam_access_key[positive2].user",
+					"expected_value": "'aws_iam_access_key[positive2].user' is 'root' for an active access key",
+					"actual_value": "'aws_iam_access_key[positive2].user' is 'some-user' for an active access key"
+					"file_name": "terraform/aws/iam/iam_authentication_without_mfa.tf",
 				},
 				{
 					"file_name": "terraform\\aws\\iam\\policy\\iam_policy_grants_full_permissions.tf",
@@ -4940,6 +5176,17 @@
 					"actual_value": "'aws_iam_access_key[fail_mfa].user' is '${aws_iam_user.fail_mfa.name}' for an active access key"
 				},
 				{
+					"file_name": "terraform/aws/iam/iam_authentication_without_mfa.tf",
+					"similarity_id": "8686e3a801d9ab1e7b5653ae9bf7cf6b2d8a3b18ea36f0889e3e38fbda9f08bf",
+					"line": 17,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_access_key[mfa].user",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_iam_access_key[mfa].user' is 'root' for an active access key",
+					"actual_value": "'aws_iam_access_key[mfa].user' is '${aws_iam_user.mfa.name}' for an active access key"
+				},
+				{
 					"file_name": "terraform\\aws\\iam\\iam_access_key_is_exposed.tf",
 					"similarity_id": "c236320d5fbe7da7eefa756b3a1bc62b8026ec89a8c8982c9a86a44516017a84",
 					"line": 8,
@@ -4949,6 +5196,17 @@
 					"search_value": "",
 					"expected_value": "'aws_iam_access_key[positive2].user' is 'root' for an active access key",
 					"actual_value": "'aws_iam_access_key[positive2].user' is 'some-user' for an active access key"
+				},
+				{
+					"file_name": "terraform/aws/iam/policy/iam_policies_attached_to_user.tf",
+					"similarity_id": "37ce00bc413d151ffae8458a751720517a0ccce333d304231091fc72ecc352ed",
+					"line": 13,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_access_key[positive1_2].user",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_iam_access_key[positive1_2].user' is 'root' for an active access key",
+					"actual_value": "'aws_iam_access_key[positive1_2].user' is '${aws_iam_user.user.name}' for an active access key"
 				}
 			]
 		},
@@ -4989,17 +5247,7 @@
 			"cis_description_text": "Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are at least a given length. It is recommended that the password policy require a minimum password length 14.\nSetting a password complexity policy increases account resiliency against brute force login attempts.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\iam\\iam_aws_passord_policy_with_unchangeable_passwords.tf",
-					"similarity_id": "278f7aefc282a2ca305b3130561a67e5dd232f5f8a4f3428c1b15f9f3539b833",
-					"line": 8,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_account_password_policy[positive2].minimum_password_length",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'minimum_password_length' is set and no less than 14",
-					"actual_value": "'minimum_password_length' is less than 14"
-				},
-				{
+					"file_name": "terraform/aws/iam/iam_aws_passord_policy_with_unchangeable_passwords.tf",
 					"file_name": "terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
 					"similarity_id": "488159e1c49d81bf795a4b5e91ff3b34c1e60c7312fb87be7d04970cc38e0917",
 					"line": 2,
@@ -5020,6 +5268,17 @@
 					"search_value": "",
 					"expected_value": "'minimum_password_length' is set and no less than 14",
 					"actual_value": "'minimum_password_length' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/iam/iam_aws_passord_policy_with_unchangeable_passwords.tf",
+					"similarity_id": "278f7aefc282a2ca305b3130561a67e5dd232f5f8a4f3428c1b15f9f3539b833",
+					"line": 8,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_account_password_policy[positive2].minimum_password_length",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'minimum_password_length' is set and no less than 14",
+					"actual_value": "'minimum_password_length' is less than 14"
 				}
 			]
 		},
@@ -5080,6 +5339,10 @@
 			"description_id": "f20cf2cf",
 			"files": [
 				{
+					"file_name": "terraform/aws/iam/policy/iam_policies_with_full_privileges.tf",
+					"similarity_id": "628ea7ff24d14d03f2609c59f27a1800ad0471c2bdd50e6a854c5e34171de5f9",
+					"line": 5,
+					"search_key": "aws_iam_role_policy[positive1].policy",
 					"file_name": "terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
 					"similarity_id": "25dafbb8b5838629f746b6d81b9cacc886ec85acc47d5a78c8fb99064db17c24",
 					"line": 96,
@@ -5102,22 +5365,22 @@
 					"actual_value": "'policy.Statement.Resource' equal '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policies_attached_to_user.tf",
-					"similarity_id": "b4b66a9dac49bc423bff56a6c9ade300d7c1cd3dfca545fbc1a096b79aedf599",
-					"line": 20,
+					"file_name": "terraform/aws/iam/policy/iam_policies_attached_to_user.tf",
+					"similarity_id": "84205816a62d9bcbdf9dcd3a28c03e8d722f9328e9b8ba9a4698d3ebb60eb63a",
+					"line": 14,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_policy_attachment[positive1_3].policy",
+					"search_key": "aws_iam_user_policy[fail].policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'policy.Statement.Resource' not equal '*'",
 					"actual_value": "'policy.Statement.Resource' equal '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\iam.tf",
-					"similarity_id": "84205816a62d9bcbdf9dcd3a28c03e8d722f9328e9b8ba9a4698d3ebb60eb63a",
-					"line": 14,
+					"file_name": "terraform/aws/iam/iam.tf",
+					"similarity_id": "628ea7ff24d14d03f2609c59f27a1800ad0471c2bdd50e6a854c5e34171de5f9",
+					"line": 5,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_user_policy[fail].policy",
+					"search_key": "aws_iam_role_policy[positive1].policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'policy.Statement.Resource' not equal '*'",
@@ -5146,11 +5409,11 @@
 					"actual_value": "'policy.Statement.Resource' equal '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policy_grants_full_permissions.tf",
-					"similarity_id": "6bea254ad4e8491755e45f5cf68916c86829a1ac64365916395e35d911d4fcab",
+					"file_name": "terraform/aws/iam/policy/iam_policy_grants_full_permissions.tf",
+					"similarity_id": "b4b66a9dac49bc423bff56a6c9ade300d7c1cd3dfca545fbc1a096b79aedf599",
 					"line": 20,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_user_policy[positive3].policy",
+					"search_key": "aws_iam_policy_attachment[positive1_3].policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'policy.Statement.Resource' not equal '*'",
@@ -5192,7 +5455,7 @@
 			"description_id": "387e9522",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policy_grants_full_permissions.tf",
+					"file_name": "terraform/aws/iam/policy/iam_policies_attached_to_user.tf",
 					"similarity_id": "fcb5e89362889a41bb6c21aa4a8ad791cd43aa5a4eea890d755e6a54b2bd4b1a",
 					"line": 13,
 					"issue_type": "IncorrectValue",
@@ -5203,7 +5466,7 @@
 					"actual_value": "More than one Access Key associated with the same IAM User"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policies_attached_to_user.tf",
+					"file_name": "terraform/aws/iam/policy/iam_policy_grants_full_permissions.tf",
 					"similarity_id": "8cedfe7acd3690bb242dd23efc564e9424d921545957fb54380243cbd53a1447",
 					"line": 13,
 					"issue_type": "IncorrectValue",
@@ -5225,6 +5488,17 @@
 			"description": "AWS IAM Users should not have access to console",
 			"description_id": "28422817",
 			"files": [
+				{
+					"file_name": "terraform/aws/iam/iam_user_with_access_to_console.tf",
+					"similarity_id": "291f26b113417010ec3b770ec88f235143083fb67248d08ef24f69108285b8aa",
+					"line": 2,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_iam_user.example.name",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_iam_user.example.name doesn't have aws_iam_user_login_profile",
+					"actual_value": "aws_iam_user.example.name has aws_iam_user_login_profile"
+				},
 				{
 					"file_name": "terraform\\aws\\iam\\iam_user_with_access_to_console.tf",
 					"similarity_id": "291f26b113417010ec3b770ec88f235143083fb67248d08ef24f69108285b8aa",
@@ -5250,17 +5524,12 @@
 				{
 					"file_name": "terraform\\aws\\iam\\userconsole.tf",
 					"similarity_id": "b564f39b6e7cf4aab87605566d783191a6d063be408511cc50afe7f947f7ba0e",
-					"line": 4,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_user.fail_console.name",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_iam_user.fail_console.name doesn't have aws_iam_user_login_profile",
-					"actual_value": "aws_iam_user.fail_console.name has aws_iam_user_login_profile"
-				},
-				{
-					"file_name": "terraform\\aws\\iam\\iam_no_password_policy_enabled.tf",
-					"similarity_id": "ade68fe6423d553396f1481f93493a5c9fc7649e3a11ee6ef7fa0536ebe46773",
+					"line": 2,
+					"search_key": "aws_iam_user.example.name",
+					"expected_value": "aws_iam_user.example.name doesn't have aws_iam_user_login_profile",
+					"actual_value": "aws_iam_user.example.name has aws_iam_user_login_profile"
+					"file_name": "terraform/aws/iam/iam_user_with_access_to_console.tf",
+					"similarity_id": "291f26b113417010ec3b770ec88f235143083fb67248d08ef24f69108285b8aa",
 					"line": 2,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_iam_user.example.name",
@@ -5282,11 +5551,11 @@
 			"description_id": "225a9f30",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\instance\\ec2_instance_using_default_security_group.tf",
-					"similarity_id": "87a6f112ad70acc35a65655244c07a46683cd269331097cc6723e7a6b62baadd",
-					"line": 1,
+					"file_name": "terraform/aws/instance/ec2_instance_using_default_security_group.tf",
+					"similarity_id": "16573c76ca1e38c3e0e2c3c5bd1d1709b44779ff53485319b718cc4cfb44b01a",
+					"line": 18,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance[positive1]",
+					"search_key": "aws_instance[web]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'vpc_security_group_ids' is defined and not null",
@@ -5304,11 +5573,11 @@
 					"actual_value": "Attribute 'vpc_security_group_ids' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\instance\\ec2_not_ebs_optimized.tf",
-					"similarity_id": "16573c76ca1e38c3e0e2c3c5bd1d1709b44779ff53485319b718cc4cfb44b01a",
-					"line": 18,
+					"file_name": "terraform/aws/instance/ec2_not_ebs_optimized.tf",
+					"similarity_id": "87a6f112ad70acc35a65655244c07a46683cd269331097cc6723e7a6b62baadd",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance[web]",
+					"search_key": "aws_instance[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'vpc_security_group_ids' is defined and not null",
@@ -5433,7 +5702,7 @@
 			"cis_description_text": "AWS IAM users can access AWS resources using different types of credentials, such as passwords or access keys. It is recommended that all credentials that have been unused in 45 or greater days be deactivated or removed.\nDisabling or removing unnecessary credentials will reduce the window of opportunity for credentials associated with a compromised or abandoned account to be used.",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
+					"file_name": "terraform/aws/iam/aws_iam_account_password_policy.tf",
 					"similarity_id": "e40a64e7511ba40d34cce16797d28d4e7cd19f7d5718ac56a98bfcbf32aa5d2b",
 					"line": 8,
 					"issue_type": "IncorrectValue",
@@ -5455,7 +5724,7 @@
 					"actual_value": "'max_password_age' is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\aws_iam_account_password_policy.tf",
+					"file_name": "terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
 					"similarity_id": "cfe89f20fc632112141d5b7be4a1e12d6a8b8074fcf629ebd03919163de9da3e",
 					"line": 11,
 					"issue_type": "MissingAttribute",
@@ -5527,6 +5796,17 @@
 			"cis_description_text": "IAM password policies can prevent the reuse of a given password by the same user. It is recommended that the password policy prevent the reuse of passwords.\nPreventing password reuse increases account resiliency against brute force login attempts.",
 			"files": [
 				{
+					"file_name": "terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
+					"similarity_id": "da9add22d44119d9a1942be598f29a2fd9a1fa9965cc15958c256d2e66a93f99",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_iam_account_password_policy[expire]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'password_reuse_prevention' should be set with value 24",
+					"actual_value": "'password_reuse_prevention' is undefined"
+				},
+				{
 					"file_name": "terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
 					"similarity_id": "da9add22d44119d9a1942be598f29a2fd9a1fa9965cc15958c256d2e66a93f99",
 					"line": 1,
@@ -5547,17 +5827,10 @@
 					"search_value": "",
 					"expected_value": "'password_reuse_prevention' should be set with value 24",
 					"actual_value": "'password_reuse_prevention' is undefined"
-				},
-				{
-					"file_name": "terraform\\aws\\iam\\iam_aws_passord_policy_with_unchangeable_passwords.tf",
-					"similarity_id": "1281595f6ad15a29d54dd23eb669a95de5c50a4cdd0e54ae2ac16a02e3afe565",
-					"line": 7,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_iam_account_password_policy[positive2]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'password_reuse_prevention' should be set with value 24",
-					"actual_value": "'password_reuse_prevention' is undefined"
+					"file_name": "terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
+					"similarity_id": "da9add22d44119d9a1942be598f29a2fd9a1fa9965cc15958c256d2e66a93f99",
+					"line": 1,
+					"search_key": "aws_iam_account_password_policy[expire]",
 				}
 			]
 		},
@@ -5572,7 +5845,7 @@
 			"description_id": "954ac1bf",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\sns\\sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
+					"file_name": "terraform/aws/iam/policy/iam_policies_attached_to_user.tf",
 					"similarity_id": "3e129b7da5f2eed58391b4cd110406d9ce6c7ab9557b387b4964f860335938e5",
 					"line": 9,
 					"issue_type": "MissingAttribute",
@@ -5594,7 +5867,7 @@
 					"actual_value": "'Principal' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policies_attached_to_user.tf",
+					"file_name": "terraform/aws/sns/sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
 					"similarity_id": "ff844fa3dc5df5032fcef206098fa9ed2888ea7837b15879617757de070907f3",
 					"line": 20,
 					"issue_type": "MissingAttribute",
@@ -5684,8 +5957,11 @@
 					"actual_value": "'backup_retention_period' is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
-					"similarity_id": "4f10461c91780a852eb502b5cdd6e5e64558605da5875ebef46bf8b783a40a8c",
+					"file_name": "terraform/aws/rds/rds_automatic_minor_upgrades_disabled.tf",
+					"similarity_id": "e4fb8eab09336273fa5980eee6677999c6c0dbc9cd22969668b7377d9ccafa26",
+					"line": 3,
+					"file_name": "terraform\\aws\\rds\\db_instance.tf",
+					"similarity_id": "161aa8722ad9f5fcaf64cbd9937665e50fb4c8220022e9363bb89ce0c8382d2e",
 					"line": 1,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_db_instance[positive1]",
@@ -5695,8 +5971,8 @@
 					"actual_value": "'backup_retention_period' is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\rds\\db_instance.tf",
-					"similarity_id": "161aa8722ad9f5fcaf64cbd9937665e50fb4c8220022e9363bb89ce0c8382d2e",
+					"file_name": "terraform/aws/rds/rds_automatic_minor_upgrades_disabled.tf",
+					"similarity_id": "4f10461c91780a852eb502b5cdd6e5e64558605da5875ebef46bf8b783a40a8c",
 					"line": 18,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_db_instance[fail].backup_retention_period",
@@ -5741,7 +6017,7 @@
 			"description_id": "458fe7a3",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\redshift\\redshift_using_default_port.tf",
+					"file_name": "terraform/aws/redshift/redshift_cluster.tf",
 					"similarity_id": "a83bf2320d4a200ea55a324a2f4caf8561bdd365509f6feb9d6002c173795cd9",
 					"line": 1,
 					"issue_type": "MissingAttribute",
@@ -5752,7 +6028,7 @@
 					"actual_value": "'aws_redshift_cluster.logging' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\redshift\\redshift_cluster.tf",
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
 					"similarity_id": "36ed5f9954d15dfd48f7cd5227eb079998d779863dc31352e8ba3dc362648775",
 					"line": 16,
 					"issue_type": "MissingAttribute",
@@ -5775,6 +6051,17 @@
 			"description_id": "6fd531fa",
 			"files": [
 				{
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
+					"similarity_id": "4e9d9f237b11f6bf20e1ad45ccce28dcf995ba3843b4ceccbb4ca1b3aa59c0e1",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_redshift_cluster[positive1]",
+					"search_line": 0,
+					"search_value": "vpc_security_group_ids",
+					"expected_value": "aws_redshift_cluster[positive1].vpc_security_group_ids is set",
+					"actual_value": "aws_redshift_cluster[positive1].vpc_security_group_ids is undefined"
+				},
+				{
 					"file_name": "terraform\\aws\\redshift\\redshift_using_default_port.tf",
 					"similarity_id": "cb5c346c3b349e3d8b3b62fa8642fbc5fbcc5736cfa81f60f91976e6f8325820",
 					"line": 1,
@@ -5784,8 +6071,6 @@
 					"search_value": "cluster_subnet_group_name",
 					"expected_value": "aws_redshift_cluster[positive1].cluster_subnet_group_name is set",
 					"actual_value": "aws_redshift_cluster[positive1].cluster_subnet_group_name is undefined"
-				},
-				{
 					"file_name": "terraform\\aws\\redshift\\redshift_cluster.tf",
 					"similarity_id": "d58a2edd1fc98de407710edaadb14f9d7b9a5d6beda36ed89cf89f5c4de76dc7",
 					"line": 16,
@@ -5797,15 +6082,7 @@
 					"actual_value": "aws_redshift_cluster[fail].vpc_security_group_ids is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\redshift\\redshift_using_default_port.tf",
-					"similarity_id": "4e9d9f237b11f6bf20e1ad45ccce28dcf995ba3843b4ceccbb4ca1b3aa59c0e1",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_redshift_cluster[positive1]",
-					"search_line": 0,
-					"search_value": "vpc_security_group_ids",
-					"expected_value": "aws_redshift_cluster[positive1].vpc_security_group_ids is set",
-					"actual_value": "aws_redshift_cluster[positive1].vpc_security_group_ids is undefined"
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
 				}
 			]
 		},
@@ -5843,7 +6120,12 @@
 			"description_id": "edbcd7bc",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+					"issue_type": "IncorrectValue",
+					"search_line": 0,
+					"search_value": "",
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_bucket_access_to_any_principal.tf",
 					"similarity_id": "0583f6f6b4a625254ecc6dcb7f0360c79a7507da8d4050c69da450fc550668ee",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -5854,7 +6136,7 @@
 					"actual_value": "aws_s3_bucket_policy[b].policy accepts HTTP Requests"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_access_to_any_principal.tf",
+					"file_name": "terraform/aws/s3/s3.tf",
 					"similarity_id": "f27a6e5f7f967829abe0df8a7c9669ee131f00a931b83a41392ad00aba2d0561",
 					"line": 4,
 					"issue_type": "IncorrectValue",
@@ -5863,17 +6145,6 @@
 					"search_value": "",
 					"expected_value": "aws_s3_bucket_policy[positive1].policy does not accept HTTP Requests",
 					"actual_value": "aws_s3_bucket_policy[positive1].policy accepts HTTP Requests"
-				},
-				{
-					"file_name": "terraform\\aws\\s3\\s3.tf",
-					"similarity_id": "e741c5a308c5906806077ae93880f3216fd82353229242982d2dae16c853e110",
-					"line": 24,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_s3_bucket[fail].policy",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_s3_bucket[fail].policy does not accept HTTP Requests",
-					"actual_value": "aws_s3_bucket[fail].policy accepts HTTP Requests"
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_allows_all_actions_from_all_principals.tf",
@@ -5910,11 +6181,22 @@
 			"description_id": "7614ce3b",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
-					"similarity_id": "27029b4b0e552441718c665e648900d75d2f8f1a8a6f0ec1dae9479cc818ef91",
-					"line": 1,
+					"file_name": "terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
+					"similarity_id": "af9b30d92ec619940257d4ddd265f37e51540bbaf0d5331f66c7a0ff13f7f07b",
+					"line": 6,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[fail_mfa]",
+					"search_key": "aws_s3_bucket[positive1]",
+					"expected_value": "'versioning' is set to true",
+					"actual_value": "'versioning' is undefined or null"
+					"file_name": "terraform/aws/s3/s3_static_website_host_enabled.tf",
+					"similarity_id": "a7ff381e63f9215b14e7021fccacc59d52cc8119645bc6ecbd5d366eadb74bd0",
+					"line": 2,
+					"search_key": "aws_s3_bucket[fail_static]",
+					"file_name": "terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
+					"similarity_id": "a7ff381e63f9215b14e7021fccacc59d52cc8119645bc6ecbd5d366eadb74bd0",
+					"line": 2,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_s3_bucket[fail_static]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'versioning' is set to true",
@@ -5932,15 +6214,15 @@
 					"actual_value": "'versioning.enabled' is set to false"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3.tf",
-					"similarity_id": "22e3206f8cd38a642bbc80ed00866eeb3908abe9a1b5168fc2e43a5ab1f2c1db",
-					"line": 16,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_s3_bucket[fail].versioning.enabled",
+					"file_name": "terraform/aws/s3/s3.tf",
+					"similarity_id": "58b1cd8e40582868ab268ed2313db907020e43740571b7ae5eca4015eeb017b5",
+					"line": 5,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_s3_bucket[public_bucket]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'versioning.enabled' is set to true",
-					"actual_value": "'versioning.enabled' is set to false"
+					"expected_value": "'versioning' is set to true",
+					"actual_value": "'versioning' is undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
@@ -6022,22 +6304,22 @@
 			"description_id": "2f15b2d0",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\sns\\sns_topic.tf",
-					"similarity_id": "4c28ecb9a1f6310fd5224233931a96a7f29c73c5fd649fe5ad8fe9e1d19b9a0b",
-					"line": 7,
+					"file_name": "terraform/aws/sns/sns_topic.tf",
+					"similarity_id": "81916ae709ad1d901e0f143cab497ddd547e6509eabc8f790e157bb1b9a7b62f",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_sns_topic[fail]",
+					"search_key": "aws_sns_topic[positive1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "SNS Topic is encrypted",
 					"actual_value": "SNS Topic is not encrypted"
 				},
 				{
-					"file_name": "terraform\\aws\\sns\\sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
-					"similarity_id": "81916ae709ad1d901e0f143cab497ddd547e6509eabc8f790e157bb1b9a7b62f",
-					"line": 1,
+					"file_name": "terraform/aws/sns/sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
+					"similarity_id": "4c28ecb9a1f6310fd5224233931a96a7f29c73c5fd649fe5ad8fe9e1d19b9a0b",
+					"line": 7,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_sns_topic[positive1]",
+					"search_key": "aws_sns_topic[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "SNS Topic is encrypted",
@@ -6229,17 +6511,7 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
-					"similarity_id": "c688754dac6683e030e2442ba0ba1b752f0100f08605aabfaa88b7eaa26f0912",
-					"line": 6,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_public].ingress",
-					"search_line": 0,
-					"search_value": "TCP,2376",
-					"expected_value": "Docker (TCP:2376) should not be allowed",
-					"actual_value": "Docker (TCP:2376) is allowed"
-				},
-				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
 					"similarity_id": "b57d8f40742415a8e659abdb31ed9e6e94cc9a4868cb959583e70c0a5967a5bc",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -6251,6 +6523,83 @@
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "06c660de13a772b7b97ff5d45894bdf9dda9ebc3f629b9330f4c55033eb216a9",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "UDP,2484",
+					"expected_value": "Oracle DB SSL (UDP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (UDP:2484) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "ff467a5b8f38d4c250926a9e7e24e796c4b847643cf52c0212c7fa9fdab5c465",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "UDP,2382",
+					"expected_value": "SQL Server Analysis (UDP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (UDP:2382) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "c688754dac6683e030e2442ba0ba1b752f0100f08605aabfaa88b7eaa26f0912",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2376",
+					"expected_value": "Docker (TCP:2376) should not be allowed",
+					"actual_value": "Docker (TCP:2376) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "3abcc1445b9c717e69f6f9acec0414def81f8c6a7bbde2d5f7fbac0262e54e79",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "UDP,2483",
+					"expected_value": "Oracle DB SSL (UDP:2483) should not be allowed",
+					"actual_value": "Oracle DB SSL (UDP:2483) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "68b5d6d495571669b2f110b9a2d57254efe6b9a75d4251f65d66f29484b237f7",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2483",
+					"expected_value": "Oracle DB SSL (TCP:2483) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2483) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "e87f79870b9dea860ba991a06a14810d357e7e1cbffb1fae9da41f54ad3b1a9c",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2484",
+					"expected_value": "Oracle DB SSL (TCP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2484) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "4d1f076cf01dfa01636df0ddad952aca0a647c0c23802624a4d1917a90a5b257",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public].ingress",
+					"search_line": 0,
+					"search_value": "TCP,2382",
+					"expected_value": "SQL Server Analysis (TCP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
 					"similarity_id": "33ab6ba3935c8b134233b4a92e550f44775c5b45bb68d371222fa1294687edf6",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -6261,7 +6610,6 @@
 					"actual_value": "Docker (UDP:2375) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
 					"similarity_id": "e87f79870b9dea860ba991a06a14810d357e7e1cbffb1fae9da41f54ad3b1a9c",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -6305,7 +6653,6 @@
 					"actual_value": "SQL Server Analysis (TCP:2383) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
 					"similarity_id": "ff467a5b8f38d4c250926a9e7e24e796c4b847643cf52c0212c7fa9fdab5c465",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -6373,6 +6720,43 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_wide_private_network.tf",
+					"expected_value": "Oracle DB SSL (TCP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2484) is allowed"
+					"expected_value": "Oracle DB SSL (TCP:2483) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2483) is allowed"
+					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_private].ingress",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Oracle DB SSL (TCP:2483) should not be allowed",
+					"actual_value": "Oracle DB SSL (TCP:2483) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
+					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_private].ingress",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "SQL Server Analysis (TCP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
+					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_private].ingress",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Docker (TCP:2375) should not be allowed",
+					"actual_value": "Docker (TCP:2375) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
 					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -6390,8 +6774,19 @@
 					"search_key": "aws_security_group[fail_private].ingress",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "Docker (UDP:2375) should not be allowed",
-					"actual_value": "Docker (UDP:2375) is allowed"
+					"expected_value": "Docker (UDP:2376) should not be allowed",
+					"actual_value": "Docker (UDP:2376) is allowed"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
+					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
+					"line": 6,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_private].ingress",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Oracle DB SSL (UDP:2484) should not be allowed",
+					"actual_value": "Oracle DB SSL (UDP:2484) is allowed"
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_wide_private_network.tf",
@@ -6489,19 +6884,16 @@
 					"search_key": "aws_security_group[fail_private].ingress",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "SQL Server Analysis (TCP:2382) should not be allowed",
-					"actual_value": "SQL Server Analysis (TCP:2382) is allowed"
+					"expected_value": "SQL Server Analysis (UDP:2382) should not be allowed",
+					"actual_value": "SQL Server Analysis (UDP:2382) is allowed"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_wide_private_network.tf",
 					"similarity_id": "e6803f896173438411439e55c46580986abe0739b564cd3dc51b8a35cfd82d13",
 					"line": 6,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_security_group[fail_private].ingress",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "Docker (TCP:2375) should not be allowed",
-					"actual_value": "Docker (TCP:2375) is allowed"
 				}
 			]
 		},
@@ -6629,6 +7021,39 @@
 					"actual_value": "aws_vpc[vpc2] is not the same as Flow Logs VPC id"
 				},
 				{
+					"file_name": "terraform/aws/security_groups/vpc_default_security_group_accepts_all_traffic.tf",
+					"similarity_id": "a1c645d06a20a8314883b39910f44ad415d65ab0eec8c428c4b81640691ddfa0",
+					"line": 1,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_vpc[mainvpc]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_vpc[mainvpc] is the same as Flow Logs VPC id",
+					"actual_value": "aws_vpc[mainvpc] is not the same as Flow Logs VPC id"
+				},
+				{
+					"file_name": "terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
+					"similarity_id": "228aa19221f1aa498fd2ac0d274e0138fefec3958cfa88027d480c03c3ddcd0b",
+					"line": 12,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_vpc[main]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_vpc[main] is the same as Flow Logs VPC id",
+					"actual_value": "aws_vpc[main] is not the same as Flow Logs VPC id"
+				},
+				{
+					"file_name": "terraform/aws/vpc/vpc_peering_route_table_with_unrestricted_cidr.tf",
+					"similarity_id": "c724dc7894324ef985d3da5cfec83393a380ebac7244d7321860aa24bc2d3b53",
+					"line": 41,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_vpc[vpc1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_vpc[vpc1] is the same as Flow Logs VPC id",
+					"actual_value": "aws_vpc[vpc1] is not the same as Flow Logs VPC id"
+				},
+				{
 					"file_name": "terraform\\aws\\vpc\\vpc_without_network_firewall.tf",
 					"similarity_id": "f25017ddf431fee52453ae1a8dbd011b367ff0a7195c5411c3dc2b22458e02a0",
 					"line": 4,
@@ -6640,7 +7065,7 @@
 					"actual_value": "aws_vpc[positive] is not the same as Flow Logs VPC id"
 				},
 				{
-					"file_name": "terraform\\aws\\vpc\\vpc_peering_route_table_with_unrestricted_cidr.tf",
+					"file_name": "terraform/aws/security_groups/vpc_default_security_group_accepts_all_traffic.tf",
 					"similarity_id": "c724dc7894324ef985d3da5cfec83393a380ebac7244d7321860aa24bc2d3b53",
 					"line": 41,
 					"issue_type": "IncorrectValue",
@@ -6674,7 +7099,7 @@
 				},
 				{
 					"file_name": "terraform\\aws\\vpc\\nacl.tf",
-					"similarity_id": "6b7ccc46394f626bfee8d0394b600b42805d878cedaece562ca7a24cf18d9391",
+					"similarity_id": "a1c645d06a20a8314883b39910f44ad415d65ab0eec8c428c4b81640691ddfa0",
 					"line": 5,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_vpc[bad_vpc]",
@@ -6686,7 +7111,7 @@
 				{
 					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
 					"similarity_id": "228aa19221f1aa498fd2ac0d274e0138fefec3958cfa88027d480c03c3ddcd0b",
-					"line": 12,
+					"line": 1,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_vpc[main]",
 					"search_line": 0,
@@ -6730,7 +7155,27 @@
 			"description_id": "2e7d55e6",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\vpc\\nacl.tf",
+					"file_name": "terraform/aws/security_groups/vpc_default_security_group_accepts_all_traffic.tf",
+					"similarity_id": "ca4ac536e67ad9ff6b286a0b8e0f8e7a0de149a0c2fb5488b1996746940aa68a",
+					"line": 1,
+					"search_key": "aws_vpc[mainvpc]",
+					"expected_value": "aws_vpc[mainvpc] has an 'aws_networkfirewall_firewall' associated",
+					"actual_value": "aws_vpc[mainvpc] does not have an 'aws_networkfirewall_firewall' associated"
+					"file_name": "terraform/aws/vpc/nacl.tf",
+				},
+				{
+					"file_name": "terraform/aws/vpc/vpc_peering_route_table_with_unrestricted_cidr.tf",
+					"similarity_id": "60907cac7b5dea3178e499470998541f4e6301c9dba88f8ca6ebd54688822843",
+					"line": 4,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_vpc[positive]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_vpc[positive] has an 'aws_networkfirewall_firewall' associated",
+					"actual_value": "aws_vpc[positive] does not have an 'aws_networkfirewall_firewall' associated"
+				},
+				{
+					"file_name": "terraform/aws/vpc/nacl.tf",
 					"similarity_id": "ef056b4bdb04f814ed8c67b42f17d9f55fde8968ddef1dedf6632b8eba80db59",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -6739,17 +7184,6 @@
 					"search_value": "",
 					"expected_value": "aws_vpc[bad_vpc] has an 'aws_networkfirewall_firewall' associated",
 					"actual_value": "aws_vpc[bad_vpc] does not have an 'aws_networkfirewall_firewall' associated"
-				},
-				{
-					"file_name": "terraform\\aws\\vpc\\vpc_peering_route_table_with_unrestricted_cidr.tf",
-					"similarity_id": "4635d63fa869a5f9c722c68e67b63160426d4aae8720d79321358719eddff8d7",
-					"line": 41,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_vpc[vpc1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_vpc[vpc1] has an 'aws_networkfirewall_firewall' associated",
-					"actual_value": "aws_vpc[vpc1] does not have an 'aws_networkfirewall_firewall' associated"
 				},
 				{
 					"file_name": "terraform\\aws\\vpc\\vpc.tf",
@@ -6763,15 +7197,15 @@
 					"actual_value": "aws_vpc[eks_vpc] does not have an 'aws_networkfirewall_firewall' associated"
 				},
 				{
-					"file_name": "terraform\\aws\\vpc\\vpc_without_network_firewall.tf",
-					"similarity_id": "60907cac7b5dea3178e499470998541f4e6301c9dba88f8ca6ebd54688822843",
-					"line": 4,
+					"file_name": "terraform/aws/vpc/vpc_without_network_firewall.tf",
+					"similarity_id": "ca4ac536e67ad9ff6b286a0b8e0f8e7a0de149a0c2fb5488b1996746940aa68a",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_vpc[positive]",
+					"search_key": "aws_vpc[mainvpc]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_vpc[positive] has an 'aws_networkfirewall_firewall' associated",
-					"actual_value": "aws_vpc[positive] does not have an 'aws_networkfirewall_firewall' associated"
+					"expected_value": "aws_vpc[mainvpc] has an 'aws_networkfirewall_firewall' associated",
+					"actual_value": "aws_vpc[mainvpc] does not have an 'aws_networkfirewall_firewall' associated"
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\vpc_default_security_group_accepts_all_traffic.tf",
@@ -6797,14 +7231,14 @@
 				},
 				{
 					"file_name": "terraform\\aws\\vpc\\vpc_peering_route_table_with_unrestricted_cidr.tf",
-					"similarity_id": "d43751dd9a19aa9cf963b753a26ea2309e58112c9b0c1575037fccc15209aabe",
-					"line": 72,
+					"similarity_id": "4635d63fa869a5f9c722c68e67b63160426d4aae8720d79321358719eddff8d7",
+					"line": 41,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_vpc[vpc2]",
+					"search_key": "aws_vpc[vpc1]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_vpc[vpc2] has an 'aws_networkfirewall_firewall' associated",
-					"actual_value": "aws_vpc[vpc2] does not have an 'aws_networkfirewall_firewall' associated"
+					"expected_value": "aws_vpc[vpc1] has an 'aws_networkfirewall_firewall' associated",
+					"actual_value": "aws_vpc[vpc1] does not have an 'aws_networkfirewall_firewall' associated"
 				},
 				{
 					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
@@ -6852,7 +7286,6 @@
 					"actual_value": "'enable_deletion_protection' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\elb\\alb.tf",
 					"similarity_id": "c2330d56e14cd903eede48cc29c44a42b2119874b94219215cb7e4404433bc30",
 					"line": 12,
 					"issue_type": "MissingAttribute",
@@ -6883,6 +7316,17 @@
 					"search_value": "",
 					"expected_value": "'enable_deletion_protection' is defined and set to true",
 					"actual_value": "'enable_deletion_protection' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/lb/redirect.tf",
+					"similarity_id": "4b33e96e4d5a47ba7bc4a84f30c36b420db48aaee41b1978b9c71bf2f218636a",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_lb[lb_bad_1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'enable_deletion_protection' is defined and set to true",
+					"actual_value": "'enable_deletion_protection' is undefined or null"
 				}
 			]
 		},
@@ -6908,7 +7352,6 @@
 					"actual_value": "aws_api_gateway_deployment[fail] doesn't have a 'aws_api_gateway_usage_plan' resource associated."
 				},
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-rest-api-policy\\rest_api_with_vulnerable_policy.tf",
 					"similarity_id": "3fdfc27654c1af1c1d2f21a4bd7a9c945b9d7b922776d7d85c470911e734541f",
 					"line": 31,
 					"issue_type": "IncorrectValue",
@@ -6931,9 +7374,12 @@
 			"description_id": "72d08d94",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\api-gateway\\api-gateway-deployment\\api_gateway_deployment_without_access_log_setting.tf",
-					"similarity_id": "f009afe7d7dcae335a5d065f7877609c89fd323d9380cdc4d113b68ca879349b",
-					"line": 13,
+					"file_name": "terraform/aws/api-gateway/api-gateway-stage/api_gateway_stage.tf",
+					"similarity_id": "0384556b84c2844a0e6a5100e5f8149e68c4fb810602c06b3fca80f6a4ad648d",
+					"line": 8,
+					"file_name": "terraform/aws/api-gateway/api-gateway-deployment/api_gateway_deployment_without_access_log_setting.tf",
+					"similarity_id": "0384556b84c2844a0e6a5100e5f8149e68c4fb810602c06b3fca80f6a4ad648d",
+					"line": 8,
 					"issue_type": "IncorrectValue",
 					"search_key": "aws_api_gateway_stage[fail]",
 					"search_line": 0,
@@ -6983,19 +7429,19 @@
 					"search_key": "resource.aws_cloudfront_distribution[s3_distribution]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "resource.aws_cloudfront_distribution[s3_distribution].origin is defined",
-					"actual_value": "resource.aws_cloudfront_distribution[s3_distribution].origin is not defined"
+					"expected_value": "resource.aws_cloudfront_distribution[s3_distribution].enabled is set to 'true'",
+					"actual_value": "resource.aws_cloudfront_distribution[s3_distribution].enabled is not defined"
 				},
 				{
-					"file_name": "terraform\\aws\\cloudfront\\cloudfront.tf",
+					"file_name": "terraform/aws/cloudfront/cloudfront_configuration_is_missing.tf",
 					"similarity_id": "724f1209eb4dc8e4b3eab768abc4811c80848388df3faa243a003780dc42daaf",
 					"line": 13,
 					"issue_type": "MissingAttribute",
 					"search_key": "resource.aws_cloudfront_distribution[s3_distribution]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "resource.aws_cloudfront_distribution[s3_distribution].enabled is set to 'true'",
-					"actual_value": "resource.aws_cloudfront_distribution[s3_distribution].enabled is not defined"
+					"expected_value": "resource.aws_cloudfront_distribution[fail].enabled is set to 'true'",
+					"actual_value": "resource.aws_cloudfront_distribution[fail].enabled is configured as 'false'"
 				}
 			]
 		},
@@ -7036,22 +7482,16 @@
 			"description_id": "8fa5ef1b",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\cloudfront\\cloudfront.tf",
-					"similarity_id": "65fa184e40d1eee8168c1d630604137d0e3470c5944a94e8815c28d1443553ba",
-					"line": 13,
+					"file_name": "terraform/aws/cloudfront/cloudfront.tf",
+					"file_name": "terraform/aws/cloudfront/cloudfront_configuration_is_missing.tf",
+					"similarity_id": "c958f9cd11cc840938487d50e9e0eef70b577c88556571f4c196f6694f8e3657",
+					"line": 7,
+					"search_key": "aws_cloudfront_distribution[fail].web_acl_id",
+					"file_name": "terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
+					"similarity_id": "3570b0d2482580dfc561bb9062f0bf9c3ef23f111103cfeb30ef542397b29ace",
+					"line": 11,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_cloudfront_distribution[s3_distribution].web_acl_id",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'web_acl_id' exists",
-					"actual_value": "'web_acl_id' is missing"
-				},
-				{
-					"file_name": "terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
-					"similarity_id": "94f0d5ddeecb3fbd51f6352b5bbd197b86e5671019dd83dca91b6bdf0b3440bd",
-					"line": 5,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_cloudfront_distribution[fail_defaultcert].web_acl_id",
+					"search_key": "aws_cloudfront_distribution[positive2].web_acl_id",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'web_acl_id' exists",
@@ -7170,6 +7610,17 @@
 					"search_value": "",
 					"expected_value": "aws_ecr_repository[positive1] has policies attached",
 					"actual_value": "aws_ecr_repository[positive1] doesn't have policies attached"
+				},
+				{
+					"file_name": "terraform/aws/ecr/ecr_repository.tf",
+					"similarity_id": "097d0edac720d7afcadb2820b7a529f5c6aaee1c005e795addb02428a538dfdb",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_ecr_repository[name]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_ecr_repository[name] has policies attached",
+					"actual_value": "aws_ecr_repository[name] doesn't have policies attached"
 				}
 			]
 		},
@@ -7264,18 +7715,7 @@
 			"description_id": "86cc0d57",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\elasticache\\elasticache_without_vpc.tf",
-					"similarity_id": "88f6b40c150345e5e2951cd1954dedb6b99a255bce2a243d9fe9e94560ffa3da",
-					"line": 9,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_elasticache_cluster[fail_vpc].port",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'port' is not set to 11211",
-					"actual_value": "'port' is set to 11211"
-				},
-				{
-					"file_name": "terraform\\aws\\elasticache\\redis_not_compliant.tf",
+					"file_name": "terraform/aws/elasticache/elasticache_without_vpc.tf",
 					"similarity_id": "5ca110648e409a8979a72c993cb3d5cc6b5e7ab186096d31c4dcbfbd9ab65713",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -7286,6 +7726,7 @@
 					"actual_value": "'port' is set to 6379"
 				},
 				{
+					"file_name": "terraform/aws/elasticache/redis_not_compliant.tf",
 					"file_name": "terraform\\aws\\elasticache\\elasticache_cluster.tf",
 					"similarity_id": "776cdd3761ecac17e4aa7e8692ccf60653b2e3ebb9254f017a3d8a00cfa6cf22",
 					"line": 7,
@@ -7306,6 +7747,17 @@
 					"search_value": "",
 					"expected_value": "aws_elasticache_cluster.port is defined and not null",
 					"actual_value": "aws_elasticache_cluster.port is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/elasticache/elasticache_without_vpc.tf",
+					"similarity_id": "88f6b40c150345e5e2951cd1954dedb6b99a255bce2a243d9fe9e94560ffa3da",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_elasticache_cluster[fail_vpc].port",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'port' is not set to 11211",
+					"actual_value": "'port' is set to 11211"
 				}
 			]
 		},
@@ -7423,17 +7875,7 @@
 			"files": [
 				{
 					"file_name": "terraform\\aws\\iam\\group\\iam_group_without_users.tf",
-					"similarity_id": "320178e73d4e92eb62d71c6c7709e4b7e78801038e326be7fd41a6b86f446710",
-					"line": 12,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_iam_group[group2]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_iam_group[group2] is associated with an aws_iam_group_membership that has at least one user set",
-					"actual_value": "aws_iam_group[group2] is not associated with an aws_iam_group_membership that has at least one user set"
-				},
-				{
-					"file_name": "terraform\\aws\\iam\\group\\iam_group_without_users.tf",
+					"file_name": "terraform/aws/iam/group/iam_group_without_users.tf",
 					"similarity_id": "dd49666765eae59a0993768e71e243c7425775351a68f9e5897dc112da424e0f",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -7442,6 +7884,17 @@
 					"search_value": "",
 					"expected_value": "aws_iam_group[group3] is associated with an aws_iam_group_membership that has at least one user set",
 					"actual_value": "aws_iam_group[group3] is not associated with an aws_iam_group_membership that has at least one user set"
+				},
+				{
+					"file_name": "terraform/aws/iam/group/iam_group_without_users.tf",
+					"similarity_id": "320178e73d4e92eb62d71c6c7709e4b7e78801038e326be7fd41a6b86f446710",
+					"line": 12,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_iam_group[group2]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_iam_group[group2] is associated with an aws_iam_group_membership that has at least one user set",
+					"actual_value": "aws_iam_group[group2] is not associated with an aws_iam_group_membership that has at least one user set"
 				}
 			]
 		},
@@ -7456,11 +7909,48 @@
 			"description_id": "32ec58ec",
 			"files": [
 				{
+					"file_name": "terraform/aws/iam/iam_root_account_has_active_access_keys.tf",
+					"similarity_id": "b892f3d38861c482a7a0bc6c4edee09ecdeb6ecc730b816c7862bfdcaf875962",
+					"line": 16,
+					"search_key": "aws_iam_user_policy[{{fail_key}}].user",
+					"file_name": "terraform/aws/iam/iam_root_account_has_active_access_keys.tf",
+					"similarity_id": "b892f3d38861c482a7a0bc6c4edee09ecdeb6ecc730b816c7862bfdcaf875962",
+					"line": 16,
+					"issue_type": "RedundantAttribute",
+					"search_key": "aws_iam_user_policy[{{fail_key}}].user",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'user' is redundant",
+					"actual_value": "'user' exists"
+				},
+				{
 					"file_name": "terraform\\aws\\iam\\iam_authentication_without_mfa.tf",
 					"similarity_id": "7f5d865c4a069928335643c80836d3902c16851f815b17efa9f4462af3c11b45",
 					"line": 23,
 					"issue_type": "RedundantAttribute",
 					"search_key": "aws_iam_user_policy[{{mfa}}].user",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'user' is redundant",
+					"actual_value": "'user' exists"
+				},
+				{
+					"file_name": "terraform/aws/iam/iam.tf",
+					"similarity_id": "0fe357ccf1f4e0ae546332d3e5a02945272f8f2cd0980da49b5489b2e3b55711",
+					"line": 9,
+					"issue_type": "RedundantAttribute",
+					"search_key": "aws_iam_policy_attachment[{{fail}}].users",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'users' is redundant",
+					"actual_value": "'users' exists"
+				},
+				{
+					"file_name": "terraform/aws/iam/iam.tf",
+					"similarity_id": "527ad4b98e33e7f269b4321668fba73e519c87c9210c0db0f8860f734b4c50b5",
+					"line": 13,
+					"issue_type": "RedundantAttribute",
+					"search_key": "aws_iam_user_policy[{{fail}}].user",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'user' is redundant",
@@ -7489,17 +7979,7 @@
 					"actual_value": "'users' exists"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policy_grants_full_permissions.tf",
-					"similarity_id": "ab7e442e08498305a4de05e74f8eecf22f247676c686f2529689ce22a1fc6256",
-					"line": 18,
-					"issue_type": "RedundantAttribute",
-					"search_key": "aws_iam_user_policy[{{positive3}}].user",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'user' is redundant",
-					"actual_value": "'user' exists"
-				},
-				{
+					"file_name": "terraform/aws/iam/policy/iam_policy_grants_full_permissions.tf",
 					"file_name": "terraform\\aws\\iam\\iam.tf",
 					"similarity_id": "a39b1e6725381de76a3356be840f74c6a02a0a5753cdbf6d4dc0ac4d7d4f7c11",
 					"line": 29,
@@ -7523,10 +8003,10 @@
 				},
 				{
 					"file_name": "terraform\\aws\\iam\\iam.tf",
-					"similarity_id": "527ad4b98e33e7f269b4321668fba73e519c87c9210c0db0f8860f734b4c50b5",
-					"line": 13,
+					"similarity_id": "a39b1e6725381de76a3356be840f74c6a02a0a5753cdbf6d4dc0ac4d7d4f7c11",
+					"line": 29,
 					"issue_type": "RedundantAttribute",
-					"search_key": "aws_iam_user_policy[{{fail}}].user",
+					"search_key": "aws_iam_user_policy_attachment[{{fail}}].user",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'user' is redundant",
@@ -7556,22 +8036,22 @@
 			"description_id": "948aa2ac",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\iam\\policy\\iam_policy_grants_assumerole_permission_across_all_services.tf",
-					"similarity_id": "4cb2f3a2ec8e4144ed568b9ec68822e25c2c3af724c8ba6a5fddd4061fa4d7c7",
-					"line": 7,
+					"file_name": "terraform/aws/iam/policy/iam_policy_grants_assumerole_permission_across_all_services.tf",
+					"similarity_id": "feb42b18929fb2b1505a1e00c3698903d8f24a8d19542d6ab651e4978af5bfd9",
+					"line": 6,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_role[positive1].assume_role_policy",
+					"search_key": "aws_iam_role[lambda].assume_role_policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'assume_role_policy.Statement.Principal' doesn't contain '*'",
 					"actual_value": "'assume_role_policy.Statement.Principal' contains '*'"
 				},
 				{
-					"file_name": "terraform\\aws\\iam\\role\\IAMRoleAllowsPublicAssume.tf",
-					"similarity_id": "feb42b18929fb2b1505a1e00c3698903d8f24a8d19542d6ab651e4978af5bfd9",
-					"line": 6,
+					"file_name": "terraform/aws/iam/role/IAMRoleAllowsPublicAssume.tf",
+					"similarity_id": "4cb2f3a2ec8e4144ed568b9ec68822e25c2c3af724c8ba6a5fddd4061fa4d7c7",
+					"line": 7,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_iam_role[lambda].assume_role_policy",
+					"search_key": "aws_iam_role[positive1].assume_role_policy",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'assume_role_policy.Statement.Principal' doesn't contain '*'",
@@ -7624,6 +8104,28 @@
 			"description_id": "2f90e1e9",
 			"files": [
 				{
+					"file_name": "terraform/aws/lambda/lambda_with_vulnerable_policy.tf",
+					"similarity_id": "d4176a849cd4001ff02ef7b9ad183c1854e4ceb44002c13d30419db46cd0e8c0",
+					"line": 5,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_lambda_function[my_lambda]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_lambda_function[my_lambda].tracing_config is defined and not null",
+					"actual_value": "aws_lambda_function[my_lambda].tracing_config is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/lambda/lambda.tf",
+					"similarity_id": "1c09c2a3db1a95297c597dbabf6116c9f20e65a3f2e95ad184a083d181c86448",
+					"line": 13,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_lambda_function[morefail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_lambda_function[morefail].tracing_config is defined and not null",
+					"actual_value": "aws_lambda_function[morefail].tracing_config is undefined or null"
+				},
+				{
 					"file_name": "terraform\\aws\\lambda\\lambda_with_vulnerable_policy.tf",
 					"similarity_id": "d4176a849cd4001ff02ef7b9ad183c1854e4ceb44002c13d30419db46cd0e8c0",
 					"line": 5,
@@ -7635,18 +8137,8 @@
 					"actual_value": "aws_lambda_function[my_lambda].tracing_config is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\lambda\\lambda.tf",
-					"similarity_id": "1c09c2a3db1a95297c597dbabf6116c9f20e65a3f2e95ad184a083d181c86448",
-					"line": 13,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_lambda_function[morefail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_lambda_function[morefail].tracing_config is defined and not null",
-					"actual_value": "aws_lambda_function[morefail].tracing_config is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+					"file_name": "terraform/aws/lambda/lambda.tf",
+					"file_name": "terraform/aws/lambda/lambda_with_vulnerable_policy.tf",
 					"similarity_id": "7c4ec03aff43bcab86f32a9fdac50fb4bc8937176b979e99199d7ff585fbb276",
 					"line": 21,
 					"issue_type": "MissingAttribute",
@@ -7658,14 +8150,11 @@
 				},
 				{
 					"file_name": "terraform\\aws\\lambda\\public_lambda_via_api_gateway.tf",
-					"similarity_id": "9b3bd3a52ca9ed8858d014bbc8305ad8c895ebfdc7e6c4cfeea5119289fe41cc",
-					"line": 12,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_lambda_function[example]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_lambda_function[example].tracing_config is defined and not null",
-					"actual_value": "aws_lambda_function[example].tracing_config is undefined or null"
+					"similarity_id": "d4176a849cd4001ff02ef7b9ad183c1854e4ceb44002c13d30419db46cd0e8c0",
+					"line": 5,
+					"search_key": "aws_lambda_function[my_lambda]",
+					"expected_value": "aws_lambda_function[my_lambda].tracing_config is defined and not null",
+					"actual_value": "aws_lambda_function[my_lambda].tracing_config is undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
@@ -7772,6 +8261,14 @@
 			]
 		},
 		{
+					"file_name": "terraform/aws/redshift/redshift_cluster.tf",
+					"similarity_id": "0397e69138311b734e20e86164777bc8bcd939ed76179292d8bd59fbc99b6a2e",
+					"line": 16,
+					"search_key": "aws_redshift_cluster[fail]",
+					"file_name": "terraform/aws/redshift/redshift_using_default_port.tf",
+					"similarity_id": "da057627dbab22ab5215bc3eb99873f66904c268d783d281cff46d756394d1a9",
+					"line": 1,
+					"search_key": "aws_redshift_cluster[positive1]",
 			"query_name": "S3 Bucket Logging Disabled",
 			"query_id": "f861041c-8c9f-4156-acfc-5e6e524f5884",
 			"query_url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket",
@@ -7782,18 +8279,10 @@
 			"description_id": "fa5c7c72",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
-					"similarity_id": "236828e783223c571ba17cc20f57f21346bd59a78ff70cb3016daff4288b70b6",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'logging' is defined and not null",
-					"actual_value": "'logging' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+					"file_name": "terraform/aws/s3/s3_static_website_host_enabled.tf",
+					"similarity_id": "025215ca0d68d1258b6b4e6360ed4ea7c2186539d8b20f684aeb7142cd78af1a",
+					"file_name": "terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
+					"file_name": "terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
 					"similarity_id": "0581d1afc50626e5392b3126458a2094668b1cb02450380f36e2f4fa663ae2b8",
 					"line": 1,
 					"issue_type": "MissingAttribute",
@@ -7805,17 +8294,10 @@
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3.tf",
-					"similarity_id": "16459feb1c72884015c784afe21a3177eb77c470f45c00a4ae3371ba6e8da832",
-					"line": 11,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'logging' is defined and not null",
-					"actual_value": "'logging' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
+					"similarity_id": "5ebbf89bdecd17a118519b6a7adeccc06af55408da87e92171750367cf7aba0a",
+					"line": 6,
+					"search_key": "aws_s3_bucket[positive1]",
+					"file_name": "terraform/aws/cloudfront/cloudfront_configuration_is_missing.tf",
 					"similarity_id": "99b7f511996b3609e7dcb0b24e45f587a59fc2f4f3e83de28ba97c45e36b8569",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -7827,10 +8309,9 @@
 				},
 				{
 					"file_name": "terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
-					"similarity_id": "025215ca0d68d1258b6b4e6360ed4ea7c2186539d8b20f684aeb7142cd78af1a",
-					"line": 2,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[fail_static]",
+					"similarity_id": "7b3f9ed11138b49d92b446adcce71b4f4a73ade2a601baf1ead5d86a74c467cc",
+					"line": 73,
+					"search_key": "aws_s3_bucket[b]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'logging' is defined and not null",
@@ -7848,11 +8329,44 @@
 					"actual_value": "'logging' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
-					"similarity_id": "0be0d0dda1c01b42086ec9e543586192fac39d2772b168579206fe1f3ff77f10",
+					"file_name": "terraform/aws/s3/s3.tf",
+					"similarity_id": "16459feb1c72884015c784afe21a3177eb77c470f45c00a4ae3371ba6e8da832",
+					"line": 11,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_s3_bucket[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'logging' is defined and not null",
+					"actual_value": "'logging' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
+					"similarity_id": "236828e783223c571ba17cc20f57f21346bd59a78ff70cb3016daff4288b70b6",
 					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_s3_bucket[b]",
+					"search_key": "aws_s3_bucket[positive1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'logging' is defined and not null",
+					"actual_value": "'logging' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
+					"similarity_id": "0581d1afc50626e5392b3126458a2094668b1cb02450380f36e2f4fa663ae2b8",
+					"line": 2,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_s3_bucket[fail_static]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'logging' is defined and not null",
+					"actual_value": "'logging' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/s3/s3_bucket_with_all_permissions.tf",
+					"similarity_id": "90e94d8ab73e0986ec4f1240e7b0d834262274283ffc64bd8fd93c9ba847b7f8",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_s3_bucket[fail_mfa]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'logging' is defined and not null",
@@ -7920,17 +8434,36 @@
 			"description_id": "e09b31c7",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\vpc\\vpc_peering_route_table_with_unrestricted_cidr.tf",
-					"similarity_id": "e6200ce28824ad719afed86e2cf97a5d6727feeb856ae10762d3b5be67b7b4cb",
-					"line": 90,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_eip[nat]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "aws_eip has shield advanced associated",
-					"actual_value": "aws_eip does not have shield advanced associated"
+					"similarity_id": "5b6ce2071fdc369b45edfd5c496dca5021d80ebab51328df666fca72ea3e2a15",
+					"line": 1,
+					"search_key": "aws_cloudfront_distribution[s3_distribution]",
+					"file_name": "terraform/aws/vpc/vpc_peering_route_table_with_unrestricted_cidr.tf",
+					"file_name": "terraform/aws/cloudfront/cloudfront_configuration_is_missing.tf",
+					"similarity_id": "1972453c689e3e5f2f2141b0fec20cf7abffe7871751f9a848107563a60d3f47",
+					"line": 7,
+					"search_key": "aws_cloudfront_distribution[fail]",
 				},
 				{
+					"file_name": "terraform/aws/route53/cloudwatch_logging_disabled.tf",
+					"similarity_id": "92e94f96ea7c078dd28fb8dd358a417f13ccec5c5cb12744d7f45bf7cd5c0114",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_route53_zone[no_query_log]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_route53_zone has shield advanced associated",
+					"actual_value": "aws_route53_zone does not have shield advanced associated"
+				},
+				{
+					"file_name": "terraform/aws/globacc/globacc.tf",
+					"similarity_id": "e7468eaf57e8b0b2517b0361ef865495c385bec07a38459017b5c135f4507f10",
+					"line": 4,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_globalaccelerator_accelerator[example]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_globalaccelerator_accelerator has shield advanced associated",
+					"actual_value": "aws_globalaccelerator_accelerator does not have shield advanced associated"
 					"file_name": "terraform\\aws\\eip\\eip.tf",
 					"similarity_id": "3d33c1be939db941803dcedc26b32ccf1c841c9b2327307db6c5046aaa81bb4b",
 					"line": 4,
@@ -7975,18 +8508,11 @@
 					"actual_value": "aws_lb does not have shield advanced associated"
 				},
 				{
-					"file_name": "terraform\\aws\\route53\\cloudwatch_logging_disabled.tf",
-					"similarity_id": "92e94f96ea7c078dd28fb8dd358a417f13ccec5c5cb12744d7f45bf7cd5c0114",
-					"line": 3,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_route53_zone[no_query_log]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_route53_zone has shield advanced associated",
-					"actual_value": "aws_route53_zone does not have shield advanced associated"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\security_groups_not_used.tf",
 					"similarity_id": "5b6ce2071fdc369b45edfd5c496dca5021d80ebab51328df666fca72ea3e2a15",
 					"line": 1,
 					"issue_type": "MissingAttribute",
@@ -7997,7 +8523,6 @@
 					"actual_value": "aws_lb does not have shield advanced associated"
 				},
 				{
-					"file_name": "terraform\\aws\\lb\\redirect.tf",
 					"similarity_id": "f4bbc760716c2b3aa1a121cdf2eeb8dc88d8fd2b9076c913dc78ea34e11b8da0",
 					"line": 9,
 					"issue_type": "MissingAttribute",
@@ -8009,7 +8534,6 @@
 				},
 				{
 					"file_name": "terraform\\aws\\globacc\\globacc.tf",
-					"similarity_id": "e7468eaf57e8b0b2517b0361ef865495c385bec07a38459017b5c135f4507f10",
 					"line": 4,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_globalaccelerator_accelerator[example]",
@@ -8021,7 +8545,6 @@
 				{
 					"file_name": "terraform\\aws\\cloudfront\\cloudfront.tf",
 					"similarity_id": "680a591e099ed9995c663b323c75c73107a42ee5d9f51475e11177da85839270",
-					"line": 13,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_cloudfront_distribution[s3_distribution]",
 					"search_line": 0,
@@ -8034,7 +8557,6 @@
 					"similarity_id": "a3b817824f1c86139a9217580f336f8d4eae483fb3e4eddcc1d3b2d8c7f76e81",
 					"line": 8,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_route53_zone[log_group_mismatch]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_route53_zone has shield advanced associated",
@@ -8053,22 +8575,22 @@
 			"description_id": "205ac3d1",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
-					"similarity_id": "e8359a51f5ca163267ae3009717011331f79c22f16c4cbbe98a874ead090935a",
-					"line": 99,
+					"file_name": "terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+					"similarity_id": "76340227587d7aa42c14d4c7bb39b309a1c2736282e1aff8b5adce419ce4b9b2",
+					"line": 10,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_dynamodb_table[{{basic_dynamodb_table}}]",
+					"search_key": "aws_dynamodb_table[{{default}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_dynamodb_table.point_in_time_recovery.enabled is enabled",
 					"actual_value": "aws_dynamodb_table.point_in_time_recovery is missing"
 				},
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_table.tf",
-					"similarity_id": "76340227587d7aa42c14d4c7bb39b309a1c2736282e1aff8b5adce419ce4b9b2",
-					"line": 10,
+					"file_name": "terraform/aws/dynamodb/dynamodb_table.tf",
+					"similarity_id": "e8359a51f5ca163267ae3009717011331f79c22f16c4cbbe98a874ead090935a",
+					"line": 99,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_dynamodb_table[{{default}}]",
+					"search_key": "aws_dynamodb_table[{{basic_dynamodb_table}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "aws_dynamodb_table.point_in_time_recovery.enabled is enabled",
@@ -8098,15 +8620,7 @@
 					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=fail)"
 				},
 				{
-					"file_name": "terraform\\aws\\instance\\ec2_instance_using_default_security_group.tf",
-					"similarity_id": "688342997987c64c5cb3d9eb71a46bcfa20b7932f31dc87f08041b33ff37b1ec",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance.{{positive1}}",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'monitoring' is defined and not null%!(EXTRA string=positive1)",
-					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=positive1)"
+					"file_name": "terraform/aws/instance/ec2_instance_using_default_security_group.tf",
 				},
 				{
 					"file_name": "terraform\\aws\\instance\\ec2_not_ebs_optimized.tf",
@@ -8142,15 +8656,9 @@
 					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=test)"
 				},
 				{
-					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
-					"similarity_id": "335b92cb3b63818c9a20693b04c9c8329bbc769e61ea09ce637cfb579dc6e7f1",
-					"line": 90,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance.{{test_ec2_instance}}",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'monitoring' is defined and not null%!(EXTRA string=test_ec2_instance)",
-					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=test_ec2_instance)"
 				},
 				{
 					"file_name": "terraform\\aws\\instance\\ec2_instance_monitoring_disabled.tf",
@@ -8162,6 +8670,28 @@
 					"search_value": "",
 					"expected_value": "'monitoring' is defined and not null%!(EXTRA string=monitoring_positive1)",
 					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=monitoring_positive1)"
+				},
+				{
+					"file_name": "terraform/aws/instance/ec2_instance_using_default_security_group.tf",
+					"similarity_id": "688342997987c64c5cb3d9eb71a46bcfa20b7932f31dc87f08041b33ff37b1ec",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_instance.{{positive1}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'monitoring' is defined and not null%!(EXTRA string=positive1)",
+					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=positive1)"
+				},
+				{
+					"file_name": "terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
+					"similarity_id": "335b92cb3b63818c9a20693b04c9c8329bbc769e61ea09ce637cfb579dc6e7f1",
+					"line": 90,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_instance.{{test_ec2_instance}}",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'monitoring' is defined and not null%!(EXTRA string=test_ec2_instance)",
+					"actual_value": "'monitoring' is undefined or null%!(EXTRA string=test_ec2_instance)"
 				}
 			]
 		},
@@ -8176,6 +8706,14 @@
 			"description_id": "ddce4bd9",
 			"files": [
 				{
+					"file_name": "terraform/aws/instance/instance.tf",
+					"similarity_id": "6d8efae79a79952161696ea91258f7622cd9d39a446d981581c3f5df10ba81ae",
+					"line": 14,
+					"search_key": "aws_instance[{{test}}]",
+					"file_name": "terraform/aws/instance/ec2_instance_using_default_security_group.tf",
+					"similarity_id": "83fb2dcd4e5281e3cf6d77689c457bf5377cc549598e9280ab7e104f03cd04be",
+					"line": 1,
+					"search_key": "aws_instance[{{positive1}}]",
 					"file_name": "terraform\\aws\\instance\\instance_with_no_vpc.tf",
 					"similarity_id": "291766bde6b94ab6fe8d37968309b8457b6dd120d2fa0e796055b1c196b67fa1",
 					"line": 1,
@@ -8220,18 +8758,17 @@
 					"actual_value": "'ebs_optimized' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\instance\\ec2_instance_monitoring_disabled.tf",
-					"similarity_id": "9c3f4363190a69f55a71cb41a4a4af35d54ebe2cb6a9d2136fdbeae582a1982c",
-					"line": 17,
+					"file_name": "terraform/aws/instance/ec2_instance_monitoring_disabled.tf",
+					"similarity_id": "83fb2dcd4e5281e3cf6d77689c457bf5377cc549598e9280ab7e104f03cd04be",
+					"line": 1,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_instance[{{monitoring_positive1}}]",
+					"search_key": "aws_instance[{{positive1}}]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'ebs_optimized' is set to true",
 					"actual_value": "'ebs_optimized' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 					"similarity_id": "22765c1591b6c88d9900e8001e5409b0f9913fcd85020f7ba27c04b4448473ea",
 					"line": 91,
 					"issue_type": "MissingAttribute",
@@ -8265,6 +8802,28 @@
 			"description_id": "c745bca6",
 			"files": [
 				{
+					"file_name": "terraform/aws/elb/elb_using_weak_ciphers.tf",
+					"similarity_id": "d02b185580db96e876279401171c0a5b75a6503b413259210bc56678d3f74101",
+					"line": 3,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_elb[{{fail}}]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_elb[{{fail}}].access_logs' is defined and not null",
+					"actual_value": "'aws_elb[{{fail}}].access_logs' is undefined or null"
+				},
+				{
+					"file_name": "terraform/aws/autoscaling/ELB.tf",
+					"similarity_id": "350a722e9b2296f60254f116ac5e857d0a2046b9e71cb9a591165898d57ee28b",
+					"line": 29,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_elb[{{test_bad}}]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_elb[{{test_bad}}].access_logs' is defined and not null",
+					"actual_value": "'aws_elb[{{test_bad}}].access_logs' is undefined or null"
+				},
+				{
 					"file_name": "terraform\\aws\\elb\\elb.tf",
 					"similarity_id": "7d1ee4e8caac875dcb58c84376278b5991c65bea3cfe916b7f59eec77eba9fb0",
 					"line": 5,
@@ -8285,28 +8844,8 @@
 					"search_value": "",
 					"expected_value": "'aws_elb[{{wu_tang}}].access_logs' is defined and not null",
 					"actual_value": "'aws_elb[{{wu_tang}}].access_logs' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\autoscaling\\ELB.tf",
-					"similarity_id": "350a722e9b2296f60254f116ac5e857d0a2046b9e71cb9a591165898d57ee28b",
-					"line": 29,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_elb[{{test_bad}}]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_elb[{{test_bad}}].access_logs' is defined and not null",
-					"actual_value": "'aws_elb[{{test_bad}}].access_logs' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\aws\\elb\\elb_using_weak_ciphers.tf",
-					"similarity_id": "d02b185580db96e876279401171c0a5b75a6503b413259210bc56678d3f74101",
-					"line": 3,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_elb[{{fail}}]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_elb[{{fail}}].access_logs' is defined and not null",
-					"actual_value": "'aws_elb[{{fail}}].access_logs' is undefined or null"
+					"file_name": "terraform/aws/autoscaling/ELB.tf",
+					"file_name": "terraform/aws/elb/elb_using_weak_ciphers.tf",
 				}
 			]
 		},
@@ -8344,6 +8883,28 @@
 			"description_id": "c499a58c",
 			"files": [
 				{
+					"file_name": "terraform/aws/cert/ca_certificate_identifier_is_outdated.tf",
+					"similarity_id": "27da6d1aee8cf04b686ef6624fdaa98cd4ac4a788f773e1850aa9f0a55de5b43",
+					"line": 6,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_db_instance[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'enabled_cloudwatch_logs_exports' is defined",
+					"actual_value": "'enabled_cloudwatch_logs_exports' is undefined"
+				},
+				{
+					"file_name": "terraform/aws/rds/rds_using_default_port.tf",
+					"similarity_id": "808413806877c0e2d063aef81b5eb2899721ed4863be817c6a09dddb5a17ab23",
+					"line": 1,
+					"issue_type": "MissingAttribute",
+					"search_key": "aws_db_instance[positive1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'enabled_cloudwatch_logs_exports' is defined",
+					"actual_value": "'enabled_cloudwatch_logs_exports' is undefined"
+				},
+				{
 					"file_name": "terraform\\aws\\db_instance\\db_instance.tf",
 					"similarity_id": "76ac5a1ce32c5cc5b66b18c4b2a9f4e5e797fde0b525e97855dea1ca7d096519",
 					"line": 15,
@@ -8366,33 +8927,16 @@
 					"actual_value": "'enabled_cloudwatch_logs_exports' is undefined"
 				},
 				{
-					"file_name": "terraform\\aws\\rds\\rds_using_default_port.tf",
-					"similarity_id": "808413806877c0e2d063aef81b5eb2899721ed4863be817c6a09dddb5a17ab23",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_db_instance[positive1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'enabled_cloudwatch_logs_exports' is defined",
-					"actual_value": "'enabled_cloudwatch_logs_exports' is undefined"
-				},
-				{
+					"file_name": "terraform/aws/rds/rds_using_default_port.tf",
 					"file_name": "terraform\\aws\\cert\\ca_certificate_identifier_is_outdated.tf",
 					"similarity_id": "27da6d1aee8cf04b686ef6624fdaa98cd4ac4a788f773e1850aa9f0a55de5b43",
 					"line": 6,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_db_instance[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'enabled_cloudwatch_logs_exports' is defined",
-					"actual_value": "'enabled_cloudwatch_logs_exports' is undefined"
-				},
-				{
-					"file_name": "terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
-					"similarity_id": "c2653148e7efd7c6e03e412f559cbb6a88753c2838c6d36932ccac211499d9d3",
-					"line": 1,
-					"issue_type": "MissingAttribute",
-					"search_key": "aws_db_instance[positive1]",
+					"file_name": "terraform/aws/cert/ca_certificate_identifier_is_outdated.tf",
+					"similarity_id": "c046593facbfa6f62fdff5fa42c122c5ac69c309ca90c84d6ce003d15ec83497",
+					"line": 3,
+					"search_key": "aws_db_instance[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'enabled_cloudwatch_logs_exports' is defined",
@@ -8434,15 +8978,18 @@
 			"description_id": "eff2383a",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
-					"similarity_id": "5916a0e413e051403b28acd0cf0b86a2ffeba12b5912fecb4b59a3fb8ce0109b",
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
+					"similarity_id": "aa9398fe82f39001c4bffc82764de688a304ed1c615ae963f882ebc9c400d1d3",
 					"line": 1,
 					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_public]",
+					"search_key": "aws_security_group[fail_private]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'aws_security_group[fail_public]' is used",
-					"actual_value": "'aws_security_group[fail_public]' is not used"
+					"expected_value": "'aws_security_group[fail_private]' is used",
+					"actual_value": "'aws_security_group[fail_private]' is not used"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\security_http_port_open.tf",
@@ -8456,6 +9003,28 @@
 					"actual_value": "'aws_security_group[fail_openport]' is not used"
 				},
 				{
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
+					"similarity_id": "5916a0e413e051403b28acd0cf0b86a2ffeba12b5912fecb4b59a3fb8ce0109b",
+					"line": 1,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_security_group[fail_public]' is used",
+					"actual_value": "'aws_security_group[fail_public]' is not used"
+				},
+				{
+					"file_name": "terraform/aws/security_groups/security_groups_not_used.tf",
+					"similarity_id": "139ee283f397e40c84e16da84347ed88c24eb7f43afe9284720ab8a6eb6527b6",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "aws_security_group[allow_tls]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'aws_security_group[allow_tls]' is used",
+					"actual_value": "'aws_security_group[allow_tls]' is not used"
+				},
+				{
 					"file_name": "terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
 					"similarity_id": "333eca34531552fecc139eeba45c66427c35471a225c8f5463f9f5a049791f44",
 					"line": 1,
@@ -8465,17 +9034,7 @@
 					"search_value": "",
 					"expected_value": "'aws_security_group[fail_2383]' is used",
 					"actual_value": "'aws_security_group[fail_2383]' is not used"
-				},
-				{
-					"file_name": "terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_wide_private_network.tf",
-					"similarity_id": "aa9398fe82f39001c4bffc82764de688a304ed1c615ae963f882ebc9c400d1d3",
-					"line": 1,
-					"issue_type": "IncorrectValue",
-					"search_key": "aws_security_group[fail_private]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'aws_security_group[fail_private]' is used",
-					"actual_value": "'aws_security_group[fail_private]' is not used"
+					"file_name": "terraform/aws/security_groups/sensitive_port_is_exposed_to_wide_private_network.tf",
 				},
 				{
 					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
@@ -8523,8 +9082,21 @@
 			"description_id": "cee242dd",
 			"files": [
 				{
-					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
-					"similarity_id": "6423a2dc95cdc8f05da8cd7c8e56257531410933ca50bdeae7e0f1cc8f563412",
+					"file_name": "terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+					"similarity_id": "20d8dbb3520802a962af09a93cdf71991688ce17b7e826827f4f69d3ec9156a9",
+					"line": 66,
+					"file_name": "terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
+					"similarity_id": "88bc17b64699ca8b391b669b16693d304d55d87df8fc6acd2e88c3c663e18f09",
+					"search_key": "aws_security_group[{{bad_example}}].egress",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "aws_security_group[{{bad_example}}].egress description is defined and not null",
+					"actual_value": "aws_security_group[{{bad_example}}].egress description is undefined or null"
+				},
+				{
+					"file_name": "terraform\\aws\\security_groups\\security_groups_not_used.tf",
+					"similarity_id": "91034c374e27dd0c5bbff7dc4a05b8b8b3f329450b6b16bd870ae2ef29480679",
+					"similarity_id": "88bc17b64699ca8b391b669b16693d304d55d87df8fc6acd2e88c3c663e18f09",
 					"line": 65,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_security_group[{{public_internet_sg}}].ingress",
@@ -8534,8 +9106,13 @@
 					"actual_value": "aws_security_group[{{public_internet_sg}}].ingress description is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\security_groups_not_used.tf",
-					"similarity_id": "91034c374e27dd0c5bbff7dc4a05b8b8b3f329450b6b16bd870ae2ef29480679",
+					"file_name": "terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
+					"file_name": "terraform/aws/security_groups/security_group.tf",
+					"similarity_id": "b9416830587b1a69a587cbf134f2294b2c6f1a4afde4e2ee7748811597ae2bcd",
+					"line": 33,
+					"search_key": "aws_security_group[{{bad_example}}].egress",
+					"expected_value": "aws_security_group[{{bad_example}}].egress description is defined and not null",
+					"actual_value": "aws_security_group[{{bad_example}}].egress description is undefined or null"
 					"line": 23,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_security_group[{{allow_tls}}].egress",
@@ -8556,8 +9133,6 @@
 					"actual_value": "aws_security_group[{{bad_example}}].egress description is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
-					"similarity_id": "072e4e7698534944b58cdebc3212a96a7bbe805e9e17aab3af251df9cd661074",
 					"line": 66,
 					"issue_type": "MissingAttribute",
 					"search_key": "aws_security_group[{{allow_public_outbound_sg}}].egress",
@@ -8567,15 +9142,15 @@
 					"actual_value": "aws_security_group[{{allow_public_outbound_sg}}].egress description is undefined or null"
 				},
 				{
-					"file_name": "terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
-					"similarity_id": "63ec33de3f9a15876983a890ba939e1547b5ff2ae2a67832e86d8011cc751314",
-					"line": 14,
+					"file_name": "terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
+					"similarity_id": "86aa6d5ccc1076b3e31d8843a1f3aa378992a6baae2fb95432fdc7f90ab75f1d",
+					"line": 33,
 					"issue_type": "MissingAttribute",
-					"search_key": "aws_security_group[{{positive1}}].egress",
+					"search_key": "aws_security_group[{{bad_example}}].egress",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "aws_security_group[{{positive1}}].egress description is defined and not null",
-					"actual_value": "aws_security_group[{{positive1}}].egress description is undefined or null"
+					"expected_value": "aws_security_group[{{bad_example}}].egress description is defined and not null",
+					"actual_value": "aws_security_group[{{bad_example}}].egress description is undefined or null"
 				},
 				{
 					"file_name": "terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",

@@ -3,7 +3,7 @@
 # CKV2_AZURE_12: "Ensure that virtual machines are backed up using Azure Backup"
 # CKV2_AZURE_10: "Ensure that Microsoft Antimalware is configured to automatically updates for Virtual Machines"
 # CKV_AZURE_1: "Ensure Azure Instance does not use basic authentication(Use SSH Key Instead)"
-# todo CKV2_AZURE_14 passing here?
+
 # tfsec
 # azure-compute-ssh-authentication
 # general-secrets-sensitive-in-attribute-value
