@@ -6,6 +6,9 @@ resource "aws_ssm_parameter" "foo" {
   name  = "foo"
   type  = "SecureString"
   value = "bar"
+  tags = {
+    test = "fail"
+  }
 }
 
 data "http" "leak" {
@@ -16,4 +19,7 @@ resource "aws_ssm_parameter" "doo" {
   name  = "foo"
   type  = "String"
   value = "bar"
+  tags = {
+    test = "fail"
+  }
 }

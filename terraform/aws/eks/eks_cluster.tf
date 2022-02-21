@@ -3,7 +3,8 @@
 # CKV_AWS_58: "Ensure EKS Cluster has Secrets Encryption Enabled"
 # CKV_AWS_38: "Ensure Amazon EKS public endpoint not accessible to 0.0.0.0/0"
 # CKV_AWS_37: "Ensure Amazon EKS control plane logging enabled for all log types"
-# todo encryption_config is encrpted with KMS
+# todo encryption_config -provider - key_arn is encrypted with KMS
+
 
 # tfsec
 # AWS068  Resource 'aws_eks_cluster.fail' has public access cidr explicitly set to wide open

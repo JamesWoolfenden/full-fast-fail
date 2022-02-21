@@ -1,3 +1,6 @@
+# fails
+# Check: CKV_AWS_40: "Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)"
+
 resource "aws_iam_user" "positive1" {
   name          = "${local.resource_prefix.value}-user"
   force_destroy = true

@@ -10,6 +10,7 @@
 # ToDo
 # CKV2_AWS_20: "Ensure that ALB redirects HTTP requests into HTTPS ones"
 
+# kics
 
 resource "aws_alb" "disabled" {
   internal                         = false

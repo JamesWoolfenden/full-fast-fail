@@ -5,6 +5,7 @@
 # CKV_AWS_88: "EC2 instance should not have public IP."
 # CKV_AWS_126: "Ensure that detailed monitoring is enabled for EC2 instances"
 # CKV_AWS_135: "Ensure that EC2 is EBS optimized"
+# todo dont use default sg
 
 # tfsec
 # AWS062 Resource 'aws_instance.fail' has userdata with access secret key defined.

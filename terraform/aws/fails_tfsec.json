@@ -18,7 +18,7 @@
 			"status": 0,
 			"resource": "aws_athena_workgroup.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\athena\\athena-workgroup.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena/athena-workgroup.tf",
 				"start_line": 9,
 				"end_line": 21
 			}
@@ -41,7 +41,7 @@
 			"status": 0,
 			"resource": "aws_athena_database.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\athena\\athena-database.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena/athena-database.tf",
 				"start_line": 7,
 				"end_line": 10
 			}
@@ -63,7 +63,7 @@
 			"status": 0,
 			"resource": "aws_athena_workgroup.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\athena\\athena-workgroup.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/athena/athena-workgroup.tf",
 				"start_line": 13,
 				"end_line": 13
 			}
@@ -85,7 +85,7 @@
 			"status": 0,
 			"resource": "aws_elb.test_bad",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\autoscaling\\ELB.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/autoscaling/ELB.tf",
 				"start_line": 29,
 				"end_line": 58
 			}
@@ -107,7 +107,7 @@
 			"status": 0,
 			"resource": "aws_elb.test_bad",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\autoscaling\\ELB.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/autoscaling/ELB.tf",
 				"start_line": 29,
 				"end_line": 58
 			}
@@ -129,7 +129,7 @@
 			"status": 0,
 			"resource": "aws_efs_file_system.not_ok_efs",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\backup_vault\\backup_selection.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/backup_vault/backup_selection.tf",
 				"start_line": 43,
 				"end_line": 50
 			}
@@ -151,7 +151,7 @@
 			"status": 0,
 			"resource": "aws_api_gateway_domain_name.example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cert\\certificate_rsa_key_bytes_lower_than_256.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cert/certificate_rsa_key_bytes_lower_than_256.tf",
 				"start_line": 2,
 				"end_line": 6
 			}
@@ -173,7 +173,7 @@
 			"status": 0,
 			"resource": "aws_api_gateway_domain_name.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cert\\certhasexpired.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cert/certhasexpired.tf",
 				"start_line": 2,
 				"end_line": 6
 			}
@@ -196,7 +196,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cert\\ca_certificate_identifier_is_outdated.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cert/ca_certificate_identifier_is_outdated.tf",
 				"start_line": 6,
 				"end_line": 19
 			}
@@ -219,7 +219,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cert\\ca_certificate_identifier_is_outdated.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cert/ca_certificate_identifier_is_outdated.tf",
 				"start_line": 6,
 				"end_line": 19
 			}
@@ -241,7 +241,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cert\\ca_certificate_identifier_is_outdated.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cert/ca_certificate_identifier_is_outdated.tf",
 				"start_line": 14,
 				"end_line": 14
 			}
@@ -263,7 +263,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.fail_defaultcert",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
 				"start_line": 5,
 				"end_line": 46
 			}
@@ -285,7 +285,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.s3_distribution",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront.tf",
 				"start_line": 13,
 				"end_line": 91
 			}
@@ -307,7 +307,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.fail_defaultcert",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
 				"start_line": 5,
 				"end_line": 46
 			}
@@ -329,7 +329,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.s3_distribution",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront.tf",
 				"start_line": 13,
 				"end_line": 91
 			}
@@ -351,7 +351,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.fail_defaultcert",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
 				"start_line": 33,
 				"end_line": 33
 			}
@@ -373,7 +373,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.s3_distribution",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront.tf",
 				"start_line": 43,
 				"end_line": 43
 			}
@@ -395,7 +395,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.fail_defaultcert",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront_vulnerable_default_ssl_certificate.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront_vulnerable_default_ssl_certificate.tf",
 				"start_line": 5,
 				"end_line": 46
 			}
@@ -417,7 +417,7 @@
 			"status": 0,
 			"resource": "aws_cloudfront_distribution.s3_distribution",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudfront\\cloudfront.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudfront/cloudfront.tf",
 				"start_line": 82,
 				"end_line": 82
 			}
@@ -439,7 +439,7 @@
 			"status": 0,
 			"resource": "aws_cloudtrail.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail\\cloudtrail.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail/cloudtrail.tf",
 				"start_line": 23,
 				"end_line": 23
 			}
@@ -461,7 +461,7 @@
 			"status": 0,
 			"resource": "aws_cloudtrail.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail\\cloudtrail.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail/cloudtrail.tf",
 				"start_line": 18,
 				"end_line": 25
 			}
@@ -483,7 +483,7 @@
 			"status": 0,
 			"resource": "aws_cloudtrail.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudtrail\\cloudtrail.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudtrail/cloudtrail.tf",
 				"start_line": 18,
 				"end_line": 25
 			}
@@ -505,7 +505,7 @@
 			"status": 0,
 			"resource": "aws_cloudwatch_log_group.logs",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\cloudwatch\\cloudwatch.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/cloudwatch/cloudwatch.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -527,7 +527,7 @@
 			"status": 0,
 			"resource": "aws_codebuild_project.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\codebuild\\codebuild.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/codebuild/codebuild.tf",
 				"start_line": 12,
 				"end_line": 15
 			}
@@ -549,9 +549,9 @@
 			"status": 0,
 			"resource": "aws_config_configuration_aggregator.organization",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\config\\config_configuration_aggregator.tf",
-				"start_line": 11,
-				"end_line": 14
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/config/config_configuration_aggregator.tf",
+				"start_line": 12,
+				"end_line": 12
 			}
 		},
 		{
@@ -571,7 +571,7 @@
 			"status": 0,
 			"resource": "aws_dax_cluster.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dax\\dax_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dax/dax_cluster.tf",
 				"start_line": 7,
 				"end_line": 13
 			}
@@ -593,7 +593,7 @@
 			"status": 0,
 			"resource": "aws_dax_cluster.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dax\\dax_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dax/dax_cluster.tf",
 				"start_line": 7,
 				"end_line": 13
 			}
@@ -615,7 +615,7 @@
 			"status": 0,
 			"resource": "aws_dax_cluster.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dax\\dax_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dax/dax_cluster.tf",
 				"start_line": 7,
 				"end_line": 13
 			}
@@ -638,7 +638,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance\\db_instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance/db_instance.tf",
 				"start_line": 15,
 				"end_line": 37
 			}
@@ -660,7 +660,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance\\db_instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance/db_instance.tf",
 				"start_line": 32,
 				"end_line": 32
 			}
@@ -682,7 +682,7 @@
 			"status": 0,
 			"resource": "aws_db_security_group.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance\\db_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance/db_security_group.tf",
 				"start_line": 7,
 				"end_line": 18
 			}
@@ -704,7 +704,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance\\db_instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance/db_instance.tf",
 				"start_line": 35,
 				"end_line": 35
 			}
@@ -727,7 +727,7 @@
 			"status": 0,
 			"resource": "aws_db_instance.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\db_instance\\db_instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/db_instance/db_instance.tf",
 				"start_line": 31,
 				"end_line": 31
 			}
@@ -749,7 +749,7 @@
 			"status": 0,
 			"resource": "aws_docdb_cluster.examplea",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/documentdb/docdb_cluster.tf",
 				"start_line": 14,
 				"end_line": 35
 			}
@@ -771,7 +771,7 @@
 			"status": 0,
 			"resource": "aws_docdb_cluster.examplea",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/documentdb/docdb_cluster.tf",
 				"start_line": 14,
 				"end_line": 35
 			}
@@ -793,7 +793,7 @@
 			"status": 0,
 			"resource": "aws_docdb_cluster.examplea",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\documentdb\\docdb_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/documentdb/docdb_cluster.tf",
 				"start_line": 14,
 				"end_line": 35
 			}
@@ -815,7 +815,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 99,
 				"end_line": 117
 			}
@@ -837,7 +837,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_table.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_table.tf",
 				"start_line": 10,
 				"end_line": 36
 			}
@@ -859,7 +859,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 99,
 				"end_line": 117
 			}
@@ -881,7 +881,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_table.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_table.tf",
 				"start_line": 10,
 				"end_line": 36
 			}
@@ -903,7 +903,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.basic_dynamodb_table",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 99,
 				"end_line": 117
 			}
@@ -925,7 +925,7 @@
 			"status": 0,
 			"resource": "aws_dynamodb_table.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_table.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_table.tf",
 				"start_line": 10,
 				"end_line": 36
 			}
@@ -947,7 +947,7 @@
 			"status": 0,
 			"resource": "aws_instance.test",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 91,
 				"end_line": 97
 			}
@@ -969,7 +969,7 @@
 			"status": 0,
 			"resource": "aws_instance.test",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 91,
 				"end_line": 97
 			}
@@ -992,7 +992,7 @@
 			"status": 0,
 			"resource": "aws_security_group.allow_public_outbound_sg",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 66,
 				"end_line": 71
 			}
@@ -1014,7 +1014,7 @@
 			"status": 0,
 			"resource": "aws_security_group.allow_public_outbound_sg",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\dynamodb\\dynamodb_vpc_endpoint_wihout_route_table_association.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/dynamodb/dynamodb_vpc_endpoint_wihout_route_table_association.tf",
 				"start_line": 70,
 				"end_line": 70
 			}
@@ -1036,7 +1036,7 @@
 			"status": 0,
 			"resource": "aws_ebs_volume.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ebs\\ebs_volume.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ebs/ebs_volume.tf",
 				"start_line": 12,
 				"end_line": 16
 			}
@@ -1058,7 +1058,7 @@
 			"status": 0,
 			"resource": "aws_ebs_volume.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ebs\\ebs_volume.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ebs/ebs_volume.tf",
 				"start_line": 12,
 				"end_line": 16
 			}
@@ -1080,7 +1080,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.foo",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_without_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_without_policy.tf",
 				"start_line": 3,
 				"end_line": 6
 			}
@@ -1102,7 +1102,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_is_publicly_accessible.tf",
 				"start_line": 4,
 				"end_line": 7
 			}
@@ -1124,7 +1124,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository.tf",
 				"start_line": 10,
 				"end_line": 14
 			}
@@ -1146,7 +1146,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.foo",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_without_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_without_policy.tf",
 				"start_line": 3,
 				"end_line": 6
 			}
@@ -1168,7 +1168,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_is_publicly_accessible.tf",
 				"start_line": 4,
 				"end_line": 7
 			}
@@ -1190,7 +1190,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository.tf",
 				"start_line": 12,
 				"end_line": 12
 			}
@@ -1212,7 +1212,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository_policy.positive2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_is_publicly_accessible.tf",
 				"start_line": 19,
 				"end_line": 19
 			}
@@ -1234,7 +1234,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.foo",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_without_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_without_policy.tf",
 				"start_line": 3,
 				"end_line": 6
 			}
@@ -1256,7 +1256,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository_is_publicly_accessible.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository_is_publicly_accessible.tf",
 				"start_line": 4,
 				"end_line": 7
 			}
@@ -1278,7 +1278,7 @@
 			"status": 0,
 			"resource": "aws_ecr_repository.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecr\\ecr_repository.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecr/ecr_repository.tf",
 				"start_line": 10,
 				"end_line": 14
 			}
@@ -1300,9 +1300,9 @@
 			"status": 0,
 			"resource": "aws_ecs_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_cluster.tf",
-				"start_line": 11,
-				"end_line": 14
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_cluster.tf",
+				"start_line": 9,
+				"end_line": 27
 			}
 		},
 		{
@@ -1322,7 +1322,7 @@
 			"status": 0,
 			"resource": "aws_ecs_task_definition.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_task_definition.tf",
 				"start_line": 26,
 				"end_line": 33
 			}
@@ -1344,7 +1344,7 @@
 			"status": 0,
 			"resource": "aws_ecs_task_definition.fail_password",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition_with_plaintext_password.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_task_definition_with_plaintext_password.tf",
 				"start_line": 4,
 				"end_line": 44
 			}
@@ -1366,7 +1366,7 @@
 			"status": 0,
 			"resource": "aws_ecs_task_definition.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition_network_mode_not_recommended.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_task_definition_network_mode_not_recommended.tf",
 				"start_line": 17,
 				"end_line": 57
 			}
@@ -1388,7 +1388,7 @@
 			"status": 0,
 			"resource": "aws_ecs_task_definition.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_task_definition.tf",
 				"start_line": 9,
 				"end_line": 21
 			}
@@ -1410,7 +1410,7 @@
 			"status": 0,
 			"resource": "aws_efs_file_system.fs",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\ecs\\ecs_task_definition.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/ecs/ecs_task_definition.tf",
 				"start_line": 39,
 				"end_line": 41
 			}
@@ -1432,7 +1432,7 @@
 			"status": 0,
 			"resource": "aws_efs_file_system.not_secure",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\efs\\efs_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/efs/efs_with_vulnerable_policy.tf",
 				"start_line": 8,
 				"end_line": 15
 			}
@@ -1454,53 +1454,9 @@
 			"status": 0,
 			"resource": "aws_efs_file_system.sharedstore",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\efs\\efs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/efs/efs.tf",
 				"start_line": 17,
 				"end_line": 17
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0038",
-			"long_id": "aws-eks-enable-control-plane-logging",
-			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
-			"rule_provider": "aws",
-			"rule_service": "eks",
-			"impact": "Logging provides valuable information about access and usage",
-			"resolution": "Enable logging for the EKS control plane",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/eks/enable-control-plane-logging/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
-			],
-			"description": "Control plane controller manager logging is not enabled.",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_eks_cluster.fail",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0038",
-			"long_id": "aws-eks-enable-control-plane-logging",
-			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
-			"rule_provider": "aws",
-			"rule_service": "eks",
-			"impact": "Logging provides valuable information about access and usage",
-			"resolution": "Enable logging for the EKS control plane",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/eks/enable-control-plane-logging/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
-			],
-			"description": "Control plane scheduler logging is not enabled.",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_eks_cluster.fail",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
 			}
 		},
 		{
@@ -1520,9 +1476,9 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
 			}
 		},
 		{
@@ -1542,9 +1498,9 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
 			}
 		},
 		{
@@ -1564,9 +1520,53 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0038",
+			"long_id": "aws-eks-enable-control-plane-logging",
+			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
+			"rule_provider": "aws",
+			"rule_service": "eks",
+			"impact": "Logging provides valuable information about access and usage",
+			"resolution": "Enable logging for the EKS control plane",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/eks/enable-control-plane-logging/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
+			],
+			"description": "Control plane controller manager logging is not enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_eks_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
+			}
+		},
+		{
+			"rule_id": "AVD-AWS-0038",
+			"long_id": "aws-eks-enable-control-plane-logging",
+			"rule_description": "EKS Clusters should have cluster control plane logging turned on",
+			"rule_provider": "aws",
+			"rule_service": "eks",
+			"impact": "Logging provides valuable information about access and usage",
+			"resolution": "Enable logging for the EKS control plane",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/aws/eks/enable-control-plane-logging/",
+				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types"
+			],
+			"description": "Control plane scheduler logging is not enabled.",
+			"severity": "MEDIUM",
+			"status": 0,
+			"resource": "aws_eks_cluster.fail",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
 			}
 		},
 		{
@@ -1586,9 +1586,9 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 13,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 14,
+				"end_line": 28
 			}
 		},
 		{
@@ -1608,9 +1608,9 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 17,
-				"end_line": 17
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 18,
+				"end_line": 18
 			}
 		},
 		{
@@ -1630,9 +1630,9 @@
 			"status": 0,
 			"resource": "aws_eks_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\eks\\eks_cluster.tf",
-				"start_line": 18,
-				"end_line": 18
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/eks/eks_cluster.tf",
+				"start_line": 19,
+				"end_line": 19
 			}
 		},
 		{
@@ -1652,7 +1652,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_replication_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\elasticache_replication_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache/elasticache_replication_group.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -1674,7 +1674,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_cluster.fails",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\redis_not_compliant.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache/redis_not_compliant.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -1696,9 +1696,9 @@
 			"status": 0,
 			"resource": "aws_elasticache_cluster.fail_redis",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\elasticache_cluster.tf",
-				"start_line": 7,
-				"end_line": 16
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache/elasticache_cluster.tf",
+				"start_line": 9,
+				"end_line": 19
 			}
 		},
 		{
@@ -1718,7 +1718,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_replication_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\elasticache_replication_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache/elasticache_replication_group.tf",
 				"start_line": 21,
 				"end_line": 21
 			}
@@ -1740,7 +1740,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_security_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticache\\elasticache_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticache/elasticache_security_group.tf",
 				"start_line": 7,
 				"end_line": 11
 			}
@@ -1762,7 +1762,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elastisearch_domain.tf",
 				"start_line": 29,
 				"end_line": 29
 			}
@@ -1784,7 +1784,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -1806,7 +1806,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -1828,7 +1828,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -1850,7 +1850,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elastisearch_domain.tf",
 				"start_line": 17,
 				"end_line": 42
 			}
@@ -1872,7 +1872,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -1894,7 +1894,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -1916,7 +1916,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -1938,7 +1938,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elastisearch_domain.tf",
 				"start_line": 33,
 				"end_line": 33
 			}
@@ -1960,7 +1960,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -1982,7 +1982,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -2004,7 +2004,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -2026,7 +2026,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elastisearch_domain.tf",
 				"start_line": 20,
 				"end_line": 20
 			}
@@ -2048,7 +2048,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -2070,7 +2070,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -2092,7 +2092,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -2114,7 +2114,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.node_to_node_encryption_disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elastisearch_domain.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elastisearch_domain.tf",
 				"start_line": 21,
 				"end_line": 21
 			}
@@ -2136,7 +2136,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_slow_logs.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_slow_logs.tf",
 				"start_line": 3,
 				"end_line": 13
 			}
@@ -2158,7 +2158,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.no_iam",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_without_iam_authentication.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_without_iam_authentication.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -2180,7 +2180,7 @@
 			"status": 0,
 			"resource": "aws_elasticsearch_domain.es_not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticsearch_domain_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticsearch_domain_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -2202,7 +2202,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_replication_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticache_replication_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticache_replication_group.tf",
 				"start_line": 14,
 				"end_line": 14
 			}
@@ -2224,7 +2224,7 @@
 			"status": 0,
 			"resource": "aws_elasticache_replication_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elasticsearch\\elasticache_replication_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elasticsearch/elasticache_replication_group.tf",
 				"start_line": 10,
 				"end_line": 16
 			}
@@ -2246,7 +2246,7 @@
 			"status": 0,
 			"resource": "aws_elb.wu_tang",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\load_balancer_policy_using_insecure_protocols.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/load_balancer_policy_using_insecure_protocols.tf",
 				"start_line": 4,
 				"end_line": 20
 			}
@@ -2266,31 +2266,9 @@
 			"description": "Load balancer is exposed publicly.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elb.fail",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\elb_using_weak_ciphers.tf",
-				"start_line": 3,
-				"end_line": 19
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0053",
-			"long_id": "aws-elb-alb-not-public",
-			"rule_description": "Load balancer is exposed to the internet.",
-			"rule_provider": "aws",
-			"rule_service": "elb",
-			"impact": "The load balancer is exposed on the internet",
-			"resolution": "Switch to an internal load balancer or add a tfsec ignore",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elb/alb-not-public/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb"
-			],
-			"description": "Load balancer is exposed publicly.",
-			"severity": "HIGH",
-			"status": 0,
 			"resource": "aws_elb.test",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\elb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/elb.tf",
 				"start_line": 5,
 				"end_line": 18
 			}
@@ -2312,7 +2290,7 @@
 			"status": 0,
 			"resource": "aws_alb.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\alb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/alb.tf",
 				"start_line": 14,
 				"end_line": 14
 			}
@@ -2334,7 +2312,7 @@
 			"status": 0,
 			"resource": "aws_elb.wu_tang",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\load_balancer_policy_using_insecure_protocols.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/load_balancer_policy_using_insecure_protocols.tf",
 				"start_line": 4,
 				"end_line": 20
 			}
@@ -2354,31 +2332,9 @@
 			"description": "Application load balancer is not set to drop invalid headers.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_elb.fail",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\elb_using_weak_ciphers.tf",
-				"start_line": 3,
-				"end_line": 19
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0052",
-			"long_id": "aws-elb-drop-invalid-headers",
-			"rule_description": "Load balancers should drop invalid headers",
-			"rule_provider": "aws",
-			"rule_service": "elb",
-			"impact": "Invalid headers being passed through to the target of the load balance may exploit vulnerabilities",
-			"resolution": "Set drop_invalid_header_fields to true",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/elb/drop-invalid-headers/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb#drop_invalid_header_fields"
-			],
-			"description": "Application load balancer is not set to drop invalid headers.",
-			"severity": "HIGH",
-			"status": 0,
 			"resource": "aws_elb.test",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\elb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/elb.tf",
 				"start_line": 5,
 				"end_line": 18
 			}
@@ -2400,7 +2356,7 @@
 			"status": 0,
 			"resource": "aws_alb.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\alb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/alb.tf",
 				"start_line": 23,
 				"end_line": 23
 			}
@@ -2422,7 +2378,7 @@
 			"status": 0,
 			"resource": "aws_alb_listener.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\elb\\alb_listener.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/elb/alb_listener.tf",
 				"start_line": 9,
 				"end_line": 9
 			}
@@ -2444,7 +2400,7 @@
 			"status": 0,
 			"resource": "aws_iam_account_password_policy.expire",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -2466,7 +2422,7 @@
 			"status": 0,
 			"resource": "aws_iam_user_policy.fail_key",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_root_account_has_active_access_keys.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_root_account_has_active_access_keys.tf",
 				"start_line": 27,
 				"end_line": 27
 			}
@@ -2488,7 +2444,7 @@
 			"status": 0,
 			"resource": "aws_iam_user_policy.fail_key",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_root_account_has_active_access_keys.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_root_account_has_active_access_keys.tf",
 				"start_line": 23,
 				"end_line": 25
 			}
@@ -2510,7 +2466,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail3",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 64,
 				"end_line": 64
 			}
@@ -2532,7 +2488,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail3",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 62,
 				"end_line": 62
 			}
@@ -2554,7 +2510,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 43,
 				"end_line": 45
 			}
@@ -2576,7 +2532,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 39,
 				"end_line": 41
 			}
@@ -2598,7 +2554,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 18,
 				"end_line": 22
 			}
@@ -2620,7 +2576,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_admin.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_admin.tf",
 				"start_line": 13,
 				"end_line": 16
 			}
@@ -2642,7 +2598,7 @@
 			"status": 0,
 			"resource": "aws_iam_user_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam.tf",
 				"start_line": 15,
 				"end_line": 15
 			}
@@ -2664,7 +2620,7 @@
 			"status": 0,
 			"resource": "aws_iam_user_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam.tf",
 				"start_line": 15,
 				"end_line": 15
 			}
@@ -2686,7 +2642,7 @@
 			"status": 0,
 			"resource": "aws_iam_account_password_policy.expire",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
 				"start_line": 8,
 				"end_line": 8
 			}
@@ -2708,7 +2664,7 @@
 			"status": 0,
 			"resource": "aws_iam_account_password_policy.expire",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_misconfigured_password_policy_expiration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_misconfigured_password_policy_expiration.tf",
 				"start_line": 2,
 				"end_line": 2
 			}
@@ -2730,7 +2686,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\iam\\iam_aws_passord_policy_with_unchangeable_passwords.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/iam/iam_aws_passord_policy_with_unchangeable_passwords.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -2752,7 +2708,7 @@
 			"status": 0,
 			"resource": "aws_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance_with_no_vpc.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance_with_no_vpc.tf",
 				"start_line": 1,
 				"end_line": 6
 			}
@@ -2774,7 +2730,7 @@
 			"status": 0,
 			"resource": "aws_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance.tf",
 				"start_line": 14,
 				"end_line": 35
 			}
@@ -2794,55 +2750,11 @@
 			"description": "Root block device is not encrypted.",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_instance.web",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_not_ebs_optimized.tf",
-				"start_line": 18,
-				"end_line": 26
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0131",
-			"long_id": "aws-ec2-enable-at-rest-encryption",
-			"rule_description": "Instance with unencrypted block device.",
-			"rule_provider": "aws",
-			"rule_service": "ec2",
-			"impact": "The block device could be compromised and read from",
-			"resolution": "Turn on encryption for all block devices",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/enable-at-rest-encryption/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices"
-			],
-			"description": "Root block device is not encrypted.",
-			"severity": "HIGH",
-			"status": 0,
 			"resource": "aws_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_instance_using_default_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/ec2_instance_using_default_security_group.tf",
 				"start_line": 1,
 				"end_line": 11
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0131",
-			"long_id": "aws-ec2-enable-at-rest-encryption",
-			"rule_description": "Instance with unencrypted block device.",
-			"rule_provider": "aws",
-			"rule_service": "ec2",
-			"impact": "The block device could be compromised and read from",
-			"resolution": "Turn on encryption for all block devices",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/enable-at-rest-encryption/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices"
-			],
-			"description": "Root block device is not encrypted.",
-			"severity": "HIGH",
-			"status": 0,
-			"resource": "aws_instance.monitoring_positive1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_instance_monitoring_disabled.tf",
-				"start_line": 17,
-				"end_line": 25
 			}
 		},
 		{
@@ -2862,7 +2774,7 @@
 			"status": 0,
 			"resource": "aws_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance_with_no_vpc.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance_with_no_vpc.tf",
 				"start_line": 1,
 				"end_line": 6
 			}
@@ -2884,7 +2796,7 @@
 			"status": 0,
 			"resource": "aws_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance.tf",
 				"start_line": 14,
 				"end_line": 35
 			}
@@ -2904,55 +2816,11 @@
 			"description": "Instance does not require IMDS access to require a token",
 			"severity": "HIGH",
 			"status": 0,
-			"resource": "aws_instance.web",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_not_ebs_optimized.tf",
-				"start_line": 18,
-				"end_line": 26
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0028",
-			"long_id": "aws-ec2-enforce-http-token-imds",
-			"rule_description": "aws_instance should activate session tokens for Instance Metadata Service.",
-			"rule_provider": "aws",
-			"rule_service": "ec2",
-			"impact": "Instance metadata service can be interacted with freely",
-			"resolution": "Enable HTTP token requirement for IMDS",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/enforce-http-token-imds/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options"
-			],
-			"description": "Instance does not require IMDS access to require a token",
-			"severity": "HIGH",
-			"status": 0,
 			"resource": "aws_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_instance_using_default_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/ec2_instance_using_default_security_group.tf",
 				"start_line": 1,
 				"end_line": 11
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0028",
-			"long_id": "aws-ec2-enforce-http-token-imds",
-			"rule_description": "aws_instance should activate session tokens for Instance Metadata Service.",
-			"rule_provider": "aws",
-			"rule_service": "ec2",
-			"impact": "Instance metadata service can be interacted with freely",
-			"resolution": "Enable HTTP token requirement for IMDS",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/ec2/enforce-http-token-imds/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options"
-			],
-			"description": "Instance does not require IMDS access to require a token",
-			"severity": "HIGH",
-			"status": 0,
-			"resource": "aws_instance.monitoring_positive1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\ec2_instance_monitoring_disabled.tf",
-				"start_line": 17,
-				"end_line": 25
 			}
 		},
 		{
@@ -2972,7 +2840,7 @@
 			"status": 0,
 			"resource": "aws_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance.tf",
 				"start_line": 21,
 				"end_line": 31
 			}
@@ -2994,7 +2862,7 @@
 			"status": 0,
 			"resource": "aws_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\instance\\instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/instance/instance.tf",
 				"start_line": 21,
 				"end_line": 31
 			}
@@ -3016,7 +2884,7 @@
 			"status": 0,
 			"resource": "aws_kinesis_stream.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\kinesis\\kinesis_stream.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kinesis/kinesis_stream.tf",
 				"start_line": 8,
 				"end_line": 12
 			}
@@ -3038,7 +2906,7 @@
 			"status": 0,
 			"resource": "aws_kms_key.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\kms\\kms_key_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kms/kms_key_with_vulnerable_policy.tf",
 				"start_line": 3,
 				"end_line": 36
 			}
@@ -3060,7 +2928,7 @@
 			"status": 0,
 			"resource": "aws_kms_key.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\kms\\kms_key_is_disabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kms/kms_key_is_disabled.tf",
 				"start_line": 3,
 				"end_line": 7
 			}
@@ -3082,7 +2950,7 @@
 			"status": 0,
 			"resource": "aws_kms_key.fail_0",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\kms\\kms.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/kms/kms.tf",
 				"start_line": 7,
 				"end_line": 33
 			}
@@ -3104,7 +2972,7 @@
 			"status": 0,
 			"resource": "aws_iam_role_policy.positiveinlinepolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 97,
 				"end_line": 97
 			}
@@ -3126,7 +2994,7 @@
 			"status": 0,
 			"resource": "aws_iam_role_policy.positiveinlinepolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 97,
 				"end_line": 97
 			}
@@ -3148,7 +3016,7 @@
 			"status": 0,
 			"resource": "aws_iam_role_policy.positiveinlinepolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 97,
 				"end_line": 97
 			}
@@ -3170,7 +3038,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.positivecustomermanagedpolicy2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 146,
 				"end_line": 146
 			}
@@ -3192,7 +3060,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.positivecustomermanagedpolicy2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 141,
 				"end_line": 144
 			}
@@ -3214,7 +3082,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.positivecustomermanagedpolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 125,
 				"end_line": 125
 			}
@@ -3236,7 +3104,7 @@
 			"status": 0,
 			"resource": "aws_iam_policy.positivecustomermanagedpolicy1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 120,
 				"end_line": 123
 			}
@@ -3258,7 +3126,7 @@
 			"status": 0,
 			"resource": "aws_lambda_function.example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\public_lambda_via_api_gateway.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/public_lambda_via_api_gateway.tf",
 				"start_line": 12,
 				"end_line": 22
 			}
@@ -3280,7 +3148,7 @@
 			"status": 0,
 			"resource": "aws_lambda_function.my_lambda",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_with_vulnerable_policy.tf",
 				"start_line": 5,
 				"end_line": 14
 			}
@@ -3302,7 +3170,7 @@
 			"status": 0,
 			"resource": "aws_lambda_function.positivefunction2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 21,
 				"end_line": 39
 			}
@@ -3324,7 +3192,7 @@
 			"status": 0,
 			"resource": "aws_lambda_function.positivefunction1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda_function_with_privileged_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda_function_with_privileged_role.tf",
 				"start_line": 1,
 				"end_line": 19
 			}
@@ -3346,7 +3214,7 @@
 			"status": 0,
 			"resource": "aws_lambda_function.morefail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\lambda.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/lambda.tf",
 				"start_line": 13,
 				"end_line": 27
 			}
@@ -3368,7 +3236,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3390,7 +3258,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3412,7 +3280,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3434,7 +3302,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3456,7 +3324,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3478,7 +3346,7 @@
 			"status": 0,
 			"resource": "aws_lambda_permission.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lambda\\restrict-source-arn.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lambda/restrict-source-arn.tf",
 				"start_line": 6,
 				"end_line": 11
 			}
@@ -3500,7 +3368,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.fail_code",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\user_data_shell_script_is_encoded.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/user_data_shell_script_is_encoded.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -3522,7 +3390,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\user_data_contains_encoded_private_key.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/user_data_contains_encoded_private_key.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -3544,7 +3412,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration2.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration2.tf",
 				"start_line": 10,
 				"end_line": 10
 			}
@@ -3566,7 +3434,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.as_conf",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration.tf",
 				"start_line": 10,
 				"end_line": 18
 			}
@@ -3588,7 +3456,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.fail_code",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\user_data_shell_script_is_encoded.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/user_data_shell_script_is_encoded.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -3610,7 +3478,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\user_data_contains_encoded_private_key.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/user_data_contains_encoded_private_key.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -3632,7 +3500,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration2.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration2.tf",
 				"start_line": 8,
 				"end_line": 13
 			}
@@ -3654,7 +3522,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.as_conf",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration.tf",
 				"start_line": 10,
 				"end_line": 18
 			}
@@ -3677,7 +3545,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration2.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration2.tf",
 				"start_line": 12,
 				"end_line": 12
 			}
@@ -3700,7 +3568,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.as_conf",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration.tf",
 				"start_line": 17,
 				"end_line": 17
 			}
@@ -3722,7 +3590,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\user_data_contains_encoded_private_key.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/user_data_contains_encoded_private_key.tf",
 				"start_line": 5,
 				"end_line": 5
 			}
@@ -3744,7 +3612,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.as_conf",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration.tf",
 				"start_line": 14,
 				"end_line": 16
 			}
@@ -3766,7 +3634,7 @@
 			"status": 0,
 			"resource": "aws_launch_configuration.as_conf",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\launch\\launch_configuration.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/launch/launch_configuration.tf",
 				"start_line": 14,
 				"end_line": 16
 			}
@@ -3788,7 +3656,7 @@
 			"status": 0,
 			"resource": "aws_lb.lb_bad_1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\redirect.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/redirect.tf",
 				"start_line": 9,
 				"end_line": 11
 			}
@@ -3810,7 +3678,7 @@
 			"status": 0,
 			"resource": "aws_lb.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\lb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/lb.tf",
 				"start_line": 24,
 				"end_line": 24
 			}
@@ -3832,7 +3700,7 @@
 			"status": 0,
 			"resource": "aws_alb.disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\lb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/lb.tf",
 				"start_line": 15,
 				"end_line": 15
 			}
@@ -3854,7 +3722,7 @@
 			"status": 0,
 			"resource": "aws_lb.lb_bad_1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\redirect.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/redirect.tf",
 				"start_line": 9,
 				"end_line": 11
 			}
@@ -3876,7 +3744,7 @@
 			"status": 0,
 			"resource": "aws_alb.disabled",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\lb.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/lb.tf",
 				"start_line": 14,
 				"end_line": 21
 			}
@@ -3898,7 +3766,7 @@
 			"status": 0,
 			"resource": "aws_lb_listener.listener_bad_1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\lb\\redirect.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/lb/redirect.tf",
 				"start_line": 16,
 				"end_line": 16
 			}
@@ -3920,7 +3788,7 @@
 			"status": 0,
 			"resource": "aws_kms_key.example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\mq\\mq_broker_encryption_disabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/mq/mq_broker_encryption_disabled.tf",
 				"start_line": 35,
 				"end_line": 37
 			}
@@ -3942,7 +3810,7 @@
 			"status": 0,
 			"resource": "aws_mq_broker.pass",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\mq\\mq_broker_encryption_disabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/mq/mq_broker_encryption_disabled.tf",
 				"start_line": 10,
 				"end_line": 33
 			}
@@ -3964,7 +3832,7 @@
 			"status": 0,
 			"resource": "aws_mq_broker.pass",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\mq\\mq_broker_encryption_disabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/mq/mq_broker_encryption_disabled.tf",
 				"start_line": 10,
 				"end_line": 33
 			}
@@ -3986,7 +3854,7 @@
 			"status": 0,
 			"resource": "aws_msk_cluster.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\msk\\msk_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/msk/msk_cluster.tf",
 				"start_line": 16,
 				"end_line": 16
 			}
@@ -4008,7 +3876,7 @@
 			"status": 0,
 			"resource": "aws_msk_cluster.name",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\msk\\msk_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/msk/msk_cluster.tf",
 				"start_line": 11,
 				"end_line": 21
 			}
@@ -4030,7 +3898,7 @@
 			"status": 0,
 			"resource": "aws_neptune_cluster.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\neptune\\neptune.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/neptune/neptune.tf",
 				"start_line": 38,
 				"end_line": 49
 			}
@@ -4052,7 +3920,7 @@
 			"status": 0,
 			"resource": "aws_neptune_cluster.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\neptune\\neptune.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/neptune/neptune.tf",
 				"start_line": 46,
 				"end_line": 46
 			}
@@ -4074,7 +3942,7 @@
 			"status": 0,
 			"resource": "aws_neptune_cluster.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\neptune\\neptune.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/neptune/neptune.tf",
 				"start_line": 38,
 				"end_line": 49
 			}
@@ -4096,7 +3964,7 @@
 			"status": 0,
 			"resource": "aws_opsworks_rds_db_instance.my_instance",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\opsworks\\opsworks_rds_db_instance.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/opsworks/opsworks_rds_db_instance.tf",
 				"start_line": 9,
 				"end_line": 9
 			}
@@ -4118,7 +3986,7 @@
 			"status": 0,
 			"resource": "provider.aws",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\provider\\provider.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/provider/provider.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -4140,7 +4008,7 @@
 			"status": 0,
 			"resource": "provider.aws",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\provider\\provider.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/provider/provider.tf",
 				"start_line": 10,
 				"end_line": 10
 			}
@@ -4163,9 +4031,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_using_default_port.tf",
-				"start_line": 1,
-				"end_line": 13
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_using_default_port.tf",
+				"start_line": 8,
+				"end_line": 20
 			}
 		},
 		{
@@ -4186,32 +4054,9 @@
 			"status": 0,
 			"resource": "aws_rds_cluster_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_cluster_instance.tf",
-				"start_line": 10,
-				"end_line": 10
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0078",
-			"long_id": "aws-rds-enable-performance-insights",
-			"rule_description": "Encryption for RDS Performance Insights should be enabled.",
-			"rule_provider": "aws",
-			"rule_service": "rds",
-			"impact": "Data can be read from the RDS Performance Insights if it is compromised",
-			"resolution": "Enable encryption for RDS clusters and instances",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/enable-performance-insights/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster_instance#performance_insights_kms_key_id",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#performance_insights_kms_key_id"
-			],
-			"description": "Instance does not have performance insights enabled.",
-			"severity": "HIGH",
-			"status": 0,
-			"resource": "aws_db_instance.positive1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
-				"start_line": 1,
-				"end_line": 15
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_cluster_instance.tf",
+				"start_line": 11,
+				"end_line": 11
 			}
 		},
 		{
@@ -4232,9 +4077,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\db_instance.tf",
-				"start_line": 15,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/db_instance.tf",
+				"start_line": 16,
+				"end_line": 23
 			}
 		},
 		{
@@ -4254,7 +4099,7 @@
 			"status": 0,
 			"resource": "aws_rds_cluster.fail2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_cluster.tf",
 				"start_line": 17,
 				"end_line": 24
 			}
@@ -4276,7 +4121,7 @@
 			"status": 0,
 			"resource": "aws_rds_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\querylogging.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/querylogging.tf",
 				"start_line": 9,
 				"end_line": 20
 			}
@@ -4298,9 +4143,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_using_default_port.tf",
-				"start_line": 1,
-				"end_line": 13
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_using_default_port.tf",
+				"start_line": 8,
+				"end_line": 20
 			}
 		},
 		{
@@ -4320,9 +4165,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\db_instance.tf",
-				"start_line": 15,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/db_instance.tf",
+				"start_line": 16,
+				"end_line": 23
 			}
 		},
 		{
@@ -4342,7 +4187,7 @@
 			"status": 0,
 			"resource": "aws_db_security_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\db_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/db_security_group.tf",
 				"start_line": 8,
 				"end_line": 10
 			}
@@ -4364,9 +4209,9 @@
 			"status": 0,
 			"resource": "aws_rds_cluster_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_cluster_instance.tf",
-				"start_line": 13,
-				"end_line": 13
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_cluster_instance.tf",
+				"start_line": 15,
+				"end_line": 15
 			}
 		},
 		{
@@ -4386,9 +4231,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\db_instance.tf",
-				"start_line": 17,
-				"end_line": 17
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/db_instance.tf",
+				"start_line": 18,
+				"end_line": 18
 			}
 		},
 		{
@@ -4409,9 +4254,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_using_default_port.tf",
-				"start_line": 1,
-				"end_line": 13
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_using_default_port.tf",
+				"start_line": 8,
+				"end_line": 20
 			}
 		},
 		{
@@ -4432,32 +4277,9 @@
 			"status": 0,
 			"resource": "aws_rds_cluster.fail2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_cluster.tf",
 				"start_line": 19,
 				"end_line": 19
-			}
-		},
-		{
-			"rule_id": "AVD-AWS-0077",
-			"long_id": "aws-rds-specify-backup-retention",
-			"rule_description": "RDS Cluster and RDS instance should have backup retention longer than default 1 day",
-			"rule_provider": "aws",
-			"rule_service": "rds",
-			"impact": "Potential loss of data and short opportunity for recovery",
-			"resolution": "Explicitly set the retention period to greater than the default",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/aws/rds/specify-backup-retention/",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster#backup_retention_period",
-				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period"
-			],
-			"description": "Instance has very low backup retention period.",
-			"severity": "MEDIUM",
-			"status": 0,
-			"resource": "aws_db_instance.positive1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
-				"start_line": 1,
-				"end_line": 15
 			}
 		},
 		{
@@ -4478,7 +4300,7 @@
 			"status": 0,
 			"resource": "aws_rds_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\querylogging.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/querylogging.tf",
 				"start_line": 16,
 				"end_line": 16
 			}
@@ -4501,9 +4323,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\db_instance.tf",
-				"start_line": 18,
-				"end_line": 18
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/db_instance.tf",
+				"start_line": 19,
+				"end_line": 19
 			}
 		},
 		{
@@ -4523,9 +4345,9 @@
 			"status": 0,
 			"resource": "aws_db_instance.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_using_default_port.tf",
-				"start_line": 8,
-				"end_line": 8
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_using_default_port.tf",
+				"start_line": 15,
+				"end_line": 15
 			}
 		},
 		{
@@ -4545,7 +4367,7 @@
 			"status": 0,
 			"resource": "aws_rds_cluster.fail2",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/rds_cluster.tf",
 				"start_line": 22,
 				"end_line": 22
 			}
@@ -4565,31 +4387,9 @@
 			"description": "Attribute name appears sensitive and has a value which is defined within the project.",
 			"severity": "CRITICAL",
 			"status": 0,
-			"resource": "aws_db_instance.positive1",
-			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\rds_automatic_minor_upgrades_disabled.tf",
-				"start_line": 9,
-				"end_line": 9
-			}
-		},
-		{
-			"rule_id": "AVD-GEN-0004",
-			"long_id": "general-secrets-no-plaintext-exposure",
-			"rule_description": "Secret/sensitive data should not be exposed in plaintext.",
-			"rule_provider": "general",
-			"rule_service": "secrets",
-			"impact": "Sensitive data can be leaked to unauthorised people or systems.",
-			"resolution": "Remove plaintext secrets and encrypt them within a secrets manager instead.",
-			"links": [
-				"https://aquasecurity.github.io/tfsec/latest/checks/general/secrets/no-plaintext-exposure/",
-				"https://www.terraform.io/docs/state/sensitive-data.html"
-			],
-			"description": "Attribute name appears sensitive and has a value which is defined within the project.",
-			"severity": "CRITICAL",
-			"status": 0,
 			"resource": "aws_rds_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\rds\\querylogging.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/rds/querylogging.tf",
 				"start_line": 15,
 				"end_line": 15
 			}
@@ -4611,7 +4411,7 @@
 			"status": 0,
 			"resource": "aws_redshift_security_group.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_security_group.tf",
 				"start_line": 8,
 				"end_line": 19
 			}
@@ -4633,7 +4433,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_using_default_port.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_using_default_port.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -4655,7 +4455,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_cluster.tf",
 				"start_line": 16,
 				"end_line": 29
 			}
@@ -4677,7 +4477,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_using_default_port.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_using_default_port.tf",
 				"start_line": 1,
 				"end_line": 10
 			}
@@ -4699,7 +4499,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_cluster.tf",
 				"start_line": 27,
 				"end_line": 27
 			}
@@ -4721,7 +4521,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_using_default_port.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_using_default_port.tf",
 				"start_line": 5,
 				"end_line": 5
 			}
@@ -4743,7 +4543,7 @@
 			"status": 0,
 			"resource": "aws_redshift_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\redshift\\redshift_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/redshift/redshift_cluster.tf",
 				"start_line": 21,
 				"end_line": 21
 			}
@@ -4765,7 +4565,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -4787,7 +4587,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -4809,7 +4609,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -4831,7 +4631,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -4853,7 +4653,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket_public_access_block.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_access_block.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -4875,7 +4675,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -4897,7 +4697,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -4919,7 +4719,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -4941,7 +4741,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -4963,7 +4763,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -4985,7 +4785,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket_public_access_block.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_access_block.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -5007,7 +4807,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5029,7 +4829,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5051,7 +4851,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5073,7 +4873,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -5095,7 +4895,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5117,7 +4917,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
 				"end_line": 9
 			}
@@ -5139,7 +4939,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5161,7 +4961,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3.tf",
 				"start_line": 11,
 				"end_line": 44
 			}
@@ -5183,7 +4983,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5205,7 +5005,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5227,7 +5027,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -5249,7 +5049,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5271,7 +5071,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
 				"end_line": 9
 			}
@@ -5293,7 +5093,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5315,7 +5115,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3.tf",
 				"start_line": 11,
 				"end_line": 44
 			}
@@ -5337,7 +5137,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5359,7 +5159,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5381,7 +5181,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -5403,7 +5203,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5425,7 +5225,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
 				"end_line": 9
 			}
@@ -5447,7 +5247,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5469,7 +5269,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3.tf",
 				"start_line": 16,
 				"end_line": 16
 			}
@@ -5491,7 +5291,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5513,7 +5313,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5535,7 +5335,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -5557,7 +5357,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5579,7 +5379,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.public_bucket",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_acl_overridden_by_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_acl_overridden_by_public_access_block.tf",
 				"start_line": 5,
 				"end_line": 9
 			}
@@ -5601,7 +5401,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5623,7 +5423,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3.tf",
 				"start_line": 11,
 				"end_line": 44
 			}
@@ -5645,7 +5445,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5667,7 +5467,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5689,7 +5489,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -5711,7 +5511,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5733,7 +5533,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket_public_access_block.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_access_block.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -5755,7 +5555,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5777,7 +5577,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 4,
 				"end_line": 4
 			}
@@ -5799,7 +5599,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 3,
 				"end_line": 3
 			}
@@ -5821,7 +5621,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3.tf",
 				"start_line": 12,
 				"end_line": 12
 			}
@@ -5843,7 +5643,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5865,7 +5665,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -5887,7 +5687,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -5909,7 +5709,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -5931,7 +5731,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket_public_access_block.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_public_access_block.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_public_access_block.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -5953,7 +5753,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -5975,7 +5775,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_static",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_static_website_host_enabled.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_static_website_host_enabled.tf",
 				"start_line": 2,
 				"end_line": 11
 			}
@@ -5997,7 +5797,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_mfa",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_without_enabled_mfa_delete.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_without_enabled_mfa_delete.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -6019,7 +5819,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_unsecured_cors_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_unsecured_cors_rule.tf",
 				"start_line": 1,
 				"end_line": 21
 			}
@@ -6041,7 +5841,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.fail_permissions",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_with_all_permissions.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_with_all_permissions.tf",
 				"start_line": 1,
 				"end_line": 22
 			}
@@ -6063,7 +5863,7 @@
 			"status": 0,
 			"resource": "aws_s3_bucket.b",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\s3\\s3_bucket_policy_accepts_http_requests.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/s3/s3_bucket_policy_accepts_http_requests.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -6085,7 +5885,7 @@
 			"status": 0,
 			"resource": "aws_secretsmanager_secret.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\secret_manager\\secretsmanager_secret.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/secret_manager/secretsmanager_secret.tf",
 				"start_line": 7,
 				"end_line": 10
 			}
@@ -6107,7 +5907,7 @@
 			"status": 0,
 			"resource": "aws_secretsmanager_secret.not_secure_policy",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\secret_manager\\secrets_manager_with_vulnerable_policy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/secret_manager/secrets_manager_with_vulnerable_policy.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -6129,7 +5929,7 @@
 			"status": 0,
 			"resource": "aws_lb.test",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_groups_not_used.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_groups_not_used.tf",
 				"start_line": 1,
 				"end_line": 7
 			}
@@ -6152,7 +5952,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 15,
 				"end_line": 39
 			}
@@ -6175,7 +5975,7 @@
 			"status": 0,
 			"resource": "aws_security_group_rule.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\unrestricted_security_group_ingress.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/unrestricted_security_group_ingress.tf",
 				"start_line": 1,
 				"end_line": 9
 			}
@@ -6198,7 +5998,7 @@
 			"status": 0,
 			"resource": "aws_security_group.allow_tls",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_groups_not_used.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_groups_not_used.tf",
 				"start_line": 23,
 				"end_line": 29
 			}
@@ -6221,7 +6021,7 @@
 			"status": 0,
 			"resource": "aws_security_group_rule.fail_rule",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group_rule.tf",
 				"start_line": 9,
 				"end_line": 18
 			}
@@ -6244,7 +6044,7 @@
 			"status": 0,
 			"resource": "aws_security_group_rule.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 41,
 				"end_line": 46
 			}
@@ -6267,7 +6067,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 33,
 				"end_line": 37
 			}
@@ -6290,7 +6090,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 28,
 				"end_line": 32
 			}
@@ -6313,7 +6113,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 22,
 				"end_line": 26
 			}
@@ -6336,7 +6136,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 16,
 				"end_line": 20
 			}
@@ -6359,7 +6159,7 @@
 			"status": 0,
 			"resource": "aws_security_group.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
 				"start_line": 14,
 				"end_line": 19
 			}
@@ -6381,7 +6181,7 @@
 			"status": 0,
 			"resource": "aws_security_group.allow_tls",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_groups_not_used.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_groups_not_used.tf",
 				"start_line": 28,
 				"end_line": 28
 			}
@@ -6403,7 +6203,7 @@
 			"status": 0,
 			"resource": "aws_security_group.allow_tls",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_groups_not_used.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_groups_not_used.tf",
 				"start_line": 27,
 				"end_line": 27
 			}
@@ -6425,7 +6225,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 36,
 				"end_line": 36
 			}
@@ -6447,7 +6247,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 31,
 				"end_line": 31
 			}
@@ -6469,7 +6269,7 @@
 			"status": 0,
 			"resource": "aws_security_group.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
 				"start_line": 18,
 				"end_line": 18
 			}
@@ -6491,7 +6291,7 @@
 			"status": 0,
 			"resource": "aws_security_group_rule.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\unrestricted_security_group_ingress.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/unrestricted_security_group_ingress.tf",
 				"start_line": 6,
 				"end_line": 6
 			}
@@ -6513,7 +6313,7 @@
 			"status": 0,
 			"resource": "aws_security_group.fail_2383",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\sql_analysis_services_port_2383_is_publicly_accessible.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/sql_analysis_services_port_2383_is_publicly_accessible.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -6535,7 +6335,7 @@
 			"status": 0,
 			"resource": "aws_security_group.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_small_public_network.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/sensitive_port_is_exposed_to_small_public_network.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -6557,7 +6357,7 @@
 			"status": 0,
 			"resource": "aws_security_group.fail_sensitive",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\sensitive_port_is_exposed_to_entire_network.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/sensitive_port_is_exposed_to_entire_network.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -6579,7 +6379,7 @@
 			"status": 0,
 			"resource": "aws_security_group.fail_openport",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_http_port_open.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_http_port_open.tf",
 				"start_line": 10,
 				"end_line": 10
 			}
@@ -6601,7 +6401,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 25,
 				"end_line": 25
 			}
@@ -6623,7 +6423,7 @@
 			"status": 0,
 			"resource": "aws_security_group.bad_example",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\security_group.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/security_group.tf",
 				"start_line": 19,
 				"end_line": 19
 			}
@@ -6645,7 +6445,7 @@
 			"status": 0,
 			"resource": "aws_security_group.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\security_groups\\securiity_group_unknown_port_exposed_to_internet.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/security_groups/securiity_group_unknown_port_exposed_to_internet.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -6667,7 +6467,7 @@
 			"status": 0,
 			"resource": "aws_sns_topic.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sns\\sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sns/sns_topic_publicity_has_allow_and_not_action_simultaneously.tf",
 				"start_line": 1,
 				"end_line": 4
 			}
@@ -6689,7 +6489,7 @@
 			"status": 0,
 			"resource": "aws_sns_topic.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sns\\sns_topic.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sns/sns_topic.tf",
 				"start_line": 7,
 				"end_line": 9
 			}
@@ -6711,7 +6511,7 @@
 			"status": 0,
 			"resource": "aws_instance.test_ec2_instance",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 90,
 				"end_line": 96
 			}
@@ -6733,7 +6533,7 @@
 			"status": 0,
 			"resource": "aws_instance.test_ec2_instance",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 90,
 				"end_line": 96
 			}
@@ -6755,7 +6555,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue.test_queue",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 108,
 				"end_line": 111
 			}
@@ -6777,7 +6577,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_queue_exposed.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_queue_exposed.tf",
 				"start_line": 4,
 				"end_line": 28
 			}
@@ -6799,7 +6599,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_queue.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_queue.tf",
 				"start_line": 8,
 				"end_line": 22
 			}
@@ -6821,7 +6621,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue_policy.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_queue_policy.fail.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_queue_policy.fail.tf",
 				"start_line": 14,
 				"end_line": 14
 			}
@@ -6843,7 +6643,7 @@
 			"status": 0,
 			"resource": "aws_sqs_queue.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_queue.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_queue.tf",
 				"start_line": 16,
 				"end_line": 16
 			}
@@ -6866,7 +6666,7 @@
 			"status": 0,
 			"resource": "aws_security_group.public_internet_sg",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 65,
 				"end_line": 70
 			}
@@ -6889,7 +6689,7 @@
 			"status": 0,
 			"resource": "aws_security_group.public_internet_sg",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 58,
 				"end_line": 63
 			}
@@ -6911,7 +6711,7 @@
 			"status": 0,
 			"resource": "aws_security_group.public_internet_sg",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\sqs\\sqs_vpc_endpoint_without_dns_resolution.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/sqs/sqs_vpc_endpoint_without_dns_resolution.tf",
 				"start_line": 62,
 				"end_line": 62
 			}
@@ -6933,7 +6733,7 @@
 			"status": 0,
 			"resource": "aws_default_vpc.default",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\vpc\\default_vpc.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/vpc/default_vpc.tf",
 				"start_line": 8,
 				"end_line": 13
 			}
@@ -6955,7 +6755,7 @@
 			"status": 0,
 			"resource": "aws_network_acl_rule.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\vpc\\network_acl_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/vpc/network_acl_rule.tf",
 				"start_line": 11,
 				"end_line": 11
 			}
@@ -6977,7 +6777,7 @@
 			"status": 0,
 			"resource": "aws_network_acl_rule.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\vpc\\no-public-ingress.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/vpc/no-public-ingress.tf",
 				"start_line": 8,
 				"end_line": 8
 			}
@@ -6999,7 +6799,7 @@
 			"status": 0,
 			"resource": "aws_network_acl_rule.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\vpc\\network_acl_rule.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/vpc/network_acl_rule.tf",
 				"start_line": 13,
 				"end_line": 13
 			}
@@ -7021,7 +6821,7 @@
 			"status": 0,
 			"resource": "aws_workspaces_workspace.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\workspace\\workspace_workspace.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/workspace/workspace_workspace.tf",
 				"start_line": 8,
 				"end_line": 22
 			}
@@ -7043,7 +6843,7 @@
 			"status": 0,
 			"resource": "aws_workspaces_workspace.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\aws\\workspace\\workspace_workspace.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/aws/workspace/workspace_workspace.tf",
 				"start_line": 8,
 				"end_line": 22
 			}

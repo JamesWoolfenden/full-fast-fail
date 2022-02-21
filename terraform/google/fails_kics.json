@@ -1,25 +1,25 @@
 {
-	"kics_version": "1.4.9",
-	"files_scanned": 57,
-	"files_parsed": 57,
+	"kics_version": "1.5.1",
+	"files_scanned": 59,
+	"files_parsed": 59,
 	"files_failed_to_scan": 0,
-	"queries_total": 851,
+	"queries_total": 856,
 	"queries_failed_to_execute": 0,
 	"queries_failed_to_compute_similarity_id": 0,
 	"scan_id": "console",
 	"severity_counters": {
-		"HIGH": 50,
+		"HIGH": 52,
 		"INFO": 0,
 		"LOW": 4,
 		"MEDIUM": 24,
 		"TRACE": 0
 	},
-	"total_counter": 78,
+	"total_counter": 80,
 	"total_bom_resources": 0,
-	"start": "2022-02-19T11:58:46.7027178Z",
-	"end": "2022-02-19T11:58:59.2705978Z",
+	"start": "2022-02-21T17:36:44.260622Z",
+	"end": "2022-02-21T17:36:55.525236Z",
 	"paths": [
-		".\\terraform\\google"
+		"terraform/google"
 	],
 	"queries": [
 		{
@@ -34,7 +34,7 @@
 			"description_id": "cb5081a0",
 			"files": [
 				{
-					"file_name": "terraform\\google\\bigquery\\bigquery_dataset.tf",
+					"file_name": "terraform/google/bigquery/bigquery_dataset.tf",
 					"similarity_id": "a31661399212116a8d4e30c863edbb5f37a2a8abb7f5865e6e486e4fd1b3112a",
 					"line": 20,
 					"issue_type": "IncorrectValue",
@@ -54,19 +54,19 @@
 			"platform": "Terraform",
 			"cloud_provider": "GCP",
 			"category": "Insecure Configurations",
-			"description": "A node image, that is not Container-Optimized OS (COS), is used for Kubernetes Engine Clusters Node image",
+			"description": "The node image should be Container-Optimized OS(COS)",
 			"description_id": "4bdfef01",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"file_name": "terraform/google/container_cluster/container_node_pool.tf",
 					"similarity_id": "3127bbb1e0c48671b1932e6e5f2fe5ebbf84e4b184efcf84b9dd1eb8e991a845",
 					"line": 35,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_container_node_pool[fail_pool].node_config.image_type",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "'node_config.image_type' is 'COS'",
-					"actual_value": "'node_config.image_type' is not 'COS'"
+					"expected_value": "'node_config.image_type' should start with 'COS'",
+					"actual_value": "'node_config.image_type' does not start with 'COS'"
 				}
 			]
 		},
@@ -82,17 +82,6 @@
 			"description_id": "94728b0c",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "8d13fd577b11a6cab4348a50a76a57823e358afe41d040be4d9d4ab36bdd0269",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'master_auth' is defined",
-					"actual_value": "Attribute 'master_auth' is undefined"
-				},
-				{
 					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "c8cf950ce25e9ab4e72a65b773d4e63495e5866f5a0ee92411c654c087a59bce",
 					"line": 52,
@@ -104,7 +93,18 @@
 					"actual_value": "Attribute 'client_certificate_config' in 'master_auth' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/legacy.tf",
+					"similarity_id": "8d13fd577b11a6cab4348a50a76a57823e358afe41d040be4d9d4ab36bdd0269",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'master_auth' is defined",
+					"actual_value": "Attribute 'master_auth' is undefined"
+				},
+				{
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "73bb35c179b664e67274966e4df37dea11a9733715752b48b98e02f53ccbc228",
 					"line": 21,
 					"issue_type": "MissingAttribute",
@@ -113,17 +113,6 @@
 					"search_value": "",
 					"expected_value": "Attribute 'master_auth' is defined",
 					"actual_value": "Attribute 'master_auth' is undefined"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "c8cf950ce25e9ab4e72a65b773d4e63495e5866f5a0ee92411c654c087a59bce",
-					"line": 52,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail].master_auth",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'client_certificate_config' in 'master_auth' is defined",
-					"actual_value": "Attribute 'client_certificate_config' in 'master_auth' is undefined"
 				}
 			]
 		},
@@ -139,11 +128,22 @@
 			"description_id": "7a54f7e2",
 			"files": [
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket_iam_member.tf",
+					"file_name": "terraform/google/storage/storage_bucket_iam_member.tf",
 					"similarity_id": "126e57ac1f0de7b9273254dc998e97b7ac1118692686acb10e03e4d1680b6b84",
 					"line": 9,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_storage_bucket_iam_member[member].member",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'member' not equal to 'allUsers' nor 'allAuthenticatedUsers'",
+					"actual_value": "'member' equal to 'allUsers'"
+				},
+				{
+					"file_name": "terraform/google/registry/container_registry.tf",
+					"similarity_id": "0f41a702d2e0644b4e98707f541c5de1a538983178aae0cb03f4075160c07f43",
+					"line": 11,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_storage_bucket_iam_member[fail1_member].member",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'member' not equal to 'allUsers' nor 'allAuthenticatedUsers'",
@@ -163,9 +163,9 @@
 			"description_id": "9e9984aa",
 			"files": [
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"file_name": "terraform/google/storage/storage_bucket.tf",
 					"similarity_id": "6d07be6632b9b008161c3d64f226d966a094df98ebb42b4182f08619d35eb3d0",
-					"line": 9,
+					"line": 10,
 					"issue_type": "MissingAttribute",
 					"search_key": "google_storage_bucket[static_site]",
 					"search_line": 0,
@@ -187,9 +187,9 @@
 			"description_id": "9fda4554",
 			"files": [
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"file_name": "terraform/google/storage/storage_bucket.tf",
 					"similarity_id": "3455dac78db7083ea87ec60ac7b0c10a32979efd879554bc41f5714c811ab0ba",
-					"line": 19,
+					"line": 20,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_storage_bucket[static_site].versioning.enabled",
 					"search_line": 0,
@@ -198,9 +198,9 @@
 					"actual_value": "'versioning.enabled' is false"
 				},
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
+					"file_name": "terraform/google/storage/storage_bucket.tf",
 					"similarity_id": "eb9cc7cb7739d178fc8fc5794ad68c8655bf24b72077e7af9b03efc52ac2535d",
-					"line": 33,
+					"line": 34,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_storage_bucket[fail_self].versioning.enabled",
 					"search_line": 0,
@@ -222,7 +222,7 @@
 			"description_id": "947385a5",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"file_name": "terraform/google/container_cluster/legacy.tf",
 					"similarity_id": "15e6f1b540310201406cfe2af3d9882e3704b0d4dce13a4cdf41d9706cad0ab4",
 					"line": 10,
 					"issue_type": "MissingAttribute",
@@ -233,7 +233,7 @@
 					"actual_value": "Attribute 'resource_labels' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "86bdbb4e0f35c1db88c87c8c0a888252c72c8d08955d1fbfd75f5237c11a6033",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -244,22 +244,11 @@
 					"actual_value": "Attribute 'resource_labels' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "35816862665556b514e42f2cbaa9ee8d839161f537c7c6821d35f79ead9ee44a",
 					"line": 21,
 					"issue_type": "MissingAttribute",
 					"search_key": "google_container_cluster[fail_public]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'resource_labels' is defined",
-					"actual_value": "Attribute 'resource_labels' is undefined"
-				},
-				{
-					"file_name": "terraform/google/container_cluster/legacy.tf",
-					"similarity_id": "15e6f1b540310201406cfe2af3d9882e3704b0d4dce13a4cdf41d9706cad0ab4",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'resource_labels' is defined",
@@ -279,22 +268,22 @@
 			"description_id": "70e5d429",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
-					"similarity_id": "65fe7edb8661b23043afae96d3b0fad798b9362b4f2945adaf8aedbdc0cb45c0",
-					"line": 21,
+					"file_name": "terraform/google/container_cluster/legacy.tf",
+					"similarity_id": "535e2fd8ed97ff06e9a2980eb621a7fa60dbdbac2377d9202ec7bb023db457b4",
+					"line": 10,
 					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail_public]",
+					"search_key": "google_container_cluster[fail1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'master_auth' is defined",
 					"actual_value": "Attribute 'master_auth' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "535e2fd8ed97ff06e9a2980eb621a7fa60dbdbac2377d9202ec7bb023db457b4",
-					"line": 10,
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
+					"similarity_id": "65fe7edb8661b23043afae96d3b0fad798b9362b4f2945adaf8aedbdc0cb45c0",
+					"line": 21,
 					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
+					"search_key": "google_container_cluster[fail_public]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'master_auth' is defined",
@@ -314,18 +303,7 @@
 			"description_id": "c59b567e",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "fcd6617a15b61ddffa7933eabbebe4cd2be1f895435e04c88ee8f0b9e390c1a7",
-					"line": 52,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail].master_auth",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Both attribute 'master_auth.username' and 'master_auth.password' are defined and empty",
-					"actual_value": "Attribute 'username' is not empty or attribute 'master_auth' is not empty"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"file_name": "terraform/google/container_cluster/legacy.tf",
 					"similarity_id": "e5c262d36c7ea3cf85e981bb44302a3cc5ec51d02d7c98266a16386a150d4659",
 					"line": 10,
 					"issue_type": "MissingAttribute",
@@ -336,7 +314,7 @@
 					"actual_value": "Attribute 'master_auth' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "f4fae8627c88e18f57d6213e5e72ba96e6adaca418e4578fd1b2fa07f64581db",
 					"line": 21,
 					"issue_type": "MissingAttribute",
@@ -371,22 +349,22 @@
 			"description_id": "a2e814bc",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
-					"similarity_id": "a0b3de895e583f346ffd2a4d085f3dabd62057d383467f55258608de641fb5a1",
-					"line": 28,
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
+					"similarity_id": "65c7b76ba088e4de3c31b5ccaf83286506006c37cee88950d340ad8eb6cec685",
+					"line": 44,
 					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail_public].enable_legacy_abac",
+					"search_key": "google_container_cluster[fail].enable_legacy_abac",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'enable_legacy_abac' is false",
 					"actual_value": "Attribute 'enable_legacy_abac' is true"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "65c7b76ba088e4de3c31b5ccaf83286506006c37cee88950d340ad8eb6cec685",
-					"line": 44,
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
+					"similarity_id": "a0b3de895e583f346ffd2a4d085f3dabd62057d383467f55258608de641fb5a1",
+					"line": 28,
 					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail].enable_legacy_abac",
+					"search_key": "google_container_cluster[fail_public].enable_legacy_abac",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'enable_legacy_abac' is false",
@@ -406,17 +384,6 @@
 			"description_id": "dd31f3ec",
 			"files": [
 				{
-					"file_name": "terraform\\google\\iam\\iam_audit\\iam_audit_not_properly_configured.tf",
-					"similarity_id": "8d305298564bb19ca269b7eb5128f43a754ab13d0c565cb53e257921311c4696",
-					"line": 12,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_project_iam_audit_config[fail].audit_log_config.exempted_members",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'exempted_members' is empty",
-					"actual_value": "'exempted_members' is not empty"
-				},
-				{
 					"file_name": "terraform/google/iam/iam_audit/iam_audit_not_properly_configured.tf",
 					"similarity_id": "2a3eb2d4c39cff9fd994ed75c6e97c0baeab2097af8651ce2570ebfa5bd5d69d",
 					"line": 6,
@@ -428,7 +395,7 @@
 					"actual_value": "'service' is 'some_specific_service'"
 				},
 				{
-					"file_name": "terraform\\google\\iam\\iam_audit\\iam_audit_not_properly_configured.tf",
+					"file_name": "terraform/google/iam/iam_audit/iam_audit_not_properly_configured.tf",
 					"similarity_id": "8d305298564bb19ca269b7eb5128f43a754ab13d0c565cb53e257921311c4696",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -452,7 +419,7 @@
 			"description_id": "e7d9862a",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "e7f1254f4ca1c5e3e46312cdb3d370fd7c0eb954fe7d14b21059a45a90130065",
 					"line": 21,
 					"issue_type": "MissingAttribute",
@@ -463,7 +430,7 @@
 					"actual_value": "Attributes 'ip_allocation_policy' and 'networking_mode' are undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "dc914e92c2757606b0aab2edb173f0ccc02eb14c631b72d0bce39d2f6bbb7280",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -487,7 +454,7 @@
 			"description_id": "b1146d1f",
 			"files": [
 				{
-					"file_name": "terraform\\google\\kms\\kms_crypto_key_publicly_accessible.tf",
+					"file_name": "terraform/google/kms/kms_crypto_key_publicly_accessible.tf",
 					"similarity_id": "e70676de5550c81ef9b1c3ba2d808f19c30641e7d6e4615d7a07f589a9b17b89",
 					"line": 25,
 					"issue_type": "IncorrectValue",
@@ -511,7 +478,7 @@
 			"description_id": "afcf7c4b",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "c81e7ccaba68d2cf6190c3e59fba603a1287de1910d89fb2d11277efe083cd9f",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -522,22 +489,22 @@
 					"actual_value": "Attribute 'network_policy' is undefined or Attribute 'addons_config' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
-					"similarity_id": "ae359753fc3d168ffea0b102cbc0ff7726bb3af5b444e2bb217abe17fcc7c203",
-					"line": 21,
+					"file_name": "terraform/google/container_cluster/legacy.tf",
+					"similarity_id": "6ca0a493c99eaf4dd8cf4a6805e5fcaffe50200dee5842d2ba40b386875f6ca2",
+					"line": 10,
 					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail_public]",
+					"search_key": "google_container_cluster[fail1]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'network_policy' is defined and Attribute 'addons_config' is defined",
 					"actual_value": "Attribute 'network_policy' is undefined or Attribute 'addons_config' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "6ca0a493c99eaf4dd8cf4a6805e5fcaffe50200dee5842d2ba40b386875f6ca2",
-					"line": 10,
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
+					"similarity_id": "ae359753fc3d168ffea0b102cbc0ff7726bb3af5b444e2bb217abe17fcc7c203",
+					"line": 21,
 					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
+					"search_key": "google_container_cluster[fail_public]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'network_policy' is defined and Attribute 'addons_config' is defined",
@@ -557,7 +524,7 @@
 			"description_id": "46e4c29f",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"file_name": "terraform/google/container_cluster/container_node_pool.tf",
 					"similarity_id": "dee5507ad6f9538b981321138c9f37f5071427cec48f0bce2b4c1c099edb058b",
 					"line": 39,
 					"issue_type": "IncorrectValue",
@@ -566,6 +533,17 @@
 					"search_value": "",
 					"expected_value": "management.auto_upgrade is true",
 					"actual_value": "management.auto_upgrade is false"
+				},
+				{
+					"file_name": "terraform/google/project/project_default_service_accounts.tf",
+					"similarity_id": "e8ece6067b488e37a36f9751744501a9498b7929aad337431fa82a36a93405bc",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_node_pool[primary_preemptible_nodes]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_container_node_pool.management is defined and not null",
+					"actual_value": "google_container_node_pool.management is undefined or null"
 				}
 			]
 		},
@@ -581,7 +559,7 @@
 			"description_id": "3ed07bfa",
 			"files": [
 				{
-					"file_name": "terraform\\google\\project\\google_compute_project_metadata.tf",
+					"file_name": "terraform/google/project/google_compute_project_metadata.tf",
 					"similarity_id": "760cacf950fe588dabcfd69517f4e7effea25c8fbfeeb59b6a76f5687290490d",
 					"line": 5,
 					"issue_type": "MissingAttribute",
@@ -605,7 +583,7 @@
 			"description_id": "d69d8a89",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "f9f5ac5dbff99787e243392fbd3a689af519fd0cd19bc5bb379af7fad5c03905",
 					"line": 54,
 					"issue_type": "RedundantAttribute",
@@ -629,7 +607,7 @@
 			"description_id": "546c4012",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "7553ce7b91718a5ea0072d338fd1675f90a0470859bfd6a3df1cfbf8a71b480c",
 					"line": 21,
 					"issue_type": "MissingAttribute",
@@ -640,7 +618,7 @@
 					"actual_value": "Attribute 'pod_security_policy_config' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
+					"file_name": "terraform/google/container_cluster/legacy.tf",
 					"similarity_id": "405a67868cb8d47950b79b7fa90de123fe73bca995fe97dc15cab0108b37821d",
 					"line": 10,
 					"issue_type": "MissingAttribute",
@@ -675,33 +653,22 @@
 					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "a561c067266aa6ee8159e7fdb8b0a8319355cc99b745882dae6e127be20d3278",
-					"line": 36,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
-					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "9b05b9cb704ed149419c13afae4923ff5dcf72d6865cfd74d380023b4d25fd87",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
-					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "176483012a1595c26826a183cbd5e90d0fd617903bce63721d04a00ce5b81907",
 					"line": 21,
 					"issue_type": "MissingAttribute",
 					"search_key": "google_container_cluster[fail_public]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
+					"actual_value": "Attribute 'private_cluster_config' is undefined or null"
+				},
+				{
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
+					"similarity_id": "a561c067266aa6ee8159e7fdb8b0a8319355cc99b745882dae6e127be20d3278",
+					"line": 36,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail]",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "Attribute 'private_cluster_config' is defined and not null",
@@ -721,18 +688,7 @@
 			"description_id": "ab1d4131",
 			"files": [
 				{
-					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
-					"similarity_id": "f896ee1486d22ea1db2d9ebdca31e4562dfa0717c23edc11e4e8fd2d88783382",
-					"line": 20,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_sql_database_instance[fail].settings",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "settings.backup_configuration is defined and not null",
-					"actual_value": "settings.backup_configuration is undefined or null"
-				},
-				{
-					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
+					"file_name": "terraform/google/sql/CloudSqlServer.tf",
 					"similarity_id": "95452f1d57bb13ff305da888bd0d883eba0b884d7dae60ca44dd6d2a4c1ecb9e",
 					"line": 25,
 					"issue_type": "IncorrectValue",
@@ -743,7 +699,7 @@
 					"actual_value": "settings.backup_configuration.enabled is false"
 				},
 				{
-					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"file_name": "terraform/google/sql/CloudPostgreSql.tf",
 					"similarity_id": "5e9cef2aa9db14d3288ca86a441bf96b5264979971a73d8f98c2ef0be30b6db8",
 					"line": 47,
 					"issue_type": "IncorrectValue",
@@ -752,6 +708,17 @@
 					"search_value": "",
 					"expected_value": "settings.backup_configuration.enabled is true",
 					"actual_value": "settings.backup_configuration.enabled is false"
+				},
+				{
+					"file_name": "terraform/google/sql/CloudMySql.tf",
+					"similarity_id": "f896ee1486d22ea1db2d9ebdca31e4562dfa0717c23edc11e4e8fd2d88783382",
+					"line": 20,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_sql_database_instance[fail].settings",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "settings.backup_configuration is defined and not null",
+					"actual_value": "settings.backup_configuration is undefined or null"
 				}
 			]
 		},
@@ -767,18 +734,7 @@
 			"description_id": "9beef444",
 			"files": [
 				{
-					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
-					"similarity_id": "6a1231cd7e2fab19b6d07d237a6326d04fcd580afea8b4e0a559e9da32a550fc",
-					"line": 61,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_sql_database_instance[fail_auth].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'authorized_network' address is trusted",
-					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
-				},
-				{
-					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
+					"file_name": "terraform/google/sql/CloudMySql.tf",
 					"similarity_id": "420f5515dceb97b5349919ec5f0ec066420f7cb2c5123a456ac398f4b5f4597e",
 					"line": 30,
 					"issue_type": "IncorrectValue",
@@ -789,11 +745,22 @@
 					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
 				},
 				{
-					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"file_name": "terraform/google/sql/CloudPostgreSql.tf",
 					"similarity_id": "00828faab2153a6af17956d71b6995e23884097085a08720f3fe0b46bde6df93",
 					"line": 74,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_sql_database_instance[fail_all].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "'authorized_network' address is trusted",
+					"actual_value": "'authorized_network' address is not restricted: '0.0.0.0/0'"
+				},
+				{
+					"file_name": "terraform/google/sql/CloudSqlServer.tf",
+					"similarity_id": "6a1231cd7e2fab19b6d07d237a6326d04fcd580afea8b4e0a559e9da32a550fc",
+					"line": 61,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_sql_database_instance[fail_auth].settings.ip_configuration.authorized_networks.value=0.0.0.0/0",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'authorized_network' address is trusted",
@@ -809,7 +776,7 @@
 			"platform": "Terraform",
 			"cloud_provider": "GCP",
 			"category": "Encryption",
-			"description": "Cloud SQL Database Instance with SSL disabled for incoming connections",
+			"description": "Cloud SQL Database Instance should have SLL enabled",
 			"description_id": "8983549e",
 			"files": [
 				{
@@ -824,7 +791,7 @@
 					"actual_value": "'settings.ip_configuration.require_ssl' is false"
 				},
 				{
-					"file_name": "terraform\\google\\sql\\CloudMySql.tf",
+					"file_name": "terraform/google/sql/CloudMySql.tf",
 					"similarity_id": "5ab6a17d51c1b2a5675e4ee866391528bd6cf305d41a07ac449d01f27c9901f9",
 					"line": 22,
 					"issue_type": "IncorrectValue",
@@ -835,22 +802,11 @@
 					"actual_value": "'settings.ip_configuration.require_ssl' is false"
 				},
 				{
-					"file_name": "terraform\\google\\sql\\CloudPostgreSql.tf",
+					"file_name": "terraform/google/sql/CloudPostgreSql.tf",
 					"similarity_id": "babbfb986c7c72ed0c6b8c53477306747199c910dabfb453b61d2c662379add8",
 					"line": 34,
 					"issue_type": "IncorrectValue",
 					"search_key": "google_sql_database_instance[fail_all].settings.ip_configuration.require_ssl",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'settings.ip_configuration.require_ssl' is true",
-					"actual_value": "'settings.ip_configuration.require_ssl' is false"
-				},
-				{
-					"file_name": "terraform\\google\\sql\\CloudSqlServer.tf",
-					"similarity_id": "dbcb909659c0394b8686f48b3bf7e8f4b07cdf78d6f8b0c5c78e5efbd4fc9485",
-					"line": 48,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_sql_database_instance[fail_auth].settings.ip_configuration.require_ssl",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'settings.ip_configuration.require_ssl' is true",
@@ -870,6 +826,17 @@
 			"description_id": "b292106d",
 			"files": [
 				{
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
+					"similarity_id": "d7eb87bdff64e0346bf0b7540d83160dbbc7bc8bd2bee9bd90d5a1361e180830",
+					"line": 36,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail]",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Attribute 'logging_service' is not 'none'",
+					"actual_value": "Attribute 'logging_service' is 'none'"
+				},
+				{
 					"file_name": "terraform/google/container_cluster/legacy.tf",
 					"similarity_id": "3ab56a28265628cbda83024444d13154a22533b38a62a5089c9e82861800644e",
 					"line": 10,
@@ -881,7 +848,7 @@
 					"actual_value": "Attribute 'logging_service' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
 					"similarity_id": "37ef982a4e70cb3453d72aedd149856db69e280d366458c2f5851bac40381f2f",
 					"line": 21,
 					"issue_type": "IncorrectValue",
@@ -890,28 +857,6 @@
 					"search_value": "",
 					"expected_value": "Attribute 'logging_service' is not 'none'",
 					"actual_value": "Attribute 'logging_service' is 'none'"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "d7eb87bdff64e0346bf0b7540d83160dbbc7bc8bd2bee9bd90d5a1361e180830",
-					"line": 36,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'logging_service' is not 'none'",
-					"actual_value": "Attribute 'logging_service' is 'none'"
-				},
-				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "3ab56a28265628cbda83024444d13154a22533b38a62a5089c9e82861800644e",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "Attribute 'logging_service' is defined",
-					"actual_value": "Attribute 'logging_service' is undefined"
 				}
 			]
 		},
@@ -927,18 +872,18 @@
 			"description_id": "97635f79",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
-					"similarity_id": "6d92a6e9cacbdd2660222e482f4b0bba873717e6ec80e9f6774e60036a59511e",
-					"line": 21,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail_public]",
+					"file_name": "terraform/google/container_cluster/legacy.tf",
+					"similarity_id": "1b9f2b14e8c82878c929e8131ca49f4790014e4f969c6ffa3d61c2459289fcbd",
+					"line": 10,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_cluster[fail1]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is not 'none'",
-					"actual_value": "Attribute 'monitoring_service' is 'none'"
+					"expected_value": "Attribute 'monitoring_service' is defined",
+					"actual_value": "Attribute 'monitoring_service' is undefined"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
 					"similarity_id": "e2a8d5e2ad4bb64ef155d052aba34a8140edfe9446043892910f75570fc83f7f",
 					"line": 36,
 					"issue_type": "IncorrectValue",
@@ -949,15 +894,15 @@
 					"actual_value": "Attribute 'monitoring_service' is 'none'"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\legacy.tf",
-					"similarity_id": "1b9f2b14e8c82878c929e8131ca49f4790014e4f969c6ffa3d61c2459289fcbd",
-					"line": 10,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_container_cluster[fail1]",
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
+					"similarity_id": "6d92a6e9cacbdd2660222e482f4b0bba873717e6ec80e9f6774e60036a59511e",
+					"line": 21,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_container_cluster[fail_public]",
 					"search_line": 0,
 					"search_value": "",
-					"expected_value": "Attribute 'monitoring_service' is defined",
-					"actual_value": "Attribute 'monitoring_service' is undefined"
+					"expected_value": "Attribute 'monitoring_service' is not 'none'",
+					"actual_value": "Attribute 'monitoring_service' is 'none'"
 				}
 			]
 		},
@@ -973,7 +918,7 @@
 			"description_id": "5598ed06",
 			"files": [
 				{
-					"file_name": "terraform\\google\\dns\\dns_managed_zone.tf",
+					"file_name": "terraform/google/dns/dns_managed_zone.tf",
 					"similarity_id": "c2ac714e9625b50e54f17a7c4381d58dee61060adcd0e021cc3f99922e0067c5",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -997,7 +942,7 @@
 			"description_id": "fd990360",
 			"files": [
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket_iam_binding.tf",
+					"file_name": "terraform/google/storage/storage_bucket_iam_binding.tf",
 					"similarity_id": "2856a73a4a1cffbb84d34bd1a2a590300ffcda9c80237e1618d88bc9995cc3b7",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -1021,22 +966,22 @@
 			"description_id": "efe7e7b0",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster_public.tf",
-					"similarity_id": "f5c8b39e7cae2f74e0ab87efb6dbf63c1f0d18df3fd0e9313e09da3f60f3fe0c",
-					"line": 22,
+					"file_name": "terraform/google/container_cluster/container_cluster.tf",
+					"similarity_id": "d641f939a3efbc404e6ba09491188a03e2e54d075029ddafc9f679ee744360da",
+					"line": 38,
 					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail_public].node_config",
+					"search_key": "google_container_cluster[fail].node_config",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'service_account' is not default",
 					"actual_value": "'service_account' is default"
 				},
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_cluster.tf",
-					"similarity_id": "d641f939a3efbc404e6ba09491188a03e2e54d075029ddafc9f679ee744360da",
-					"line": 38,
+					"file_name": "terraform/google/container_cluster/container_cluster_public.tf",
+					"similarity_id": "f5c8b39e7cae2f74e0ab87efb6dbf63c1f0d18df3fd0e9313e09da3f60f3fe0c",
+					"line": 22,
 					"issue_type": "IncorrectValue",
-					"search_key": "google_container_cluster[fail].node_config",
+					"search_key": "google_container_cluster[fail_public].node_config",
 					"search_line": 0,
 					"search_value": "",
 					"expected_value": "'service_account' is not default",
@@ -1056,7 +1001,7 @@
 			"description_id": "68898cf7",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+					"file_name": "terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
 					"similarity_id": "6fc374c20843628276595d24c765b50a3aa8936d8749ee662bd7a5e0be8ea79b",
 					"line": 20,
 					"issue_type": "IncorrectValue",
@@ -1080,7 +1025,7 @@
 			"description_id": "20fce4e9",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
+					"file_name": "terraform/google/compute/firewall/google_compute_network_using_firewall_rule_allows_all_ports.tf",
 					"similarity_id": "00a95d048c4087d675db45824b6b03269f82750202f68b073d419fa8904a3ff6",
 					"line": 20,
 					"issue_type": "IncorrectValue",
@@ -1104,7 +1049,7 @@
 			"description_id": "27c7da5e",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\security\\compute_ssl_policy.tf",
+					"file_name": "terraform/google/compute/security/compute_ssl_policy.tf",
 					"similarity_id": "36fa1aa82bb60d1362c76befc5f9b9d7bc733fc34321d3315b892610e742d833",
 					"line": 9,
 					"issue_type": "IncorrectValue",
@@ -1128,7 +1073,7 @@
 			"description_id": "689ef05b",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\subnetwork\\compute_subnetwork_ipv6.tf",
+					"file_name": "terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
 					"similarity_id": "073acb9be6805aec999dec130f4ada0cfd27035ef18c4e374d599411b86e6670",
 					"line": 8,
 					"issue_type": "MissingAttribute",
@@ -1152,7 +1097,18 @@
 			"description_id": "39487293",
 			"files": [
 				{
-					"file_name": "terraform\\google\\container_cluster\\container_node_pool.tf",
+					"file_name": "terraform/google/project/project_default_service_accounts.tf",
+					"similarity_id": "66574dfeca6f560bb89a4c4bd0070ef337fc38e1fc5d8f0ba61a07238675020d",
+					"line": 9,
+					"issue_type": "MissingAttribute",
+					"search_key": "google_container_node_pool[primary_preemptible_nodes].management",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_container_node_pool[primary_preemptible_nodes].management.auto_repair is defined and not null",
+					"actual_value": "google_container_node_pool[primary_preemptible_nodes].management.auto_repair is undefined or null"
+				},
+				{
+					"file_name": "terraform/google/container_cluster/container_node_pool.tf",
 					"similarity_id": "ba6c66d901539c0004d1866fbbdb85135401777b8e03eff6a30e8e631bd940b5",
 					"line": 38,
 					"issue_type": "IncorrectValue",
@@ -1176,7 +1132,7 @@
 			"description_id": "9bcdbe82",
 			"files": [
 				{
-					"file_name": "terraform\\google\\project\\project.tf",
+					"file_name": "terraform/google/project/project.tf",
 					"similarity_id": "cd704f2a70bd3de02345a7c101f3b5e0dca8c5061d5c747d651c5cd0aca65877",
 					"line": 13,
 					"issue_type": "IncorrectValue",
@@ -1200,7 +1156,7 @@
 			"description_id": "2b311b42",
 			"files": [
 				{
-					"file_name": "terraform\\google\\iam\\iam_binding\\project_iam_binding.tf",
+					"file_name": "terraform/google/iam/iam_binding/project_iam_binding.tf",
 					"similarity_id": "8456dc1f1a34be75ae84cacab88478d4680004a7b5e5fa3e9d9946619f6902db",
 					"line": 10,
 					"issue_type": "IncorrectValue",
@@ -1224,7 +1180,7 @@
 			"description_id": "beb4558c",
 			"files": [
 				{
-					"file_name": "terraform\\google\\iam\\iam_member\\no-privileged-service-accounts.tf",
+					"file_name": "terraform/google/iam/iam_member/no-privileged-service-accounts.tf",
 					"similarity_id": "459cd86c9f94a896a80cc8bbbdf57a1f244f9e31fbc898587d4e346693f18c12",
 					"line": 12,
 					"issue_type": "IncorrectValue",
@@ -1235,7 +1191,7 @@
 					"actual_value": "google_project_iam_member[project].role is not Service Account User"
 				},
 				{
-					"file_name": "terraform\\google\\project\\google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+					"file_name": "terraform/google/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
 					"similarity_id": "977ef165ac86e3a8d63ea0102e102916b1b7a0072e2386c4370eaa8bb7356912",
 					"line": 5,
 					"issue_type": "IncorrectValue",
@@ -1259,20 +1215,9 @@
 			"description_id": "6a48f2c6",
 			"files": [
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
-					"similarity_id": "69c3f9051d4ed25158d9ff726aba5cb19ea6db0767eb2900b36721301d128d17",
-					"line": 9,
-					"issue_type": "MissingAttribute",
-					"search_key": "google_storage_bucket[static_site]",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "google_storage_bucket[static_site].uniform_bucket_level_access is defined and not null",
-					"actual_value": "google_storage_bucket[static_site].uniform_bucket_level_access is undefined or null"
-				},
-				{
 					"file_name": "terraform/google/storage/storage_bucket.tf",
-					"similarity_id": "9d4faf46d077d4a183ecc6192a0e83fffa27016187d20e8b9d69181d8fd23ca6",
-					"line": 23,
+					"similarity_id": "c14274acb0bf21b8bcf749e45641a686395c0e3f435034bd634e13781802a471",
+					"line": 24,
 					"issue_type": "MissingAttribute",
 					"search_key": "google_storage_bucket[fail_self]",
 					"search_line": 0,
@@ -1281,9 +1226,9 @@
 					"actual_value": "google_storage_bucket[fail_self].uniform_bucket_level_access is undefined or null"
 				},
 				{
-					"file_name": "terraform\\google\\storage\\storage_bucket.tf",
-					"similarity_id": "69c3f9051d4ed25158d9ff726aba5cb19ea6db0767eb2900b36721301d128d17",
-					"line": 9,
+					"file_name": "terraform/google/storage/storage_bucket.tf",
+					"similarity_id": "c417f639a9d30c0c84e0d0a6b70038dd62233446288f786705b156a1d8569925",
+					"line": 10,
 					"issue_type": "MissingAttribute",
 					"search_key": "google_storage_bucket[static_site]",
 					"search_line": 0,
@@ -1305,7 +1250,7 @@
 			"description_id": "d43302d0",
 			"files": [
 				{
-					"file_name": "terraform\\google\\kms\\google_kms_crypto_key.tf",
+					"file_name": "terraform/google/kms/google_kms_crypto_key.tf",
 					"similarity_id": "2d22e64ceb0cc8518302b6fcb07b07ba7aa01e50b3976b3e6e9b77bdb605cfdf",
 					"line": 15,
 					"issue_type": "IncorrectValue",
@@ -1314,30 +1259,6 @@
 					"search_value": "",
 					"expected_value": "'google_kms_crypto_key.rotation_period' is less or equal to 7776000",
 					"actual_value": "'google_kms_crypto_key.rotation_period' is higher than 7776000"
-				}
-			]
-		},
-		{
-			"query_name": "KMS Admin and CryptoKey Roles In Use",
-			"query_id": "92e4464a-4139-4d57-8742-b5acc0347680",
-			"query_url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#policy_data",
-			"severity": "MEDIUM",
-			"platform": "Terraform",
-			"cloud_provider": "GCP",
-			"category": "Access Control",
-			"description": "Google Project IAM Policy should not assign a KMS admin role and CryptoKey role to the same member",
-			"description_id": "36d82ecd",
-			"files": [
-				{
-					"file_name": "terraform/google/kms/kms_admin_and_crypto_key_roles_in_use.tf",
-					"similarity_id": "2029529c826a6f4f93b036d25538a25e2c12107806df28dab204cf50eb6b409a",
-					"line": 5,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_project_iam_policy[positive1].policy_data",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "google_iam_policy[positive1].policy_data does not assign a KMS admin role and CryptoKey role to the same member",
-					"actual_value": "google_iam_policy[positive1].policy_data assigns a KMS admin role and CryptoKey role to the same member"
 				}
 			]
 		},
@@ -1353,7 +1274,7 @@
 			"description_id": "a0cc649c",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"file_name": "terraform/google/compute/instance/compute_instance.tf",
 					"similarity_id": "b56bf74ab75d9cd0274f89666311f397b4dff04513e696b111491267e6586e7b",
 					"line": 50,
 					"issue_type": "IncorrectValue",
@@ -1373,11 +1294,11 @@
 			"platform": "Terraform",
 			"cloud_provider": "GCP",
 			"category": "Insecure Configurations",
-			"description": "Check if SSH keys are enabled project-wide in VM instances",
+			"description": "VM Instance should block project-wide SSH keys",
 			"description_id": "4b9307cd",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"file_name": "terraform/google/compute/instance/compute_instance.tf",
 					"similarity_id": "896d0fd5f3eb8cac4e99eb0076a2661cb8c47835d0a117b66a59793d296a2dc1",
 					"line": 48,
 					"issue_type": "IncorrectValue",
@@ -1401,7 +1322,7 @@
 			"description_id": "f8156d3b",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\firewall\\compute_firewall.tf",
+					"file_name": "terraform/google/compute/firewall/compute_firewall.tf",
 					"similarity_id": "3142069d1db964e79183dec3f74885baf6933d10fbcd79fe3131799418b71d86",
 					"line": 19,
 					"issue_type": "IncorrectValue",
@@ -1410,17 +1331,6 @@
 					"search_value": "",
 					"expected_value": "'google_compute_firewall[allow_all].allow.ports' does not include RDP port 3389",
 					"actual_value": "'google_compute_firewall[allow_all].allow.ports' includes RDP port 3389"
-				},
-				{
-					"file_name": "terraform\\google\\compute\\firewall\\google_compute_network_using_firewall_rule_allows_all_ports.tf",
-					"similarity_id": "96fa51fd0245630ca4b0428ab78af651084d444a8e585c0c9c86eb45b4bb635d",
-					"line": 14,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_compute_firewall[fail].allow.ports",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "'google_compute_firewall[fail].allow.ports' does not include RDP port 3389",
-					"actual_value": "'google_compute_firewall[fail].allow.ports' includes RDP port 3389"
 				}
 			]
 		},
@@ -1436,7 +1346,7 @@
 			"description_id": "c0e4fb6f",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\firewall\\compute_firewall.tf",
+					"file_name": "terraform/google/compute/firewall/compute_firewall.tf",
 					"similarity_id": "75138d12e831932de888cc9e329cdee54321ae63b8e964ae077921fcfbcc7f24",
 					"line": 19,
 					"issue_type": "IncorrectValue",
@@ -1460,7 +1370,7 @@
 			"description_id": "2967cde6",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"file_name": "terraform/google/compute/instance/compute_instance.tf",
 					"similarity_id": "9fa7aa348f836783306890fe93d86689a598a01c9453b0455040c8e2fb597e9c",
 					"line": 49,
 					"issue_type": "IncorrectValue",
@@ -1484,7 +1394,7 @@
 			"description_id": "1b2dbbea",
 			"files": [
 				{
-					"file_name": "terraform\\google\\project\\project_iam_binding.tf",
+					"file_name": "terraform/google/project/project_iam_binding.tf",
 					"similarity_id": "ede816e15b59070b5f5debcdb1c2b2a5851897e35036d3e6e6c402f6045ac789",
 					"line": 6,
 					"issue_type": "IncorrectValue",
@@ -1508,7 +1418,7 @@
 			"description_id": "5c3e219f",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\instance\\compute_instance.tf",
+					"file_name": "terraform/google/compute/instance/compute_instance.tf",
 					"similarity_id": "edf841e1d0aa92db58858579240067be998c168e776a3a93555279041513d836",
 					"line": 36,
 					"issue_type": "MissingAttribute",
@@ -1532,7 +1442,7 @@
 			"description_id": "87e8a4f7",
 			"files": [
 				{
-					"file_name": "terraform\\google\\compute\\subnetwork\\compute_subnetwork_ipv6.tf",
+					"file_name": "terraform/google/compute/subnetwork/compute_subnetwork_ipv6.tf",
 					"similarity_id": "e2a9325ac13d86d50394e3dd86e673aff138728ad8e0b17d376e724ff0d71b79",
 					"line": 19,
 					"issue_type": "IncorrectValue",
@@ -1556,18 +1466,7 @@
 			"description_id": "256939e9",
 			"files": [
 				{
-					"file_name": "terraform\\google\\project\\RoleServiceAccountUser.tf",
-					"similarity_id": "a269207feea62d6d7624d59c3885cb00eef889f3b173a7643894ee4da701a373",
-					"line": 9,
-					"issue_type": "IncorrectValue",
-					"search_key": "google_project_iam_member[project].role",
-					"search_line": 0,
-					"search_value": "",
-					"expected_value": "google_project_iam_member[project].role is not set",
-					"actual_value": "google_project_iam_member[project].role is set"
-				},
-				{
-					"file_name": "terraform\\google\\project\\project_iam_member.tf",
+					"file_name": "terraform/google/project/project_iam_member.tf",
 					"similarity_id": "e58d0c931a8b22469acb3d21dd9e6e8e122a5c6df28692fe2c3ce21e0c6bd6e8",
 					"line": 10,
 					"issue_type": "IncorrectValue",
@@ -1578,7 +1477,7 @@
 					"actual_value": "google_project_iam_member[fail].role is set"
 				},
 				{
-					"file_name": "terraform\\google\\kms\\kms_crypto_key_publicly_accessible.tf",
+					"file_name": "terraform/google/kms/kms_crypto_key_publicly_accessible.tf",
 					"similarity_id": "09e53fe71f07ee9624d1947dc8fba311b6deca8ed9a92b86a42e75cd3e2a1e8f",
 					"line": 18,
 					"issue_type": "IncorrectValue",
@@ -1587,6 +1486,17 @@
 					"search_value": "",
 					"expected_value": "google_iam_policy[fail_access].binding.role is not set",
 					"actual_value": "google_iam_policy[fail_access].binding.role is set"
+				},
+				{
+					"file_name": "terraform/google/project/RoleServiceAccountUser.tf",
+					"similarity_id": "a269207feea62d6d7624d59c3885cb00eef889f3b173a7643894ee4da701a373",
+					"line": 9,
+					"issue_type": "IncorrectValue",
+					"search_key": "google_project_iam_member[project].role",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "google_project_iam_member[project].role is not set",
+					"actual_value": "google_project_iam_member[project].role is set"
 				}
 			]
 		}

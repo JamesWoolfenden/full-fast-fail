@@ -1,10 +1,11 @@
 # fail
-# todo if cache is enabled ensure that it is encrypted
+# CKV_AWS_225 cache_data_encrypted
 # metrics enabled
 # logging level is not off
 # data trace?
-# kics
 
+# kics
+# API Gateway Method Settings Cache Not Encrypted aws_api_gateway_method_settings.settings.cache_data_encrypted is set to true
 resource "aws_api_gateway_method_settings" "fail" {
   rest_api_id = aws_api_gateway_rest_api.fail.id
   stage_name  = aws_api_gateway_stage.fail.stage_name

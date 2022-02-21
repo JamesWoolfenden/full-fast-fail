@@ -17,7 +17,7 @@
 			"status": 0,
 			"resource": "google_bigquery_dataset.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\bigquery\\bigquery_dataset.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/bigquery/bigquery_dataset.tf",
 				"start_line": 20,
 				"end_line": 20
 			}
@@ -39,7 +39,7 @@
 			"status": 0,
 			"resource": "google_container_node_pool.fail_pool",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_node_pool.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
 				"start_line": 38,
 				"end_line": 38
 			}
@@ -61,7 +61,7 @@
 			"status": 0,
 			"resource": "google_container_node_pool.fail_pool",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_node_pool.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
 				"start_line": 39,
 				"end_line": 39
 			}
@@ -83,7 +83,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -105,7 +105,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -127,7 +127,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -149,7 +149,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -171,7 +171,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -193,7 +193,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -215,7 +215,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -237,7 +237,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -259,7 +259,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -281,7 +281,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -303,7 +303,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 29,
 				"end_line": 29
 			}
@@ -325,7 +325,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 45,
 				"end_line": 45
 			}
@@ -347,7 +347,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 30,
 				"end_line": 30
 			}
@@ -369,7 +369,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 46,
 				"end_line": 46
 			}
@@ -391,7 +391,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -413,7 +413,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -435,7 +435,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 60,
 				"end_line": 60
 			}
@@ -457,7 +457,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -479,7 +479,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -501,7 +501,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -523,7 +523,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 53,
 				"end_line": 53
 			}
@@ -545,7 +545,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 33,
 				"end_line": 33
 			}
@@ -567,7 +567,7 @@
 			"status": 0,
 			"resource": "google_container_node_pool.fail_pool",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_node_pool.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
 				"start_line": 24,
 				"end_line": 24
 			}
@@ -589,7 +589,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 22,
 				"end_line": 26
 			}
@@ -611,7 +611,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 38,
 				"end_line": 42
 			}
@@ -633,7 +633,7 @@
 			"status": 0,
 			"resource": "google_container_node_pool.fail_pool",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_node_pool.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_node_pool.tf",
 				"start_line": 35,
 				"end_line": 35
 			}
@@ -655,7 +655,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 37,
 				"end_line": 37
 			}
@@ -677,7 +677,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -699,7 +699,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 21,
 				"end_line": 36
 			}
@@ -721,7 +721,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 36,
 				"end_line": 63
 			}
@@ -743,7 +743,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 28,
 				"end_line": 28
 			}
@@ -765,7 +765,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 44,
 				"end_line": 44
 			}
@@ -787,7 +787,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\legacy.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/legacy.tf",
 				"start_line": 10,
 				"end_line": 25
 			}
@@ -809,7 +809,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail_public",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster_public.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster_public.tf",
 				"start_line": 22,
 				"end_line": 26
 			}
@@ -831,7 +831,7 @@
 			"status": 0,
 			"resource": "google_container_cluster.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\container_cluster\\container_cluster.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/container_cluster/container_cluster.tf",
 				"start_line": 38,
 				"end_line": 42
 			}
@@ -853,7 +853,7 @@
 			"status": 0,
 			"resource": "google_dns_managed_zone.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\dns\\dns_managed_zone.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/dns/dns_managed_zone.tf",
 				"start_line": 11,
 				"end_line": 23
 			}
@@ -875,7 +875,7 @@
 			"status": 0,
 			"resource": "google_dns_managed_zone.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\dns\\dns_managed_zone.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/dns/dns_managed_zone.tf",
 				"start_line": 14,
 				"end_line": 14
 			}
@@ -897,7 +897,7 @@
 			"status": 0,
 			"resource": "google_kms_crypto_key.fails",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\kms\\google_kms_crypto_key.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/kms/google_kms_crypto_key.tf",
 				"start_line": 12,
 				"end_line": 20
 			}
@@ -920,7 +920,7 @@
 			"status": 0,
 			"resource": "google_organization_iam_binding.organization",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\organisation\\organization_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
 				"start_line": 9,
 				"end_line": 12
 			}
@@ -942,7 +942,7 @@
 			"status": 0,
 			"resource": "google_organization_iam_binding.organization",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\organisation\\organization_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
 				"start_line": 7,
 				"end_line": 7
 			}
@@ -964,9 +964,97 @@
 			"status": 0,
 			"resource": "google_organization_iam_binding.organization",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\organisation\\organization_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/organisation/organization_iam_binding.tf",
 				"start_line": 7,
 				"end_line": 7
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0063",
+			"long_id": "google-gke-enable-auto-repair",
+			"rule_description": "Kubernetes should have 'Automatic repair' enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Failing nodes will require manual repair.",
+			"resolution": "Enable automatic repair",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/google/gke/enable-auto-repair/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_repair"
+			],
+			"description": "Node pool does not have auto-repair enabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.primary_preemptible_nodes",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_default_service_accounts.tf",
+				"start_line": 9,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0058",
+			"long_id": "google-gke-enable-auto-upgrade",
+			"rule_description": "Kubernetes should have 'Automatic upgrade' enabled",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Nodes will need the cluster master version manually updating",
+			"resolution": "Enable automatic upgrades",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/google/gke/enable-auto-upgrade/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_upgrade"
+			],
+			"description": "Node pool does not have auto-upgraade enabled.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.primary_preemptible_nodes",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_default_service_accounts.tf",
+				"start_line": 9,
+				"end_line": 25
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0057",
+			"long_id": "google-gke-node-metadata-security",
+			"rule_description": "Node metadata value disables metadata concealment.",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "Metadata that isn't concealed potentially risks leakage of sensitive data",
+			"resolution": "Set node metadata to SECURE or GKE_METADATA_SERVER",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/google/gke/node-metadata-security/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata"
+			],
+			"description": "Node pool exposes node metadata.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_container_node_pool.primary_preemptible_nodes",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_default_service_accounts.tf",
+				"start_line": 15,
+				"end_line": 24
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0054",
+			"long_id": "google-gke-node-pool-uses-cos",
+			"rule_description": "Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image",
+			"rule_provider": "google",
+			"rule_service": "gke",
+			"impact": "COS is the recommended OS image to use on cluster nodes",
+			"resolution": "Use the COS image type",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/google/gke/node-pool-uses-cos/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#image_type"
+			],
+			"description": "Node pool is not using the COS containerd image type.",
+			"severity": "LOW",
+			"status": 0,
+			"resource": "google_container_node_pool.primary_preemptible_nodes",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_default_service_accounts.tf",
+				"start_line": 15,
+				"end_line": 24
 			}
 		},
 		{
@@ -986,7 +1074,7 @@
 			"status": 0,
 			"resource": "google_project.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\project.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project.tf",
 				"start_line": 13,
 				"end_line": 13
 			}
@@ -1008,7 +1096,7 @@
 			"status": 0,
 			"resource": "google_project_iam_binding.fail_service",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\project_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_binding.tf",
 				"start_line": 6,
 				"end_line": 6
 			}
@@ -1031,7 +1119,7 @@
 			"status": 0,
 			"resource": "google_project_iam_binding.fail_service",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\project_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_binding.tf",
 				"start_line": 8,
 				"end_line": 11
 			}
@@ -1053,7 +1141,7 @@
 			"status": 0,
 			"resource": "google_project_iam_member.positive1",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/google_project_iam_member_service_account_has_token_creator_or_account_user_role.tf",
 				"start_line": 5,
 				"end_line": 5
 			}
@@ -1075,7 +1163,7 @@
 			"status": 0,
 			"resource": "google_project_iam_member.project",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\RoleServiceAccountUser.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/RoleServiceAccountUser.tf",
 				"start_line": 9,
 				"end_line": 9
 			}
@@ -1097,7 +1185,7 @@
 			"status": 0,
 			"resource": "google_project_iam_member.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\project_iam_member.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/project_iam_member.tf",
 				"start_line": 10,
 				"end_line": 10
 			}
@@ -1119,9 +1207,31 @@
 			"status": 0,
 			"resource": "google_project_iam_member.project",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\project\\RoleServiceAccountUser.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/project/RoleServiceAccountUser.tf",
 				"start_line": 9,
 				"end_line": 9
+			}
+		},
+		{
+			"rule_id": "AVD-GCP-0001",
+			"long_id": "google-storage-no-public-access",
+			"rule_description": "Ensure that Cloud Storage bucket is not anonymously or publicly accessible.",
+			"rule_provider": "google",
+			"rule_service": "storage",
+			"impact": "Public exposure of sensitive data.",
+			"resolution": "Restrict public access to the bucket.",
+			"links": [
+				"https://aquasecurity.github.io/tfsec/latest/checks/google/storage/no-public-access/",
+				"https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members"
+			],
+			"description": "Bucket allows public access.",
+			"severity": "HIGH",
+			"status": 0,
+			"resource": "google_storage_bucket_iam_member.fail1_member",
+			"location": {
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/registry/container_registry.tf",
+				"start_line": 11,
+				"end_line": 11
 			}
 		},
 		{
@@ -1141,7 +1251,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 25,
 				"end_line": 25
 			}
@@ -1163,7 +1273,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 47,
 				"end_line": 47
 			}
@@ -1185,7 +1295,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 15,
 				"end_line": 48
 			}
@@ -1207,7 +1317,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 73,
 				"end_line": 73
 			}
@@ -1229,7 +1339,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 48,
 				"end_line": 48
 			}
@@ -1251,7 +1361,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 34,
 				"end_line": 34
 			}
@@ -1273,7 +1383,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 22,
 				"end_line": 22
 			}
@@ -1296,7 +1406,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 42,
 				"end_line": 42
 			}
@@ -1318,7 +1428,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 37,
 				"end_line": 37
 			}
@@ -1340,7 +1450,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 33,
 				"end_line": 33
 			}
@@ -1362,7 +1472,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 51,
 				"end_line": 51
 			}
@@ -1384,7 +1494,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_auth",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudSqlServer.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudSqlServer.tf",
 				"start_line": 46,
 				"end_line": 46
 			}
@@ -1406,7 +1516,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 42,
 				"end_line": 42
 			}
@@ -1428,7 +1538,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 37,
 				"end_line": 37
 			}
@@ -1450,7 +1560,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 35,
 				"end_line": 35
 			}
@@ -1472,7 +1582,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 30,
 				"end_line": 30
 			}
@@ -1494,7 +1604,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 25,
 				"end_line": 25
 			}
@@ -1516,7 +1626,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudMySql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudMySql.tf",
 				"start_line": 23,
 				"end_line": 23
 			}
@@ -1538,7 +1648,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 54,
 				"end_line": 54
 			}
@@ -1560,7 +1670,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 58,
 				"end_line": 58
 			}
@@ -1582,7 +1692,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 62,
 				"end_line": 62
 			}
@@ -1604,7 +1714,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 70,
 				"end_line": 70
 			}
@@ -1626,7 +1736,7 @@
 			"status": 0,
 			"resource": "google_sql_database_instance.fail_all",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\sql\\CloudPostgreSql.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/sql/CloudPostgreSql.tf",
 				"start_line": 77,
 				"end_line": 77
 			}
@@ -1646,11 +1756,11 @@
 			"description": "Bucket has uniform bucket level access disabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "google_storage_bucket.static_site",
+			"resource": "google_storage_bucket.fail_self",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\storage\\storage_bucket.tf",
-				"start_line": 9,
-				"end_line": 21
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket.tf",
+				"start_line": 24,
+				"end_line": 36
 			}
 		},
 		{
@@ -1668,11 +1778,11 @@
 			"description": "Bucket has uniform bucket level access disabled.",
 			"severity": "MEDIUM",
 			"status": 0,
-			"resource": "google_storage_bucket.fail_self",
+			"resource": "google_storage_bucket.static_site",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\storage\\storage_bucket.tf",
-				"start_line": 23,
-				"end_line": 35
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket.tf",
+				"start_line": 10,
+				"end_line": 22
 			}
 		},
 		{
@@ -1692,7 +1802,7 @@
 			"status": 0,
 			"resource": "google_storage_bucket_iam_member.member",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\storage\\storage_bucket_iam_member.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket_iam_member.tf",
 				"start_line": 9,
 				"end_line": 9
 			}
@@ -1714,7 +1824,7 @@
 			"status": 0,
 			"resource": "google_storage_bucket_iam_binding.binding",
 			"location": {
-				"filename": "F:\\Code\\fail\\terraform\\google\\storage\\storage_bucket_iam_binding.tf",
+				"filename": "/Users/jameswoolfenden/code/fail/terraform/google/storage/storage_bucket_iam_binding.tf",
 				"start_line": 9,
 				"end_line": 11
 			}

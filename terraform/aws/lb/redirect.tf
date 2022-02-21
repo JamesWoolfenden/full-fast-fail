@@ -6,6 +6,10 @@
 # CKV_AWS_103: "Ensure that load balancer is using TLS 1.2"
 # CKV2_AWS_20: "Ensure that ALB redirects HTTP requests into HTTPS ones"
 # CKV2_AWS_28: "Ensure public facing ALB are protected by WAF"
+
+# kics
+# ALB Listening on HTTP default_action.redirect.protocol' is equal to 'HTTPS'
+
 resource "aws_lb" "lb_bad_1" {
   tags = { test = "Fail" }
 }
@@ -17,6 +21,10 @@ resource "aws_lb_listener" "listener_bad_1" {
 
   default_action {
     type = "some-action"
+    # redirect {
+    #   protocol = "HTTPS"
+    # }
+
   }
   tags = { test = "Fail" }
 }

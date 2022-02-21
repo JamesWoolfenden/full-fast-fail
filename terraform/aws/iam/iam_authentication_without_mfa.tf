@@ -1,3 +1,9 @@
+# fails
+# CKV_AWS_40: "Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)"
+# CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
+
+# kics 
+# todo 'policy.Statement.Principal.AWS' contains ':mfa/' or 'policy.Statement.Condition.BoolIfExists.aws:MultiFactorAuthPresent' is set to true"
 provider "aws" {
   region = "us-east-1"
 }

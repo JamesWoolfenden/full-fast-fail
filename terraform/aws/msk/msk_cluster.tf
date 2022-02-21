@@ -1,7 +1,6 @@
 # fail
 # CKV_AWS_81: "Ensure MSK Cluster encryption in rest and transit is enabled"
 # CKV_AWS_80: "Ensure MSK Cluster logging is enabled"
-# todo look for missing encryption block
 
 # tfsec
 # Resource 'aws_msk_cluster.name' does not have any broker logging enabled

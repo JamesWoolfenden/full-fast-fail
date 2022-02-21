@@ -1,12 +1,14 @@
 # fails
 # CKV_AWS_7: "Ensure rotation for customer created CMKs is enabled"
 # CKV_AWS_33: "Ensure KMS key policy does not contain wildcard (*) principal"
-
+# CKV_AWS_227: KMS key is enabled
 # Resource 'aws_kms_key.fail_0' does not have KMS Key auto-rotation enabled.
 
 resource "aws_kms_key" "fail_0" {
-  description = "description"
-  policy      = <<POLICY
+  description         = "description"
+  is_enabled          = false
+  enable_key_rotation = false
+  policy              = <<POLICY
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -29,5 +31,5 @@ resource "aws_kms_key" "fail_0" {
   ]
 }
 POLICY
-  tags        = { test = "Fail" }
+  tags                = { test = "Fail" }
 }

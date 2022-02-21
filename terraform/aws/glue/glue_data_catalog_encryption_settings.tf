@@ -1,8 +1,6 @@
 # fails
-
 # CKV_AWS_94: "Ensure Glue Data Catalog Encryption is enabled"
-# todo kms key used to encrpyt password connection
-# todo kms used to encrypt at rest
+
 resource "aws_glue_data_catalog_encryption_settings" "test" {
   data_catalog_encryption_settings {
     connection_password_encryption {
