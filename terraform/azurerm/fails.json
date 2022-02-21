@@ -5443,204 +5443,6 @@
                     "guideline": null
                 },
                 {
-                    "check_id": "CKV2_AZURE_14",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that Unattached disks are encrypted",
-                    "check_result": {
-                        "result": "PASSED",
-                        "entity": {
-                            "azurerm_virtual_machine": {
-                                "fail": {
-                                    "location": [
-                                        "azurerm_resource_group.main.location"
-                                    ],
-                                    "name": [
-                                        "var.prefix-vm"
-                                    ],
-                                    "network_interface_ids": [
-                                        [
-                                            "azurerm_network_interface.main.id"
-                                        ]
-                                    ],
-                                    "os_profile": [
-                                        {
-                                            "admin_password": [
-                                                "Password1234!"
-                                            ],
-                                            "admin_username": [
-                                                "testadmin"
-                                            ],
-                                            "computer_name": [
-                                                "hostname"
-                                            ],
-                                            "custom_data": [
-                                                "0000-0000-0000-0000-000000000000"
-                                            ]
-                                        }
-                                    ],
-                                    "os_profile_linux_config": [
-                                        {
-                                            "disable_password_authentication": [
-                                                false
-                                            ]
-                                        }
-                                    ],
-                                    "resource_group_name": [
-                                        "azurerm_resource_group.main.name"
-                                    ],
-                                    "storage_image_reference": [
-                                        {
-                                            "offer": [
-                                                "UbuntuServer"
-                                            ],
-                                            "publisher": [
-                                                "Canonical"
-                                            ],
-                                            "sku": [
-                                                "16.04-LTS"
-                                            ],
-                                            "version": [
-                                                "latest"
-                                            ]
-                                        }
-                                    ],
-                                    "vm_size": [
-                                        "Standard_DS1_v2"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "encryption_settings",
-                            "disk_encryption_set_id",
-                            "encryption_settings/enabled"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            10,
-                            "resource \"azurerm_virtual_machine\" \"fail\" {\n"
-                        ],
-                        [
-                            11,
-                            "  name                  = \"${var.prefix}-vm\"\n"
-                        ],
-                        [
-                            12,
-                            "  location              = azurerm_resource_group.main.location\n"
-                        ],
-                        [
-                            13,
-                            "  resource_group_name   = azurerm_resource_group.main.name\n"
-                        ],
-                        [
-                            14,
-                            "  network_interface_ids = [azurerm_network_interface.main.id]\n"
-                        ],
-                        [
-                            15,
-                            "  vm_size               = \"Standard_DS1_v2\"\n"
-                        ],
-                        [
-                            16,
-                            "  storage_image_reference {\n"
-                        ],
-                        [
-                            17,
-                            "    publisher = \"Canonical\"\n"
-                        ],
-                        [
-                            18,
-                            "    offer     = \"UbuntuServer\"\n"
-                        ],
-                        [
-                            19,
-                            "    sku       = \"16.04-LTS\"\n"
-                        ],
-                        [
-                            20,
-                            "    version   = \"latest\"\n"
-                        ],
-                        [
-                            21,
-                            "  }\n"
-                        ],
-                        [
-                            22,
-                            "  os_profile {\n"
-                        ],
-                        [
-                            23,
-                            "    computer_name  = \"hostname\"\n"
-                        ],
-                        [
-                            24,
-                            "    admin_username = \"testadmin\"\n"
-                        ],
-                        [
-                            25,
-                            "    admin_password = \"Password1234!\"\n"
-                        ],
-                        [
-                            26,
-                            "    custom_data    = <<EOF\n"
-                        ],
-                        [
-                            27,
-                            "0000-0000-0000-0000-000000000000\n"
-                        ],
-                        [
-                            28,
-                            "EOF\n"
-                        ],
-                        [
-                            29,
-                            "  }\n"
-                        ],
-                        [
-                            30,
-                            "  os_profile_linux_config {\n"
-                        ],
-                        [
-                            31,
-                            "    disable_password_authentication = false\n"
-                        ],
-                        [
-                            32,
-                            "  }\n"
-                        ],
-                        [
-                            33,
-                            "\n"
-                        ],
-                        [
-                            34,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/vms/virtual_machine.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/virtual_machine.tf",
-                    "repo_file_path": "/terraform/azurerm/vms/virtual_machine.tf",
-                    "file_line_range": [
-                        10,
-                        34
-                    ],
-                    "resource": "azurerm_virtual_machine.fail",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
                     "check_id": "CKV_AZURE_23",
                     "bc_check_id": null,
                     "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
@@ -5692,9 +5494,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "extended_auditing_policy",
                             "server_id",
-                            "extended_auditing_policy"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -5861,9 +5663,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "extended_auditing_policy",
                             "server_id",
-                            "extended_auditing_policy"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -5971,6 +5773,323 @@
                     "description": null,
                     "short_description": null,
                     "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_14",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Unattached disks are encrypted",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_virtual_machine": {
+                                "fail": {
+                                    "location": [
+                                        "azurerm_resource_group.main.location"
+                                    ],
+                                    "name": [
+                                        "var.prefix-vm"
+                                    ],
+                                    "network_interface_ids": [
+                                        [
+                                            "azurerm_network_interface.main.id"
+                                        ]
+                                    ],
+                                    "os_profile": [
+                                        {
+                                            "admin_password": [
+                                                "Password1234!"
+                                            ],
+                                            "admin_username": [
+                                                "testadmin"
+                                            ],
+                                            "computer_name": [
+                                                "hostname"
+                                            ],
+                                            "custom_data": [
+                                                "0000-0000-0000-0000-000000000000"
+                                            ]
+                                        }
+                                    ],
+                                    "os_profile_linux_config": [
+                                        {
+                                            "disable_password_authentication": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.main.name"
+                                    ],
+                                    "storage_image_reference": [
+                                        {
+                                            "offer": [
+                                                "UbuntuServer"
+                                            ],
+                                            "publisher": [
+                                                "Canonical"
+                                            ],
+                                            "sku": [
+                                                "16.04-LTS"
+                                            ],
+                                            "version": [
+                                                "latest"
+                                            ]
+                                        }
+                                    ],
+                                    "vm_size": [
+                                        "Standard_DS1_v2"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "encryption_settings/enabled",
+                            "disk_encryption_set_id",
+                            "resource_type",
+                            "encryption_settings"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            10,
+                            "resource \"azurerm_virtual_machine\" \"fail\" {\n"
+                        ],
+                        [
+                            11,
+                            "  name                  = \"${var.prefix}-vm\"\n"
+                        ],
+                        [
+                            12,
+                            "  location              = azurerm_resource_group.main.location\n"
+                        ],
+                        [
+                            13,
+                            "  resource_group_name   = azurerm_resource_group.main.name\n"
+                        ],
+                        [
+                            14,
+                            "  network_interface_ids = [azurerm_network_interface.main.id]\n"
+                        ],
+                        [
+                            15,
+                            "  vm_size               = \"Standard_DS1_v2\"\n"
+                        ],
+                        [
+                            16,
+                            "  storage_image_reference {\n"
+                        ],
+                        [
+                            17,
+                            "    publisher = \"Canonical\"\n"
+                        ],
+                        [
+                            18,
+                            "    offer     = \"UbuntuServer\"\n"
+                        ],
+                        [
+                            19,
+                            "    sku       = \"16.04-LTS\"\n"
+                        ],
+                        [
+                            20,
+                            "    version   = \"latest\"\n"
+                        ],
+                        [
+                            21,
+                            "  }\n"
+                        ],
+                        [
+                            22,
+                            "  os_profile {\n"
+                        ],
+                        [
+                            23,
+                            "    computer_name  = \"hostname\"\n"
+                        ],
+                        [
+                            24,
+                            "    admin_username = \"testadmin\"\n"
+                        ],
+                        [
+                            25,
+                            "    admin_password = \"Password1234!\"\n"
+                        ],
+                        [
+                            26,
+                            "    custom_data    = <<EOF\n"
+                        ],
+                        [
+                            27,
+                            "0000-0000-0000-0000-000000000000\n"
+                        ],
+                        [
+                            28,
+                            "EOF\n"
+                        ],
+                        [
+                            29,
+                            "  }\n"
+                        ],
+                        [
+                            30,
+                            "  os_profile_linux_config {\n"
+                        ],
+                        [
+                            31,
+                            "    disable_password_authentication = false\n"
+                        ],
+                        [
+                            32,
+                            "  }\n"
+                        ],
+                        [
+                            33,
+                            "\n"
+                        ],
+                        [
+                            34,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/vms/virtual_machine.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/virtual_machine.tf",
+                    "repo_file_path": "/terraform/azurerm/vms/virtual_machine.tf",
+                    "file_line_range": [
+                        10,
+                        34
+                    ],
+                    "resource": "azurerm_virtual_machine.fail",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_119",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Network Interfaces don't use public IPs",
+                    "check_result": {
+                        "result": "PASSED",
+                        "entity": {
+                            "azurerm_network_interface": {
+                                "test": {
+                                    "ip_configuration": [
+                                        {
+                                            "name": [
+                                                "internal"
+                                            ],
+                                            "private_ip_address_allocation": [
+                                                "Dynamic"
+                                            ],
+                                            "subnet_id": [
+                                                "azurerm_subnet.example.id"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "uksouth"
+                                    ],
+                                    "name": [
+                                        "example"
+                                    ],
+                                    "resource_group_name": [
+                                        "test"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            32,
+                            "resource \"azurerm_network_interface\" \"test\" {\n"
+                        ],
+                        [
+                            33,
+                            "  name     = \"example\"\n"
+                        ],
+                        [
+                            34,
+                            "  location = azurerm_resource_group.test.location\n"
+                        ],
+                        [
+                            35,
+                            "  ip_configuration {\n"
+                        ],
+                        [
+                            36,
+                            "    name                          = \"internal\"\n"
+                        ],
+                        [
+                            37,
+                            "    subnet_id                     = azurerm_subnet.example.id\n"
+                        ],
+                        [
+                            38,
+                            "    private_ip_address_allocation = \"Dynamic\"\n"
+                        ],
+                        [
+                            39,
+                            "  }\n"
+                        ],
+                        [
+                            40,
+                            "  resource_group_name = azurerm_resource_group.test.name\n"
+                        ],
+                        [
+                            41,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/vms/linux/linux_virtual_machine.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
+                    "repo_file_path": "/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
+                    "file_line_range": [
+                        32,
+                        41
+                    ],
+                    "resource": "azurerm_network_interface.test",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.test",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.test",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
                     "guideline": null
                 },
                 {
@@ -6220,125 +6339,6 @@
                     "guideline": null
                 },
                 {
-                    "check_id": "CKV_AZURE_119",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that Network Interfaces don't use public IPs",
-                    "check_result": {
-                        "result": "PASSED",
-                        "entity": {
-                            "azurerm_network_interface": {
-                                "test": {
-                                    "ip_configuration": [
-                                        {
-                                            "name": [
-                                                "internal"
-                                            ],
-                                            "private_ip_address_allocation": [
-                                                "Dynamic"
-                                            ],
-                                            "subnet_id": [
-                                                "azurerm_subnet.example.id"
-                                            ]
-                                        }
-                                    ],
-                                    "location": [
-                                        "uksouth"
-                                    ],
-                                    "name": [
-                                        "example"
-                                    ],
-                                    "resource_group_name": [
-                                        "test"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            32,
-                            "resource \"azurerm_network_interface\" \"test\" {\n"
-                        ],
-                        [
-                            33,
-                            "  name     = \"example\"\n"
-                        ],
-                        [
-                            34,
-                            "  location = azurerm_resource_group.test.location\n"
-                        ],
-                        [
-                            35,
-                            "  ip_configuration {\n"
-                        ],
-                        [
-                            36,
-                            "    name                          = \"internal\"\n"
-                        ],
-                        [
-                            37,
-                            "    subnet_id                     = azurerm_subnet.example.id\n"
-                        ],
-                        [
-                            38,
-                            "    private_ip_address_allocation = \"Dynamic\"\n"
-                        ],
-                        [
-                            39,
-                            "  }\n"
-                        ],
-                        [
-                            40,
-                            "  resource_group_name = azurerm_resource_group.test.name\n"
-                        ],
-                        [
-                            41,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/vms/linux/linux_virtual_machine.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
-                    "repo_file_path": "/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
-                    "file_line_range": [
-                        32,
-                        41
-                    ],
-                    "resource": "azurerm_network_interface.test",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "breadcrumbs": {
-                        "location": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_resource_group.test",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
-                                "module_connection": false
-                            }
-                        ],
-                        "resource_group_name": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_resource_group.test",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/vms/linux/linux_virtual_machine.tf",
-                                "module_connection": false
-                            }
-                        ]
-                    },
-                    "guideline": null
-                },
-                {
                     "check_id": "CKV2_AZURE_13",
                     "bc_check_id": null,
                     "check_name": "Ensure that sql servers enables data security policy",
@@ -6390,8 +6390,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "state"
+                            "state",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -6558,8 +6558,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "state"
+                            "state",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -6732,8 +6732,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "state"
+                            "state",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -6895,9 +6895,9 @@
                             }
                         },
                         "evaluated_keys": [
+                            "start_ip_address",
                             "resource_type",
-                            "end_ip_address",
-                            "start_ip_address"
+                            "end_ip_address"
                         ]
                     },
                     "code_block": [
@@ -26753,10 +26753,10 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "type",
                             "publisher",
-                            "auto_upgrade_minor_version",
-                            "type"
+                            "resource_type",
+                            "auto_upgrade_minor_version"
                         ]
                     },
                     "code_block": [
@@ -26992,42 +26992,21 @@
                         "result": "FAILED",
                         "entity": {
                             "azurerm_storage_account": {
-                                "example": {
+                                "example_deny": {
                                     "account_replication_type": [
                                         "GRS"
                                     ],
                                     "account_tier": [
                                         "Standard"
                                     ],
-                                    "allow_blob_public_access": [
-                                        true
-                                    ],
-                                    "enable_https_traffic_only": [
-                                        false
-                                    ],
                                     "location": [
-                                        "uksouth"
-                                    ],
-                                    "min_tls_version": [
-                                        "TLS_1_1"
+                                        "data.azurerm_resource_group.example.location"
                                     ],
                                     "name": [
-                                        "this-is-wrong"
-                                    ],
-                                    "network_rules": [
-                                        {
-                                            "bypass": [
-                                                [
-                                                    "Metrics"
-                                                ]
-                                            ],
-                                            "default_action": [
-                                                "Deny"
-                                            ]
-                                        }
+                                        "example"
                                     ],
                                     "resource_group_name": [
-                                        "allfail"
+                                        "data.azurerm_resource_group.example.name"
                                     ]
                                 }
                             }
@@ -27038,82 +27017,42 @@
                     },
                     "code_block": [
                         [
+                            8,
+                            "resource \"azurerm_storage_account\" \"example_deny\" {\n"
+                        ],
+                        [
                             9,
-                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                            "  name                     = \"example\"\n"
                         ],
                         [
                             10,
-                            "  name                      = \"this-is-wrong\"\n"
+                            "  resource_group_name      = data.azurerm_resource_group.example.name\n"
                         ],
                         [
                             11,
-                            "  resource_group_name       = azurerm_resource_group.example.name\n"
+                            "  location                 = data.azurerm_resource_group.example.location\n"
                         ],
                         [
                             12,
-                            "  location                  = azurerm_resource_group.example.location\n"
+                            "  account_tier             = \"Standard\"\n"
                         ],
                         [
                             13,
-                            "  account_tier              = \"Standard\"\n"
+                            "  account_replication_type = \"GRS\"\n"
                         ],
                         [
                             14,
-                            "  account_replication_type  = \"GRS\"\n"
-                        ],
-                        [
-                            15,
-                            "  enable_https_traffic_only = false\n"
-                        ],
-                        [
-                            16,
-                            "  allow_blob_public_access  = true\n"
-                        ],
-                        [
-                            17,
-                            "  min_tls_version           = \"TLS_1_1\"\n"
-                        ],
-                        [
-                            18,
-                            "\n"
-                        ],
-                        [
-                            19,
-                            "\n"
-                        ],
-                        [
-                            20,
-                            "  //to fail CKV_AZURE_35 && CKV_AZURE_36\n"
-                        ],
-                        [
-                            21,
-                            "  network_rules {\n"
-                        ],
-                        [
-                            22,
-                            "    default_action = \"Deny\"\n"
-                        ],
-                        [
-                            23,
-                            "    bypass         = [\"Metrics\"]\n"
-                        ],
-                        [
-                            24,
-                            "  }\n"
-                        ],
-                        [
-                            25,
                             "}\n"
                         ]
                     ],
-                    "file_path": "/storage/account/storage_account.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
-                    "repo_file_path": "/terraform/azurerm/storage/account/storage_account.tf",
+                    "file_path": "/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
+                    "repo_file_path": "/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
                     "file_line_range": [
-                        9,
-                        25
+                        8,
+                        14
                     ],
-                    "resource": "azurerm_storage_account.example",
+                    "resource": "azurerm_storage_account.example_deny",
                     "evaluations": null,
                     "check_class": "checkov.common.graph.checks_infra.base_check",
                     "fixed_definition": null,
@@ -27125,24 +27064,6 @@
                     "description": null,
                     "short_description": null,
                     "vulnerability_details": null,
-                    "breadcrumbs": {
-                        "location": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_resource_group.example",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
-                                "module_connection": false
-                            }
-                        ],
-                        "resource_group_name": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_resource_group.example",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
-                                "module_connection": false
-                            }
-                        ]
-                    },
                     "guideline": null
                 },
                 {
@@ -27153,88 +27074,6 @@
                         "result": "FAILED",
                         "entity": {
                             "azurerm_storage_account": {
-                                "example_deny": {
-                                    "account_replication_type": [
-                                        "GRS"
-                                    ],
-                                    "account_tier": [
-                                        "Standard"
-                                    ],
-                                    "location": [
-                                        "data.azurerm_resource_group.example.location"
-                                    ],
-                                    "name": [
-                                        "example"
-                                    ],
-                                    "resource_group_name": [
-                                        "data.azurerm_resource_group.example.name"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            8,
-                            "resource \"azurerm_storage_account\" \"example_deny\" {\n"
-                        ],
-                        [
-                            9,
-                            "  name                     = \"example\"\n"
-                        ],
-                        [
-                            10,
-                            "  resource_group_name      = data.azurerm_resource_group.example.name\n"
-                        ],
-                        [
-                            11,
-                            "  location                 = data.azurerm_resource_group.example.location\n"
-                        ],
-                        [
-                            12,
-                            "  account_tier             = \"Standard\"\n"
-                        ],
-                        [
-                            13,
-                            "  account_replication_type = \"GRS\"\n"
-                        ],
-                        [
-                            14,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-                    "repo_file_path": "/terraform/azurerm/storage/account/StorageAccountDefaultNetworkAccessDeny.tf",
-                    "file_line_range": [
-                        8,
-                        14
-                    ],
-                    "resource": "azurerm_storage_account.example_deny",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
-                    "check_id": "CKV2_AZURE_18",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that Storage Accounts use customer-managed key for encryption",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_storage_account": {
                                 "example": {
                                     "account_replication_type": [
                                         "GRS"
@@ -27276,8 +27115,7 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "key_vault_id"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -27417,8 +27255,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "key_vault_id"
+                            "key_vault_id",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -27470,6 +27308,168 @@
                     "description": null,
                     "short_description": null,
                     "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_18",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that Storage Accounts use customer-managed key for encryption",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_storage_account": {
+                                "example": {
+                                    "account_replication_type": [
+                                        "GRS"
+                                    ],
+                                    "account_tier": [
+                                        "Standard"
+                                    ],
+                                    "allow_blob_public_access": [
+                                        true
+                                    ],
+                                    "enable_https_traffic_only": [
+                                        false
+                                    ],
+                                    "location": [
+                                        "uksouth"
+                                    ],
+                                    "min_tls_version": [
+                                        "TLS_1_1"
+                                    ],
+                                    "name": [
+                                        "this-is-wrong"
+                                    ],
+                                    "network_rules": [
+                                        {
+                                            "bypass": [
+                                                [
+                                                    "Metrics"
+                                                ]
+                                            ],
+                                            "default_action": [
+                                                "Deny"
+                                            ]
+                                        }
+                                    ],
+                                    "resource_group_name": [
+                                        "allfail"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "key_vault_id",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            9,
+                            "resource \"azurerm_storage_account\" \"example\" {\n"
+                        ],
+                        [
+                            10,
+                            "  name                      = \"this-is-wrong\"\n"
+                        ],
+                        [
+                            11,
+                            "  resource_group_name       = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            12,
+                            "  location                  = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            13,
+                            "  account_tier              = \"Standard\"\n"
+                        ],
+                        [
+                            14,
+                            "  account_replication_type  = \"GRS\"\n"
+                        ],
+                        [
+                            15,
+                            "  enable_https_traffic_only = false\n"
+                        ],
+                        [
+                            16,
+                            "  allow_blob_public_access  = true\n"
+                        ],
+                        [
+                            17,
+                            "  min_tls_version           = \"TLS_1_1\"\n"
+                        ],
+                        [
+                            18,
+                            "\n"
+                        ],
+                        [
+                            19,
+                            "\n"
+                        ],
+                        [
+                            20,
+                            "  //to fail CKV_AZURE_35 && CKV_AZURE_36\n"
+                        ],
+                        [
+                            21,
+                            "  network_rules {\n"
+                        ],
+                        [
+                            22,
+                            "    default_action = \"Deny\"\n"
+                        ],
+                        [
+                            23,
+                            "    bypass         = [\"Metrics\"]\n"
+                        ],
+                        [
+                            24,
+                            "  }\n"
+                        ],
+                        [
+                            25,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/storage/account/storage_account.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
+                    "repo_file_path": "/terraform/azurerm/storage/account/storage_account.tf",
+                    "file_line_range": [
+                        9,
+                        25
+                    ],
+                    "resource": "azurerm_storage_account.example",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "location": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
+                                "module_connection": false
+                            }
+                        ],
+                        "resource_group_name": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_resource_group.example",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/storage/account/storage_account.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
                     "guideline": null
                 },
                 {
@@ -27731,9 +27731,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "storage_os_disk/vhd_uri",
                             "storage_os_disk/managed_disk_type",
-                            "storage_os_disk/vhd_uri"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -27934,9 +27934,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "storage_os_disk/vhd_uri",
                             "storage_os_disk/managed_disk_type",
-                            "storage_os_disk/vhd_uri"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -28185,6 +28185,164 @@
                     "guideline": null
                 },
                 {
+                    "check_id": "CKV_AZURE_23",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_mssql_server": {
+                                "example": {
+                                    "administrator_login": [
+                                        "missadministrator"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsKat11"
+                                    ],
+                                    "azuread_administrator": [
+                                        {
+                                            "login_username": [
+                                                "AzureAD Admin"
+                                            ],
+                                            "object_id": [
+                                                "00000000-0000-0000-0000-000000000000"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "minimum_tls_version": [
+                                        "1.1"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "public_network_access_enabled": [
+                                        true
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "extended_auditing_policy",
+                            "server_id",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            6,
+                            "resource \"azurerm_mssql_server\" \"example\" {\n"
+                        ],
+                        [
+                            7,
+                            "  name                          = \"mssqlserver\"\n"
+                        ],
+                        [
+                            8,
+                            "  resource_group_name           = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            9,
+                            "  location                      = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            10,
+                            "  version                       = \"12.0\"\n"
+                        ],
+                        [
+                            11,
+                            "  administrator_login           = \"missadministrator\"\n"
+                        ],
+                        [
+                            12,
+                            "  administrator_login_password  = \"thisIsKat11\"\n"
+                        ],
+                        [
+                            13,
+                            "  minimum_tls_version           = \"1.1\"\n"
+                        ],
+                        [
+                            14,
+                            "  public_network_access_enabled = true\n"
+                        ],
+                        [
+                            15,
+                            "\n"
+                        ],
+                        [
+                            16,
+                            "  azuread_administrator {\n"
+                        ],
+                        [
+                            17,
+                            "    login_username = \"AzureAD Admin\"\n"
+                        ],
+                        [
+                            18,
+                            "    object_id      = \"00000000-0000-0000-0000-000000000000\"\n"
+                        ],
+                        [
+                            19,
+                            "  }\n"
+                        ],
+                        [
+                            20,
+                            "\n"
+                        ],
+                        [
+                            21,
+                            "  tags = {\n"
+                        ],
+                        [
+                            22,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            23,
+                            "  }\n"
+                        ],
+                        [
+                            24,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/mssql_server.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_server.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/mssql_server.tf",
+                    "file_line_range": [
+                        6,
+                        24
+                    ],
+                    "resource": "azurerm_mssql_server.example",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
                     "check_id": "CKV2_AZURE_8",
                     "bc_check_id": null,
                     "check_name": "Ensure the storage container storing the activity logs is not publicly accessible",
@@ -28233,9 +28391,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "criteria/resource_id",
                             "enabled",
-                            "criteria/resource_id"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -28375,9 +28533,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "criteria/resource_id",
                             "enabled",
-                            "criteria/resource_id"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -28500,9 +28658,167 @@
                     "guideline": null
                 },
                 {
-                    "check_id": "CKV_AZURE_23",
+                    "check_id": "CKV_AZURE_24",
                     "bc_check_id": null,
-                    "check_name": "Ensure that 'Auditing' is set to 'On' for SQL servers",
+                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "positive1rg": {
+                                    "administrator_login": [
+                                        ""
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.positive1rg.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.positive1rg.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.positive1rg.location"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.positive1rg.name"
+                                    ],
+                                    "tags": [
+                                        {
+                                            "environment": "production"
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "retention_in_days",
+                            "extended_auditing_policy/retention_in_days",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            5,
+                            "resource \"azurerm_sql_server\" \"positive1rg\" {\n"
+                        ],
+                        [
+                            6,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            7,
+                            "  resource_group_name          = azurerm_resource_group.positive1rg.name\n"
+                        ],
+                        [
+                            8,
+                            "  location                     = azurerm_resource_group.positive1rg.location\n"
+                        ],
+                        [
+                            9,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            10,
+                            "  administrator_login          = \"\"\n"
+                        ],
+                        [
+                            11,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            12,
+                            "\n"
+                        ],
+                        [
+                            13,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            14,
+                            "    storage_endpoint                        = azurerm_storage_account.positive1rg.primary_blob_endpoint\n"
+                        ],
+                        [
+                            15,
+                            "    storage_account_access_key              = azurerm_storage_account.positive1rg.primary_access_key\n"
+                        ],
+                        [
+                            16,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            17,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            18,
+                            "  }\n"
+                        ],
+                        [
+                            19,
+                            "\n"
+                        ],
+                        [
+                            20,
+                            "  tags = {\n"
+                        ],
+                        [
+                            21,
+                            "    environment = \"production\"\n"
+                        ],
+                        [
+                            22,
+                            "  }\n"
+                        ],
+                        [
+                            23,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
+                    "file_line_range": [
+                        5,
+                        23
+                    ],
+                    "resource": "azurerm_sql_server.positive1rg",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {
+                        "environment": "production"
+                    },
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV_AZURE_24",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
                     "check_result": {
                         "result": "FAILED",
                         "entity": {
@@ -28551,9 +28867,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "server_id",
-                            "extended_auditing_policy"
+                            "retention_in_days",
+                            "extended_auditing_policy/retention_in_days",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -28658,6 +28974,181 @@
                     "guideline": null
                 },
                 {
+                    "check_id": "CKV_AZURE_24",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_sql_server": {
+                                "example": {
+                                    "administrator_login": [
+                                        "mradministrator"
+                                    ],
+                                    "administrator_login_password": [
+                                        "thisIsDog11"
+                                    ],
+                                    "extended_auditing_policy": [
+                                        {
+                                            "retention_in_days": [
+                                                6
+                                            ],
+                                            "storage_account_access_key": [
+                                                "azurerm_storage_account.example.primary_access_key"
+                                            ],
+                                            "storage_account_access_key_is_secondary": [
+                                                true
+                                            ],
+                                            "storage_endpoint": [
+                                                "azurerm_storage_account.example.primary_blob_endpoint"
+                                            ]
+                                        }
+                                    ],
+                                    "infrastructure_encryption_enabled": [
+                                        false
+                                    ],
+                                    "location": [
+                                        "azurerm_resource_group.example.location"
+                                    ],
+                                    "minimum_tls_version": [
+                                        "1.1"
+                                    ],
+                                    "name": [
+                                        "mssqlserver"
+                                    ],
+                                    "public_network_access_enabled": [
+                                        true
+                                    ],
+                                    "resource_group_name": [
+                                        "azurerm_resource_group.example.name"
+                                    ],
+                                    "threat_detection_policy": [
+                                        {
+                                            "enabled": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "version": [
+                                        "12.0"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "retention_in_days",
+                            "extended_auditing_policy/retention_in_days",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            10,
+                            "resource \"azurerm_sql_server\" \"example\" {\n"
+                        ],
+                        [
+                            11,
+                            "  name                         = \"mssqlserver\"\n"
+                        ],
+                        [
+                            12,
+                            "  resource_group_name          = azurerm_resource_group.example.name\n"
+                        ],
+                        [
+                            13,
+                            "  location                     = azurerm_resource_group.example.location\n"
+                        ],
+                        [
+                            14,
+                            "  version                      = \"12.0\"\n"
+                        ],
+                        [
+                            15,
+                            "  administrator_login          = \"mradministrator\"\n"
+                        ],
+                        [
+                            16,
+                            "  administrator_login_password = \"thisIsDog11\"\n"
+                        ],
+                        [
+                            17,
+                            "  minimum_tls_version          = \"1.1\"\n"
+                        ],
+                        [
+                            18,
+                            "  threat_detection_policy {\n"
+                        ],
+                        [
+                            19,
+                            "    enabled = false\n"
+                        ],
+                        [
+                            20,
+                            "  }\n"
+                        ],
+                        [
+                            21,
+                            "\n"
+                        ],
+                        [
+                            22,
+                            "  public_network_access_enabled = true\n"
+                        ],
+                        [
+                            23,
+                            "  extended_auditing_policy {\n"
+                        ],
+                        [
+                            24,
+                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
+                        ],
+                        [
+                            25,
+                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
+                        ],
+                        [
+                            26,
+                            "    storage_account_access_key_is_secondary = true\n"
+                        ],
+                        [
+                            27,
+                            "    retention_in_days                       = 6\n"
+                        ],
+                        [
+                            28,
+                            "  }\n"
+                        ],
+                        [
+                            29,
+                            "  infrastructure_encryption_enabled = false\n"
+                        ],
+                        [
+                            30,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/sql_server.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/sql_server.tf",
+                    "file_line_range": [
+                        10,
+                        30
+                    ],
+                    "resource": "azurerm_sql_server.example",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
                     "check_id": "CKV2_AZURE_20",
                     "bc_check_id": null,
                     "check_name": "Ensure Storage logging is enabled for Table service for read requests",
@@ -28696,8 +29187,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "table_names"
+                            "table_names",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -28912,497 +29403,6 @@
                     "guideline": null
                 },
                 {
-                    "check_id": "CKV_AZURE_24",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_mssql_server": {
-                                "example": {
-                                    "administrator_login": [
-                                        "missadministrator"
-                                    ],
-                                    "administrator_login_password": [
-                                        "thisIsKat11"
-                                    ],
-                                    "azuread_administrator": [
-                                        {
-                                            "login_username": [
-                                                "AzureAD Admin"
-                                            ],
-                                            "object_id": [
-                                                "00000000-0000-0000-0000-000000000000"
-                                            ]
-                                        }
-                                    ],
-                                    "location": [
-                                        "azurerm_resource_group.example.location"
-                                    ],
-                                    "minimum_tls_version": [
-                                        "1.1"
-                                    ],
-                                    "name": [
-                                        "mssqlserver"
-                                    ],
-                                    "public_network_access_enabled": [
-                                        true
-                                    ],
-                                    "resource_group_name": [
-                                        "azurerm_resource_group.example.name"
-                                    ],
-                                    "tags": [
-                                        {
-                                            "environment": "production"
-                                        }
-                                    ],
-                                    "version": [
-                                        "12.0"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "extended_auditing_policy/retention_in_days",
-                            "retention_in_days"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            6,
-                            "resource \"azurerm_mssql_server\" \"example\" {\n"
-                        ],
-                        [
-                            7,
-                            "  name                          = \"mssqlserver\"\n"
-                        ],
-                        [
-                            8,
-                            "  resource_group_name           = azurerm_resource_group.example.name\n"
-                        ],
-                        [
-                            9,
-                            "  location                      = azurerm_resource_group.example.location\n"
-                        ],
-                        [
-                            10,
-                            "  version                       = \"12.0\"\n"
-                        ],
-                        [
-                            11,
-                            "  administrator_login           = \"missadministrator\"\n"
-                        ],
-                        [
-                            12,
-                            "  administrator_login_password  = \"thisIsKat11\"\n"
-                        ],
-                        [
-                            13,
-                            "  minimum_tls_version           = \"1.1\"\n"
-                        ],
-                        [
-                            14,
-                            "  public_network_access_enabled = true\n"
-                        ],
-                        [
-                            15,
-                            "\n"
-                        ],
-                        [
-                            16,
-                            "  azuread_administrator {\n"
-                        ],
-                        [
-                            17,
-                            "    login_username = \"AzureAD Admin\"\n"
-                        ],
-                        [
-                            18,
-                            "    object_id      = \"00000000-0000-0000-0000-000000000000\"\n"
-                        ],
-                        [
-                            19,
-                            "  }\n"
-                        ],
-                        [
-                            20,
-                            "\n"
-                        ],
-                        [
-                            21,
-                            "  tags = {\n"
-                        ],
-                        [
-                            22,
-                            "    environment = \"production\"\n"
-                        ],
-                        [
-                            23,
-                            "  }\n"
-                        ],
-                        [
-                            24,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/mssql/mssql_server.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_server.tf",
-                    "repo_file_path": "/terraform/azurerm/mssql/mssql_server.tf",
-                    "file_line_range": [
-                        6,
-                        24
-                    ],
-                    "resource": "azurerm_mssql_server.example",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {
-                        "environment": "production"
-                    },
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
-                    "check_id": "CKV_AZURE_24",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_sql_server": {
-                                "positive1rg": {
-                                    "administrator_login": [
-                                        ""
-                                    ],
-                                    "administrator_login_password": [
-                                        "thisIsDog11"
-                                    ],
-                                    "extended_auditing_policy": [
-                                        {
-                                            "retention_in_days": [
-                                                6
-                                            ],
-                                            "storage_account_access_key": [
-                                                "azurerm_storage_account.positive1rg.primary_access_key"
-                                            ],
-                                            "storage_account_access_key_is_secondary": [
-                                                true
-                                            ],
-                                            "storage_endpoint": [
-                                                "azurerm_storage_account.positive1rg.primary_blob_endpoint"
-                                            ]
-                                        }
-                                    ],
-                                    "location": [
-                                        "azurerm_resource_group.positive1rg.location"
-                                    ],
-                                    "name": [
-                                        "mssqlserver"
-                                    ],
-                                    "resource_group_name": [
-                                        "azurerm_resource_group.positive1rg.name"
-                                    ],
-                                    "tags": [
-                                        {
-                                            "environment": "production"
-                                        }
-                                    ],
-                                    "version": [
-                                        "12.0"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "extended_auditing_policy/retention_in_days",
-                            "retention_in_days"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            5,
-                            "resource \"azurerm_sql_server\" \"positive1rg\" {\n"
-                        ],
-                        [
-                            6,
-                            "  name                         = \"mssqlserver\"\n"
-                        ],
-                        [
-                            7,
-                            "  resource_group_name          = azurerm_resource_group.positive1rg.name\n"
-                        ],
-                        [
-                            8,
-                            "  location                     = azurerm_resource_group.positive1rg.location\n"
-                        ],
-                        [
-                            9,
-                            "  version                      = \"12.0\"\n"
-                        ],
-                        [
-                            10,
-                            "  administrator_login          = \"\"\n"
-                        ],
-                        [
-                            11,
-                            "  administrator_login_password = \"thisIsDog11\"\n"
-                        ],
-                        [
-                            12,
-                            "\n"
-                        ],
-                        [
-                            13,
-                            "  extended_auditing_policy {\n"
-                        ],
-                        [
-                            14,
-                            "    storage_endpoint                        = azurerm_storage_account.positive1rg.primary_blob_endpoint\n"
-                        ],
-                        [
-                            15,
-                            "    storage_account_access_key              = azurerm_storage_account.positive1rg.primary_access_key\n"
-                        ],
-                        [
-                            16,
-                            "    storage_account_access_key_is_secondary = true\n"
-                        ],
-                        [
-                            17,
-                            "    retention_in_days                       = 6\n"
-                        ],
-                        [
-                            18,
-                            "  }\n"
-                        ],
-                        [
-                            19,
-                            "\n"
-                        ],
-                        [
-                            20,
-                            "  tags = {\n"
-                        ],
-                        [
-                            21,
-                            "    environment = \"production\"\n"
-                        ],
-                        [
-                            22,
-                            "  }\n"
-                        ],
-                        [
-                            23,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/mssql/sql_server_predictable_admin_account_name.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-                    "repo_file_path": "/terraform/azurerm/mssql/sql_server_predictable_admin_account_name.tf",
-                    "file_line_range": [
-                        5,
-                        23
-                    ],
-                    "resource": "azurerm_sql_server.positive1rg",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {
-                        "environment": "production"
-                    },
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
-                    "check_id": "CKV_AZURE_24",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL servers",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_sql_server": {
-                                "example": {
-                                    "administrator_login": [
-                                        "mradministrator"
-                                    ],
-                                    "administrator_login_password": [
-                                        "thisIsDog11"
-                                    ],
-                                    "extended_auditing_policy": [
-                                        {
-                                            "retention_in_days": [
-                                                6
-                                            ],
-                                            "storage_account_access_key": [
-                                                "azurerm_storage_account.example.primary_access_key"
-                                            ],
-                                            "storage_account_access_key_is_secondary": [
-                                                true
-                                            ],
-                                            "storage_endpoint": [
-                                                "azurerm_storage_account.example.primary_blob_endpoint"
-                                            ]
-                                        }
-                                    ],
-                                    "infrastructure_encryption_enabled": [
-                                        false
-                                    ],
-                                    "location": [
-                                        "azurerm_resource_group.example.location"
-                                    ],
-                                    "minimum_tls_version": [
-                                        "1.1"
-                                    ],
-                                    "name": [
-                                        "mssqlserver"
-                                    ],
-                                    "public_network_access_enabled": [
-                                        true
-                                    ],
-                                    "resource_group_name": [
-                                        "azurerm_resource_group.example.name"
-                                    ],
-                                    "threat_detection_policy": [
-                                        {
-                                            "enabled": [
-                                                false
-                                            ]
-                                        }
-                                    ],
-                                    "version": [
-                                        "12.0"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "extended_auditing_policy/retention_in_days",
-                            "retention_in_days"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            10,
-                            "resource \"azurerm_sql_server\" \"example\" {\n"
-                        ],
-                        [
-                            11,
-                            "  name                         = \"mssqlserver\"\n"
-                        ],
-                        [
-                            12,
-                            "  resource_group_name          = azurerm_resource_group.example.name\n"
-                        ],
-                        [
-                            13,
-                            "  location                     = azurerm_resource_group.example.location\n"
-                        ],
-                        [
-                            14,
-                            "  version                      = \"12.0\"\n"
-                        ],
-                        [
-                            15,
-                            "  administrator_login          = \"mradministrator\"\n"
-                        ],
-                        [
-                            16,
-                            "  administrator_login_password = \"thisIsDog11\"\n"
-                        ],
-                        [
-                            17,
-                            "  minimum_tls_version          = \"1.1\"\n"
-                        ],
-                        [
-                            18,
-                            "  threat_detection_policy {\n"
-                        ],
-                        [
-                            19,
-                            "    enabled = false\n"
-                        ],
-                        [
-                            20,
-                            "  }\n"
-                        ],
-                        [
-                            21,
-                            "\n"
-                        ],
-                        [
-                            22,
-                            "  public_network_access_enabled = true\n"
-                        ],
-                        [
-                            23,
-                            "  extended_auditing_policy {\n"
-                        ],
-                        [
-                            24,
-                            "    storage_endpoint                        = azurerm_storage_account.example.primary_blob_endpoint\n"
-                        ],
-                        [
-                            25,
-                            "    storage_account_access_key              = azurerm_storage_account.example.primary_access_key\n"
-                        ],
-                        [
-                            26,
-                            "    storage_account_access_key_is_secondary = true\n"
-                        ],
-                        [
-                            27,
-                            "    retention_in_days                       = 6\n"
-                        ],
-                        [
-                            28,
-                            "  }\n"
-                        ],
-                        [
-                            29,
-                            "  infrastructure_encryption_enabled = false\n"
-                        ],
-                        [
-                            30,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/mssql/sql_server.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/sql_server.tf",
-                    "repo_file_path": "/terraform/azurerm/mssql/sql_server.tf",
-                    "file_line_range": [
-                        10,
-                        30
-                    ],
-                    "resource": "azurerm_sql_server.example",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
                     "check_id": "CKV2_AZURE_22",
                     "bc_check_id": null,
                     "check_name": "Ensure that Cognitive Services enables customer-managed key for encryption",
@@ -29492,138 +29492,6 @@
                     "guideline": null
                 },
                 {
-                    "check_id": "CKV2_AZURE_3",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that VA setting Periodic Recurring Scans is enabled on a SQL server",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_mssql_server_vulnerability_assessment": {
-                                "badExampleNotEnabled": {
-                                    "recurring_scans": [
-                                        {
-                                            "email_subscription_admins": [
-                                                false
-                                            ],
-                                            "emails": [
-                                                [
-                                                    "email@example1.com",
-                                                    "email@example2.com"
-                                                ]
-                                            ],
-                                            "enabled": [
-                                                false
-                                            ]
-                                        }
-                                    ],
-                                    "server_security_alert_policy_id": [
-                                        "azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id"
-                                    ],
-                                    "storage_account_access_key": [
-                                        "azurerm_storage_account.badExampleNotEnabled.primary_access_key"
-                                    ],
-                                    "storage_container_path": [
-                                        "azurerm_storage_account.badExampleNotEnabled.primary_blob_endpointaccteststoragecontainer/"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "state",
-                            "recurring_scans/enabled"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            20,
-                            "resource \"azurerm_mssql_server_vulnerability_assessment\" \"badExampleNotEnabled\" {\n"
-                        ],
-                        [
-                            21,
-                            "  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id\n"
-                        ],
-                        [
-                            22,
-                            "  storage_container_path          = \"${azurerm_storage_account.badExampleNotEnabled.primary_blob_endpoint}${azurerm_storage_container.badExampleNotEnabled.name}/\"\n"
-                        ],
-                        [
-                            23,
-                            "  storage_account_access_key      = azurerm_storage_account.badExampleNotEnabled.primary_access_key\n"
-                        ],
-                        [
-                            24,
-                            "\n"
-                        ],
-                        [
-                            25,
-                            "  recurring_scans {\n"
-                        ],
-                        [
-                            26,
-                            "    enabled                   = false\n"
-                        ],
-                        [
-                            27,
-                            "    email_subscription_admins = false\n"
-                        ],
-                        [
-                            28,
-                            "    emails = [\n"
-                        ],
-                        [
-                            29,
-                            "      \"email@example1.com\",\n"
-                        ],
-                        [
-                            30,
-                            "      \"email@example2.com\"\n"
-                        ],
-                        [
-                            31,
-                            "    ]\n"
-                        ],
-                        [
-                            32,
-                            "  }\n"
-                        ],
-                        [
-                            33,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/mssql/mssql_vulnerability_assessment.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                    "repo_file_path": "/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                    "file_line_range": [
-                        20,
-                        33
-                    ],
-                    "resource": "azurerm_mssql_server_vulnerability_assessment.badExampleNotEnabled",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "breadcrumbs": {
-                        "storage_container_path": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_storage_container.badExampleNotEnabled",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                                "module_connection": false
-                            }
-                        ]
-                    },
-                    "guideline": null
-                },
-                {
                     "check_id": "CKV2_AZURE_4",
                     "bc_check_id": null,
                     "check_name": "Ensure Azure SQL server ADS VA Send scan reports to is configured",
@@ -29661,10 +29529,10 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
                             "recurring_scans/email_subscription_admins",
+                            "recurring_scans/emails",
                             "state",
-                            "recurring_scans/emails"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -29778,9 +29646,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "container_access_type",
                             "blob_container_names",
-                            "container_access_type"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -29848,9 +29716,9 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
+                            "container_access_type",
                             "blob_container_names",
-                            "container_access_type"
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -29898,6 +29766,138 @@
                     "description": null,
                     "short_description": null,
                     "vulnerability_details": null,
+                    "guideline": null
+                },
+                {
+                    "check_id": "CKV2_AZURE_3",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that VA setting Periodic Recurring Scans is enabled on a SQL server",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_mssql_server_vulnerability_assessment": {
+                                "badExampleNotEnabled": {
+                                    "recurring_scans": [
+                                        {
+                                            "email_subscription_admins": [
+                                                false
+                                            ],
+                                            "emails": [
+                                                [
+                                                    "email@example1.com",
+                                                    "email@example2.com"
+                                                ]
+                                            ],
+                                            "enabled": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "server_security_alert_policy_id": [
+                                        "azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id"
+                                    ],
+                                    "storage_account_access_key": [
+                                        "azurerm_storage_account.badExampleNotEnabled.primary_access_key"
+                                    ],
+                                    "storage_container_path": [
+                                        "azurerm_storage_account.badExampleNotEnabled.primary_blob_endpointaccteststoragecontainer/"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "recurring_scans/enabled",
+                            "state",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            20,
+                            "resource \"azurerm_mssql_server_vulnerability_assessment\" \"badExampleNotEnabled\" {\n"
+                        ],
+                        [
+                            21,
+                            "  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id\n"
+                        ],
+                        [
+                            22,
+                            "  storage_container_path          = \"${azurerm_storage_account.badExampleNotEnabled.primary_blob_endpoint}${azurerm_storage_container.badExampleNotEnabled.name}/\"\n"
+                        ],
+                        [
+                            23,
+                            "  storage_account_access_key      = azurerm_storage_account.badExampleNotEnabled.primary_access_key\n"
+                        ],
+                        [
+                            24,
+                            "\n"
+                        ],
+                        [
+                            25,
+                            "  recurring_scans {\n"
+                        ],
+                        [
+                            26,
+                            "    enabled                   = false\n"
+                        ],
+                        [
+                            27,
+                            "    email_subscription_admins = false\n"
+                        ],
+                        [
+                            28,
+                            "    emails = [\n"
+                        ],
+                        [
+                            29,
+                            "      \"email@example1.com\",\n"
+                        ],
+                        [
+                            30,
+                            "      \"email@example2.com\"\n"
+                        ],
+                        [
+                            31,
+                            "    ]\n"
+                        ],
+                        [
+                            32,
+                            "  }\n"
+                        ],
+                        [
+                            33,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/mssql_vulnerability_assessment.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                    "file_line_range": [
+                        20,
+                        33
+                    ],
+                    "resource": "azurerm_mssql_server_vulnerability_assessment.badExampleNotEnabled",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "storage_container_path": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_storage_container.badExampleNotEnabled",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
                     "guideline": null
                 },
                 {
@@ -29952,8 +29952,8 @@
                             }
                         },
                         "evaluated_keys": [
-                            "resource_type",
-                            "state"
+                            "state",
+                            "resource_type"
                         ]
                     },
                     "code_block": [
@@ -30058,6 +30058,139 @@
                     "guideline": null
                 },
                 {
+                    "check_id": "CKV2_AZURE_5",
+                    "bc_check_id": null,
+                    "check_name": "Ensure that VA setting 'Also send email notifications to admins and subscription owners' is set for a SQL server",
+                    "check_result": {
+                        "result": "FAILED",
+                        "entity": {
+                            "azurerm_mssql_server_vulnerability_assessment": {
+                                "badExampleNotEnabled": {
+                                    "recurring_scans": [
+                                        {
+                                            "email_subscription_admins": [
+                                                false
+                                            ],
+                                            "emails": [
+                                                [
+                                                    "email@example1.com",
+                                                    "email@example2.com"
+                                                ]
+                                            ],
+                                            "enabled": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "server_security_alert_policy_id": [
+                                        "azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id"
+                                    ],
+                                    "storage_account_access_key": [
+                                        "azurerm_storage_account.badExampleNotEnabled.primary_access_key"
+                                    ],
+                                    "storage_container_path": [
+                                        "azurerm_storage_account.badExampleNotEnabled.primary_blob_endpointaccteststoragecontainer/"
+                                    ]
+                                }
+                            }
+                        },
+                        "evaluated_keys": [
+                            "recurring_scans/email_subscription_admins",
+                            "recurring_scans/emails",
+                            "state",
+                            "resource_type"
+                        ]
+                    },
+                    "code_block": [
+                        [
+                            20,
+                            "resource \"azurerm_mssql_server_vulnerability_assessment\" \"badExampleNotEnabled\" {\n"
+                        ],
+                        [
+                            21,
+                            "  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id\n"
+                        ],
+                        [
+                            22,
+                            "  storage_container_path          = \"${azurerm_storage_account.badExampleNotEnabled.primary_blob_endpoint}${azurerm_storage_container.badExampleNotEnabled.name}/\"\n"
+                        ],
+                        [
+                            23,
+                            "  storage_account_access_key      = azurerm_storage_account.badExampleNotEnabled.primary_access_key\n"
+                        ],
+                        [
+                            24,
+                            "\n"
+                        ],
+                        [
+                            25,
+                            "  recurring_scans {\n"
+                        ],
+                        [
+                            26,
+                            "    enabled                   = false\n"
+                        ],
+                        [
+                            27,
+                            "    email_subscription_admins = false\n"
+                        ],
+                        [
+                            28,
+                            "    emails = [\n"
+                        ],
+                        [
+                            29,
+                            "      \"email@example1.com\",\n"
+                        ],
+                        [
+                            30,
+                            "      \"email@example2.com\"\n"
+                        ],
+                        [
+                            31,
+                            "    ]\n"
+                        ],
+                        [
+                            32,
+                            "  }\n"
+                        ],
+                        [
+                            33,
+                            "}\n"
+                        ]
+                    ],
+                    "file_path": "/mssql/mssql_vulnerability_assessment.tf",
+                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                    "repo_file_path": "/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                    "file_line_range": [
+                        20,
+                        33
+                    ],
+                    "resource": "azurerm_mssql_server_vulnerability_assessment.badExampleNotEnabled",
+                    "evaluations": null,
+                    "check_class": "checkov.common.graph.checks_infra.base_check",
+                    "fixed_definition": null,
+                    "entity_tags": {},
+                    "caller_file_path": null,
+                    "caller_file_line_range": null,
+                    "resource_address": null,
+                    "severity": null,
+                    "description": null,
+                    "short_description": null,
+                    "vulnerability_details": null,
+                    "breadcrumbs": {
+                        "storage_container_path": [
+                            {
+                                "type": "resource",
+                                "name": "azurerm_storage_container.badExampleNotEnabled",
+                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
+                                "module_connection": false
+                            }
+                        ]
+                    },
+                    "guideline": null
+                },
+                {
                     "check_id": "CKV2_AZURE_6",
                     "bc_check_id": null,
                     "check_name": "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled",
@@ -30120,9 +30253,9 @@
                             }
                         },
                         "evaluated_keys": [
+                            "start_ip_address",
                             "resource_type",
-                            "end_ip_address",
-                            "start_ip_address"
+                            "end_ip_address"
                         ]
                     },
                     "code_block": [
@@ -30230,139 +30363,6 @@
                     "description": null,
                     "short_description": null,
                     "vulnerability_details": null,
-                    "guideline": null
-                },
-                {
-                    "check_id": "CKV2_AZURE_5",
-                    "bc_check_id": null,
-                    "check_name": "Ensure that VA setting 'Also send email notifications to admins and subscription owners' is set for a SQL server",
-                    "check_result": {
-                        "result": "FAILED",
-                        "entity": {
-                            "azurerm_mssql_server_vulnerability_assessment": {
-                                "badExampleNotEnabled": {
-                                    "recurring_scans": [
-                                        {
-                                            "email_subscription_admins": [
-                                                false
-                                            ],
-                                            "emails": [
-                                                [
-                                                    "email@example1.com",
-                                                    "email@example2.com"
-                                                ]
-                                            ],
-                                            "enabled": [
-                                                false
-                                            ]
-                                        }
-                                    ],
-                                    "server_security_alert_policy_id": [
-                                        "azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id"
-                                    ],
-                                    "storage_account_access_key": [
-                                        "azurerm_storage_account.badExampleNotEnabled.primary_access_key"
-                                    ],
-                                    "storage_container_path": [
-                                        "azurerm_storage_account.badExampleNotEnabled.primary_blob_endpointaccteststoragecontainer/"
-                                    ]
-                                }
-                            }
-                        },
-                        "evaluated_keys": [
-                            "resource_type",
-                            "recurring_scans/email_subscription_admins",
-                            "state",
-                            "recurring_scans/emails"
-                        ]
-                    },
-                    "code_block": [
-                        [
-                            20,
-                            "resource \"azurerm_mssql_server_vulnerability_assessment\" \"badExampleNotEnabled\" {\n"
-                        ],
-                        [
-                            21,
-                            "  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.badExampleNotEnabled.id\n"
-                        ],
-                        [
-                            22,
-                            "  storage_container_path          = \"${azurerm_storage_account.badExampleNotEnabled.primary_blob_endpoint}${azurerm_storage_container.badExampleNotEnabled.name}/\"\n"
-                        ],
-                        [
-                            23,
-                            "  storage_account_access_key      = azurerm_storage_account.badExampleNotEnabled.primary_access_key\n"
-                        ],
-                        [
-                            24,
-                            "\n"
-                        ],
-                        [
-                            25,
-                            "  recurring_scans {\n"
-                        ],
-                        [
-                            26,
-                            "    enabled                   = false\n"
-                        ],
-                        [
-                            27,
-                            "    email_subscription_admins = false\n"
-                        ],
-                        [
-                            28,
-                            "    emails = [\n"
-                        ],
-                        [
-                            29,
-                            "      \"email@example1.com\",\n"
-                        ],
-                        [
-                            30,
-                            "      \"email@example2.com\"\n"
-                        ],
-                        [
-                            31,
-                            "    ]\n"
-                        ],
-                        [
-                            32,
-                            "  }\n"
-                        ],
-                        [
-                            33,
-                            "}\n"
-                        ]
-                    ],
-                    "file_path": "/mssql/mssql_vulnerability_assessment.tf",
-                    "file_abs_path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                    "repo_file_path": "/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                    "file_line_range": [
-                        20,
-                        33
-                    ],
-                    "resource": "azurerm_mssql_server_vulnerability_assessment.badExampleNotEnabled",
-                    "evaluations": null,
-                    "check_class": "checkov.common.graph.checks_infra.base_check",
-                    "fixed_definition": null,
-                    "entity_tags": {},
-                    "caller_file_path": null,
-                    "caller_file_line_range": null,
-                    "resource_address": null,
-                    "severity": null,
-                    "description": null,
-                    "short_description": null,
-                    "vulnerability_details": null,
-                    "breadcrumbs": {
-                        "storage_container_path": [
-                            {
-                                "type": "resource",
-                                "name": "azurerm_storage_container.badExampleNotEnabled",
-                                "path": "/Users/jameswoolfenden/code/fail/terraform/azurerm/mssql/mssql_vulnerability_assessment.tf",
-                                "module_connection": false
-                            }
-                        ]
-                    },
                     "guideline": null
                 }
             ],

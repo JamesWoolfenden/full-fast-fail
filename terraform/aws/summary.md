@@ -1,9 +1,9 @@
 # Summary
 
-- Found Checkov 505
-- Found TFSec 310
-- Found Kics 543
-- Resource count 349
+- Found Checkov 504
+- Found TFSec 305
+- Found Kics 538
+- Resource count 348
 
 ## Versions
 
