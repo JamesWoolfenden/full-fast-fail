@@ -10,3 +10,4 @@ Pipfile.lock
 *.orig
 fails-kics.json
 fails_*
+fails.json
