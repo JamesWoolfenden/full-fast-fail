@@ -1,5 +1,7 @@
 # fail
-# CKV_AWS_47: "Ensure DAX is encrypted at rest (default is unencrypted)"
+# todo CKV_AWS_47: "Ensure DAX is encrypted at rest (default is unencrypted)"
+# todo cluster_endpoint_encryption_type = TLS - default is nonedata "" "name" {
+# todo  server_side_encryption {enabled =true} default=false
 
 # tfsec
 # AWS081 DAX cluster 'aws_dax_cluster.name' does not have server side encryption configured. By default it is disabled.

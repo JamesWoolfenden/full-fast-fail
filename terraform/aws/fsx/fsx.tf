@@ -1,6 +1,6 @@
 # fails
 # CKV_AWS_178: "Ensure fx ontap file system is encrypted by KMS using a customer managed Key (CMK)"
-
+# todo automatic_backup_retention_days not = 0 disabled
 
 resource "aws_fsx_ontap_file_system" "fail" {
   storage_capacity    = 1024
