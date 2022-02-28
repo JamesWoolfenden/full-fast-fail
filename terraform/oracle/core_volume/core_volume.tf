@@ -1,3 +1,7 @@
+# fails
+# Ensure OCI Block Storage Block Volume has backup enabledCheckov CKV_OCI_2
+# OCI Block Storage Block Volumes are not encrypted with a Customer Managed Key (CMK)Checkov CKV_OCI_3
+
 resource "oci_core_volume" "fail" {
   compartment_id      = var.compartment_id
   availability_domain = var.volume_availability_domain
