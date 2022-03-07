@@ -3,12 +3,12 @@
 # todo enable_stackdriver_monitoring = true
 #Ensure Data fusion instances are privateCheckov (CKV_GCP_87)
 resource "google_data_fusion_instance" "fail" {
-  project                       = "examplea"
-  provider                      = google-beta
-  name                          = "my-instance"
-  description                   = "My Data Fusion instance"
-  region                        = "us-central1"
-  type                          = "BASIC"
+  project     = "examplea"
+  provider    = google-beta
+  name        = "my-instance"
+  description = "My Data Fusion instance"
+  region      = "us-central1"
+  type        = "BASIC"
   # enable_stackdriver_logging    = false
   # enable_stackdriver_monitoring = false
   labels = {
