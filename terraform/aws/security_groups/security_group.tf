@@ -3,6 +3,10 @@
 # CKV_AWS_23: "Ensure every security groups rule has a description"
 # CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
 # CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+# todo sg allows http valid??
+# todo sg allow sql analysis port 2383 valid?
+# todo sg allow any port to 0.0.0.0/0 valid?
+
 
 # tfsec
 # Mixed usage between 'aws_security_group_rule.fail' and 'aws_security_group.fail_sg'
@@ -36,11 +40,4 @@ resource "aws_security_group" "bad_example" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = { test = "fail" }
-}
-
-resource "aws_security_group_rule" "fail" {
-  security_group_id = aws_security_group.bad_example.id
-  type              = "ingress"
-  cidr_blocks       = ["172.31.0.0/16"]
-  tags              = { test = "fail" }
 }

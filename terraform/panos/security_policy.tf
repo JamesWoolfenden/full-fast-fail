@@ -1,3 +1,9 @@
+# fails
+# Ensure security rules do not have 'source_addresses' and 'destination_addresses' both containing values of 'any' Checkov (CKV_PAN_7)
+# Ensure description is populated within security policiesCheckov (CKV_PAN_8)
+# Ensure security rules do not have 'applications' set to 'any' Checkov (CKV_PAN_5)
+# Ensure a Log Forwarding Profile is selected for each security policy ruleCheckov (CKV_PAN_9)
+# Ensure security rules do not have 'services' set to 'any' Checkov (CKV_PAN_6)
 resource "panos_security_policy" "fail1" {
   rule {
     name                  = "my-bad-rule-fail1"
@@ -11,6 +17,7 @@ resource "panos_security_policy" "fail1" {
     categories            = ["any"]
     services              = ["any"]
     action                = "allow"
+    log_end               = false
   }
 }
 

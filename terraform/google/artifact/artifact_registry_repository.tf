@@ -10,3 +10,13 @@ resource "google_artifact_registry_repository" "fail" {
   format        = "DOCKER"
   #   kms_key_name = "kms-key"
 }
+
+resource "google_artifact_registry_repository_iam_binding" "fail1" {
+  provider   = google-beta
+  location   = google_artifact_registry_repository.fail.location
+  repository = google_artifact_registry_repository.fail.name
+  role       = "roles/viewer"
+  members = [
+    "allAuthenticatedUsers",
+  ]
+}

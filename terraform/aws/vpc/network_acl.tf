@@ -1,7 +1,7 @@
 # fails
 # todo
 # CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
-# todo acl unrestricted access to ssh
+# CKV_AWS_228 nacl restrict sensitive ports
 # todo acl unrestricted access to rdp
 
 

@@ -1,6 +1,6 @@
 # fail
 # CKV_AWS_153: "Autoscaling groups should supply tags to launch configurations"
-
+# todo ensure asg uses multi azs
 resource "aws_autoscaling_group" "fail" {
   name                 = "foobar3-terraform-test"
   max_size             = 5

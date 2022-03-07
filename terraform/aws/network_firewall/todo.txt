@@ -1,0 +1,11 @@
+todo
+Ensure Network firewall delete protection enabled
+todo
+Ensure Network firewall have subnet change protection enabled
+todo
+Ensure Network firewall have policy change protection enabled
+todo
+Ensure Network firewall resides in a dedicated subnet
+todo
+Ensure Network firewall status is not FAILED
+todo

@@ -2,6 +2,7 @@
 # CKV_AWS_168: "Ensure SQS queue policy is not public by only allowing specific services or principals to access it"
 # CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
 # CKV_AWS_72: "Ensure SQS policy does not allow ALL (*) actions."
+# todo should have dlq or redrive policy
 
 # tfsec
 # AWS015 Resource 'aws_sqs_queue.fail' defines an unencrypted SQS queue.

@@ -1,5 +1,6 @@
 # fails
 # CKV_AWS_26: "Ensure all data stored in the SNS topic is encrypted"
+# todo ensure topics have subscriptions
 
 # tfsec
 # AWS016 Resource 'aws_sns_topic.fail' defines an unencrypted SNS topic.
