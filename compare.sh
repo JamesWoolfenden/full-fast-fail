@@ -18,9 +18,11 @@ checkov -o json -d $folder >"$folder/$file"
 
 tfsec $folder -f json -s --out "$folder/fails_tfsec.json"
 # snyk iac test . --json-file-output="synk__$file"  2> /dev/null
+terrascan scan -d $folder -x json -o json >"$folder/fails_terrascan.json"
 kics scan -s -p $folder -o $folder --output-name "fails_kics.json"
 kics_count=$(cat "$folder/fails_kics.json" | jq -r '.total_counter')
 
+terrascan_count=$(cat "$folder/fails_terrascan.json" | jq -r '.results.scan_summary.policies_validated')
 tfsec_count=$(cat "$folder/fails_tfsec.json" | jq -r '.results | length')
 terraform=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.failed') 2>/dev/null
 resource=$(cat "$folder/$file" | jq '.[]| select(.check_type)| .summary.resource_count') 2>/dev/null
@@ -63,6 +65,7 @@ echo -e "" >>"$folder/summary.md"
 echo "- Found Checkov $total" >>"$folder/summary.md"
 echo "- Found TFSec $tfsec_count" >>"$folder/summary.md"
 echo "- Found Kics $kics_count" >>"$folder/summary.md"
+echo "- Found Terrascan $terrascan_count" >>"$folder/summary.md"
 echo "- Resource count $resources" >>"$folder/summary.md"
 
 figlet Versions
@@ -74,5 +77,6 @@ echo "- $(terraform version)" >>"$folder/summary.md"
 echo "- Checkov $(checkov -v)" >>"$folder/summary.md"
 echo "- Tfsec $(tfsec -version)" >>"$folder/summary.md"
 echo "- Kics $(kics version)" >>"$folder/summary.md"
+echo "- Terrascan $(terrascan version)" >>"$folder/summary.md"
 
 exit 0

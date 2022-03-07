@@ -26,6 +26,7 @@ $checkov = (get-content "$location")|ConvertFrom-Json
 kics scan -s -p $path -o $path --output-name "fails_kics.json"
 $kics_count=(Get-Content "$path\fails_kics.json")|ConvertFrom-Json
 $kics_total=$kics_count.total_counter
+$terrascan=(terrascan scan -d $folder -x json -o json)|ConvertFrom-Json
 
 tfsec $path -f json --out "$path\fails_tfsec.json"
 $tfsec = (Get-Content "$path\fails_tfsec.json") | ConvertFrom-Json
@@ -64,6 +65,7 @@ Write-Output "`n" | Out-File $path\"summary.md" -Append -NoNewline
 Write-Output "- Found Checkov $total"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found TFSec $tfsec_count"  | Out-File $path\"summary.md" -Append
 Write-Output "- Found Kics $kics_total" | Out-File $path\"summary.md" -Append
+Write-Output "- Found Terrascan $terrascan.results.scan_summary.violated_policies" | Out-File $path\"summary.md" -Append
 Write-Output "- Resource count $resources" | Out-File $path\"summary.md" -Append
 
 figlet Versions
@@ -75,5 +77,7 @@ Write-Output "- $(terraform version)"  | Out-File $path\"summary.md" -Append
 Write-Output "- Checkov $(checkov -v)" | Out-File $path\"summary.md" -Append
 Write-Output "- Tfsec $(tfsec -version)" | Out-File $path\"summary.md" -Append
 Write-Output "- Kics $(kics version)" | Out-File $path\"summary.md" -Append
+Write-Output "- Terrascan $(terrascan version)" | Out-File $path\"summary.md" -Append
+
 Show-Markdown $path\"summary.md"
 exit 0
