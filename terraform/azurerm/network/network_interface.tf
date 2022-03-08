@@ -1,6 +1,6 @@
 # fails
 # Ensure that Network Interfaces disable IP forwardingCheckov CKV_AZURE_118
-# todo Ensure network interface uis private ip_configuration.public_ip_address_id is not set
+# todo Ensure network interface is private ip_configuration.public_ip_address_id is not set
 
 resource "azurerm_network_interface" "fail" {
   name                = "example-nic"
