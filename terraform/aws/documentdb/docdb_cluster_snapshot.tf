@@ -1,5 +1,5 @@
 # fails
-# todo aws_kms_key is set 
+# todo aws_kms_key is set
 # todo storage_encrypted is true
 
 resource "aws_docdb_cluster_snapshot" "fail" {
