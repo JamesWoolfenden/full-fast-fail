@@ -1,4 +1,4 @@
-resource "kubernetes_pod_security_policy" "example" {
+resource "kubernetes_pod_security_policy" "fail_limited" {
   metadata {
     name = "terraform-example"
   }

@@ -6,7 +6,7 @@ resource "kubernetes_pod_security_policy" "fail_namespace" {
   spec {
     privileged                 = false
     allow_privilege_escalation = false
-    host_network = true
+    host_network               = true
 
     volumes = [
       "configMap",
