@@ -1,3 +1,5 @@
+# fails
+# CKV_K8S_4: "Do not admit containers wishing to share the host network namespace"
 resource "kubernetes_pod_security_policy" "fail_share" {
   metadata {
     name = "terraform-example"

@@ -1,4 +1,5 @@
-
+# fails
+# CKV_K8S_1: "Do not admit containers wishing to share the host process ID namespace"
 resource "kubernetes_pod" "fail_pid" {
   metadata {
     name = "terraform-example"

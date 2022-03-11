@@ -1,5 +1,5 @@
 # fails
-
+# CKV_K8S_5: "Containers should not run with allowPrivilegeEscalation"
 resource "kubernetes_pod_security_policy" "fail_escalation" {
   metadata {
     name = "terraform-example"
