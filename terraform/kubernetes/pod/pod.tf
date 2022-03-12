@@ -1,3 +1,5 @@
+# fails
+# Do not admit containers wishing to share the host network namespaceCheckov CKV_K8S_19
 resource "kubernetes_pod" "fail_hostnetworknamespace" {
   metadata {
     name = "terraform-example"
