@@ -1,3 +1,6 @@
+# Fails
+
+# Ensure no security groups allow ingress from 0.0.0.0:0 to port 22Checkov (CKV_ALI_2)
 resource "alicloud_security_group_rule" "allow_all_low" {
   type              = "ingress"
   ip_protocol       = "tcp"
