@@ -1,10 +1,10 @@
 # Summary
 
-- Found Checkov 8
+- Found Checkov 6
 - Found TFSec 2
-- Found Kics 1085
+- Found Kics 1021
 - Found Terrascan
-- Resource count 76
+- Resource count 69
 
 ## Versions
 

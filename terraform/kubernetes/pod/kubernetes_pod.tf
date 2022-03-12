@@ -1,11 +1,12 @@
+# fails
 resource "kubernetes_pod" "fail_ipc" {
   metadata {
     name = "terraform-example"
   }
 
   spec {
-
     host_ipc = true
+    host_pid = true
 
     container {
       image = "nginx:1.7.9"
