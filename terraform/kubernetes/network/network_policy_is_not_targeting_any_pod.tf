@@ -1,4 +1,4 @@
-resource "kubernetes_network_policy" "example" {
+resource "kubernetes_network_policy" "fail_any" {
   metadata {
     name      = "terraform-example-network-policy"
     namespace = "default"

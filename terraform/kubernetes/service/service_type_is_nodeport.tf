@@ -1,4 +1,4 @@
-resource "kubernetes_service" "example" {
+resource "kubernetes_service" "fail_nodeport" {
   metadata {
     name = "terraform-example"
   }

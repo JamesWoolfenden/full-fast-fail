@@ -1,5 +1,5 @@
 
-resource "kubernetes_pod" "positive1" {
+resource "kubernetes_pod" "fail_dropped" {
   metadata {
     name = "terraform-example"
   }

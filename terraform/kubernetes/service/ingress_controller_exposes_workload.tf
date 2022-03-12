@@ -1,4 +1,4 @@
-resource "kubernetes_service" "example" {
+resource "kubernetes_service" "fail_workload" {
   metadata {
     name = "ingress-service"
   }

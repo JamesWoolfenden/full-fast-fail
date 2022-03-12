@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "example" {
+resource "kubernetes_deployment" "fail_budget" {
   metadata {
     name = "terraform-example"
     labels = {
