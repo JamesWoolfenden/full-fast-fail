@@ -34,6 +34,7 @@ resource "kubernetes_pod" "fail_hostnetworknamespace" {
         initial_delay_seconds = 3
         period_seconds        = 3
       }
+
     }
 
     dns_config {
