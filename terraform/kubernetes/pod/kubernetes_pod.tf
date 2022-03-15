@@ -13,8 +13,9 @@ resource "kubernetes_pod" "fail_ipc" {
 
 
     container {
-      image = "nginx:1.7.9"
-      name  = "example"
+      image             = "nginx"
+      image_pull_policy = "Never"
+      name              = "example"
 
       security_context {
         privileged = true
@@ -28,6 +29,14 @@ resource "kubernetes_pod" "fail_ipc" {
         container_port = 8080
       }
 
+      # resources = {
+      #   requests = {
+      #     memory = "50Mi"
+      #   }
+      #   limits ={
+      #     memory = "50Mi"
+      #   }
+      # }
       # liveness_probe {
       #   http_get {
       #     path = "/nginx_status"

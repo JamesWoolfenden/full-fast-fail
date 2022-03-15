@@ -1,5 +1,5 @@
 # fails
-
+# Readiness Probe Should be ConfiguredCheckov CKV_K8S_9
 resource "kubernetes_pod" "fail_container" {
   metadata {
     name = "terraform-example"
