@@ -1,4 +1,7 @@
 # fails
+# Do not admit privileged containersCheckov CKV_K8S_2
+# Do not admit containers wishing to share the host IPC namespaceCheckov CKV_K8S_18
+# Do not admit containers wishing to share the host process ID namespaceCheckov CKV_K8S_17
 resource "kubernetes_pod" "fail_ipc" {
   metadata {
     name = "terraform-example"
@@ -8,11 +11,14 @@ resource "kubernetes_pod" "fail_ipc" {
     host_ipc = true
     host_pid = true
 
+
     container {
       image = "nginx:1.7.9"
       name  = "example"
 
-
+      security_context {
+        privileged = true
+      }
       env {
         name  = "environment"
         value = "test"

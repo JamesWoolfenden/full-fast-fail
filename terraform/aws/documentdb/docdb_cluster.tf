@@ -5,8 +5,8 @@
 # CKV_AWS_104: "Ensure DocDB has audit logs enabled"
 # CKV_AWS_182: "Ensure Doc DB is encrypted by KMS using a customer managed Key (CMK)"
 # todo Ensure that your Amazon DocumentDB database clusters have set a minimum backup retention period in order to fulfill your organization compliance requirements 7 or greate
-# todo deletion protection is set?
-# todo fix cmk encrypted
+# todo deletion protection is set to reasonable value not the default 1?
+# todo  storage encrypted=true
 
 # tfsec
 # Resource 'aws_docdb_cluster.examplea' uses default value for storage_encrypted
@@ -22,15 +22,19 @@ resource "aws_docdb_cluster" "examplea" {
 
   db_subnet_group_name            = aws_docdb_subnet_group.examplea.name
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.examplea.name
-  deletion_protection             = var.deletion_protection
-  master_username                 = var.master_username
-  master_password                 = var.master_password
-  backup_retention_period         = var.backup_retention_period
-  preferred_backup_window         = "07:00-09:00"
-  preferred_maintenance_window    = "sat:05:00-sat:07:00"
-  skip_final_snapshot             = true
-  vpc_security_group_ids          = []
-  enabled_cloudwatch_logs_exports = "something"
+
+  master_username              = var.master_username
+  master_password              = var.master_password
+  preferred_backup_window      = "07:00-09:00"
+  preferred_maintenance_window = "sat:05:00-sat:07:00"
+  skip_final_snapshot          = true
+  vpc_security_group_ids       = []
+  # enabled_cloudwatch_logs_exports = ["audit", "profiler"]
+  # storage_encrypted = true #defaults to false
+
+  # kms_key_id = aws_kms_key.example.arn
+  # backup_retention_period=1 #default
+  # deletion_protection             = true #disabled by default
   tags = {
     "key" = "value"
   }

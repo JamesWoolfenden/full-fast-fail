@@ -1,5 +1,4 @@
 # fails
-# todo retain_stack is not enabled - marginal gain
 resource "aws_cloudformation_stack_set_instance" "fail" {
   account_id     = "123456789012"
   region         = "us-east-1"

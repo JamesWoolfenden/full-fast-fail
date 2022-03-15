@@ -1,8 +1,9 @@
 # fails
 # CKV_AWS_198: "Ensure no aws_db_security_group resources exist"
+# Ensure every security groups rule has a descriptionCheckov CKV_AWS_23
 # kics
 # public
-# todo cidr range to large
+# cidr range to large
 
 resource "aws_db_security_group" "positive1" {
   name = "rds_sg"

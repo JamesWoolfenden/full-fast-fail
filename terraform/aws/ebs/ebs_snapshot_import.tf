@@ -10,7 +10,8 @@ resource "aws_ebs_snapshot_import" "example" {
       s3_key    = "source.vhd"
     }
   }
-
+  # encrypted = true
+  # kms_key_id = aws_kms_key.example.arn
   role_name = "disk-image-import"
 
   tags = {
