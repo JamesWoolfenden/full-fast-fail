@@ -6,7 +6,6 @@
 # CKV_AWS_182: "Ensure Doc DB is encrypted by KMS using a customer managed Key (CMK)"
 # todo Ensure that your Amazon DocumentDB database clusters have set a minimum backup retention period in order to fulfill your organization compliance requirements 7 or greate
 # todo deletion protection is set to reasonable value not the default 1?
-# todo  storage encrypted=true
 
 # tfsec
 # Resource 'aws_docdb_cluster.examplea' uses default value for storage_encrypted

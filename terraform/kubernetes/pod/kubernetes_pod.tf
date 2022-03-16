@@ -18,7 +18,8 @@ resource "kubernetes_pod" "fail_ipc" {
       name              = "example"
 
       security_context {
-        privileged = true
+        privileged                 = true
+        allow_privilege_escalation = true
       }
       env {
         name  = "environment"

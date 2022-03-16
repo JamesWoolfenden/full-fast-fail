@@ -54,9 +54,3 @@ resource "kubernetes_pod" "test2" {
     dns_policy = "None"
   }
 }
-
-resource "kubernetes_cron_job" "test" {
-  metadata {
-    name = "terraform-example"
-  }
-}

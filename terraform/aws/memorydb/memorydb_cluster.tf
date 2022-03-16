@@ -1,6 +1,6 @@
 # fails
 # todo auto_minor_version_upgrade =true - default
-# todo kms_key-arn is set
+# Ensure MemoryDB is encrypted at rest using KMS CMKsCheckov (CKV_AWS_201)
 
 resource "aws_memorydb_cluster" "example" {
   acl_name                 = "open-access"

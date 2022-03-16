@@ -13,6 +13,7 @@ resource "kubernetes_pod_security_policy" "fail" {
     host_ipc                   = true
     host_pid                   = true
     host_network               = true
+    allowed_capabilities       = ["NET_BIND_SERVICE"]
 
     volumes = [
       "configMap",
