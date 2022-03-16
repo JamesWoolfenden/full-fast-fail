@@ -52,6 +52,6 @@ resource "kubernetes_pod_security_policy" "fail" {
       }
     }
 
-    read_only_root_filesystem = true
+    read_only_root_filesystem = false
   }
 }

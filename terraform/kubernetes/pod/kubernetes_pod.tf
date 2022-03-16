@@ -1,5 +1,12 @@
 # fails
-# Do not admit privileged containersCheckov CKV_K8S_2
+# CPU Limits should be setCheckov CKV_K8S_11
+# CPU requests should be setCheckov CKV_K8S_10
+# Image Tag should be fixed - not latest or blankCheckov CKV_K8S_14
+# Liveness Probe Should be ConfiguredCheckov CKV_K8S_8
+# Memory Limits should be setCheckov CKV_K8S_12
+# Memory requests should be setCheckov CKV_K8S_13
+# Do not admit privileged containersCheckov CKV_K8S_16
+# Readiness Probe Should be ConfiguredCheckov CKV_K8S_9
 # Do not admit containers wishing to share the host IPC namespaceCheckov CKV_K8S_18
 # Do not admit containers wishing to share the host process ID namespaceCheckov CKV_K8S_17
 resource "kubernetes_pod" "fail_ipc" {
