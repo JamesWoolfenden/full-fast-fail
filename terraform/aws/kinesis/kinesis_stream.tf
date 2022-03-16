@@ -6,7 +6,7 @@
 # AWS024 Resource 'aws_kinesis_stream.fail' defines an unencrypted Kinesis Stream.
 
 resource "aws_kinesis_stream" "fail" {
-  name        = "test_stream-%[1]d"
+  name        = "test_stream-name"
   shard_count = 1
   tags        = { test = "Fail" }
 }

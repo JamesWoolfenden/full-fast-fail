@@ -8,6 +8,7 @@
 # Ensure AKS has an API Server Authorized IP Ranges enabledCheckov CKV_AZURE_6
 # Ensure RBAC is enabled on AKS clustersCheckov CKV_AZURE_5
 # Ensure AKS cluster nodes do not have public IP addresses CKV_AZURE_143
+# todo automatic_channel_upgrade is not none the default
 
 # tfsec
 # azure-container-limit-authorized-ips

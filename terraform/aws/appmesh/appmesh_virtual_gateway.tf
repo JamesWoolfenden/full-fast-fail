@@ -3,6 +3,7 @@
 # todo ensure access log are enabled
 # todo check backend_defaults policy is modern
 # todo others
+# todo enforce tls
 
 resource "aws_appmesh_virtual_gateway" "example" {
   name      = "example-virtual-gateway"
@@ -12,7 +13,12 @@ resource "aws_appmesh_virtual_gateway" "example" {
 
     backend_defaults {
       client_policy {
-        tls = ""
+        tls {
+          enforce = false
+          certificate {
+            
+          }
+        }
       }
     }
 
@@ -33,13 +39,13 @@ resource "aws_appmesh_virtual_gateway" "example" {
       }
     }
 
-    logging {
-      access_log {
-        file {
-          path = "/var/log/access.log"
-        }
-      }
-    }
+    # logging {
+    #   access_log {
+    #     file {
+    #       path = "/var/log/access.log"
+    #     }
+    #   }
+    # }
   }
 
 
