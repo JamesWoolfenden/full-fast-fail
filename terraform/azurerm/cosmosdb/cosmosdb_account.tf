@@ -4,7 +4,9 @@
 # Ensure that Azure Cosmos DB disables public network accessCheckov CKV_AZURE_101
 # Ensure that Cosmos DB accounts have customer-managed keys to encrypt data at restCheckov CKV_AZURE_100
 # Ensure that Local Authentication is disabled on CosmosDBCheckov (CKV_AZURE_140)
-# todo pass ip_range_filter is set
+# todo Ensure cosmos db firewall is enabled (R.2.3) ? ip_range_filter is set?
+# todo Ensure that the 'Accept connections from within public Azure datacenters' option is disabled (R.2.4) ip_range_filter doesnt not contain 0.0.0.0
+# todo Ensure that the Cross-Origin Resource Sharing (CORS) feature to be enabled (R.2.6) cors rule?
 resource "azurerm_cosmosdb_account" "fail" {
   name                = "tfex-cosmos-db-${random_integer.ri.result}"
   location            = azurerm_resource_group.rg.location
@@ -13,7 +15,7 @@ resource "azurerm_cosmosdb_account" "fail" {
   kind                = "GlobalDocumentDB"
 
   enable_automatic_failover = true
-
+  ip_range_filter           = ["0.0.0.0"]
   capabilities {
     name = "EnableAggregationPipeline"
   }
