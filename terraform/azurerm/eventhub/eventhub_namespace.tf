@@ -1,5 +1,5 @@
 # fail
-
+# todo Ensure that Event Hub namespace is not accessible from the internet (Security Hardening 2.1)
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"

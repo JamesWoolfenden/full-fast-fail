@@ -7,7 +7,7 @@
 # Ensure RBAC is enabled on AKS clustersCheckov CKV_AZURE_5
 # Ensure that AKS uses Azure Policies Add-onCheckov CKV_AZURE_116
 # Ensure that AKS uses disk encryption setCheckov CKV_AZURE_117
-
+# todo Ensure subnet is defined (R.7.6, R.9.2a)
 resource "azurerm_kubernetes_cluster" "example" {
   name                = "example-aks1"
   location            = azurerm_resource_group.example.location

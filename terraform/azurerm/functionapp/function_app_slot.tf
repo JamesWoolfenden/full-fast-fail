@@ -14,7 +14,7 @@ resource "azurerm_function_app_slot" "fail" {
   function_app_name          = azurerm_function_app.example.name
   storage_account_name       = azurerm_storage_account.example.name
   storage_account_access_key = azurerm_storage_account.example.primary_access_key
-
+  enable_builtin_logging     = false
   site_config {
     http2_enabled = false
   }

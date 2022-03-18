@@ -1,3 +1,5 @@
+# fails
+# todo threat_detection_policy is set? Ensure Advanced Data Security is enabled and Advanced Threat Protection settings is configured properly for a SQL Server (R.1.7)
 resource "azurerm_mssql_database" "test" {
   name           = "acctest-db-d"
   server_id      = azurerm_mssql_server.example.id

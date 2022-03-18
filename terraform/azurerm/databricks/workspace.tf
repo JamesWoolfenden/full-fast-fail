@@ -13,6 +13,7 @@ resource "azurerm_databricks_workspace" "example" {
   location                      = azurerm_resource_group.example.location
   sku                           = "standard"
   public_network_access_enabled = true #Defaults to true
+
   tags = {
     Environment = "Production"
   }
