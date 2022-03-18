@@ -9,27 +9,27 @@ resource "kubernetes_pod" "fail_dropped" {
       image = "nginx:1.7.9"
       name  = "example22"
 
-      security_context = {
-        capabilities = {
+      security_context {
+        capabilities {
           drop = ["NET_BIND_SERVICE"]
         }
       }
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }
@@ -44,25 +44,25 @@ resource "kubernetes_pod" "fail_dropped" {
       image = "nginx:1.7.9"
       name  = "example22222"
 
-      security_context = {
+      security_context {
         read_only_root_filesystem = true
       }
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }
@@ -76,21 +76,21 @@ resource "kubernetes_pod" "fail_dropped" {
       image = "nginx:1.7.9"
       name  = "example3"
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }

@@ -5,21 +5,20 @@ resource "kubernetes_pod" "fail_exposed" {
 
   spec {
 
-    volume = [
-      {
-        host_path = {
-          path = "/var/run/docker.sock"
-          type = "Directory"
-        }
+    volume {
+      host_path {
+        path = "/var/run/docker.sock"
+        type = "Directory"
       }
-      ,
-      {
-        host_path = {
-          path = "/var/run/docker.sock"
-          type = "Directory"
-        }
+    }
+
+    volume {
+      host_path {
+        path = "/var/run/docker.sock"
+        type = "Directory"
       }
-    ]
+    }
+
 
     container {
       image = "nginx:1.7.9"

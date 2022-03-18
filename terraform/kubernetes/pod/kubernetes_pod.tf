@@ -27,7 +27,7 @@ resource "kubernetes_pod" "fail_ipc" {
       security_context {
         privileged                 = true
         allow_privilege_escalation = true
-        capabilities = {
+        capabilities {
           add = ["NET_BIND_SERVICE"]
         }
       }

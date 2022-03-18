@@ -12,13 +12,18 @@ resource "kubernetes_pod" "fail_var" {
         name  = "environment"
         value = "test"
 
-        value_from = {
-          secret_key_ref = "hjjhjh"
+        value_from {
+
+          secret_key_ref {
+            key = "hjjhjh"
+          }
         }
       }
 
       env_from {
-        secret_ref = "wwww"
+        secret_ref {
+          name = "wwww"
+        }
       }
 
       port {
@@ -57,4 +62,8 @@ resource "kubernetes_pod" "fail_var" {
 
     dns_policy = "None"
   }
+}
+
+provider "azurerm" {
+  features {}
 }

@@ -9,27 +9,27 @@ resource "kubernetes_pod" "test1" {
       image = "nginx:1.7.9"
       name  = "example"
 
-      security_context = {
-        capabilities = {
+      security_context {
+        capabilities {
           add = ["NET_BIND_SERVICE"]
         }
       }
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }
@@ -43,27 +43,27 @@ resource "kubernetes_pod" "test1" {
       image = "nginx:1.7.9"
       name  = "example2"
 
-      security_context = {
-        capabilities = {
+      security_context {
+        capabilities {
           drop = ["ALL"]
         }
       }
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }

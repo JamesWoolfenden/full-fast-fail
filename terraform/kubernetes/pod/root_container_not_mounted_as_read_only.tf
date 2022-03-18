@@ -9,25 +9,25 @@ resource "kubernetes_pod" "positive1" {
       image = "nginx:1.7.9"
       name  = "example22"
 
-      security_context = {
+      security_context {
         read_only_root_filesystem = false
       }
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }
@@ -42,21 +42,21 @@ resource "kubernetes_pod" "positive1" {
       image = "nginx:1.7.9"
       name  = "example22222"
 
-      env = {
+      env {
         name  = "environment"
         value = "test"
       }
 
-      port = {
+      port {
         container_port = 8080
       }
 
-      liveness_probe = {
-        http_get = {
+      liveness_probe {
+        http_get {
           path = "/nginx_status"
           port = 80
 
-          http_header = {
+          http_header {
             name  = "X-Custom-Header"
             value = "Awesome"
           }
