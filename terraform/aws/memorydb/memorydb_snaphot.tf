@@ -1,5 +1,5 @@
 # fails
-# todo kms_key_arn is set
+# todo memorydb snapshot kms_key_arn is set
 
 
 resource "aws_memorydb_snapshot" "example" {
