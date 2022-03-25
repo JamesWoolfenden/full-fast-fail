@@ -1,4 +1,10 @@
 
+# fails
+# CPU Limits should be setCheckov CKV_K8S_11
+# CPU requests should be setCheckov CKV_K8S_10
+# Memory Limits should be setCheckov CKV_K8S_12
+# Memory requests should be setCheckov CKV_K8S_13
+# Readiness Probe Should be ConfiguredCheckov CKV_K8S_9
 resource "kubernetes_pod" "fail_undefined" {
   metadata {
     name = "terraform-example"

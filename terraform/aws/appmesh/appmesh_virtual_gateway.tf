@@ -16,7 +16,7 @@ resource "aws_appmesh_virtual_gateway" "example" {
         tls {
           enforce = false
           certificate {
-            
+
           }
         }
       }

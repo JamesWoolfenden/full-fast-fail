@@ -1,5 +1,5 @@
 # fails
-# todo security_groups is only for default or non vpc 
+# todo security_groups is only for default or non vpc
 # todo do not use default vpc - specify
 resource "aws_instance" "positive1" {
   ami           = data.aws_ami.ubuntu.id

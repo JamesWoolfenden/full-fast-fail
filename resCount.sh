@@ -21,7 +21,7 @@ fi
 # run the tools
 checkov -o json -d $path >"$path/$file"
 
-terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.resource_count') 
+terraform=$(cat "$path/$file" | jq '.[]| select("check_type")| .summary.resource_count')
 
 if [ -z "$terraform" ]; then
     terraform=$(cat "$path/$file" | jq '.| select(.check_type)| .summary.resource_count')
