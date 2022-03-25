@@ -1,5 +1,5 @@
 # fails
-# todo kms_key is set
+# todo aws_mwaa_environment kms_key is set
 resource "aws_mwaa_environment" "example" {
   dag_s3_path        = "dags/"
   execution_role_arn = aws_iam_role.example.arn

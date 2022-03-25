@@ -28,7 +28,8 @@ resource "kubernetes_pod" "fail_ipc" {
         privileged                 = true
         allow_privilege_escalation = true
         capabilities {
-          add = ["NET_BIND_SERVICE"]
+          add  = ["NET_RAW"]
+          drop = ["NET_BIND_SERVICE"]
         }
       }
       env {
@@ -38,6 +39,7 @@ resource "kubernetes_pod" "fail_ipc" {
 
       port {
         container_port = 8080
+        host_port      = 8080
       }
 
       # resources = {

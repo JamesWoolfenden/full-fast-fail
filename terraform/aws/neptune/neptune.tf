@@ -12,7 +12,7 @@
 # APRA
 # MAS
 # NIST 800-53 (Rev. 4)
-# todo Neptune Auto Minor Version Upgrade
+# todo Neptune cluster Auto Minor Version Upgrade
 # Ensure that your Amazon Neptune database instances have the Auto Minor Version Upgrade feature enabled in order to receive automatically minor engine upgrades. The automatic upgrades are applied to Neptune instances during system maintenance window, defined by the day of the week, the time of day, and the time zone (UTC by default). Each minor version upgrade is fully available only after it is approved by Amazon Web Services.
 
 # This rule can help you with the following compliance standards:

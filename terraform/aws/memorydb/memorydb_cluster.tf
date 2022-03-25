@@ -1,5 +1,5 @@
 # fails
-# todo auto_minor_version_upgrade =true - default
+# todo memorydb auto_minor_version_upgrade =true - default
 # Ensure MemoryDB is encrypted at rest using KMS CMKsCheckov (CKV_AWS_201)
 
 resource "aws_memorydb_cluster" "example" {

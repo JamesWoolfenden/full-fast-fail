@@ -11,7 +11,7 @@ resource "kubernetes_cluster_role" "cluster_role_name" {
   }
 }
 
-resource "kubernetes_cluster_role_binding" "example" {
+resource "kubernetes_cluster_role_binding" "fail_account" {
   metadata {
     name = "terraform-example-2"
   }
@@ -64,7 +64,7 @@ resource "kubernetes_role" "role_name" {
   }
 }
 
-resource "kubernetes_role_binding" "example" {
+resource "kubernetes_role_binding" "example_secret_role" {
   metadata {
     name      = "terraform-example"
     namespace = "default"

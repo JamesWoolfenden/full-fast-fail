@@ -1,38 +1,37 @@
-resource "kubernetes_deployment" "fail_nopod" {
+resource "kubernetes_daemonset" "example" {
   metadata {
-    name = "terraform-example"
+    name      = "terraform-example"
+    namespace = "something"
     labels = {
-      k8s-app = "prometheus"
+      test = "MyExampleApp"
     }
   }
 
-
-
   spec {
-    replicas = 3
-
     selector {
       match_labels = {
-        k8s-app = "prometheus"
+        test = "MyExampleApp"
       }
     }
 
     template {
       metadata {
         labels = {
-          k8s-app = "prometheus"
+          test = "MyExampleApp"
         }
       }
 
       spec {
+
         volume {
           host_path {
             path = "/var/run/docker.sock"
             type = "Directory"
           }
         }
+
         container {
-          image = "nginx:1.7.8"
+          image = "nginx:1.21.6"
           name  = "example"
 
           resources {
@@ -48,7 +47,7 @@ resource "kubernetes_deployment" "fail_nopod" {
 
           liveness_probe {
             http_get {
-              path = "/nginx_status"
+              path = "/"
               port = 80
 
               http_header {
@@ -60,6 +59,7 @@ resource "kubernetes_deployment" "fail_nopod" {
             initial_delay_seconds = 3
             period_seconds        = 3
           }
+
         }
       }
     }
