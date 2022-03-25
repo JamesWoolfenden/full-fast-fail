@@ -1,4 +1,5 @@
-
+# fails
+# Ensure MQBroker version is currentCheckov (CKV_AWS_208)
 resource "aws_mq_configuration" "fail" {
   description    = "Example Configuration"
   name           = "example"

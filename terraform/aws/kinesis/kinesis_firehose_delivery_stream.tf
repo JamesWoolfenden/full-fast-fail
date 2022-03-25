@@ -22,13 +22,20 @@ resource "aws_kinesis_firehose_delivery_stream" "test_stream" {
 
 
 resource "aws_s3_bucket" "bucket" {
-
+  tags = {
+    test = "failed"
+  }
 }
 
 resource "aws_iam_role" "firehose_role" {
   assume_role_policy = ""
+  tags = {
+    test = "failed"
+  }
 }
 
 resource "aws_kms_key" "example" {
-
+  tags = {
+    test = "failed"
+  }
 }

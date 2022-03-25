@@ -7,7 +7,7 @@
 # Ensure that RDS instances have Multi-AZ enabledCheckov CKV_AWS_157
 # Ensure all data stored in RDS is not publicly accessibleCheckov CKV_AWS_17
 # Ensure Postgres RDS as aws_db_instance has Query Logging enabledCheckov CKV2_AWS_30
-# todo ensure auto_minor_version_upgrade are enabled
+# Ensure DB instance gets all minor upgrades automaticallyCheckov (CKV_AWS_226)
 # tfsec
 # AWS011 Resource 'aws_db_instance.fail' is exposed publicly.
 # AWS052 Resource 'aws_db_instance.fail' has no storage encryption defined.
