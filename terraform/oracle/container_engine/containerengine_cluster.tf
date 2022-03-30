@@ -1,6 +1,6 @@
 #fails
 # todo kms_key_id is set
-
+# todo is_tiller_enabled should be false
 resource "oci_containerengine_cluster" "test_cluster" {
   #Required
   compartment_id     = var.compartment_id

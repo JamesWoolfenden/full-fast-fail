@@ -18,6 +18,34 @@ resource "kubernetes_pod" "fail_ipc" {
     host_ipc = true
     host_pid = true
 
+    container {
+      image = "tiller-image"
+      name  = "example22"
+
+      env {
+        name  = "environment"
+        value = "test"
+      }
+
+      port {
+        container_port = 8080
+      }
+
+      liveness_probe {
+        http_get {
+          path = "/nginx_status"
+          port = 80
+
+          http_header {
+            name  = "X-Custom-Header"
+            value = "Awesome"
+          }
+        }
+
+        initial_delay_seconds = 3
+        period_seconds        = 3
+      }
+    }
 
     container {
       image             = "nginx"

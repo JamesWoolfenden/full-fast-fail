@@ -1,15 +1,16 @@
 # Summary
 
-- Found Checkov 1229
-- Found TFSec 8
-- Found Kics 1350
-- Found Terrascan
-- Resource count 683
+- Found Checkov 1262
+- Found TFSec 0
+- Found Kics 1358
+- Found Terrascan 446
+- Resource count 682
 
 ## Versions
 
-- Terraform v1.1.3 on windows_amd64
-- Checkov 2.0.988
+- Terraform v1.0.9
+on darwin_amd64
+- Checkov 2.0.1004
 - Tfsec You are running a locally built version of tfsec.
-- Kics Keeping Infrastructure as Code Secure 1.4.9
+- Kics Keeping Infrastructure as Code Secure 1.5.1
 - Terrascan version: v1.13.2
