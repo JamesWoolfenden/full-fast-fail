@@ -7,7 +7,7 @@
 # CKV_AZURE_145
 # todo client_cert_mode is set The mode of the Function App's client certificates requirement for incoming requests. Possible values are Required and Optional
 # todo identity is defined and not null
-# todo Ensure function app builtin logging is enabled (R.6.2, R.6.4, R.6.5 of generic Azure Infrastructure Hardening Standards) enable_builtin_logging!=false
+# CKV_AZURE_159 Ensure function app builtin logging is enabled (R.6.2, R.6.4, R.6.5 of generic Azure Infrastructure Hardening Standards) enable_builtin_logging!=false
 # todo Ensure function app has at least one firewall rule defined so the Microsoft default 'deny all' rule is activated (R.7.1, R.7.2, of generic
 # Azure Infrastructure Hardening Standards) ip_restriction block is set?
 

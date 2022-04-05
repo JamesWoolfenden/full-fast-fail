@@ -1,7 +1,7 @@
 # fail
 # CKV_AZURE_24: "Specifies a retention period of less than 90 days."
-# todo log_monitoring_enabled - (Optional) Enable audit events to Azure Monitor?
-# Ensure default Auditing policy for a SQL Server is configured to capture and retain the activity logs (R.1.5)
+# CKV_AZURE_156 Ensure default Auditing policy for a SQL Server is configured to capture and retain the activity logs
+# todo Ensure default Auditing policy for a SQL Server is configured to capture and retain the activity logs (R.1.5)
 resource "azurerm_mssql_database_extended_auditing_policy" "example" {
   database_id                             = azurerm_mssql_database.examplea.id
   storage_endpoint                        = azurerm_storage_account.examplea.primary_blob_endpoint
