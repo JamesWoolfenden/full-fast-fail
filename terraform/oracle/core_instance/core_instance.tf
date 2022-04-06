@@ -1,7 +1,8 @@
 # fails
 # CKV_OCI_4: "Ensure OCI Compute Instance boot volume has in-transit data encryption enabled"
 # CKV_OCI_5: "Ensure OCI Compute Instance has Legacy MetaData service endpoint disabled"
-
+# CKV_OCI_6: "Ensure OCI Compute Instance has monitoring enabled"
+# todo source_details instance isnt encrypted
 resource "oci_core_instance" "fail" {
   availability_domain = var.instance_availability_domain
   compartment_id      = var.compartment_id
@@ -77,7 +78,7 @@ resource "oci_core_instance" "fail" {
     source_id               = oci_core_image.test_image.id
     source_type             = "image"
     boot_volume_size_in_gbs = var.instance_source_details_boot_volume_size_in_gbs
-    kms_key_id              = oci_kms_key.test_key.id
+    # kms_key_id              = oci_kms_key.test_key.id
   }
   preserve_boot_volume = false
 }

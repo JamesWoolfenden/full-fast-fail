@@ -8,7 +8,9 @@
         "kube",
         "mydomain",
         "ndots",
+        "preemption",
         "Terrascan",
-        "tfexpected"
+        "tfexpected",
+        "vnic"
     ]
 }

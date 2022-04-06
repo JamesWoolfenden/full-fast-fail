@@ -5,26 +5,41 @@
 # CKV_OCI_10: "Ensure OCI Object Storage is not Public"
 
 resource "oci_objectstorage_bucket" "fail" {
-  compartment_id = var.compartment_id
-  name           = var.bucket_name
-  namespace      = var.namespace
+  compartment_id = "jameswoolfenden" #var.compartment_id
+  name           = "jgw1-test"
+  namespace      = "lr3vho9vk2x9" #var.namespace
 
   access_type           = "ObjectReadWithoutList"
-  defined_tags          = var.defined_tags
-  freeform_tags         = var.freeform_tags
-  metadata              = var.metadata
-  storage_tier          = var.bucket_storage_tier
+  storage_tier          = "standard"
   object_events_enabled = false
 
-  retention_rules {
-    display_name = var.retention_rule_display_name
-
-    duration {
-      time_amount = var.retention_rule_duration_time_amount
-      time_unit   = var.retention_rule_duration_time_unit
-    }
-    time_rule_locked = var.retention_rule_time_rule_locked
-  }
 
   versioning = "Disabled"
+}
+
+terraform {
+  required_providers {
+    oci = {
+      source  = "oracle/oci"
+      version = "4.69.0"
+    }
+  }
+}
+
+provider "oci" {
+  region = "uk-london-1"
+  #these to be provided by env vars
+  #private_key_path
+  #fingerprint
+  # tenancy_ocid = var.tenancy_id
+  # user_ocid    = var.user_ocid
+}
+
+
+variable "defined_tags" {
+  type = map(any)
+  default = {
+    "Oracle-Tags.CreatedBy" = "james.woolfenden@gmail.com"
+    "Oracle-Tags.CreatedOn" = "2021-10-22T13:16:04.607Z"
+  }
 }
