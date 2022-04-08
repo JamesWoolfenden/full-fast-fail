@@ -1,7 +1,5 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
+# fails
+# todo policy
 resource "aws_elasticsearch_domain" "es_not_secure_policy" {
   domain_name = "es-not-secure-policy"
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 folder="${1:-.}"
+framework="${2:-all}"
 figlet Compare Tools
 
 file="fails.json"
@@ -14,7 +15,8 @@ tfexpected=917
 kicsexpected=2704
 
 # run the tools
-checkov -o json -d $folder >"$folder/$file"
+echo checkov --framework $framework --download-external-modules .external_modules -o json -d $folder >"$folder/$file"
+checkov --framework $framework --download-external-modules .external_modules -o json -d $folder >"$folder/$file"
 
 tfsec $folder -f json -s --out "$folder/fails_tfsec.json"
 # snyk iac test . --json-file-output="synk__$file"  2> /dev/null
