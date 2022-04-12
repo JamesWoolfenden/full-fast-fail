@@ -1,5 +1,5 @@
 #fails
-
+#CKV_ALI_21: "Ensure API Gateway API Protocol HTTPS"
 resource "alicloud_api_gateway_group" "apiGroup" {
   name        = "ApiGatewayGroup"
   description = "description of the api group"
