@@ -1,0 +1,6 @@
+branch: master
+download-external-modules: modules
+evaluate-variables: true
+external-modules-download-path: .external_modules
+framework:
+- all
