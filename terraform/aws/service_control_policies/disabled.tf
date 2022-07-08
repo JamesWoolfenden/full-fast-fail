@@ -1,5 +1,5 @@
 # fails
-# todo policy is disabled
+
 resource "aws_organizations_policy" "positive1" {
   name = "example"
 

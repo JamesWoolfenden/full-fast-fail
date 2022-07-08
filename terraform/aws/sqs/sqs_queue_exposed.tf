@@ -26,3 +26,7 @@ resource "aws_sqs_queue" "positive1" {
 POLICY
   tags   = { test = "fail" }
 }
+
+resource "aws_sns_topic" "example" {
+
+}
