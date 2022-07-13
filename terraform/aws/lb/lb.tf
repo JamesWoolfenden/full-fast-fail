@@ -32,3 +32,9 @@ resource "aws_lb" "default" {
   subnets            = var.public_subnet_ids
   tags               = { test = "Fail" }
 }
+
+variable "public_subnet_ids" {
+  default     = ["subnet_1234546"]
+  type        = list(string)
+  description = "(optional) describe your variable"
+}

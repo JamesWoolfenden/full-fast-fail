@@ -20,7 +20,7 @@ resource "aws_lb_listener" "listener_bad_1" {
   protocol          = "HTTP"
 
   default_action {
-    type = "some-action"
+    type = "redirect"
     # redirect {
     #   protocol = "HTTPS"
     # }
