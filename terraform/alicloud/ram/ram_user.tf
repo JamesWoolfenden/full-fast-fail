@@ -1,7 +1,6 @@
 # fails
 # todo policy not attached to user
-# enforce_mfa_for_login         = true
-
+# CKV_ALI_24 Ensure RAM enforces MFA"
 # Create a new RAM user.
 resource "alicloud_ram_user" "user1" {
   name         = "user_test"
