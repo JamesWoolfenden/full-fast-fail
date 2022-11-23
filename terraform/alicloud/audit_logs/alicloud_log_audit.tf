@@ -1,5 +1,5 @@
 # fails
-# todo rds event not audited
+# CKV_ALI_38:Ensure log audit is enabled for RDS"
 resource "alicloud_log_audit" "example" {
   display_name = "tf-audit-test"
   aliuid       = "12345678"

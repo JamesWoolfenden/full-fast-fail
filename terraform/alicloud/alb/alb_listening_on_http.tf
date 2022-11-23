@@ -1,7 +1,7 @@
 
 //todo protocol is not HTTP
 
-resource "alicloud_alb_listener" "pofailsitive" {
+resource "alicloud_alb_listener" "fail" {
   load_balancer_id     = alicloud_alb_load_balancer.fail.id
   listener_protocol    = "HTTP"
   listener_port        = 443

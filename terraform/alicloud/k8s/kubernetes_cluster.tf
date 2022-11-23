@@ -1,5 +1,5 @@
 # fails
-
+# CKV_ALI_26: "Ensure Kubernetes installs plugin Terway or Flannel to support standard policies"
 #no addon
 resource "alicloud_cs_kubernetes" "fail" {
   worker_number         = 4

@@ -1,4 +1,5 @@
-# todo launch template disks are encrypted
+# Fails
+# CKV_ALI_32: "Ensure launch template data disks are encrypted"
 resource "alicloud_ecs_launch_template" "default" {
   launch_template_name          = "tf_test_name"
   description                   = "Test For Terraform"

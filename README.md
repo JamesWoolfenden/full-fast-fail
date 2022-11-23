@@ -71,8 +71,18 @@ Versions
 - Kics Keeping Infrastructure as Code Secure 1.4.9
 ```
 
-This currently shows that Tfsec is currently crashing on some tf code. So im building the lastest TFsec to see if that works better.
+This currently shows that Tfsec is currently crashing on some tf code. So im building the latest TFsec to see if that works better.
 
 Check out the cumulative totals in each folder: <https://github.com/JamesWoolfenden/full-fast-fail/blob/main/summary.md>
 
 Or if you only interested in Terraform <https://github.com/JamesWoolfenden/full-fast-fail/blob/main/terraform/summary.md>
+
+## Provider versions:
+
+aws 4.26.0
+
+<https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md>
+
+azure  3.18.0
+
+<https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md>

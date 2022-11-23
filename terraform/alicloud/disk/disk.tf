@@ -1,6 +1,7 @@
 #fails
 # CKV_ALI_7: "Ensure disk is encrypted"
 # CKV_ALI_8: "Ensure Disk is encrypted with Customer Master Key"
+# todo check for unattached disk
 resource "alicloud_disk" "fail" {
   # cn-beijing
   zone_id     = "cn-beijing-b"

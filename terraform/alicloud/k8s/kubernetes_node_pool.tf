@@ -1,4 +1,5 @@
-# todo auto_repair
+# Fails
+# CKV_ALI_31: "Ensure K8s nodepools are set to auto repair"
 # todo auto_update
 
 resource "alicloud_cs_kubernetes_node_pool" "fail" {

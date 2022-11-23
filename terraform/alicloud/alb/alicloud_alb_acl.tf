@@ -1,3 +1,5 @@
+# fails
+# CKV_ALI_29: "Alibaba ALB ACL does not restrict Access"
 resource "alicloud_alb_acl" "fail" {
   acl_name = "anyoldguff"
 }
