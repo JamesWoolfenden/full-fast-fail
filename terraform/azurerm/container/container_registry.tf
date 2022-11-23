@@ -1,6 +1,8 @@
 # fails
-# Ensure ACR admin account is disabledCheckov (CKV_AZURE_137)
+# Ensure ACR admin account is disabled Checkov (CKV_AZURE_137)
 # Ensure ACR set to disable public networkingCheckov (CKV_AZURE_139)
+
+
 resource "azurerm_container_registry" "fail" {
   name                          = "containerRegistry1"
   resource_group_name           = azurerm_resource_group.fail.name
