@@ -24,3 +24,15 @@ resource "google_kms_crypto_key_iam_policy" "positive1" {
   crypto_key_id = google_kms_crypto_key.positive1.id
   policy_data   = data.google_iam_policy.fail_access.policy_data
 }
+
+resource "google_kms_crypto_key_iam_policy" "fail" {
+  crypto_key_id = google_kms_crypto_key.positive1.id
+  policy_data   = <<HERE
+{
+    "bindings": [{
+      "role": "roles/cloudkms.cryptoKeyEncrypter",
+      "members": ["user:jameswoolfeden"]
+    }]
+}
+HERE
+}

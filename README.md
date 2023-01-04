@@ -77,9 +77,9 @@ Check out the cumulative totals in each folder: <https://github.com/JamesWoolfen
 
 Or if you only interested in Terraform <https://github.com/JamesWoolfenden/full-fast-fail/blob/main/terraform/summary.md>
 
-## Provider versions:
+## Provider versions
 
-aws 4.26.0
+aws 4.34.0
 
 <https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md>
 

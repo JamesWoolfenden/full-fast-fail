@@ -9,3 +9,11 @@ resource "google_artifact_registry_repository_iam_binding" "fail1" {
     "allAuthenticatedUsers",
   ]
 }
+
+resource "google_artifact_registry_repository_iam_member" "fail1" {
+  provider   = google-beta
+  location   = google_artifact_registry_repository.my-repo.location
+  repository = google_artifact_registry_repository.my-repo.name
+  role       = "roles/viewer"
+  member     = "allAuthenticatedUsers"
+}

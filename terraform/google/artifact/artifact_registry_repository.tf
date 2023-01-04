@@ -1,5 +1,6 @@
 # fails
 #CKV_GCP_84: "Ensure Artifact Registry Repositories are encrypted with Customer Supplied Encryption Keys (CSEK)"
+//todo ensure repository is not public - members are no allAuthenticatedUsers or allUsers
 
 resource "google_artifact_registry_repository" "fail" {
   provider = google-beta

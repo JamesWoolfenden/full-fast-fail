@@ -1,2 +1,0 @@
-todo destination cmk https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_job
-Cannot currently be set 11/2/2022
