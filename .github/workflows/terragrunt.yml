@@ -1,6 +1,6 @@
 name: "Terragrunt GitHub Actions"
 on:
-  - pull_request
+  workflow_dispatch:
 env:
   tf_version: "latest"
   tg_version: "latest"
