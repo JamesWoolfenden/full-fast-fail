@@ -168,7 +168,7 @@ spec:
       serviceAccountName: helm-kubernetes-dashboard
       containers:
       - name: kubernetes-dashboard
-        image: "k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"
+        image: "k8s.gcr.io/kubernetes-dashboard-amd64@sha256:0ae6b69432e78069c5ce2bcde0fe409c5c4d6f0f4d9cd50a17974fea38898747 # v1.10.1"
         imagePullPolicy: IfNotPresent
         args:
           - --auto-generate-certificates

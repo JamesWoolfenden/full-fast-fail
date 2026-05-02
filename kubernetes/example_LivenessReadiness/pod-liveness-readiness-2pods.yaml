@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: liveness
-    image: k8s.gcr.io/busybox
+    image: k8s.gcr.io/busybox@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67 # latest@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67 # latest
     args:
     - /bin/sh
     - -c
@@ -27,7 +27,7 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 5
   - name: noliveness
-    image: k8s.gcr.io/busybox
+    image: k8s.gcr.io/busybox@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67 # latest@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67 # latest
     args:
     - /bin/sh
     - -c

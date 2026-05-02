@@ -16,7 +16,7 @@ spec:
             - --web.listen-address=0.0.0.0:9100
             - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
             - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$
-          image: quay.io/prometheus/node-exporter:v0.18.1
+          image: quay.io/prometheus/node-exporter@sha256:a2f29256e53cc3e0b64d7a472512600b2e9410347d53cdc85b49f659c17e02ee # v0.18.1
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3

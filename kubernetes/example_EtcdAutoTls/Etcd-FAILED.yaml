@@ -14,7 +14,7 @@ spec:
   - command:
     - etcd
     - --auto-tls=true
-    image: k8s.gcr.io/etcd-amd64:3.2.18
+    image: k8s.gcr.io/etcd-amd64@sha256:b960569ade5f37205a033dcdc3191fe99dc95b15c6795a6282859070ec2c6124 # 3.2.18
     imagePullPolicy: IfNotPresent
     livenessProbe:
       exec:

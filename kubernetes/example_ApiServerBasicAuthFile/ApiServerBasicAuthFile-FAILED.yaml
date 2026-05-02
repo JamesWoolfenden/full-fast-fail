@@ -12,7 +12,7 @@ spec:
   - command:
     - kube-apiserver
     - --basic-auth-file=some_file
-    image: gcr.io/google_containers/kube-apiserver-amd64:v1.6.0
+    image: gcr.io/google_containers/kube-apiserver-amd64@sha256:80d3750f3e70db2cdc9d1154b78f6c9961ea41513f7f1d3ed77c461ee54d5734 # v1.6.0
     livenessProbe:
       failureThreshold: 8
       httpGet:
