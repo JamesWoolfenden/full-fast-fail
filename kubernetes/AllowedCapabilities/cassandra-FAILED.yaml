@@ -34,7 +34,7 @@ spec:
       terminationGracePeriodSeconds: 1800
       containers:
       - name: cassandra
-        image: gcr.io/google-samples/cassandra:v13
+        image: gcr.io/google-samples/cassandra@sha256:7a3d20afa0a46ed073a5c587b4f37e21fa860e83c60b9c42fec1e1e739d64007 # v13
         imagePullPolicy: Always
         ports:
         - containerPort: 7000
@@ -95,7 +95,7 @@ spec:
         - name: cassandra-data
           mountPath: /cassandra_data
       - name: cassandra
-        image: gcr.io/google-samples/cassandra:v13
+        image: gcr.io/google-samples/cassandra@sha256:7a3d20afa0a46ed073a5c587b4f37e21fa860e83c60b9c42fec1e1e739d64007 # v13
         imagePullPolicy: Always
         ports:
         - containerPort: 7000

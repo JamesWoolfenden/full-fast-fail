@@ -12,7 +12,7 @@ spec:
   - command:
     - kube-controller-manager
     - --use-service-account-credentials=false
-    image: gcr.io/google_containers/kube-controller-manager-amd64:v1.6.0
+    image: gcr.io/google_containers/kube-controller-manager-amd64@sha256:f469870cc41473e986e3261e05385cd29e4c59e0c88e697c8a1f261abd6f1072 # v1.6.0
     livenessProbe:
       failureThreshold: 8
       httpGet:

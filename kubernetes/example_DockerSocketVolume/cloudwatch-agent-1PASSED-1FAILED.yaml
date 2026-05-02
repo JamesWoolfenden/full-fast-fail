@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: cloudwatch-agent
-          image: amazon/cloudwatch-agent:latest
+          image: amazon/cloudwatch-agent@sha256:00f97435d409402ffe492c913fb4c56b7b9794479812891a93b49b43a01303d6 # latest
           imagePullPolicy: Always
           #ports:
           #  - containerPort: 8125
@@ -400,7 +400,7 @@ spec:
       # See https://github.com/fluent/fluentd-kubernetes-daemonset/issues/90
       initContainers:
         - name: copy-fluentd-config
-          image: busybox
+          image: busybox@sha256:1487d0af5f52b4ba31c7e465126ee2123fe3f2305d638e7827681e7cf6c83d5e # latest@sha256:1487d0af5f52b4ba31c7e465126ee2123fe3f2305d638e7827681e7cf6c83d5e # latest
           command: ['sh', '-c', 'cp /config-volume/..data/* /fluentd/etc']
           volumeMounts:
             - name: config-volume
@@ -408,11 +408,11 @@ spec:
             - name: fluentdconf
               mountPath: /fluentd/etc
         - name: update-log-driver
-          image: busybox
+          image: busybox@sha256:1487d0af5f52b4ba31c7e465126ee2123fe3f2305d638e7827681e7cf6c83d5e # latest@sha256:1487d0af5f52b4ba31c7e465126ee2123fe3f2305d638e7827681e7cf6c83d5e # latest
           command: ['sh','-c','']
       containers:
         - name: fluentd-cloudwatch
-          image: fluent/fluentd-kubernetes-daemonset:v1.3.3-debian-cloudwatch-1.4
+          image: fluent/fluentd-kubernetes-daemonset@sha256:582770d951f81e0971e852089239ced0186e0bdc3226daf16b99ca4cc22de4f7 # v1.3.3-debian-cloudwatch-1.4
           env:
             - name: REGION
               valueFrom:
