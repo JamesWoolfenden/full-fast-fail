@@ -14,7 +14,7 @@ spec:
   - command:
     - etcd
     - --cert-file=/etc/kubernetes/pki/etcd/server.crt
-    image: k8s.gcr.io/etcd-amd64@sha256:b960569ade5f37205a033dcdc3191fe99dc95b15c6795a6282859070ec2c6124 # 3.2.18
+    image: k8s.gcr.io/etcd-amd64@sha256:822af1b11c8ec54d5f861d0238b8376623cb4802bb7c983218d909a3814de3ef # 3.2.18
     imagePullPolicy: IfNotPresent
     livenessProbe:
       exec:

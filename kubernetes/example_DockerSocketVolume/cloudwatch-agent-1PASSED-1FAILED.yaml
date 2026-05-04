@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: cloudwatch-agent
-          image: amazon/cloudwatch-agent@sha256:00f97435d409402ffe492c913fb4c56b7b9794479812891a93b49b43a01303d6 # latest
+          image: amazon/cloudwatch-agent@sha256:193995a0add1ce16b978422c042fb9e97a1b29e71714aece7ee428e8a76cd052 # latest
           imagePullPolicy: Always
           #ports:
           #  - containerPort: 8125
@@ -412,7 +412,7 @@ spec:
           command: ['sh','-c','']
       containers:
         - name: fluentd-cloudwatch
-          image: fluent/fluentd-kubernetes-daemonset@sha256:582770d951f81e0971e852089239ced0186e0bdc3226daf16b99ca4cc22de4f7 # v1.3.3-debian-cloudwatch-1.4
+          image: fluent/fluentd-kubernetes-daemonset@sha256:0ef851472eb5e52040b5e02fa91592657d437a63778598821a82a71141fc53c1 # v1.3.3-debian-cloudwatch-1.4
           env:
             - name: REGION
               valueFrom:

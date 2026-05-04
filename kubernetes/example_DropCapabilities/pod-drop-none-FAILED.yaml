@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: main
-      image: fedora@sha256:498c452f32a739b61f0ef215bce9924ebc4866cbe44710f58157d77723b7a6d2 # latest
+      image: fedora@sha256:5d5a02b873d298da9bca4b84440c5cd698b0832560c850d92cf389cef58bc549 # latest
       command: ["/bin/sleep", "999999"]
 
 # kubectl exec -it pod-drop-none -- bash
