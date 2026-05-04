@@ -25,7 +25,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: kube-apiserver
-        image: k8s.gcr.io/kube-apiserver
+        image: k8s.gcr.io/kube-apiserver@sha256:4ae8c24a97630f8cfc9eed02fb95e2371d172bb231915e83d27f6ea0e64fa297 # v1.36.0
         command:
         - kube-apiserver
         - --insecure-port=80
