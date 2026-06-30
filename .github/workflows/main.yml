@@ -1,13 +1,21 @@
 ---
 # yamllint disable rule:line-length
 name: Verify and Bump
+permissions:
+  contents: read
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+concurrency:
+  group: Verify-and-Bump-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   security:
+    permissions:
+      contents: read
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

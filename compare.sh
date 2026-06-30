@@ -34,11 +34,11 @@ if [ -z "$terraform" ]; then
     resource=$(cat "$folder/$file" | jq '.| select(.check_type)| .summary.resource_count')
 fi
 
-for i in ${terraform[@]}; do
+for i in "${terraform[@]}"; do
     let total+=$i
-done
+ done
 
-for i in ${resource[@]}; do
+for i in "${resource[@]}"; do
     let resources+=$i
 done
 
