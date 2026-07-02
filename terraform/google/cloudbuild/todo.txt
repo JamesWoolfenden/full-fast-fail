@@ -1,0 +1,7 @@
+## google_cloudbuild_trigger
+
+Cloud Build triggers must not use the default Cloud Build service account (HLD_GCP_191)
+The default Cloud Build service account is granted the Cloud Build Service
+
+Cloud Build triggers on pull requests must not allow comment-triggered builds (HLD_GCP_192)
+A Cloud Build trigger with github.pull_request.comment_control =

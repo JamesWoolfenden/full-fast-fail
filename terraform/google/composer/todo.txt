@@ -1,0 +1,10 @@
+## google_composer_environment
+
+Cloud Composer environments should use a customer-managed encryption key (HLD_GCP_159)
+Composer environments store DAG code, logs, and state in GCS buckets and
+
+Cloud Composer environments must use private IP networking (HLD_GCP_158)
+A Composer environment without private IP places the Airflow web server,
+
+Cloud Composer environments should enable scheduled snapshots (HLD_GCP_100)
+Without config.recovery_config.scheduled_snapshots_config.enabled,

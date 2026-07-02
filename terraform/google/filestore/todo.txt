@@ -1,0 +1,4 @@
+## google_filestore_instance
+
+Cloud Filestore instances must use a customer-managed encryption key (HLD_GCP_164)
+Filestore provides NFS-compatible managed file storage, often used for shared

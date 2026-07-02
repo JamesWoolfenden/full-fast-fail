@@ -1,0 +1,182 @@
+## google_binary_authorization_policy
+
+Binary Authorization policy must be in enforcing mode (HLD_GCP_184)
+A Binary Authorization policy in DRY_RUN mode logs policy violations but
+
+## google_cloud_run_v2_service
+
+Cloud Run ALL_TRAFFIC VPC egress requires Cloud NAT on the target network (HLD_GCP_291)
+When vpc_access.egress is ALL_TRAFFIC, Cloud Run routes every outbound packet
+
+## google_compute_address
+
+google_compute_address must declare address_type explicitly (HLD_GCP_090)
+The google_compute_address resource defaults to address_type = "EXTERNAL" when the
+
+## google_compute_backend_bucket
+
+Cloud CDN backend buckets must have a Cloud Armor security policy (HLD_GCP_194)
+A backend bucket serving content via Cloud CDN without a Cloud Armor
+
+## google_compute_backend_service
+
+GCP backend services must enable access logging (HLD_GCP_310)
+Cloud Armor security policy enforcement decisions (allow/deny, matched rule,
+
+## google_compute_instance_from_template
+
+GCE instances must not use the cloud-platform OAuth scope (HLD_GCP_076)
+The https://www.googleapis.com/auth/cloud-platform scope grants a VM access to
+
+GCE instances must not use the default service account (HLD_GCP_038)
+The Compute Engine default service account is automatically granted the
+
+## google_compute_instance_template
+
+GCE instances must not enable IP forwarding (HLD_GCP_075)
+IP forwarding (can_ip_forward = true) allows a VM to receive and forward packets
+
+GCE instances must enable Shielded VM Integrity Monitoring (HLD_GCP_148)
+Integrity Monitoring compares the measured boot sequence of a Shielded VM
+
+GCE instance templates must use a customer-managed encryption key for the boot disk (HLD_GCP_187)
+Instance templates define the disk configuration for all instances they
+
+GCE instances must not use the default VPC network (HLD_GCP_091)
+GCP's default network contains pre-created firewall rules that permit SSH (tcp/22)
+
+GCE instances must block project-wide SSH keys (HLD_GCP_064)
+Project-wide SSH keys apply to all instances in the project by default. If a
+
+GCE instances must not have external IP addresses (HLD_GCP_005)
+A GCE instance with an external IP is directly reachable from the internet.
+
+GCE instances must not have serial port access enabled (HLD_GCP_007)
+The GCE serial port provides out-of-band console access to an instance —
+
+GCE instances must have OS Login enabled (HLD_GCP_008)
+Without OS Login, SSH access to GCE instances is controlled by SSH keys
+
+GCE instances must enable Secure Boot (HLD_GCP_089)
+Shielded VM's Secure Boot verifies that only signed, trusted firmware,
+
+GCE instances must enable Shielded VM features (HLD_GCP_006)
+Shielded VM protects instances against rootkits and boot-level malware by
+
+## google_compute_network_attachment
+
+GCP network attachments must not use automatic connection acceptance (HLD_GCP_314)
+A google_compute_network_attachment with connection_preference = ACCEPT_AUTOMATIC
+
+## google_compute_project_metadata_item
+
+GCP project metadata must enable OS Login for all instances (HLD_GCP_160)
+Setting enable-oslogin = "true" in project metadata enforces OS Login on
+
+## google_compute_regional_instance_template
+
+GCE instance templates must use a customer-managed encryption key for the boot disk (HLD_GCP_187)
+Instance templates define the disk configuration for all instances they
+
+## google_compute_route
+
+GCP routes must not send default internet-bound traffic through the default internet gateway (HLD_GCP_308)
+A google_compute_route with dest_range = "0.0.0.0/0" and
+
+## google_compute_snapshot
+
+GCE disk snapshots must use a customer-managed encryption key (HLD_GCP_162)
+Snapshots created without a customer-managed key are encrypted with
+
+## google_tpu_v2_vm
+
+TPU v2 VMs must disable external IP addresses (HLD_GCP_239)
+TPU v2 VMs with external IPs are reachable from the public internet, which
+## google_compute_backend_service
+
+GCP backend services must have a Cloud Armor security policy attached (HLD_GCP_050)
+An external Cloud Load Balancing backend service without a Cloud Armor security
+
+## google_compute_firewall_policy_rule
+
+Firewall policy rules must have logging enabled (HLD_PROPOSED_034)
+Firewall policy rules with enable_logging = false or unset produce no audit trail
+
+## google_compute_forwarding_rule
+
+External forwarding rules must not target plaintext HTTP proxies (HLD_GCP_257)
+A google_compute_forwarding_rule (or google_compute_global_forwarding_rule)
+No fixture possible: every combination tried (regional/global forwarding
+rule x regional/global target_http_proxy, with load_balancing_scheme of
+EXTERNAL and EXTERNAL_MANAGED, with and without network_tier/ip_protocol,
+against both backend_service and backend_bucket defaults) triggers
+HLD_GCP_106 and/or HLD_GCP_240/HLD_GCP_241 but never HLD_GCP_257 itself.
+The condition appears to never independently evaluate true for any HCL
+this provider schema can express — likely dead/overlapping with
+HLD_GCP_106. Needs engine-side investigation before a real violation can
+be fixtured. Filed as JamesWoolfenden/holden#262.
+
+Regional forwarding rules must not use HTTP proxies with external load balancing (HLD_GCP_240)
+A regional forwarding rule that uses an HTTP target proxy and has
+
+Forwarding rules must not target unencrypted HTTP proxies (HLD_GCP_106)
+A google_compute_forwarding_rule that targets a
+
+## google_compute_global_forwarding_rule
+
+External forwarding rules must not target plaintext HTTP proxies (HLD_GCP_257)
+A google_compute_forwarding_rule (or google_compute_global_forwarding_rule)
+No fixture possible: see the identical note under google_compute_forwarding_rule
+above — the same check was tested against the global forwarding rule shape
+too and HLD_GCP_257 never fired.
+
+Forwarding rules must not target unencrypted HTTP proxies (HLD_GCP_106)
+A google_compute_forwarding_rule that targets a
+
+Global forwarding rules must not use HTTP proxies with external load balancing (HLD_GCP_241)
+A global forwarding rule that uses an HTTP target proxy and has EXTERNAL
+
+## google_compute_network_firewall_policy_rule
+
+Firewall policy rules must have logging enabled (HLD_PROPOSED_034)
+Firewall policy rules with enable_logging = false or unset produce no audit trail
+
+## google_compute_network_peering
+
+VPC network peering must not export custom routes (HLD_GCP_193)
+Exporting custom routes from a peered VPC allows the peer to route traffic
+
+## google_compute_network_peering_routes_config
+
+GCP PSA peering routes config must not export custom routes (HLD_GCP_315)
+google_compute_network_peering_routes_config configures route advertisement
+
+## google_compute_region_backend_service
+
+GCP backend services must have a Cloud Armor security policy attached (HLD_GCP_050)
+An external Cloud Load Balancing backend service without a Cloud Armor security
+
+## google_compute_region_network_firewall_policy_rule
+
+Firewall policy rules must have logging enabled (HLD_PROPOSED_034)
+Firewall policy rules with enable_logging = false or unset produce no audit trail
+
+## google_compute_router_nat
+
+Cloud NAT gateways must have logging enabled (HLD_GCP_066)
+Cloud NAT provides outbound internet access for resources without public IP
+
+## google_compute_vpn_gateway
+
+Classic VPN gateways are deprecated — use HA VPN gateways (HLD_GCP_180)
+Classic VPN gateways (google_compute_vpn_gateway) provide a single-interface,
+
+## google_compute_vpn_tunnel
+
+Cloud VPN tunnels must use IKEv2 (HLD_GCP_169)
+IKEv1 has known cryptographic weaknesses including susceptibility to the
+
+## google_vpc_access_connector
+
+VPC Access Connector must not use the default VPC network (HLD_GCP_284)
+A VPC Access Connector attached to the default VPC network routes serverless

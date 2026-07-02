@@ -1,0 +1,25 @@
+## google_app_engine_application
+
+App Engine applications should enable Identity-Aware Proxy (HLD_GCP_190)
+Without IAP, App Engine applications are accessible to anyone who can reach
+
+## google_app_engine_domain_mapping
+
+App Engine domain mappings must use managed SSL certificates (HLD_GCP_311)
+google_app_engine_domain_mapping serves the custom domain over HTTP/HTTPS
+
+## google_app_engine_flexible_app_version
+
+App Engine flexible environments must not use the default Compute Engine service account (HLD_GCP_174)
+The default Compute Engine service account has the Editor role, giving every
+
+App Engine flexible environments must configure VPC access (HLD_GCP_175)
+Without VPC access, App Engine flexible instances reach backend services
+
+App Engine versions must set an explicit, non-default service account (HLD_GCP_189)
+When service_account is omitted, an App Engine version runs as the App Engine
+
+## google_app_engine_standard_app_version
+
+App Engine versions must set an explicit, non-default service account (HLD_GCP_189)
+When service_account is omitted, an App Engine version runs as the App Engine

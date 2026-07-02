@@ -1,0 +1,53 @@
+## google_cloudfunctions2_function
+
+Cloud Functions should use a customer-managed encryption key (HLD_GCP_086)
+By default Cloud Functions encrypts the deployed source, container image and
+
+Cloud Functions must restrict ingress to internal traffic only (HLD_GCP_021)
+Cloud Functions with unrestricted ingress (`ALLOW_ALL`) accept HTTP requests
+
+Cloud Functions must not use the default Compute Engine service account (HLD_GCP_179)
+Cloud Functions that run under the default Compute Engine service account
+
+Cloud Functions must configure a VPC connector for egress (HLD_GCP_157)
+Without a VPC connector, Cloud Functions route all egress traffic through
+
+## google_cloudfunctions2_function_iam_binding
+
+Cloud Functions IAM members must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_085)
+Granting allUsers or allAuthenticatedUsers the cloudfunctions.invoker role on a
+
+## google_cloudfunctions2_function_iam_member
+
+Cloud Functions IAM members must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_085)
+Granting allUsers or allAuthenticatedUsers the cloudfunctions.invoker role on a
+
+## google_cloudfunctions_function
+
+Cloud Functions should use a customer-managed encryption key (HLD_GCP_086)
+By default Cloud Functions encrypts the deployed source, container image and
+
+Cloud Functions must set a non-zero max_instances limit (HLD_GCP_287)
+In Cloud Functions v1, max_instances = 0 means no upper bound on concurrent
+
+Cloud Functions 1st gen (google_cloudfunctions_function) is deprecated — migrate to v2 (HLD_GCP_288)
+Google announced the deprecation of Cloud Functions 1st gen in 2024.
+
+Cloud Functions must restrict ingress to internal traffic only (HLD_GCP_021)
+Cloud Functions with unrestricted ingress (`ALLOW_ALL`) accept HTTP requests
+
+Cloud Functions must not use the default Compute Engine service account (HLD_GCP_179)
+Cloud Functions that run under the default Compute Engine service account
+
+Cloud Functions must configure a VPC connector for egress (HLD_GCP_157)
+Without a VPC connector, Cloud Functions route all egress traffic through
+
+## google_cloudfunctions_function_iam_binding
+
+Cloud Functions IAM members must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_085)
+Granting allUsers or allAuthenticatedUsers the cloudfunctions.invoker role on a
+
+## google_cloudfunctions_function_iam_member
+
+Cloud Functions IAM members must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_085)
+Granting allUsers or allAuthenticatedUsers the cloudfunctions.invoker role on a

@@ -1,0 +1,4 @@
+## google_monitoring_alert_policy
+
+Cloud Monitoring alert policies must have notification channels configured (HLD_GCP_165)
+An alert policy with no notification_channels fires silently — the condition

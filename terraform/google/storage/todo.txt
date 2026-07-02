@@ -1,0 +1,9 @@
+## google_storage_bucket_acl
+
+GCS bucket ACLs must not grant public access (HLD_GCP_088)
+The google_storage_bucket_acl resource applies legacy ACLs to a bucket. A
+
+## google_storage_default_object_acl
+
+GCS bucket ACLs must not grant public access (HLD_GCP_088)
+The google_storage_bucket_acl resource applies legacy ACLs to a bucket. A

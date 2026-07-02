@@ -1,0 +1,7 @@
+## google_redis_cluster
+
+Cloud Memorystore for Redis Cluster must enable AUTH (HLD_GCP_195)
+The newer Redis Cluster resource (google_redis_cluster) is separate from
+
+Cloud Memorystore for Redis Cluster must enable in-transit encryption (HLD_GCP_196)
+Without TLS, all data between clients and the Redis Cluster travels in

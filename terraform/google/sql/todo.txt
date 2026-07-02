@@ -1,4 +1,11 @@
 
+Detect hardcoded literal secrets on password-shaped attributes (no holden ID yet)
+google_sql_user.root_hardcoded in CloudMySql.tf sets password to a plain
+string literal. HLD_GCP_246 only checks not_null, so it doesn't catch a
+hardcoded value. See ../alloydb/todo.txt for the same gap on
+google_alloydb_cluster.initial_user.password - this needs parser-level
+literal-vs-reference detection in holden, not just a new YAML policy.
+
 Check for PostgreSQL Major Version
 Ensure that PostgreSQL database servers are using the latest major version of PostgreSQL database.
 

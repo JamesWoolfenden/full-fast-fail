@@ -1,0 +1,15 @@
+## google_notebooks_runtime
+
+Vertex AI Notebooks runtimes must use customer-managed encryption (HLD_GCP_234)
+Vertex AI Notebooks runtimes (google_notebooks_runtime) run user code and
+
+Vertex AI Notebooks runtimes must disable external IP addresses (HLD_GCP_235)
+Vertex AI Notebooks runtimes with external IPs can receive inbound connections
+
+## google_workbench_instance
+
+Vertex AI Workbench instances must use customer-managed encryption for boot disks (HLD_GCP_230)
+Vertex AI Workbench instances (google_workbench_instance) store notebooks,
+
+Vertex AI Workbench instances must disable public IP addresses (HLD_GCP_231)
+Vertex AI Workbench instances with public IP addresses are reachable from the

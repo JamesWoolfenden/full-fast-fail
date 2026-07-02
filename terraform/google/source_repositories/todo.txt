@@ -1,0 +1,14 @@
+## google_sourcerepo_repository
+
+Cloud Source Repository pubsub_configs must specify an explicit service account (HLD_GCP_300)
+When service_account_email is omitted from a pubsub_configs block, GCP automatically uses the Cloud Source Repositories service agent (service-PROJECT_NUMBER@sourcerepo-service-account.iam.gserviceaccount.com). This agent may hold permissions beyond what is strictly needed to publish to the configured topic. An explicit, dedicated service account limits blast radius, makes the IAM grant auditable in code, and satisfies least-privilege requirements.
+
+## google_sourcerepo_repository_iam_binding
+
+Cloud Source Repository IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_312)
+Granting allUsers or allAuthenticatedUsers on a Cloud Source Repository IAM
+
+## google_sourcerepo_repository_iam_member
+
+Cloud Source Repository IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_312)
+Granting allUsers or allAuthenticatedUsers on a Cloud Source Repository IAM

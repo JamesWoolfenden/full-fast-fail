@@ -1,0 +1,10 @@
+## google_workflows_workflow
+
+Cloud Workflows must log step calls (call_log_level not LOG_NONE) (HLD_GCP_269)
+With call_log_level unset or set to LOG_NONE, individual workflow step
+
+Cloud Workflows should encrypt definition and execution data with a customer-managed key (HLD_GCP_268)
+Workflow definitions and execution history (including step inputs/outputs,
+
+Cloud Workflows must not use the default Compute Engine service account (HLD_GCP_267)
+When service_account is omitted, google_workflows_workflow runs as the

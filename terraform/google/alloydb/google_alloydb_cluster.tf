@@ -1,5 +1,7 @@
 # fails
 # todo automated_backup_policy= enabled
+# initial_user.password below is a hardcoded literal, not a var/secret
+# reference. Holden has no policy that catches this - see todo.txt.
 
 resource "google_alloydb_cluster" "full" {
   provider   = google-beta

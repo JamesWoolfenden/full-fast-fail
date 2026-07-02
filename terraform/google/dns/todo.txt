@@ -1,0 +1,4 @@
+## google_dns_policy
+
+GCP DNS policies must have query logging enabled (HLD_GCP_313)
+Cloud DNS query logging records every DNS lookup made by resources in the

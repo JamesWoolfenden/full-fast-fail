@@ -1,0 +1,14 @@
+## google_kms_crypto_key_iam_binding
+
+KMS crypto key IAM members must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_069)
+Granting allUsers or allAuthenticatedUsers any role on a Cloud KMS crypto key
+
+## google_kms_key_ring_iam_binding
+
+KMS key ring IAM must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_073)
+Granting allUsers or allAuthenticatedUsers any role on a Cloud KMS key ring
+
+## google_kms_key_ring_iam_member
+
+KMS key ring IAM must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_073)
+Granting allUsers or allAuthenticatedUsers any role on a Cloud KMS key ring

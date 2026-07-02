@@ -1,0 +1,19 @@
+## google_bigquery_dataset_access
+
+BigQuery datasets must not allow public access (HLD_GCP_020)
+BigQuery datasets often hold sensitive business data — customer records,
+
+## google_bigquery_dataset_iam_binding
+
+BigQuery datasets must not allow public access (HLD_GCP_020)
+BigQuery datasets often hold sensitive business data — customer records,
+
+## google_bigquery_dataset_iam_member
+
+BigQuery datasets must not allow public access (HLD_GCP_020)
+BigQuery datasets often hold sensitive business data — customer records,
+
+## google_bigquery_table_iam_member
+
+BigQuery table IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_250)
+Granting allUsers or allAuthenticatedUsers access to a BigQuery table IAM

@@ -1,0 +1,19 @@
+## google_pubsub_subscription_iam_binding
+
+Pub/Sub subscriptions must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_161)
+Granting allUsers or allAuthenticatedUsers on a Pub/Sub subscription allows
+
+## google_pubsub_subscription_iam_member
+
+Pub/Sub subscriptions must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_161)
+Granting allUsers or allAuthenticatedUsers on a Pub/Sub subscription allows
+
+## google_pubsub_topic_iam_member
+
+Pub/Sub topics must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_153)
+Granting allUsers or allAuthenticatedUsers on a Pub/Sub topic allows anyone
+
+## google_pubsub_topic_iam_policy
+
+google_pubsub_topic_iam_policy must not grant public access (HLD_GCP_306)
+google_pubsub_topic_iam_policy sets the topic's entire authoritative IAM

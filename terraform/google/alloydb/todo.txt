@@ -1,0 +1,10 @@
+Detect hardcoded literal secrets on password-shaped attributes (no holden ID yet)
+google_alloydb_cluster.initial_user.password is a plain string literal in
+google_alloydb_cluster.tf ("full"). HLD_GCP_246-style not_null checks pass on
+this because they only check presence, not whether the value is a hardcoded
+literal vs a var/data/secret-manager reference. Holden's policy DSL
+(schemas/policy.schema.json) has no is_literal/is_reference condition to
+express this - would need parser support to expose whether an attribute's
+HCL expression is a literal string constant. Likely affects other
+password-shaped attributes across providers, not just GCP db resources
+(see google_sql_user.password in ../sql/CloudMySql.tf for the same case).

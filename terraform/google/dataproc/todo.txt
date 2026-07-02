@@ -1,0 +1,4 @@
+## google_dataproc_cluster_iam_member
+
+Dataproc cluster IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_249)
+Granting allUsers or allAuthenticatedUsers access to a Dataproc cluster IAM

@@ -1,0 +1,225 @@
+## google_bigquery_dataset_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_bigquery_dataset_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_billing_account_iam_binding
+
+Billing account IAM must not grant billing.admin or billing.creator roles (HLD_PROPOSED_015)
+roles/billing.admin on a billing account grants full control: creating and
+
+## google_billing_account_iam_member
+
+Billing account IAM must not grant billing.admin or billing.creator roles (HLD_PROPOSED_015)
+roles/billing.admin on a billing account grants full control: creating and
+
+## google_cloud_run_service_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloud_run_v2_service_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloud_run_v2_service_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloudfunctions2_function_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloudfunctions2_function_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloudfunctions_function_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_cloudfunctions_function_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_folder_iam_audit_config
+
+Cloud Audit Logging must not exempt any members (HLD_GCP_256)
+google_project_iam_audit_config enables Data Access audit logs for the
+
+## google_iam_workload_identity_pool_provider
+
+Workload identity pool provider must have an attribute condition (HLD_GCP_080)
+Without an attribute_condition, any identity issued by the configured OIDC
+
+GitHub Actions workload identity pool providers must scope attribute_condition to a specific repository (HLD_GCP_307)
+HLD_GCP_080 requires that a workload identity pool provider has any
+
+## google_iap_tunnel_instance_iam_binding
+
+IAP tunnel instance IAM must not grant public access (HLD_GCP_077)
+Granting roles/iap.tunnelResourceAccessor to allUsers or allAuthenticatedUsers
+
+## google_iap_tunnel_instance_iam_member
+
+IAP tunnel instance IAM must not grant public access (HLD_GCP_077)
+Granting roles/iap.tunnelResourceAccessor to allUsers or allAuthenticatedUsers
+
+## google_iap_web_backend_service_iam_binding
+
+IAP web IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_186)
+Granting allUsers or allAuthenticatedUsers on google_iap_web_iam_member or
+
+## google_iap_web_backend_service_iam_member
+
+IAP web IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_186)
+Granting allUsers or allAuthenticatedUsers on google_iap_web_iam_member or
+
+## google_iap_web_cloud_run_service_iam_binding
+
+Cloud Run IAP IAM bindings must not grant public access (HLD_PROPOSED_013)
+google_iap_web_cloud_run_service_iam_member and _binding control access
+
+## google_iap_web_cloud_run_service_iam_member
+
+Cloud Run IAP IAM bindings must not grant public access (HLD_PROPOSED_013)
+google_iap_web_cloud_run_service_iam_member and _binding control access
+
+## google_iap_web_iam_binding
+
+IAP web IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_186)
+Granting allUsers or allAuthenticatedUsers on google_iap_web_iam_member or
+
+## google_iap_web_iam_member
+
+IAP web IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_186)
+Granting allUsers or allAuthenticatedUsers on google_iap_web_iam_member or
+
+## google_kms_crypto_key_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_kms_key_ring_iam_binding
+
+KMS crypto key roles should be granted on the key, not the key ring or project (HLD_GCP_259)
+Granting roles/cloudkms.cryptoKeyEncrypter, cryptoKeyDecrypter,
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_kms_key_ring_iam_member
+
+KMS crypto key roles should be granted on the key, not the key ring or project (HLD_GCP_259)
+Granting roles/cloudkms.cryptoKeyEncrypter, cryptoKeyDecrypter,
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_organization_iam_audit_config
+
+Cloud Audit Logging must not exempt any members (HLD_GCP_256)
+google_project_iam_audit_config enables Data Access audit logs for the
+
+## google_organization_iam_custom_role
+
+Custom IAM roles must not grant project-level setIamPolicy (HLD_GCP_103)
+resourcemanager.projects.setIamPolicy lets the holder rewrite the project's
+
+## google_project_iam_custom_role
+
+Custom IAM roles must not grant project-level setIamPolicy (HLD_GCP_103)
+resourcemanager.projects.setIamPolicy lets the holder rewrite the project's
+
+## google_pubsub_subscription_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_pubsub_subscription_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_pubsub_topic_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_secret_manager_regional_secret_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_secret_manager_regional_secret_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_secret_manager_secret_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_secret_manager_secret_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+## google_service_account_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+Service account IAM must not grant public access (HLD_GCP_078)
+Granting roles/iam.serviceAccountUser or roles/iam.serviceAccountTokenCreator
+
+## google_service_account_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+Service account IAM must not grant public access (HLD_GCP_078)
+Granting roles/iam.serviceAccountUser or roles/iam.serviceAccountTokenCreator
+
+## google_service_account_iam_policy
+
+google_service_account_iam_policy must not grant public access (HLD_GCP_289)
+google_service_account_iam_policy embeds IAM members inside a
+
+## google_spanner_database_iam_binding
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+Spanner IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_178)
+Granting allUsers or allAuthenticatedUsers on a Spanner database or instance
+
+## google_spanner_database_iam_member
+
+Default and built-in service accounts must not be used in IAM bindings (HLD_GCP_210)
+Google automatically creates several built-in service accounts in every project.
+
+Spanner IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_178)
+Granting allUsers or allAuthenticatedUsers on a Spanner database or instance
+
+## google_spanner_instance_iam_binding
+
+Spanner IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_178)
+Granting allUsers or allAuthenticatedUsers on a Spanner database or instance
+
+## google_spanner_instance_iam_member
+
+Spanner IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_178)
+Granting allUsers or allAuthenticatedUsers on a Spanner database or instance

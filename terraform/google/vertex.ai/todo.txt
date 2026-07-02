@@ -1,0 +1,27 @@
+## google_vertex_ai_endpoint
+
+Vertex AI endpoints must use a customer-managed encryption key (HLD_GCP_205)
+Vertex AI endpoints host deployed models and process inference requests that
+
+Vertex AI endpoints must be deployed to a private network (HLD_GCP_232)
+A Vertex AI endpoint without a network configuration is deployed as a
+
+## google_vertex_ai_featurestore
+
+Vertex AI Featurestore must use a customer-managed encryption key (HLD_GCP_228)
+Vertex AI Featurestore stores feature values used for model training and
+
+## google_vertex_ai_index_endpoint
+
+Vertex AI index endpoints must not enable public endpoint access (HLD_GCP_233)
+A Vertex AI index endpoint with public_endpoint_enabled = true exposes the
+
+## google_vertex_ai_reasoning_engine
+
+Vertex AI Reasoning Engine must use a customer-managed encryption key (HLD_PROPOSED_018)
+google_vertex_ai_reasoning_engine stores agent code, memory banks, and
+
+## google_vertex_ai_tensorboard
+
+Vertex AI Tensorboard must use a customer-managed encryption key (HLD_GCP_229)
+Vertex AI Tensorboard stores training run metrics, model performance data,

@@ -1,0 +1,7 @@
+## google_firestore_database
+
+Firestore databases must have deletion protection enabled (HLD_GCP_051)
+A Firestore database without deletion protection can be destroyed by anyone
+
+Firestore database must have GCP-level deletion protection enabled (HLD_GCP_083)
+Terraform's prevent_destroy lifecycle flag prevents tofu destroy from

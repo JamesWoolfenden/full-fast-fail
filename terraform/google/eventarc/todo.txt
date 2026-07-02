@@ -1,0 +1,4 @@
+## google_eventarc_trigger
+
+Eventarc trigger service account must have roles/run.invoker (HLD_GCP_297)
+When an Eventarc trigger targets a Cloud Run service, Eventarc delivers events using the SA specified in service_account. Cloud Run validates that this SA holds roles/run.invoker; without it, every event delivery fails with 403 and the trigger becomes a silent dead-end. Terraform plan and apply succeed because the trigger and IAM resources are independent.

@@ -1,0 +1,14 @@
+## google_bigtable_instance_iam_binding
+
+Bigtable IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_PROPOSED_028)
+google_bigtable_instance_iam_binding.members containing allUsers or
+
+## google_bigtable_table_iam_binding
+
+Bigtable table IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_302)
+allUsers grants access to anyone on the internet with no Google account required.
+
+## google_bigtable_table_iam_member
+
+Bigtable table IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_GCP_302)
+allUsers grants access to anyone on the internet with no Google account required.

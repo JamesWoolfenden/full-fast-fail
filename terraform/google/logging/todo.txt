@@ -1,0 +1,52 @@
+## google_logging_billing_account_bucket_config
+
+Cloud Logging buckets must configure a retention period of at least 30 days (all scopes) (HLD_PROPOSED_026)
+google_logging_folder_bucket_config, google_logging_organization_bucket_config,
+
+## google_logging_folder_bucket_config
+
+Cloud Logging buckets must configure a retention period of at least 30 days (all scopes) (HLD_PROPOSED_026)
+google_logging_folder_bucket_config, google_logging_organization_bucket_config,
+
+## google_logging_organization_bucket_config
+
+Cloud Logging buckets must configure a retention period of at least 30 days (all scopes) (HLD_PROPOSED_026)
+google_logging_folder_bucket_config, google_logging_organization_bucket_config,
+
+## google_logging_organization_sink
+
+Log sinks must use a unique writer identity (HLD_GCP_258)
+When unique_writer_identity is left at its legacy default of false, the log
+
+## google_logging_project_bucket_config
+
+Cloud Logging buckets must configure a retention period of at least 30 days (HLD_GCP_129)
+A log bucket with no explicit retention_days defaults to 30 days, but an
+
+Cloud Logging project buckets must use a customer-managed encryption key (HLD_PROPOSED_027)
+google_logging_project_bucket_config stores log entries, including audit logs
+
+## google_logging_project_sink
+
+Cloud Logging sinks must have a filter configured (HLD_GCP_130)
+A log sink with no filter exports every log entry in the project to the
+
+Cloud Logging sinks to GCS must target a bucket with a locked retention policy (HLD_GCP_105)
+A logging sink that writes to a GCS bucket without a locked retention policy
+
+Log sinks must use a unique writer identity (HLD_GCP_258)
+When unique_writer_identity is left at its legacy default of false, the log
+
+Cloud Logging sinks must use a unique writer identity (HLD_GCP_131)
+When unique_writer_identity is false, all sinks in a project share a single
+
+## google_organization_iam_audit_config
+
+GCP organisations must configure data access audit logging at the org level (HLD_GCP_183)
+Project-level audit config (HLD_GCP_133) only covers a single project.
+No fixture possible: HLD_GCP_183 flags audit_log_config being absent, but
+Terraform's schema for google_organization_iam_audit_config requires at
+least one audit_log_config block - any HCL that is valid enough to plan
+already satisfies the check. Needs a redesigned condition (e.g. checking
+log_type coverage or exempted_members) before a real violation can exist.
+Filed as JamesWoolfenden/holden#261.

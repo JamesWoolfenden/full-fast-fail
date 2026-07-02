@@ -1,0 +1,18 @@
+## google_secret_manager_regional_secret
+
+Regional Secret Manager secrets must encrypt with a customer-managed key (HLD_PROPOSED_008)
+google_secret_manager_regional_secret defaults to Google-managed encryption
+
+Secret Manager secrets must have automatic rotation configured (HLD_GCP_123)
+Secrets without a rotation policy remain valid indefinitely. A compromised
+
+## google_secret_manager_secret
+
+Secret Manager secrets using user-managed replication must encrypt replicas with CMEK (HLD_GCP_124)
+When replication.user_managed is set, each replica location stores the
+
+Secret Manager secrets must have replication explicitly configured (HLD_GCP_033)
+Without an explicit `replication` block, Secret Manager defaults to automatic
+
+Secret Manager secrets must have automatic rotation configured (HLD_GCP_123)
+Secrets without a rotation policy remain valid indefinitely. A compromised

@@ -1,0 +1,14 @@
+## google_secure_source_manager_instance
+
+Secure Source Manager instances must use a customer-managed encryption key (HLD_PROPOSED_032)
+google_secure_source_manager_instance.kms_key controls whether all repository
+
+## google_secure_source_manager_instance_iam_binding
+
+Secure Source Manager IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_PROPOSED_033)
+google_secure_source_manager_instance_iam_binding or
+
+## google_secure_source_manager_repository_iam_binding
+
+Secure Source Manager IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_PROPOSED_033)
+google_secure_source_manager_instance_iam_binding or

@@ -1,0 +1,14 @@
+## google_workstations_workstation_config
+
+Cloud Workstation configs must use a customer-managed encryption key (HLD_PROPOSED_029)
+google_workstations_workstation_config.encryption_key.kms_key controls
+
+## google_workstations_workstation_config_iam_binding
+
+Cloud Workstation IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_PROPOSED_030)
+google_workstations_workstation_config_iam_binding or
+
+## google_workstations_workstation_iam_binding
+
+Cloud Workstation IAM bindings must not grant access to allUsers or allAuthenticatedUsers (HLD_PROPOSED_030)
+google_workstations_workstation_config_iam_binding or

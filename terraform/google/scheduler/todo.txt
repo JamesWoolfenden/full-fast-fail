@@ -1,0 +1,10 @@
+## google_cloud_scheduler_job
+
+Cloud Scheduler oauth_token must not use the default Compute Engine service account (HLD_GCP_266)
+The default Compute Engine service account has roles/editor on the project.
+
+Cloud Scheduler HTTP targets must use OIDC or OAuth token authentication (HLD_GCP_201)
+Cloud Scheduler jobs that POST to HTTP endpoints without an OIDC or OAuth token
+
+Cloud Scheduler HTTP job service account must have roles/run.invoker (HLD_GCP_295)
+When a Cloud Scheduler job calls a Cloud Run service via http_target with an oidc_token, Cloud Run validates the token and checks that the caller SA has roles/run.invoker on the service. If the grant is absent, Cloud Run returns 403 and the scheduled job silently fails — terraform plan and apply both succeed but the workload never runs.

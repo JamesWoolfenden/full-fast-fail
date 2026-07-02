@@ -1,0 +1,9 @@
+## google_document_ai_processor
+
+Document AI processors must use a customer-managed encryption key (HLD_GCP_242)
+Document AI processors parse and analyse documents that often contain
+
+## google_document_ai_warehouse_location
+
+Document AI Warehouse locations must use a customer-managed encryption key (HLD_GCP_243)
+Document AI Warehouse stores classified documents and their extracted

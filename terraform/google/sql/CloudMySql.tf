@@ -52,3 +52,15 @@ resource "google_sql_user" "root_bad" {
   instance = google_sql_database_instance.fail.name
   host     = "me.com"
 }
+
+# fails
+# HLD_GCP_246 passes this today (password is not_null) but the value is a
+# hardcoded literal committed to source and Terraform state, not a reference
+# to a variable/secret. Holden has no policy that flags a literal string on
+# a password-shaped attribute - see todo.txt.
+resource "google_sql_user" "root_hardcoded" {
+  name     = "root"
+  instance = google_sql_database_instance.fail.name
+  host     = "cloudsqlproxy~%"
+  password = "SuperSecretPassword123!"
+}

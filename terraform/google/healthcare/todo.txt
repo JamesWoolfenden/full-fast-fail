@@ -1,0 +1,19 @@
+## google_healthcare_dataset
+
+Cloud Healthcare datasets must use a customer-managed encryption key (HLD_GCP_171)
+Cloud Healthcare datasets store FHIR, DICOM, and HL7v2 data — protected
+
+## google_healthcare_dicom_store
+
+Cloud Healthcare DICOM stores must use a customer-managed encryption key (HLD_GCP_198)
+DICOM stores contain medical imaging data including X-rays, MRI scans, and
+
+## google_healthcare_fhir_store
+
+Cloud Healthcare FHIR stores must use a customer-managed encryption key (HLD_GCP_197)
+FHIR stores contain protected health information (PHI) — patient records,
+
+## google_healthcare_hl7_v2_store
+
+Cloud Healthcare HL7v2 stores must use a customer-managed encryption key (HLD_GCP_199)
+HL7v2 stores contain ADT messages, lab results, and other clinical event

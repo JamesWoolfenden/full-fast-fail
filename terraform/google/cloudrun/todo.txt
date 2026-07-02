@@ -1,0 +1,70 @@
+## google_cloud_run_service
+
+Cloud Run services must not use the default Compute Engine service account (HLD_GCP_084)
+The default Compute Engine service account inherits project-level IAM bindings
+
+## google_cloud_run_service_iam_member
+
+Cloud Run services must not allow unauthenticated invocations (HLD_GCP_023)
+Cloud Run services with `allUsers` invocation rights are publicly callable
+
+## google_cloud_run_v2_job
+
+Cloud Run binary_authorization must enforce a policy, not only set breakglass_justification (HLD_GCP_283)
+In Cloud Run v2, binary_authorization { breakglass_justification = "..." } is a
+
+Cloud Run v2 jobs must encrypt container instances with a customer-managed key (HLD_PROPOSED_011)
+Cloud Run v2 jobs execute containers in an ephemeral environment that
+
+Cloud Run v2 jobs must have an explicit service account configured (HLD_GCP_264)
+When template.template.service_account is omitted, Cloud Run v2 runs the job
+
+Cloud Run v2 job container images should be pinned by digest (HLD_GCP_304)
+A version tag (including a pinned semver tag) still resolves through the
+
+Cloud Run v2 jobs must not use the default Compute Engine service account (HLD_GCP_177)
+The default Compute Engine service account has the Editor role on the project.
+
+Cloud Run v2 job container images should not use :latest tags (HLD_GCP_265)
+Using :latest tags in Cloud Run jobs creates both supply chain and
+
+Cloud Run v2 jobs must configure VPC access (HLD_GCP_176)
+Cloud Run jobs without VPC access route all egress traffic over the public
+
+## google_cloud_run_v2_service
+
+Cloud Run binary_authorization must enforce a policy, not only set breakglass_justification (HLD_GCP_283)
+In Cloud Run v2, binary_authorization { breakglass_justification = "..." } is a
+
+Cloud Run services must enforce Binary Authorization (HLD_GCP_167)
+Binary Authorization enforces that only container images signed by trusted
+
+Cloud Run services must not use the default Compute Engine service account (HLD_GCP_084)
+The default Compute Engine service account inherits project-level IAM bindings
+
+Cloud Run container images should not use :latest tags (HLD_GCP_200)
+Using :latest tags creates both supply chain and reproducibility risks:
+
+Cloud Run services should encrypt container instances with a customer-managed key (HLD_GCP_127)
+By default Cloud Run encrypts instance storage with Google-managed keys.
+
+Cloud Run services must restrict ingress traffic (HLD_GCP_125)
+A Cloud Run service with ingress = INGRESS_TRAFFIC_ALL accepts requests
+
+Cloud Run services must configure VPC access (HLD_GCP_126)
+Without VPC access, Cloud Run services can only reach backend services via
+
+## google_cloud_run_v2_service_iam_binding
+
+Cloud Run services must not allow unauthenticated invocations (HLD_GCP_023)
+Cloud Run services with `allUsers` invocation rights are publicly callable
+
+## google_cloud_run_v2_service_iam_member
+
+Cloud Run services must not allow unauthenticated invocations (HLD_GCP_023)
+Cloud Run services with `allUsers` invocation rights are publicly callable
+
+## google_cloud_run_v2_worker_pool
+
+Cloud Run v2 worker pools must encrypt container instances with a customer-managed key (HLD_PROPOSED_012)
+Cloud Run v2 worker pools are always-on containers used for GPU inference
